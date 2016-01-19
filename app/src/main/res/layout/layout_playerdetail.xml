@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@color/jppPrimaryColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:padding="20dp"
+        android:weightSum="100"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="55"
+            android:src="@drawable/gangadhari" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="GANGADHARI"
+            android:textSize="22sp"
+            android:textColor="@color/jppAccentColor"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="RAIDER"
+            android:textSize="18sp"
+            android:textColor="@color/jppPrimaryColor"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:layout_marginTop="10dp"
+            android:padding="0.5dp"
+            android:orientation="horizontal"
+            android:background="@color/jppAccentColor">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="@android:color/white"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="NATIONALITY: "
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="INDIA"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/jppAccentColor"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="BORN: "
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="JUN 08, 1993"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+                <!--<View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/jppAccentColor"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="JERSEY NUMBER: "
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="10"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"/>
+
+                </LinearLayout>-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="27"
+            android:paddingTop="20dp"
+            android:text="@string/dummy"
+            android:layout_gravity="center_vertical|right"
+            android:fontFamily="sans-serif-condensed"/>
+
+    </LinearLayout>
+
+</LinearLayout>

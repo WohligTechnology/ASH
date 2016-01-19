@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0.5dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:background="@color/jppPrimaryDarkColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:weightSum="10"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:id="@+id/player_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:src="@drawable/gangadhari"/>
+
+        <TextView
+            android:id="@+id/player_name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="GANGADHARI MALLESH"
+            android:textSize="14sp"
+            android:textColor="@color/jppAccentColor"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/player_type"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="RAIDER"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/jppPrimaryColor"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>
