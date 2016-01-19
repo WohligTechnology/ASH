@@ -21,9 +21,9 @@
 
     <!-- custom -->
 
-    <color name="sidemenu_text">#ee4a9b</color>
-    <color name="sidemenu_divider">#c4f0ff</color>
-    <color name="primaryColor">#0a7ba1</color>
-    <color name="bgAppColor">#c4f0ff</color>
+    <color name="jppAccentColor">#ee4a9b</color>
+    <color name="jppPrimaryColor">#c4f0ff</color>
+    <color name="jppPrimaryDarkColor">#0a7ba1</color>
+    <color name="jppDarkColor">#0c7598</color>
 
 </resources>

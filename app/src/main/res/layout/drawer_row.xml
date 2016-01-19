@@ -14,13 +14,13 @@
         android:textSize="16sp"
         android:text="test"
         android:gravity="center_vertical"
-        android:textColor="@color/sidemenu_text"/>
+        android:textColor="@color/jppAccentColor"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/sidemenu_divider"
+        android:background="@color/jppPrimaryColor"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp">
     </LinearLayout>

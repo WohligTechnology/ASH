@@ -36,7 +36,7 @@ public class MainActivity extends ActionBarActivity
         tvToolbarText.setVisibility(View.GONE);
 
         container = (FrameLayout) findViewById(R.id.container);
-        container.setBackgroundColor(getResources().getColor(R.color.bgAppColor));
+        container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.fragment_drawer);
