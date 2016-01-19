@@ -12,7 +12,8 @@
         android:id="@+id/ivHome"
         android:layout_weight="1"
         android:src="@drawable/abc_ic_clear_mtrl_alpha"
-        android:padding="7.5dp"/>
+        android:padding="7.5dp"
+        android:onClick="home"/>
 
     <View
         android:layout_width="2dp"
@@ -25,7 +26,8 @@
         android:id="@+id/ivSchedule"
         android:layout_weight="1"
         android:src="@drawable/abc_ic_clear_mtrl_alpha"
-        android:padding="7.5dp"/>
+        android:padding="7.5dp"
+        android:onClick="schedule"/>
 
     <View
         android:layout_width="2dp"
@@ -38,7 +40,8 @@
         android:id="@+id/ivGallery"
         android:layout_weight="1"
         android:src="@drawable/abc_ic_clear_mtrl_alpha"
-        android:padding="7.5dp"/>
+        android:padding="7.5dp"
+        android:onClick="gallery"/>
 
     <View
         android:layout_width="2dp"
@@ -51,7 +54,8 @@
         android:id="@+id/ivNews"
         android:layout_weight="1"
         android:src="@drawable/abc_ic_clear_mtrl_alpha"
-        android:padding="7.5dp"/>
+        android:padding="7.5dp"
+        android:onClick="news"/>
 
     <View
         android:layout_width="2dp"
@@ -64,5 +68,6 @@
         android:id="@+id/ivPanthers"
         android:layout_weight="1"
         android:src="@drawable/abc_ic_clear_mtrl_alpha"
-        android:padding="7.5dp"/>
+        android:padding="7.5dp"
+        android:onClick="knowPanthers"/>
 </LinearLayout>
