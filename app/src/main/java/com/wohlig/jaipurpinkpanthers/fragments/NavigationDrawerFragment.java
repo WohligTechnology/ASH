@@ -1,4 +1,4 @@
-package com.wohlig.jaipurpinkpanthers;
+package com.wohlig.jaipurpinkpanthers.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -14,6 +14,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.wohlig.jaipurpinkpanthers.NavigationDrawerCallbacks;
+import com.wohlig.jaipurpinkpanthers.NavigationItem;
+import com.wohlig.jaipurpinkpanthers.R;
+import com.wohlig.jaipurpinkpanthers.adapters.NavigationDrawerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +79,7 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         mDrawerList.setHasFixedSize(true);
 
         final List<NavigationItem> navigationItems = getMenu();
-        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(navigationItems);
+        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(navigationItems,getActivity());
         adapter.setNavigationDrawerCallbacks(this);
         mDrawerList.setAdapter(adapter);
         selectItem(mCurrentSelectedPosition);
@@ -103,8 +108,8 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         items.add(new NavigationItem("HOME", getResources().getDrawable(R.drawable.ic_menu_check)));
         items.add(new NavigationItem("SCHEDULE", getResources().getDrawable(R.drawable.ic_menu_check)));
         items.add(new NavigationItem("GALLERY", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("KNOW YOUR PANTHERS", getResources().getDrawable(R.drawable.ic_menu_check)));
         items.add(new NavigationItem("NEWS & MEDIA", getResources().getDrawable(R.drawable.ic_menu_check)));
+        items.add(new NavigationItem("KNOW YOUR PANTHERS", getResources().getDrawable(R.drawable.ic_menu_check)));
         items.add(new NavigationItem("TICKETS & MERCHANDIZE", getResources().getDrawable(R.drawable.ic_menu_check)));
         items.add(new NavigationItem("WALLPAPERS", getResources().getDrawable(R.drawable.ic_menu_check)));
         items.add(new NavigationItem("ABOUT US", getResources().getDrawable(R.drawable.ic_menu_check)));

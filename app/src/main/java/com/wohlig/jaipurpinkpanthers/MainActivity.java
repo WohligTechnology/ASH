@@ -16,9 +16,11 @@ import android.widget.TextView;
 
 import com.wohlig.jaipurpinkpanthers.fragments.GalleryFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.HomeFragment;
+import com.wohlig.jaipurpinkpanthers.fragments.NavigationDrawerFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.NewsFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.PanthersFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.ScheduleFragment;
+import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
@@ -39,9 +41,9 @@ public class MainActivity extends ActionBarActivity
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
         ivToolbarImage = (ImageView) findViewById(R.id.toolbar_image);
         tvToolbarText = (TextView) findViewById(R.id.toolbar_title);
+        tvToolbarText.setTypeface(CustomFonts.getLightFont(this));
 
         tvToolbarText.setVisibility(View.GONE);
 
@@ -53,18 +55,51 @@ public class MainActivity extends ActionBarActivity
 
         // Set up the drawer.
         mNavigationDrawerFragment.setup(R.id.fragment_drawer, (DrawerLayout) findViewById(R.id.drawer), mToolbar);
+        if (mNavigationDrawerFragment.isDrawerOpen())
+            mNavigationDrawerFragment.closeDrawer();
 
 
-        FragmentManager fragmentManager = getFragmentManager();
+        /*FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         HomeFragment homeFragment = new HomeFragment();
         fragmentTransaction.add(R.id.container, homeFragment, "HOME");
-        fragmentTransaction.commit();
+        fragmentTransaction.commit();*/
+
+        onNavigationDrawerItemSelected(3);
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragmentss
+        if(position==3) {
+            tvOrImage(true, "NEWS & MEDIA");
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            NewsFragment newsFragment = new NewsFragment();
+            fragmentTransaction.replace(R.id.container, newsFragment);
+            //fragmentTransaction.add(R.id.container, newsFragment, "NEWS");
+            fragmentTransaction.commit();
+        }
+        /*if(position==0) { // home
+            View v = new View(this);
+            home(new View(this));
+        }
+        if(position==1) { // home
+            View v = new View(this);
+            schedule(new View(this));
+        }
+        if(position==2) { // home
+            View v = new View(this);
+            gallery(new View(this));
+        }
+        if(position==3) { // home
+            View v = new View(this);
+            news(new View(this));
+        }
+        if(position==4) { // home
+            View v = new View(this);
+            knowPanthers(new View(this));
+        }*/
     }
 
     @Override
@@ -100,13 +135,13 @@ public class MainActivity extends ActionBarActivity
 
     public void home(View v){
         Log.v("JPP", "Home");
-
         tvOrImage(false, "");
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         HomeFragment homeFragment = new HomeFragment();
 
-        fragmentTransaction.add(R.id.container, homeFragment, "HOME");
+        //fragmentTransaction.add(R.id.container, homeFragment, "HOME");
+        fragmentTransaction.replace(R.id.container, homeFragment);
         fragmentTransaction.commit();
     }
     public void schedule(View v){
@@ -116,7 +151,8 @@ public class MainActivity extends ActionBarActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         ScheduleFragment scheduleFragment = new ScheduleFragment();
 
-        fragmentTransaction.add(R.id.container, scheduleFragment, "SCHEDULE");
+        //fragmentTransaction.add(R.id.container, scheduleFragment, "SCHEDULE");
+        fragmentTransaction.replace(R.id.container, scheduleFragment);
         fragmentTransaction.commit();
     }
 
@@ -127,7 +163,8 @@ public class MainActivity extends ActionBarActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         GalleryFragment galleryFragment = new GalleryFragment();
 
-        fragmentTransaction.add(R.id.container, galleryFragment, "GALLERY");
+        //fragmentTransaction.add(R.id.container, galleryFragment, "GALLERY");
+        fragmentTransaction.replace(R.id.container, galleryFragment);
         fragmentTransaction.commit();
     }
 
@@ -138,7 +175,8 @@ public class MainActivity extends ActionBarActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         NewsFragment newsFragment = new NewsFragment();
 
-        fragmentTransaction.add(R.id.container, newsFragment, "NEWS");
+        //fragmentTransaction.add(R.id.container, newsFragment, "NEWS");
+        fragmentTransaction.replace(R.id.container, newsFragment);
         fragmentTransaction.commit();
 
     }
@@ -150,7 +188,8 @@ public class MainActivity extends ActionBarActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         PanthersFragment panthersFragment = new PanthersFragment();
 
-        fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
+        //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
+        fragmentTransaction.replace(R.id.container, panthersFragment);
         fragmentTransaction.commit();
 
     }

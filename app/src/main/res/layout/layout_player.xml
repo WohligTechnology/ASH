@@ -18,30 +18,29 @@
         <ImageView
             android:id="@+id/player_image"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="8"
+            android:layout_height="200dp"
             android:src="@drawable/gangadhari"/>
 
         <TextView
             android:id="@+id/player_name"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="GANGADHARI MALLESH"
-            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            android:text="GANGADHARI"
+            android:textSize="18sp"
             android:textColor="@color/jppAccentColor"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"/>
 
         <TextView
             android:id="@+id/player_type"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
             android:text="RAIDER"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:textSize="18sp"
             android:textColor="@color/jppPrimaryColor"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginBottom="3dp"/>
 
     </LinearLayout>
 

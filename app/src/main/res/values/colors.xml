@@ -25,5 +25,8 @@
     <color name="jppPrimaryColor">#c4f0ff</color>
     <color name="jppPrimaryDarkColor">#0a7ba1</color>
     <color name="jppDarkColor">#0c7598</color>
+    <color name="jppNewsHeader">#b41e72</color>
+    <color name="jppNewsDesc">#262626</color>
+    <color name="jppProfileType">#4ecaf5</color>
 
 </resources>

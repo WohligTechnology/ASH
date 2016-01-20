@@ -1,10 +1,16 @@
-package com.wohlig.jaipurpinkpanthers;
+package com.wohlig.jaipurpinkpanthers.adapters;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.wohlig.jaipurpinkpanthers.NavigationDrawerCallbacks;
+import com.wohlig.jaipurpinkpanthers.NavigationItem;
+import com.wohlig.jaipurpinkpanthers.R;
+import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
 import java.util.List;
 
@@ -13,9 +19,11 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     private NavigationDrawerCallbacks mNavigationDrawerCallbacks;
     private View mSelectedView;
     private int mSelectedPosition;
+    private Activity mActivity;
 
-    public NavigationDrawerAdapter(List<NavigationItem> data) {
+    public NavigationDrawerAdapter(List<NavigationItem> data, Activity activity) {
         mData = data;
+        mActivity = activity;
     }
 
     public NavigationDrawerCallbacks getNavigationDrawerCallbacks() {
@@ -52,6 +60,7 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     @Override
     public void onBindViewHolder(NavigationDrawerAdapter.ViewHolder viewHolder, int i) {
         viewHolder.textView.setText(mData.get(i).getText());
+        viewHolder.textView.setTypeface(CustomFonts.getRegularFont(mActivity));
         //viewHolder.textView.setCompoundDrawablesWithIntrinsicBounds(mData.get(i).getDrawable(), null, null, null);
         if (mSelectedPosition == i) {
             if (mSelectedView != null) {
