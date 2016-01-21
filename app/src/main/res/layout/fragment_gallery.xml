@@ -5,10 +5,137 @@
              tools:context="com.wohlig.jaipurpinkpanthers.fragments.GalleryFragment"
              android:background="@color/jppPrimaryColor">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Gallery"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/jppGalleryToolbar"
+            android:id="@+id/linearLayout">
+
+            <LinearLayout
+                android:id="@+id/llPhotos"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PHOTOS"
+                    android:textSize="18sp"
+                    android:id="@+id/tvPhotos"
+                    android:gravity="center"
+                    android:textColor="@color/jppPrimaryDarkColor"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"/>
+
+                <View
+                    android:id="@+id/viewPhotos"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/jppGalleryToolbar"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llVideos"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="showVideos">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="VIDEOS"
+                    android:textSize="18sp"
+                    android:id="@+id/tvVideos"
+                    android:gravity="center"
+                    android:textColor="@color/jppPrimaryDarkColor"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"/>
+
+                <View
+                    android:id="@+id/viewVideos"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/jppGalleryToolbar"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ViewFlipper
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/vfGallery"
+            android:layout_below="@+id/linearLayout"
+            android:padding="10dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="false"
+                    android:layout_centerHorizontal="true">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageView4"
+                            android:src="@drawable/news"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            android:maxHeight="175dp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jaipur Pink Panthers VS U Mumba"
+                        android:textColor="@color/jppAccentColor"
+                        android:textSize="16sp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:id="@+id/textView4"
+                        android:layout_marginTop="100dp"
+                        android:background="#DD000000"
+                        android:gravity="center"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Videos"
+                    android:id="@+id/textView7"/>
+            </RelativeLayout>
+        </ViewFlipper>
+
+
+    </RelativeLayout>
 </FrameLayout>

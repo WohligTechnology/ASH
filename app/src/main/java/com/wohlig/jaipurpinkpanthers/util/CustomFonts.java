@@ -21,6 +21,6 @@ public class CustomFonts {
     }
 
     public static Typeface getProfileFont(Activity activity){
-        return Typeface.createFromAsset(activity.getAssets(), "fonts/voyagefantstraight.ttf");
+        return Typeface.createFromAsset(activity.getAssets(), "fonts/voyagefantcond.ttf");
     }
 }

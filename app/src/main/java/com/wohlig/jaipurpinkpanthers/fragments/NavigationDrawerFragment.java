@@ -77,12 +77,13 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mDrawerList.setLayoutManager(layoutManager);
         mDrawerList.setHasFixedSize(true);
+        mDrawerList.setVerticalScrollBarEnabled(false);
 
         final List<NavigationItem> navigationItems = getMenu();
-        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(navigationItems,getActivity());
+        NavigationDrawerAdapter adapter = new NavigationDrawerAdapter(navigationItems, getActivity());
         adapter.setNavigationDrawerCallbacks(this);
         mDrawerList.setAdapter(adapter);
-        selectItem(mCurrentSelectedPosition);
+        //selectItem(mCurrentSelectedPosition);
         return view;
     }
 

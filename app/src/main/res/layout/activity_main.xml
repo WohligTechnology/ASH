@@ -33,8 +33,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar_actionbar"
             android:background="@color/jppPrimaryColor"
-            android:layout_above="@+id/bottom_menu_fixed"
-            android:padding="10dp">
+            android:layout_above="@+id/bottom_menu_fixed">
 
         </FrameLayout>
 
