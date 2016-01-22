@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
+import com.wohlig.jaipurpinkpanthers.MainActivity;
 import com.wohlig.jaipurpinkpanthers.R;
 import com.wohlig.jaipurpinkpanthers.adapters.PanthersAdapter;
 
@@ -25,33 +26,8 @@ public class PanthersFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_panthers, container, false);
 
-
         //int id = ((MainActivity)this.getActivity()).getPlayerId();
-
-
-        /*String player = getResources().getString(R.string.player1);
-        List<String> playerDetail = Arrays.asList(player.split("#"));
-
-        String playerName = playerDetail.get(0);                //PlayerName
-        String playerType = playerDetail.get(1);                //PlayerType
-        String playerNationality = playerDetail.get(2);         //PlayerNationality
-        String playerDob = playerDetail.get(3);                 //PlayerDob
-        String playerJerseyNum = playerDetail.get(4);           //PlayerJerseyNum
-        String playerDesc = playerDetail.get(5);                //PlayerDesc
-*/
-        /*LinearLayout layoutPlayer = (LinearLayout) view.findViewById(R.id.ganga);
-        TextView layoutPlayerName = (TextView) layoutPlayer
-                .findViewById(R.id.player_name);
-
-        TextView layoutListPlayerType = (TextView) layoutPlayer
-                .findViewById(R.id.player_type);
-        //"RAJU LAL CHOUDHARY"
-        //layoutPlayerName.setText(String.valueOf(id));
-        layoutPlayerName.setTypeface(CustomFonts.getProfileFont(getActivity()));
-        layoutListPlayerType.setTypeface(CustomFonts.getProfileFont(getActivity()));
-        layoutPlayer.setTag("3");
-
-        ((MainActivity) this.getActivity()).setPlayerId(333);*/
+        ((MainActivity)this.getActivity()).setToolbarText("KNOW YOUR PANTHERS");
 
         initilizeView();
 

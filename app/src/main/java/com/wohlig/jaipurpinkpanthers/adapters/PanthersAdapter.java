@@ -70,7 +70,7 @@ public class PanthersAdapter extends BaseAdapter {
             holder.player_image = (ImageView) convertView.findViewById(R.id.player_image); //find the different Views
             holder.player_name = (TextView) convertView.findViewById(R.id.player_name);
             holder.player_type = (TextView) convertView.findViewById(R.id.player_type);
-            //holder.llPlayer = (LinearLayout) convertView.findViewById(R.id.llPlayer);
+            holder.llPlayer = (LinearLayout) convertView.findViewById(R.id.llPlayer);
 
             holder.player_name.setTypeface(CustomFonts.getProfileFont(activity));
             holder.player_type.setTypeface(CustomFonts.getProfileFont(activity));
@@ -90,12 +90,11 @@ public class PanthersAdapter extends BaseAdapter {
         String playerName = playerInfoList.get(1);          //playerName
         String playerType = playerInfoList.get(2);          //playerType
 
-        //set the hash maps
-        //holder.llPlayer.setTag(playerId);
-        holder.player_image.setImageResource(playerImages.getResourceId(position, 0));
+        holder.player_image.setImageResource(playerImages.getResourceId(position, -1));
         holder.player_name.setText(playerName.toUpperCase());
         holder.player_type.setText(playerType.toUpperCase());
 
+        holder.llPlayer.setTag(playerId+"#"+playerName);
 
         return convertView;
     }

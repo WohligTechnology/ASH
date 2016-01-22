@@ -16,28 +16,34 @@
 
 
 <!-- players -->
-    <string name="playerDesc1">Rohit Rana#Defender#Indian#Jun 08,1993#10#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="playerDesc1">Rohit Rana#Defender#India#Jun 08,1993#10#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="playerDesc2">Jay Visariya#Raider#India#Sep 27,1993#07#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="playerDesc3">Sohan Honakeri#Raider#Africa#Jun 13,1990#11#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="player1">1#Rohit Rana#Defender</string>
     <string name="player2">2#Jay Visariya#Raider</string>
     <string name="player3">3#Sohan Honakeri#Raider</string>
 
     <string-array name="player">
         <item>@string/player1</item>
-        <item>@string/player3</item>
         <item>@string/player2</item>
+        <item>@string/player3</item>
         <item>@string/player1</item>
-        <item>@string/player3</item>
         <item>@string/player2</item>
+        <item>@string/player3</item>
     </string-array>
 
     <string-array name="playersDesc">
         <item>@string/playerDesc1</item>
+        <item>@string/playerDesc2</item>
+        <item>@string/playerDesc3</item>
         <item>@string/playerDesc1</item>
+        <item>@string/playerDesc2</item>
+        <item>@string/playerDesc3</item>
     </string-array>
 
     <string-array name="playerImages">
         <item>@drawable/gangadhari</item>
-        <item>@drawable/gangadhari</item>
+        <item>@drawable/ic_action_panther</item>
         <item>@drawable/gangadhari</item>
         <item>@drawable/gangadhari</item>
         <item>@drawable/gangadhari</item>

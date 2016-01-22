@@ -27,6 +27,9 @@ import com.wohlig.jaipurpinkpanthers.fragments.PlayerDescriptionFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.ScheduleFragment;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     /**
@@ -35,7 +38,7 @@ public class MainActivity extends ActionBarActivity
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
     private ImageView ivToolbarImage;
-    private TextView tvToolbarText;
+    public static TextView tvToolbarText;
     private FrameLayout container;
     public static int PLAYER_ID = 12;
     public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
@@ -304,7 +307,16 @@ public class MainActivity extends ActionBarActivity
 
     public void pantherDescription(View v) {
         Log.v("JPP", "Panther Description");
-        tvOrImage(true, "KNOW YOUR PANTHERS");
+
+        String tag = v.getTag().toString();
+        List<String> playerInfoList = Arrays.asList(tag.split("#"));
+
+        int id = Integer.parseInt(playerInfoList.get(0));
+        String name = playerInfoList.get(1);
+
+        setPlayerId(id);
+
+        tvOrImage(true, name);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         PlayerDescriptionFragment playerDescriptionFragment = new PlayerDescriptionFragment();
@@ -336,6 +348,10 @@ public class MainActivity extends ActionBarActivity
 
     public static int getPlayerId() {
         return PLAYER_ID;
+    }
+
+    public static void setToolbarText(String text){
+        tvToolbarText.setText(text);
     }
 
 }

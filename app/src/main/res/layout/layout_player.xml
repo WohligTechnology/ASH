@@ -5,18 +5,18 @@
               android:padding="0.5dp"
               android:orientation="vertical"
               android:background="@color/jppPrimaryDarkColor"
-              android:onClick="pantherDescription"
-              android:id="@+id/llPlayer"
               android:layout_marginBottom="10dp">
 
 
 <LinearLayout
+    android:id="@+id/llPlayer"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical"
     android:weightSum="10"
     android:background="@android:color/white"
-    android:paddingTop="5dp">
+    android:paddingTop="5dp"
+    android:onClick="pantherDescription">
 
 
     <ImageView
@@ -34,7 +34,7 @@
         android:layout_weight="1"
         android:text="GANGADHARI MALLESH"
         android:textSize="16sp"
-        android:textColor="@color/jppAccentColor"
+        android:textColor="@color/jppNewsHeader"
         android:gravity="center"/>
 
 

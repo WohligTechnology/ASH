@@ -18,6 +18,7 @@
             android:layout_height="wrap_content">
 
             <include
+                android:id="@+id/llPlayerDesc"
                 layout="@layout/layout_playerdetail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
