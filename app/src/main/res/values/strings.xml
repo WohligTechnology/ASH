@@ -13,4 +13,35 @@
     <string name="title_activity_about">AboutActivity</string>
 
     <string name="hello_world">Hello world!</string>
+
+
+<!-- players -->
+    <string name="playerDesc1">Rohit Rana#Defender#Indian#Jun 08,1993#10#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="player1">1#Rohit Rana#Defender</string>
+    <string name="player2">2#Jay Visariya#Raider</string>
+    <string name="player3">3#Sohan Honakeri#Raider</string>
+
+    <string-array name="player">
+        <item>@string/player1</item>
+        <item>@string/player3</item>
+        <item>@string/player2</item>
+        <item>@string/player1</item>
+        <item>@string/player3</item>
+        <item>@string/player2</item>
+    </string-array>
+
+    <string-array name="playersDesc">
+        <item>@string/playerDesc1</item>
+        <item>@string/playerDesc1</item>
+    </string-array>
+
+    <string-array name="playerImages">
+        <item>@drawable/gangadhari</item>
+        <item>@drawable/gangadhari</item>
+        <item>@drawable/gangadhari</item>
+        <item>@drawable/gangadhari</item>
+        <item>@drawable/gangadhari</item>
+        <item>@drawable/gangadhari</item>
+    </string-array>
+
 </resources>
