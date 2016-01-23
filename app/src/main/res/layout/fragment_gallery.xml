@@ -80,49 +80,24 @@
             android:padding="10dp">
 
 
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
 
-                <RelativeLayout
+                <include
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="false"
-                    android:layout_centerHorizontal="true">
+                    android:layout_marginBottom="10dp"
+                    layout="@layout/layout_gallery_one"/>
 
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/layout_gallery_one"/>
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/imageView4"
-                            android:src="@drawable/news"
-                            android:scaleType="centerCrop"
-                            android:adjustViewBounds="true"
-                            android:maxHeight="175dp"/>
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Jaipur Pink Panthers VS U Mumba"
-                        android:textColor="@color/jppAccentColor"
-                        android:textSize="16sp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:id="@+id/textView4"
-                        android:layout_marginTop="100dp"
-                        android:background="#DD000000"
-                        android:gravity="center"/>
-
-                </RelativeLayout>
-
-            </RelativeLayout>
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"

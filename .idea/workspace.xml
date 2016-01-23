@@ -2,7 +2,13 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <devices>
+          <device id="Nexus 5" />
+          <device id="Nexus 6" />
+          <device id="Galaxy Nexus" />
+        </devices>
+      </config>
     </shared>
     <layouts>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/triangle_right.xml">
@@ -41,6 +47,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_player_description.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
         <config>
           <theme>@style/AppTheme</theme>
         </config>
@@ -99,47 +110,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PlayerDescriptionFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/PlayerDescriptionFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.44339624">
-              <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PanthersAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/adapters/PanthersAdapter.java">
+      <file leaf-file-name="ScheduleFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/ScheduleFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="89" column="72" selection-start-line="89" selection-start-column="72" selection-end-line="89" selection-end-column="72" />
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_player_description.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_player_description.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.4827585">
-              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="275" column="80" selection-start-line="275" selection-start-column="80" selection-end-line="275" selection-end-column="80" />
+              <folding>
+                <element signature="e#3656#3818#0" expanded="true" />
+                <element signature="e#3817#3818#0" expanded="true" />
+                <element signature="e#4016#4182#0" expanded="true" />
+                <element signature="e#4181#4182#0" expanded="true" />
+                <element signature="e#4379#4544#0" expanded="true" />
+                <element signature="e#4543#4544#0" expanded="true" />
+                <element signature="e#4738#4900#0" expanded="true" />
+                <element signature="e#4899#4900#0" expanded="true" />
+                <element signature="e#5138#5308#0" expanded="true" />
+                <element signature="e#5307#5308#0" expanded="true" />
+                <element signature="e#5624#5820#0" expanded="true" />
+                <element signature="e#5819#5820#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AboutActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/AboutActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="92" column="44" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout_playerdetail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_playerdetail.xml">
+      <file leaf-file-name="fragment_schedule.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6551723">
-              <caret line="139" column="46" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
+            <state vertical-scroll-proportion="-6.0689654">
+              <caret line="154" column="16" selection-start-line="154" selection-start-column="16" selection-end-line="154" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GalleryFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/GalleryFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_gallery.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_gallery.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6207547">
+              <caret line="92" column="49" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.0689654">
+              <caret line="130" column="20" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -149,7 +206,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+              <caret line="29" column="31" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -1609,7 +1666,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/NavigationDrawerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_navigation_drawer.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/drawer_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/main.xml" />
@@ -1619,16 +1675,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/panthers.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/PanthersFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/HomeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/ScheduleFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/NewsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/toolbar_default.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/NavigationDrawerFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/adapters/NavigationDrawerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/util/CustomFonts.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_bottom_fixed.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/NavigationDrawerFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/AboutUsFragment.java" />
@@ -1639,18 +1691,14 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/triangle_right.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/NewsDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_newsmain.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_about_us.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/GoToMainFragments.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/AboutActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_news.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_news_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/GalleryFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_gallery.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/adapters/PlayerDescriptionAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_panthers.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/PanthersFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_player_description.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
@@ -1659,6 +1707,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_playerdetail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/PlayerDescriptionFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/adapters/PanthersAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_gallery.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_cross_header.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_about_us.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/ScheduleFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/NavigationDrawerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/AboutActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_gallery_one.xml" />
       </list>
     </option>
   </component>
@@ -1716,9 +1774,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1845,8 +1903,8 @@
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
-      <recent name="com.wohlig.jaipurpinkpanthers.fragments" />
       <recent name="com.wohlig.jaipurpinkpanthers" />
+      <recent name="com.wohlig.jaipurpinkpanthers.fragments" />
     </key>
     <key name="android.template.parentActivityClass">
       <recent name="" />
@@ -2053,7 +2111,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2062,7 +2120,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29198185" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29198185" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5144804" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -2070,7 +2128,7 @@
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59965926" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2118003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25567323" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -2102,25 +2160,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_navigation_drawer.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/row_selector.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09123435">
@@ -2165,24 +2204,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2245283">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/ScheduleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51699466">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/toolbar_default.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2190,24 +2211,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.58285713">
           <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7176781">
-          <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0285715">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2299,14 +2302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/NavigationDrawerFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16636851">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2357,49 +2352,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_about_us.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2245283">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#1462#1480#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/AboutUsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3649374">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/GoToMainFragments.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="29" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12830189">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/AboutActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3309481">
-          <caret line="39" column="43" selection-start-line="39" selection-start-column="43" selection-end-line="39" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2450,25 +2406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_gallery.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.137931">
-          <caret line="125" column="0" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/GalleryFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_panthers.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2480,24 +2417,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4883721">
-          <caret line="283" column="0" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
-          <folding>
-            <element signature="e#12554#12555#0" expanded="true" />
-            <element signature="e#12584#12585#0" expanded="true" />
-            <element signature="e#12708#12709#0" expanded="true" />
-            <element signature="e#12751#12752#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/lang/Override.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45617172">
           <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2520,14 +2443,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_player.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2539,12 +2454,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/PlayerDescriptionFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.44339624">
+          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/adapters/PanthersAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48300537">
+          <caret line="89" column="72" selection-start-line="89" selection-start-column="72" selection-end-line="89" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_player_description.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.4827585">
+        <state vertical-scroll-proportion="0.5188679">
           <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
           <folding />
         </state>
@@ -2555,24 +2485,161 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6551723">
+        <state vertical-scroll-proportion="0.36415094">
           <caret line="139" column="46" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/adapters/PanthersAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/AboutUsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="72" selection-start-line="89" selection-start-column="72" selection-end-line="89" selection-end-column="72" />
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2245283">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/PlayerDescriptionFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/HomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.44339624">
-          <caret line="63" column="65" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.3041145">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_about_us.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_cross_header.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1981132">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/ScheduleFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/NavigationDrawerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5921288">
+          <caret line="108" column="100" selection-start-line="108" selection-start-column="100" selection-end-line="108" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="31" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0689654">
+          <caret line="130" column="20" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="275" column="80" selection-start-line="275" selection-start-column="80" selection-end-line="275" selection-end-column="80" />
+          <folding>
+            <element signature="e#3656#3818#0" expanded="true" />
+            <element signature="e#3817#3818#0" expanded="true" />
+            <element signature="e#4016#4182#0" expanded="true" />
+            <element signature="e#4181#4182#0" expanded="true" />
+            <element signature="e#4379#4544#0" expanded="true" />
+            <element signature="e#4543#4544#0" expanded="true" />
+            <element signature="e#4738#4900#0" expanded="true" />
+            <element signature="e#4899#4900#0" expanded="true" />
+            <element signature="e#5138#5308#0" expanded="true" />
+            <element signature="e#5307#5308#0" expanded="true" />
+            <element signature="e#5624#5820#0" expanded="true" />
+            <element signature="e#5819#5820#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/AboutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="44" selection-start-line="92" selection-start-column="44" selection-end-line="92" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.0689654">
+          <caret line="154" column="16" selection-start-line="154" selection-start-column="16" selection-end-line="154" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/wohlig/jaipurpinkpanthers/fragments/GalleryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_gallery_one.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09622642">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_gallery.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6207547">
+          <caret line="92" column="49" selection-start-line="92" selection-start-column="49" selection-end-line="92" selection-end-column="49" />
           <folding />
         </state>
       </provider>

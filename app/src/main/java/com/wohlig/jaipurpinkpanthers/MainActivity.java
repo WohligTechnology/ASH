@@ -85,30 +85,61 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragmentss
+        // update the main content by replacing fragments
         if (position == 0) { // home
             if (inMainActivity) {
-                homeShow();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        homeShow();
+                    }
+                }, 300);
             }
         }
         if (position == 1) { // schedule
             if (inMainActivity) {
-                scheduleShow();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        scheduleShow();
+                    }
+                }, 300);
             }
         }
         if (position == 2) { // gallery
             if (inMainActivity) {
-                galleryShow();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        galleryShow();
+                    }
+                }, 300);
             }
         }
         if (position == 3) { // news
             if (inMainActivity) {
-                newsShow();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        newsShow();
+                    }
+                }, 300);
             }
         }
         if (position == 4) { // knowPanthers
             if (inMainActivity) {
                 knowPanthersShow();
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        knowPanthersShow();
+                    }
+                }, 300);
             }
         }
         if (position == 5) { // tickets
@@ -117,9 +148,17 @@ public class MainActivity extends ActionBarActivity
         if (position == 6) { // wallpapers
 
         }
-        if (position == 7) { // about us
-            Intent intent = new Intent(this, AboutActivity.class);
-            startActivity(intent);
+        if(position == 7 ){ // points table
+
+        }
+        if (position == 8) { // about us
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MainActivity.this,AboutActivity.class));
+                }
+            }, 300);
         }
     }
 

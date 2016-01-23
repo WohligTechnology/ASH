@@ -90,7 +90,10 @@ public class AboutActivity extends ActionBarActivity
         if (position == 6) { // wallpaper
 
         }
-        if (position == 7) { // about us
+        if (position == 7) { // points table
+
+        }
+        if (position == 8) { // about us
 
         }
     }
