@@ -77,7 +77,7 @@ public class MainActivity extends ActionBarActivity
         //int fragmentId = 0;
 
         //fragmentId = if((Integer.parseInt(intent.getStringExtra("FragmentId"))));
-        int fragmentId = intent.getIntExtra("FragmentId",0);
+        int fragmentId = intent.getIntExtra("FragmentId", 0);
         //fragmentId = if(!intent.getStringExtra("FragmentId").isEmpty())
 
         onNavigationDrawerItemSelected(fragmentId);
@@ -142,13 +142,19 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 5) { // tickets
-
+        if (position == 5) { // merchandise
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MainActivity.this, MerchandiseActivity.class));
+                }
+            }, 300);
         }
         if (position == 6) { // wallpapers
 
         }
-        if(position == 7 ){ // points table
+        if (position == 7) { // points table
 
         }
         if (position == 8) { // about us
@@ -156,7 +162,7 @@ public class MainActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(MainActivity.this,AboutActivity.class));
+                    startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 }
             }, 300);
         }
@@ -367,7 +373,7 @@ public class MainActivity extends ActionBarActivity
         fragmentTransaction.commit();
     }
 
-    public void newsDetail(View v){
+    public void newsDetail(View v) {
         Log.v("JPP", "News Detail");
         tvOrImage(true, "KNOW YOUR PANTHERS");
         FragmentManager fragmentManager = getFragmentManager();
@@ -389,7 +395,7 @@ public class MainActivity extends ActionBarActivity
         return PLAYER_ID;
     }
 
-    public static void setToolbarText(String text){
+    public static void setToolbarText(String text) {
         tvToolbarText.setText(text);
     }
 

@@ -49,5 +49,6 @@
         <item>@drawable/gangadhari</item>
         <item>@drawable/gangadhari</item>
     </string-array>
+    <string name="title_activity_merchandise">MerchandiseActivity</string>
 
 </resources>

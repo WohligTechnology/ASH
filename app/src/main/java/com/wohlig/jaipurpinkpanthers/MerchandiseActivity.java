@@ -2,7 +2,6 @@ package com.wohlig.jaipurpinkpanthers;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -16,11 +15,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wohlig.jaipurpinkpanthers.fragments.AboutUsFragment;
+import com.wohlig.jaipurpinkpanthers.fragments.MerchandiseFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.NavigationDrawerFragment;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
-public class AboutActivity extends ActionBarActivity
+public class MerchandiseActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -38,7 +37,7 @@ public class AboutActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_merchandise);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -49,7 +48,7 @@ public class AboutActivity extends ActionBarActivity
 
         //tvToolbarText.setVisibility(View.GONE);
         ivToolbarImage.setVisibility(View.GONE);
-        tvToolbarText.setText("ABOUT US");
+        tvToolbarText.setText("MERCHANDISE");
 
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/
@@ -71,59 +70,22 @@ public class AboutActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragmentss
         if (position == 0) { // home
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        GoToMainFragments.goHome(AboutActivity.this);
-                    }
-                }, 300);
+            GoToMainFragments.goHome(this);
         }
         if (position == 1) { // schedule
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    GoToMainFragments.goSchedule(AboutActivity.this);
-                }
-            }, 300);
-
+            GoToMainFragments.goSchedule(this);
         }
         if (position == 2) { // gallery
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    GoToMainFragments.goGallery(AboutActivity.this);
-                }
-            }, 300);
+            GoToMainFragments.goGallery(this);
         }
         if (position == 3) { // news
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    GoToMainFragments.goNews(AboutActivity.this);
-                }
-            }, 300);
+            GoToMainFragments.goNews(this);
         }
         if (position == 4) { // knowPanthers
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    GoToMainFragments.goPanthers(AboutActivity.this);
-                }
-            }, 300);
+            GoToMainFragments.goPanthers(this);
         }
-        if (position == 5) { // tickets
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(AboutActivity.this, MerchandiseActivity.class));
-                }
-            }, 300);
+        if (position == 5) { // Merchandise
+
         }
         if (position == 6) { // wallpaper
 
@@ -175,9 +137,9 @@ public class AboutActivity extends ActionBarActivity
     public void initializeViews() {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        AboutUsFragment aboutUsFragment = new AboutUsFragment();
+        MerchandiseFragment merchandiseFragment = new MerchandiseFragment();
 
-        fragmentTransaction.add(R.id.container, aboutUsFragment);
+        fragmentTransaction.add(R.id.container, merchandiseFragment);
         //fragmentTransaction.replace(R.id.container, scheduleFragment);
         fragmentTransaction.commit();
 
@@ -208,3 +170,4 @@ public class AboutActivity extends ActionBarActivity
         GoToMainFragments.goPanthers(this);
     }
 }
+
