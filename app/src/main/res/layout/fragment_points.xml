@@ -85,6 +85,11 @@
                     android:textColor="@android:color/white"/>
             </LinearLayout>
 
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/lvTeams"/>
+
 
             <include
                 layout="@layout/layout_points_row"/>
@@ -97,6 +102,7 @@
 
             <include
                 layout="@layout/layout_points_row"/>
+
 
         </LinearLayout>
     </ScrollView>

@@ -8,7 +8,8 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,6 +35,7 @@
                     android:src="@drawable/schedule_back"/>
 
                 <include
+                    android:id="@+id/llLatestUpdate"
                     layout="@layout/layout_cross_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -53,7 +55,7 @@
                         android:layout_height="match_parent"/>
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/ivT1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -69,7 +71,7 @@
                         android:src="@drawable/vs"/>
 
                     <ImageView
-                        android:id="@+id/imageView8"
+                        android:id="@+id/ivT2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -91,7 +93,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/tvS1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -103,7 +105,7 @@
                         android:textSize="50sp"/>
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/tvCo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -113,7 +115,7 @@
                         android:textSize="50sp"/>
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/tvS2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -133,7 +135,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/tvVenue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -142,7 +144,7 @@
                         android:textColor="@android:color/white"/>
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/tvTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -161,7 +163,7 @@
                 android:layout_marginBottom="10dp">
 
                 <include
-                    android:id="@+id/newsHeader"
+                    android:id="@+id/llNews"
                     layout="@layout/layout_cross_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -170,7 +172,7 @@
                     android:id="@+id/blankView"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
-                    android:layout_below="@id/newsHeader"/>
+                    android:layout_below="@id/llNews"/>
 
                 <LinearLayout
                     android:id="@+id/news_body"
@@ -200,8 +202,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Team sponsorship might go up by 100%"
-                            android:id="@+id/textView14"
-                            android:textSize="16sp"
+                            android:id="@+id/tvNewsHead"
+                            android:textSize="17sp"
                             android:textColor="@color/jppProfileType"/>
 
                         <TextView
@@ -209,8 +211,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/dummy"
-                            android:id="@+id/textView15"
-                            android:maxLength="110"/>
+                            android:id="@+id/tvNewsDesc"
+                            android:maxLength="150"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -227,11 +229,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="30 Jan, 2016"
-                        android:id="@+id/textView1612"
+                        android:id="@+id/tvNewsDate"
                         android:paddingRight="10dp"/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/llRead"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -243,10 +246,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Read more News >"
-                        android:id="@+id/textView16"
+                        android:id="@+id/tvNewsRead"
                         android:paddingRight="10dp"
+                        android:textSize="16sp"
                         android:textColor="@color/jppProfileType"/>
                 </LinearLayout>
+                <View
+                    android:layout_below="@+id/llRead"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"/>
+
             </RelativeLayout>
 
 
@@ -261,13 +270,13 @@
                 android:background="@color/jppAccentColor">
 
                 <include
-                    android:id="@+id/tableCross"
+                    android:id="@+id/llTable"
                     layout="@layout/layout_cross_header_white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
-                    android:layout_below="@+id/tableCross"
+                    android:layout_below="@+id/llTable"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

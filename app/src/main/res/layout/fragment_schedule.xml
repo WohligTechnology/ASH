@@ -19,7 +19,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
+                android:gravity="center_vertical">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -30,6 +31,7 @@
                     android:src="@drawable/schedule_back"/>
 
                 <include
+                    android:id="@+id/llUpcomingMatch"
                     layout="@layout/layout_cross_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -48,7 +50,7 @@
                         android:layout_height="match_parent"/>
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/ivT1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -64,7 +66,7 @@
                         android:src="@drawable/vs"/>
 
                     <ImageView
-                        android:id="@+id/imageView8"
+                        android:id="@+id/ivT2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
@@ -88,7 +90,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView8"
+                        android:id="@+id/tvVenue"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -97,7 +99,7 @@
                         android:textColor="@android:color/white"/>
 
                     <TextView
-                        android:id="@+id/textView9"
+                        android:id="@+id/tvTime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -106,7 +108,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="200dp"
+                    android:layout_width="175dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/linearLayout3"
                     android:layout_centerHorizontal="true"
@@ -126,12 +128,12 @@
                         android:src="@drawable/ic_action_calender_pink"/>
 
                     <TextView
-                        android:id="@+id/textView10"
+                        android:id="@+id/tvAddToCalendar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.75"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Add To Calender"
+                        android:text="Add To Calendar"
                         android:textColor="@color/jppAccentColor"
                         android:textSize="16sp"/>
 
@@ -147,7 +149,7 @@
                 android:paddingBottom="10dp">
 
                 <include
-                    android:id="@+id/llHeader"
+                    android:id="@+id/llOtherMatches"
                     layout="@layout/layout_cross_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -155,7 +157,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/llHeader"
+                    android:layout_below="@+id/llOtherMatches"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
@@ -271,6 +273,7 @@
                             android:src="@drawable/ic_action_buy_tickets"/>
 
                         <TextView
+                            android:id="@+id/tvBook"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:textSize="14sp"
