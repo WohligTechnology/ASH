@@ -148,6 +148,7 @@ public class MainActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(MainActivity.this, MerchandiseActivity.class));
+                    finish();
                 }
             }, 300);
         }
@@ -160,6 +161,7 @@ public class MainActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(MainActivity.this, PointsActitivy.class));
+                    finish();
                 }
             }, 300);
         }
@@ -169,6 +171,7 @@ public class MainActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                    finish();
                 }
             }, 300);
         }

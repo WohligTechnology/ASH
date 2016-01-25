@@ -76,6 +76,7 @@ public class PointsActitivy extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goHome(PointsActitivy.this);
+                    finish();
                 }
             }, 300);
         }
@@ -85,6 +86,7 @@ public class PointsActitivy extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goSchedule(PointsActitivy.this);
+                    finish();
                 }
             }, 300);
 
@@ -95,6 +97,7 @@ public class PointsActitivy extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goGallery(PointsActitivy.this);
+                    finish();
                 }
             }, 300);
         }
@@ -104,6 +107,7 @@ public class PointsActitivy extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goNews(PointsActitivy.this);
+                    finish();
                 }
             }, 300);
         }
@@ -113,6 +117,7 @@ public class PointsActitivy extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goPanthers(PointsActitivy.this);
+                    finish();
                 }
             }, 300);
         }
@@ -122,6 +127,7 @@ public class PointsActitivy extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(PointsActitivy.this, MerchandiseActivity.class));
+                    finish();
                 }
             }, 300);
         }
@@ -137,6 +143,7 @@ public class PointsActitivy extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(PointsActitivy.this, AboutActivity.class));
+                    finish();
                 }
             }, 300);
         }

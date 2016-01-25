@@ -76,6 +76,7 @@ public class MerchandiseActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goHome(MerchandiseActivity.this);
+                    finish();
                 }
             }, 300);
         }
@@ -85,6 +86,7 @@ public class MerchandiseActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goSchedule(MerchandiseActivity.this);
+                    finish();
                 }
             }, 300);
 
@@ -95,6 +97,7 @@ public class MerchandiseActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goGallery(MerchandiseActivity.this);
+                    finish();
                 }
             }, 300);
         }
@@ -104,6 +107,7 @@ public class MerchandiseActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goNews(MerchandiseActivity.this);
+                    finish();
                 }
             }, 300);
         }
@@ -113,6 +117,7 @@ public class MerchandiseActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goPanthers(MerchandiseActivity.this);
+                    finish();
                 }
             }, 300);
         }
@@ -128,6 +133,7 @@ public class MerchandiseActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(MerchandiseActivity.this, PointsActitivy.class));
+                    finish();
                 }
             }, 300);
         }
@@ -137,6 +143,7 @@ public class MerchandiseActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(MerchandiseActivity.this, AboutActivity.class));
+                    finish();
                 }
             }, 300);
         }

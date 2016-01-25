@@ -76,6 +76,7 @@ public class AboutActivity extends ActionBarActivity
                     @Override
                     public void run() {
                         GoToMainFragments.goHome(AboutActivity.this);
+                        finish();
                     }
                 }, 300);
         }
@@ -85,6 +86,7 @@ public class AboutActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goSchedule(AboutActivity.this);
+                    finish();
                 }
             }, 300);
 
@@ -95,6 +97,7 @@ public class AboutActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goGallery(AboutActivity.this);
+                    finish();
                 }
             }, 300);
         }
@@ -104,6 +107,7 @@ public class AboutActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goNews(AboutActivity.this);
+                    finish();
                 }
             }, 300);
         }
@@ -113,6 +117,7 @@ public class AboutActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     GoToMainFragments.goPanthers(AboutActivity.this);
+                    finish();
                 }
             }, 300);
         }
@@ -122,6 +127,7 @@ public class AboutActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(AboutActivity.this, MerchandiseActivity.class));
+                    finish();
                 }
             }, 300);
         }
@@ -134,6 +140,7 @@ public class AboutActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(AboutActivity.this, PointsActitivy.class));
+                    finish();
                 }
             }, 300);
         }
@@ -192,25 +199,30 @@ public class AboutActivity extends ActionBarActivity
     public void home(View v) {
         Log.v("JPP", "Home");
         GoToMainFragments.goHome(this);
+        finish();
     }
 
     public void schedule(View v) {
         Log.v("JPP", "Schedule");
         GoToMainFragments.goSchedule(this);
+        finish();
     }
 
     public void gallery(View v) {
         Log.v("JPP", "Gallery");
         GoToMainFragments.goGallery(this);
+        finish();
     }
 
     public void news(View v) {
         Log.v("JPP", "News");
         GoToMainFragments.goSchedule(this);
+        finish();
     }
 
     public void knowPanthers(View v) {
         Log.v("JPP", "Panthers");
         GoToMainFragments.goPanthers(this);
+        finish();
     }
 }
