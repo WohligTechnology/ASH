@@ -18,7 +18,11 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp">
 
 
                 <ImageView
@@ -147,6 +151,213 @@
                 </LinearLayout>
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp">
+
+                <include
+                    android:id="@+id/newsHeader"
+                    layout="@layout/layout_cross_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <View
+                    android:id="@+id/blankView"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_below="@id/newsHeader"/>
+
+                <LinearLayout
+                    android:id="@+id/news_body"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/blankView"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:id="@+id/imageView12"
+                        android:layout_weight="1"
+                        android:background="@drawable/jpp"
+                        android:scaleType="centerCrop"/>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Team sponsorship might go up by 100%"
+                            android:id="@+id/textView14"
+                            android:textSize="16sp"
+                            android:textColor="@color/jppProfileType"/>
+
+                        <TextView
+                            android:paddingTop="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dummy"
+                            android:id="@+id/textView15"
+                            android:maxLength="110"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/newsDate"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/news_body"
+                    android:layout_margin="5dp"
+                    android:gravity="right">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30 Jan, 2016"
+                        android:id="@+id/textView1612"
+                        android:paddingRight="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newsDate"
+                    android:layout_margin="5dp"
+                    android:gravity="right">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Read more News >"
+                        android:id="@+id/textView16"
+                        android:paddingRight="10dp"
+                        android:textColor="@color/jppProfileType"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+
+
+            <!-- table -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/jppAccentColor">
+
+                <include
+                    android:id="@+id/tableCross"
+                    layout="@layout/layout_cross_header_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                    android:layout_below="@+id/tableCross"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/jppAccentColor"
+                    android:layout_marginTop="10dp">
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp"
+                        android:background="@color/jppPointsRow">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No."
+                            android:layout_weight="0.5"
+                            android:id="@+id/tvNo"
+                            android:textColor="@android:color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Team"
+                            android:id="@+id/tvTeam"
+                            android:layout_weight="6"
+                            android:textColor="@android:color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="P"
+                            android:id="@+id/tvP"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="W"
+                            android:id="@+id/tvW"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="L"
+                            android:id="@+id/tvL"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PTS"
+                            android:id="@+id/tvPts"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"/>
+                    </LinearLayout>
+
+
+                    <include
+                        layout="@layout/layout_points_row"/>
+
+                    <include
+                        layout="@layout/layout_points_row"/>
+
+                    <include
+                        layout="@layout/layout_points_row"/>
+
+                    <include
+                        layout="@layout/layout_points_row"/>
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
 
         </LinearLayout>
     </ScrollView>

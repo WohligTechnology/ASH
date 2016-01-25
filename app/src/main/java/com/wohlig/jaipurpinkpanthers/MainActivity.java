@@ -155,7 +155,13 @@ public class MainActivity extends ActionBarActivity
 
         }
         if (position == 7) { // points table
-
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MainActivity.this, PointsActitivy.class));
+                }
+            }, 300);
         }
         if (position == 8) { // about us
             final Handler handler = new Handler();

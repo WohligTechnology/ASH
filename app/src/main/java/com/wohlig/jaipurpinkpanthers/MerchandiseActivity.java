@@ -2,6 +2,7 @@ package com.wohlig.jaipurpinkpanthers;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -70,19 +71,50 @@ public class MerchandiseActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragmentss
         if (position == 0) { // home
-            GoToMainFragments.goHome(this);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GoToMainFragments.goHome(MerchandiseActivity.this);
+                }
+            }, 300);
         }
         if (position == 1) { // schedule
-            GoToMainFragments.goSchedule(this);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GoToMainFragments.goSchedule(MerchandiseActivity.this);
+                }
+            }, 300);
+
         }
         if (position == 2) { // gallery
-            GoToMainFragments.goGallery(this);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GoToMainFragments.goGallery(MerchandiseActivity.this);
+                }
+            }, 300);
         }
         if (position == 3) { // news
-            GoToMainFragments.goNews(this);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GoToMainFragments.goNews(MerchandiseActivity.this);
+                }
+            }, 300);
         }
         if (position == 4) { // knowPanthers
-            GoToMainFragments.goPanthers(this);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GoToMainFragments.goPanthers(MerchandiseActivity.this);
+                }
+            }, 300);
         }
         if (position == 5) { // Merchandise
 
@@ -91,10 +123,22 @@ public class MerchandiseActivity extends ActionBarActivity
 
         }
         if (position == 7) { // points table
-
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MerchandiseActivity.this, PointsActitivy.class));
+                }
+            }, 300);
         }
         if (position == 8) { // about us
-
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MerchandiseActivity.this, AboutActivity.class));
+                }
+            }, 300);
         }
     }
 

@@ -29,5 +29,6 @@
     <color name="jppNewsDesc">#262626</color>
     <color name="jppProfileType">#4ecaf5</color>
     <color name="jppGalleryToolbar">#ebf9fe</color>
+    <color name="jppPointsRow">#ef67ab</color>
 
 </resources>

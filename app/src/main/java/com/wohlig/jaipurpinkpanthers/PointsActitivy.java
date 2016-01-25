@@ -16,11 +16,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.wohlig.jaipurpinkpanthers.fragments.AboutUsFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.NavigationDrawerFragment;
+import com.wohlig.jaipurpinkpanthers.fragments.PointsFragment;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
-public class AboutActivity extends ActionBarActivity
+public class PointsActitivy extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -38,7 +38,7 @@ public class AboutActivity extends ActionBarActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_points_actitivy);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -49,7 +49,7 @@ public class AboutActivity extends ActionBarActivity
 
         //tvToolbarText.setVisibility(View.GONE);
         ivToolbarImage.setVisibility(View.GONE);
-        tvToolbarText.setText("ABOUT US");
+        tvToolbarText.setText("POINTS TABLE");
 
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/
@@ -71,20 +71,20 @@ public class AboutActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragmentss
         if (position == 0) { // home
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        GoToMainFragments.goHome(AboutActivity.this);
-                    }
-                }, 300);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GoToMainFragments.goHome(PointsActitivy.this);
+                }
+            }, 300);
         }
         if (position == 1) { // schedule
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goSchedule(AboutActivity.this);
+                    GoToMainFragments.goSchedule(PointsActitivy.this);
                 }
             }, 300);
 
@@ -94,7 +94,7 @@ public class AboutActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goGallery(AboutActivity.this);
+                    GoToMainFragments.goGallery(PointsActitivy.this);
                 }
             }, 300);
         }
@@ -103,7 +103,7 @@ public class AboutActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goNews(AboutActivity.this);
+                    GoToMainFragments.goNews(PointsActitivy.this);
                 }
             }, 300);
         }
@@ -112,7 +112,7 @@ public class AboutActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goPanthers(AboutActivity.this);
+                    GoToMainFragments.goPanthers(PointsActitivy.this);
                 }
             }, 300);
         }
@@ -121,7 +121,7 @@ public class AboutActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(AboutActivity.this, MerchandiseActivity.class));
+                    startActivity(new Intent(PointsActitivy.this, MerchandiseActivity.class));
                 }
             }, 300);
         }
@@ -129,16 +129,16 @@ public class AboutActivity extends ActionBarActivity
 
         }
         if (position == 7) { // points table
+
+        }
+        if (position == 8) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(AboutActivity.this, PointsActitivy.class));
+                    startActivity(new Intent(PointsActitivy.this, AboutActivity.class));
                 }
             }, 300);
-        }
-        if (position == 8) { // about us
-
         }
     }
 
@@ -181,12 +181,11 @@ public class AboutActivity extends ActionBarActivity
     public void initializeViews() {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        AboutUsFragment aboutUsFragment = new AboutUsFragment();
+        PointsFragment pointsFragment = new PointsFragment();
 
-        fragmentTransaction.add(R.id.container, aboutUsFragment);
+        fragmentTransaction.add(R.id.container, pointsFragment);
         //fragmentTransaction.replace(R.id.container, scheduleFragment);
         fragmentTransaction.commit();
-
     }
 
     public void home(View v) {
