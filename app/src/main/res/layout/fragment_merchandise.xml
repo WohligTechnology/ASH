@@ -17,10 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.daimajia.slider.library.SliderLayout
+            <ImageView
                 android:id="@+id/slider"
+                android:src="@drawable/mercimage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"/>
 
             <ImageView
                 android:layout_width="match_parent"
