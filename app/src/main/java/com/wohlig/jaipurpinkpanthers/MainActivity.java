@@ -25,6 +25,7 @@ import com.wohlig.jaipurpinkpanthers.fragments.NewsFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.PanthersFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.PlayerDescriptionFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.ScheduleFragment;
+import com.wohlig.jaipurpinkpanthers.util.CalendarEvent;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
 import java.util.Arrays;
@@ -406,6 +407,11 @@ public class MainActivity extends ActionBarActivity
 
     public static void setToolbarText(String text) {
         tvToolbarText.setText(text);
+    }
+
+    public void addToCalendar(View v){
+        String tag = v.getTag().toString();
+        CalendarEvent.remind(this,tag);
     }
 
 }

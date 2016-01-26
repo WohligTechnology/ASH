@@ -53,6 +53,7 @@
                         layout="@layout/layout_cross_header"/>
 
                     <include
+                        android:id="@+id/llTeam1"
                         layout="@layout/layout_team_member"/>
 
                     <View
