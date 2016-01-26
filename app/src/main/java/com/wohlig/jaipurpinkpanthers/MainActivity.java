@@ -411,7 +411,13 @@ public class MainActivity extends ActionBarActivity
 
     public void addToCalendar(View v){
         String tag = v.getTag().toString();
-        CalendarEvent.remind(this,tag);
+        CalendarEvent.remind(this, tag);
+    }
+
+    public void goToBookTickets(View v){
+        Intent intent = new Intent(MainActivity.this, WebActivity.class);
+        intent.putExtra("webLink", "http://in.bookmyshow.com/sports/kabaddi/jaipur-pink-panthers/");
+        startActivity(intent);
     }
 
 }

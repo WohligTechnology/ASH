@@ -220,5 +220,11 @@ public class MerchandiseActivity extends ActionBarActivity
         Log.v("JPP", "Panthers");
         GoToMainFragments.goPanthers(this);
     }
+
+    public void goToMerc(View v){
+        Intent intent = new Intent(MerchandiseActivity.this, WebActivity.class);
+        intent.putExtra("webLink", "http://www.google.com");
+        startActivity(intent);
+    }
 }
 

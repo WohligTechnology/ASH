@@ -52,5 +52,6 @@
     <string name="title_activity_merchandise">MerchandiseActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_points_actitivy">PointsActitivy</string>
+    <string name="title_activity_web">WebActivity</string>
 
 </resources>

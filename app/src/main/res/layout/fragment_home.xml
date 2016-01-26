@@ -305,11 +305,10 @@
                             android:textColor="@android:color/white"/>
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp"
                             android:layout_height="wrap_content"
                             android:text="Team"
                             android:id="@+id/tvTeam"
-                            android:layout_weight="6"
                             android:textColor="@android:color/white"/>
 
                         <TextView

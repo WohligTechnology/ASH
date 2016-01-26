@@ -267,7 +267,8 @@
                         android:layout_marginTop="5dp"
 
                         android:background="@color/jppAccentColor"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:onClick="goToBookTickets">
 
                         <ImageView
                             android:layout_width="wrap_content"
