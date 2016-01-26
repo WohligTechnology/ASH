@@ -6,25 +6,18 @@
              android:background="@color/jppPrimaryColor">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollView6"
-        android:scrollbars="none"
-        android:background="@color/jppAccentColor"
-        android:padding="5dp">
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/jppAccentColor">
+            android:background="@color/jppAccentColor"
+            android:padding="5dp">
 
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
@@ -41,11 +34,10 @@
                     android:textColor="@android:color/white"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:text="Team"
                     android:id="@+id/tvTeam"
-                    android:layout_weight="6"
                     android:textColor="@android:color/white"/>
 
                 <TextView
@@ -86,24 +78,11 @@
             </LinearLayout>
 
             <ListView
-                android:layout_width="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/lvTeams"/>
 
-
-            <include
-                layout="@layout/layout_points_row"/>
-
-            <include
-                layout="@layout/layout_points_row"/>
-
-            <include
-                layout="@layout/layout_points_row"/>
-
-            <include
-                layout="@layout/layout_points_row"/>
-
-
         </LinearLayout>
-    </ScrollView>
 </FrameLayout>
