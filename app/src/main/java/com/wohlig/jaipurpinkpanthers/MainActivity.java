@@ -53,6 +53,17 @@ public class MainActivity extends ActionBarActivity
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        /*mToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_action_panther));
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //What to do on back clicked
+            }
+        });*/
+
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         ivToolbarImage = (ImageView) findViewById(R.id.toolbar_image);
         tvToolbarText = (TextView) findViewById(R.id.toolbar_title);
@@ -83,6 +94,19 @@ public class MainActivity extends ActionBarActivity
 
         onNavigationDrawerItemSelected(fragmentId);
     }
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.e("JPP inside", "oOIS");
+        Log.e("JPP item", String.valueOf(item.getItemId()));
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return false;
+    }*/
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {

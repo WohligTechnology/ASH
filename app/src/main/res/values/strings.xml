@@ -19,6 +19,8 @@
     <string name="playerDesc1">Rohit Rana#Defender#India#Jun 08,1993#10#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="playerDesc2">Jay Visariya#Raider#India#Sep 27,1993#07#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
     <string name="playerDesc3">Sohan Honakeri#Raider#Africa#Jun 13,1990#11#Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+
     <string name="player1">1#Rohit Rana#Defender</string>
     <string name="player2">2#Jay Visariya#Raider</string>
     <string name="player3">3#Sohan Honakeri#Raider</string>
@@ -49,6 +51,7 @@
         <item>@drawable/gangadhari</item>
         <item>@drawable/gangadhari</item>
     </string-array>
+
     <string name="title_activity_merchandise">MerchandiseActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_points_actitivy">PointsActitivy</string>

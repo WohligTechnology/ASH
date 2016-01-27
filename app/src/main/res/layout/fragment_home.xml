@@ -139,7 +139,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:padding="5dp"
                         android:text="Wankhede Stadium, Mumbai"
                         android:textColor="@android:color/white"/>
 
