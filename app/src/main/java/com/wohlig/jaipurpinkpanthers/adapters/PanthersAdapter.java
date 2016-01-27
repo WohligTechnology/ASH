@@ -10,6 +10,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.wohlig.jaipurpinkpanthers.R;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
@@ -25,13 +31,18 @@ public class PanthersAdapter extends BaseAdapter {
     public ArrayList<HashMap<String, String>> list;
     Activity activity;
     TypedArray playerImages;
-
+    ImageLoader imageLoader;
+    DisplayImageOptions options;
     public PanthersAdapter(Activity activity, ArrayList<HashMap<String, String>> list) {
         super();
         this.activity = activity;
         this.list = list;
 
         playerImages = activity.getResources().obtainTypedArray(R.array.playerImages);
+
+        imageLoader = ImageLoader.getInstance();
+        options = new DisplayImageOptions.Builder().cacheInMemory(true)
+                .cacheOnDisc(true).resetViewBeforeLoading(true).build();
     }
 
     @Override
@@ -58,6 +69,21 @@ public class PanthersAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+        // UNIVERSAL IMAGE LOADER SETUP
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheOnDisc(true).cacheInMemory(true)
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .displayer(new FadeInBitmapDisplayer(300)).build();
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+                activity)
+                .defaultDisplayImageOptions(defaultOptions)
+                .memoryCache(new WeakMemoryCache())
+                .discCacheSize(100 * 1024 * 1024).build();
+
+        ImageLoader.getInstance().init(config);
+        // END - UNIVERSAL IMAGE LOADER SETUP
 
         ViewHolder holder;
 
@@ -90,7 +116,9 @@ public class PanthersAdapter extends BaseAdapter {
         String playerName = playerInfoList.get(1);          //playerName
         String playerType = playerInfoList.get(2);          //playerType
 
-        holder.player_image.setImageResource(playerImages.getResourceId(position, -1));
+        String imageUri = "drawable://" + playerImages.getResourceId(position, -1);
+        imageLoader.displayImage(imageUri, holder.player_image,options);
+
         holder.player_name.setText(playerName.toUpperCase());
         holder.player_type.setText(playerType.toUpperCase());
 
