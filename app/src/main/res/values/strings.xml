@@ -20,8 +20,12 @@
     <string name="playerType">RAIDER</string>
     <string name="playerNationality">NATIONALITY:</string>
     <string name="playerIndian">INDIAN</string>
+    <string name="playerNative">NATIVE PLACE:</string>
+    <string name="playerNativePlace">MUMBAI</string>
     <string name="playerBorn">BORN:</string>
     <string name="playerDob">JUN 08, 1993</string>
+    <string name="playerAge">AGE:</string>
+    <string name="playerAgeNo">22</string>
     <string name="playerJersey">JERSEY NUMBER:</string>
     <string name="playerJerseyNo">10</string>
     <string name="playerTour">TOURNAMENTS PLAYED:</string>
@@ -29,17 +33,24 @@
 
 
 <!-- players -->
-    <string name="playerDesc1">Navneet Gautam#Defender#India#Jun 08,1993#07#Pro-Kabaddi (2015-2014), Asian Games (2006 -10 -14), WorldCup (2004)(2007), Indoor Asian Games (2007))(2009)#Pro-kabaddi (2014)- 1st Position, Arjun Awardee - (2007), Asian Games (2006-10-14) - 1st Position, World Cup (2004) (2007) - 1st Position, Indoor Asian Game (2007)(2009) - 1st Position.#32</string>
-    <string name="playerDesc2">Raju Lal Choudhary#Defender#India#Sep 27,1993#12#Pro-Kabaddi (2015-2014)National Games (2011), Senior National Games (2015), All India Police Games (2008-15)#Pro-kabaddi (2014)- 1st Position,National Games (2011)-1st Position, Senior National (2015) - 3rd Position.#26</string>
-    <string name="playerDesc3">Jasvir Singh#Raider#Indian#Jun 13,1990#02#Pro-Kabaddi (2015-2014),Senior National (2013), National Game (2011), Indoor Asian Game (2013), Asian Game (2014)#Pro-kabaddi (2014)- 1st Position,Senior National (2013) - 1st Position, National Game (2011)- 1st Position, Indoor Asian Game (2013) - 1st Position, Asian Game (2014) - 1st Position.#31</string>
-    <string name="playerDesc4">Rajesh Narwal#All Rounder#Indian#Jan 27, 1990#11#Pro-Kabaddi (2015-2014),Beach Asian Game (2014), National Games (2011) (2015), Senior National (2008-15)#Pro-kabaddi (2014)- 1st Position,Beach Asian Games (2014) - 3rd Position, National Games (2015) - 1st Position, (2011) - 3rd Position, Senior National (2013-15) - 2nd Position.</string>
-    <string name="playerDesc5">Ran Singh#All Rounder#Indian#Jan 27, 1990#28#Pro-Kabaddi (2015-2014),Senior National (2002-08), Senior National (2014), Dept. National Tournament  (2014), All India Police Tournanment (2008-11)#Pro-kabaddi (2014)- 1st Position,Senior National (2007) - 2nd Position, Senior National (2006) - 3rd Position, All India Police Tournament (2008) (2011) - 1st Position, All India Police Tournament (2009-10) - 3rd Position, Dept. National Tournament (2014) - 2nd Position.</string>
-    <string name="playerDesc6">Gangadhari Mallesh#All Rounder#Indian#Jan 27, 1990#22#Pro-Kabaddi (2015-2014),Senior National (2015-2012),Junior National Championship (2012-2009), School Nationals(2009-2009)#Pro-kabaddi (2014)- 1st Position,School Nationals(2008) -3rd Position.#22</string>
-    <string name="playerDesc7">Rohit Rana#Defender#Indian#Jan 27, 1990#05#Pro-Kabaddi (2015-2014), National Games (2010-15), Senior National  (2010-14), Dept National (2011-14)#Pro-kabaddi (2014)- 1st Position,National Games (2014) - 3rd Position, Dept. National (2011-14) - 1st Postion.#27</string>
-    <string name="playerDesc8">Sonu Narwal#Raider#Indian#Jan 27, 1990#22#Pro-Kabaddi (2015),Senior National Game (2008-09), Asian Championship(2005), Asian Game (2010), Beach Asian Game(2011), All India Police Kabaddi (2009-10-11)#All India Police (2009) - 1st Position, Asian Championship (2005) - 1st Position , Asian Games (2010)- 1st Position, Beach Asian Games (2011) - 2nd Position.#29</string>
-    <string name="playerDesc9">Kuldeep Singh#All Rounder#Indian#Jan 27, 1990#08#Pro-Kabaddi (2015),National Game (2011), National (2008-15), Dept. National (2008-09)#National (2012-13) - 1st Position, National Game (2011) - 3rd Position, Dept. National (2008)- 2nd Position, (2009)- 1st Position.#23</string>
-    <string name="playerDesc10">Anil Patil#All Rounder#Indian#Jan 27, 1990#01#Senior National- (2007-2009,2011-2012), Departmental National (2006,2010,2013-2015)#Senior National(2007)-1st Position,Senior National (2011, 2012)- 3rd Position ,Departmental National (2014)- 3rd Position.#33</string>
-    <string name="playerDesc11">Rohit Kumar Prajapat#Raider#Indian#Jan 27, 1990#14#Pro-Kabaddi (2015), Under 20 Junior National (2012-14), All India University kabbadi tournament(2014), Under 19 School National(2012), Under 16 Sub Juniour National(2011), Junior National Federation cup (2014), Senior West Zone (2015)\nSub Junior National Under 16  (2012) - 2nd Position, Under 19 School national (2012)- 3rd PositionJunior National Federation Cup (2014)- 3rd Position, Senior West Zone (2015) - 3rd Position.#19</string>
+    <string name="playerDesc1">Navneet Gautam#Defender#India#Jun 08,1993#07#Pro-Kabaddi (2015-2014), Asian Games (2006 -10 -14), WorldCup (2004)(2007), Indoor Asian Games (2007))(2009)#Pro-kabaddi (2014)- 1st Position, Arjun Awardee - (2007), Asian Games (2006-10-14) - 1st Position, World Cup (2004) (2007) - 1st Position, Indoor Asian Game (2007)(2009) - 1st Position.#32#Jaipur</string>
+    <string name="playerDesc2">Raju Lal Choudhary#Defender#India#Sep 27,1993#12#Pro-Kabaddi (2015-2014)National Games (2011), Senior National Games (2015), All India Police Games (2008-15)#Pro-kabaddi (2014)- 1st Position,National Games (2011)-1st Position, Senior National (2015) - 3rd Position.#26#Jaipur</string>
+    <string name="playerDesc3">Jasvir Singh#Raider#Indian#Jun 13,1990#02#Pro-Kabaddi (2015-2014),Senior National (2013), National Game (2011), Indoor Asian Game (2013), Asian Game (2014)#Pro-kabaddi (2014)- 1st Position,Senior National (2013) - 1st Position, National Game (2011)- 1st Position, Indoor Asian Game (2013) - 1st Position, Asian Game (2014) - 1st Position.#31#Panipat</string>
+    <string name="playerDesc4">Rajesh Narwal#All Rounder#Indian#Jan 27, 1990#11#Pro-Kabaddi (2015-2014),Beach Asian Game (2014), National Games (2011) (2015), Senior National (2008-15)#Pro-kabaddi (2014)- 1st Position,Beach Asian Games (2014) - 3rd Position, National Games (2015) - 1st Position, (2011) - 3rd Position, Senior National (2013-15) - 2nd Position.#25#Sonipat</string>
+    <string name="playerDesc5">Ran Singh#All Rounder#Indian#Jan 27, 1990#28#Pro-Kabaddi (2015-2014),Senior National (2002-08), Senior National (2014), Dept. National Tournament  (2014), All India Police Tournanment (2008-11)#Pro-kabaddi (2014)- 1st Position,Senior National (2007) - 2nd Position, Senior National (2006) - 3rd Position, All India Police Tournament (2008) (2011) - 1st Position, All India Police Tournament (2009-10) - 3rd Position, Dept. National Tournament (2014) - 2nd Position.#28#Sangrur</string>
+    <string name="playerDesc6">Gangadhari Mallesh#All Rounder#Indian#Jan 27, 1990#22#Pro-Kabaddi (2015-2014),Senior National (2015-2012),Junior National Championship (2012-2009), School Nationals(2009-2009)#Pro-kabaddi (2014)- 1st Position,School Nationals(2008) -3rd Position.#22#Choutapally</string>
+    <string name="playerDesc7">Rohit Rana#Defender#Indian#Jan 27, 1990#05#Pro-Kabaddi (2015-2014), National Games (2010-15), Senior National  (2010-14), Dept National (2011-14)#Pro-kabaddi (2014)- 1st Position,National Games (2014) - 3rd Position, Dept. National (2011-14) - 1st Postion.#27#Dharmshala</string>
+    <string name="playerDesc8">Samarjeet Singh#All Rounder#Indian#Jan 27, 1990#77#Pro-Kabaddi (2015-2014),Asian Games (2010),Indoor Asian Games (2010), Safe Games (2010), Indoor Asian Games (2013).#Pro-kabaddi (2014)- 1st Position,Asian Games (2010) - 1st Position , Indoor Asian Games (2010) - 1st Postion, Safe Games (2010) -1st Position, Indoor Asian Games (2013).#29#Khedi Daulatpur</string>
+    <string name="playerDesc9">Sanjay Shrestha#All Rounder#Indian#Jan 27, 1990#04#Pro-Kabaddi (2015-2014),World Cup ( , 9th Safe game, 10th Safe Game, 11th Safe Game.#Pro-kabaddi (2014)- 1st Position.#31#Dhanusha</string>
+    <string name="playerDesc10">Sonu Narwal#Raider#Indian#Jan 27, 1990#22#Pro-Kabaddi (2015),Senior National Game (2008-09), Asian Championship(2005), Asian Game (2010), Beach Asian Game(2011), All India Police Kabaddi (2009-10-11)#All India Police (2009) - 1st Position, Asian Championship (2005) - 1st Position , Asian Games (2010)- 1st Position, Beach Asian Games (2011) - 2nd Position.#29#Sonipat</string>
+    <string name="playerDesc11">Kuldeep Singh#All Rounder#Indian#Jan 27, 1990#08#Pro-Kabaddi (2015),National Game (2011), National (2008-15), Dept. National (2008-09)#National (2012-13) - 1st Position, National Game (2011) - 3rd Position, Dept. National (2008)- 2nd Position, (2009)- 1st Position.#23#Sonipat</string>
+    <string name="playerDesc12">C. Arun#Defender#Indian#Jan 27, 1990#03#Pro-Kabaddi (2015),All India University (2012), Senior National (2015).#All India University (2012) - 1st Position.#22#Thiruvarur</string>
+    <string name="playerDesc13">Anil Patil#All Rounder#Indian#Jan 27, 1990#01#Senior National- (2007-2009,2011-2012), Departmental National (2006,2010,2013-2015)#Senior National(2007)-1st Position,Senior National (2011, 2012)- 3rd Position ,Departmental National (2014)- 3rd Position.#33#Mumbai</string>
+    <string name="playerDesc14">Rohit Kumar Prajapat#Raider#Indian#Jan 27, 1990#14#Pro-Kabaddi (2015), Under 20 Junior National (2012-14), All India University kabbadi tournament(2014), Under 19 School National(2012), Under 16 Sub Juniour National(2011), Junior National Federation cup (2014), Senior West Zone (2015)\nSub Junior National Under 16  (2012) - 2nd Position, Under 19 School national (2012)- 3rd PositionJunior National Federation Cup (2014)- 3rd Position, Senior West Zone (2015) - 3rd Position.#19#Jaipur</string>
+    <string name="playerDesc15">Jagdeesha K.K#Defender#Indian#Jan 27, 1990#09#Departmental National Campionship- (2015-1999),Senior National (2013-1999),National Games (2003-1999), Senior Federation Cup (2006-2003), Asian Cup(2002).#Departmental National Campionship (2014-2012) - 2nd Position, Departmental National Campionship (2006-2002)- 1st Position, Asian Cup (2002)- 1st Position, Senior National (2005-2003) -1st Position, Senior Federation Cup (2003)- 1st Position.#1#Koipaddy</string>
+    <string name="playerDesc16">Satish Kumar#Raider#Indian#Jan 27, 1990#06#Senior National -(2007,2008,2011,2015),Senior Federation Cup (2006), Beach Kabaddi National Campionship(2008).#Senior National (2007,2008,2011)- 1st Positon, Senior National (2015)- 2nd Position,Senior Federation (2006) - 3rd Position, Beach Kabaddi National Campionship (2008) - 1st Position.#31#Rohera</string>
+    <string name="playerDesc17">Mohammad Maghsoudlou##Indian#Jan 27, 1990#23#A#A#1#A</string>
+    <string name="playerDesc18">Hwangi Ahn##Indian#Jan 27, 1990#17#A#A#1#A</string>
 
 
     <string name="player1">1#Navneet Gautam#Defender</string>
@@ -49,10 +60,17 @@
     <string name="player5">5#Ran Singh#All Rounder</string>
     <string name="player6">6#Gangadhari Mallesh#Raider</string>
     <string name="player7">7#Rohit Rana#Defender</string>
-    <string name="player8">8#Sonu Narwal#Raider</string>
-    <string name="player9">9#Kuldeep Singh#All Rounder</string>
-    <string name="player10">10#Anil Patil#All Rounder</string>
-    <string name="player11">11#Rohit Kumar Prajapat#Raider</string>
+    <string name="player8">8#Samarjeet Singh#All Rounder</string>
+    <string name="player9">9#Sanjay Shrestha#All Rounder</string>
+    <string name="player10">10#Sonu Narwal#Raider</string>
+    <string name="player11">11#Kuldeep Singh#All Rounder</string>
+    <string name="player12">12#C. Arun#Defender</string>
+    <string name="player13">13#Anil Patil#All Rounder</string>
+    <string name="player14">14#Rohit Kumar Prajapat#Raider</string>
+    <string name="player15">15#Jagdeesha K.K#Defender</string>
+    <string name="player16">16#Satish Kumar#Raider</string>
+    <string name="player17">17#Mohammad Maghsoudlou#Raider</string>
+    <string name="player18">18#Hwangi Ahn#Raider</string>
 
     <string-array name="player">
         <item>@string/player1</item>
@@ -66,6 +84,13 @@
         <item>@string/player9</item>
         <item>@string/player10</item>
         <item>@string/player11</item>
+        <item>@string/player12</item>
+        <item>@string/player13</item>
+        <item>@string/player14</item>
+        <item>@string/player15</item>
+        <item>@string/player16</item>
+        <item>@string/player17</item>
+        <item>@string/player18</item>
     </string-array>
 
     <string-array name="playersDesc">
@@ -80,6 +105,13 @@
         <item>@string/playerDesc9</item>
         <item>@string/playerDesc10</item>
         <item>@string/playerDesc11</item>
+        <item>@string/playerDesc12</item>
+        <item>@string/playerDesc13</item>
+        <item>@string/playerDesc14</item>
+        <item>@string/playerDesc15</item>
+        <item>@string/playerDesc16</item>
+        <item>@string/playerDesc17</item>
+        <item>@string/playerDesc18</item>
     </string-array>
 
     <string-array name="playerImages">
@@ -94,6 +126,13 @@
         <item>@drawable/player_kuldeep</item>
         <item>@drawable/player_anil</item>
         <item>@drawable/player_rohit_kumar</item>
+        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_navneet</item>
     </string-array>
 
     <string name="title_activity_merchandise">MerchandiseActivity</string>

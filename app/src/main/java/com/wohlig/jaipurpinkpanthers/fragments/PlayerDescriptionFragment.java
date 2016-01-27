@@ -118,8 +118,8 @@ public class PlayerDescriptionFragment extends Fragment {
 
         String playerName = playerDetail.get(0);                //PlayerName
         String playerType = playerDetail.get(1);                //PlayerType
-        String playerNationality = playerDetail.get(2);         //PlayerNationality
-        String playerDob = playerDetail.get(3);                 //PlayerDob
+        String playerNationality = playerDetail.get(8);         //PlayerNationality
+        String playerDob = playerDetail.get(7);                 //PlayerDob
         String playerJerseyNum = playerDetail.get(4);           //PlayerJerseyNum
         //String playerDesc = playerDetail.get(5);              //PlayerDesc
 
