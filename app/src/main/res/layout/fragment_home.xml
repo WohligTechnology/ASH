@@ -99,7 +99,7 @@
                         android:layout_weight="2"
                         android:gravity="right"
                         android:paddingRight="30dp"
-                        android:text="35"
+                        android:text="--"
                         android:textColor="@android:color/white"
                         android:textIsSelectable="false"
                         android:textSize="50sp"/>
@@ -121,7 +121,7 @@
                         android:layout_weight="2"
                         android:gravity="left"
                         android:paddingLeft="30dp"
-                        android:text="24"
+                        android:text="--"
                         android:textColor="@android:color/white"
                         android:textSize="50sp"/>
                 </LinearLayout>
@@ -139,7 +139,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Wankhede Stadium, Mumbai"
+                        android:text="--"
                         android:textColor="@android:color/white"/>
 
                     <TextView
@@ -147,7 +147,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="30 JAN, 2016 20:00(IST)"
+                        android:text="--"
                         android:textColor="@android:color/white"/>
                 </LinearLayout>
 

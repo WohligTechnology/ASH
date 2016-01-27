@@ -4,25 +4,18 @@
               android:layout_height="wrap_content"
               android:orientation="vertical"
               android:background="@android:color/white"
-              android:paddingTop="5dp"
               android:paddingBottom="5dp"
               android:layout_marginTop="5dp"
               android:layout_marginBottom="5dp"
               android:onClick="newsDetail">
 
+
+    <!--android:src="@drawable/news"-->
     <ImageView
-        android:id="@+id/news_image"
+        android:id="@+id/ivNewsImage"
         android:layout_width="match_parent"
         android:layout_height="175dp"
-        android:src="@drawable/news"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
         android:maxHeight="175dp"
-        android:focusableInTouchMode="false"
-        android:baselineAlignBottom="false"
-        android:clickable="false"
-        android:focusable="false"
-        android:nestedScrollingEnabled="false"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
@@ -33,23 +26,23 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/news_title"
+            android:id="@+id/tvNewsTitle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center_vertical|start"
-            android:text="LOREM IPSUM:"
-            android:textSize="20sp"
+            android:text="--"
+            android:textSize="18sp"
             android:textColor="@color/jppNewsHeader"
             android:fontFamily="sans-serif-condensed"
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/news_date"
+            android:id="@+id/tvNewsDate"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical|end"
-            android:text="14 August 2015"
+            android:text="--"
             android:textColor="#77000000"
             android:fontFamily="sans-serif-condensed"
             android:layout_weight="1"/>
@@ -57,15 +50,15 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/news_desc"
+        android:id="@+id/tvNewsDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:text="@string/dummy"
-        android:textSize="16sp"
+        android:text="--"
+        android:textSize="14sp"
         android:textColor="@color/jppNewsDesc"
         android:fontFamily="sans-serif-condensed"
-        />
+        android:maxLength="100"/>
 
 </LinearLayout>

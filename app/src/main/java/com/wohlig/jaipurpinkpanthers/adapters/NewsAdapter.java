@@ -1,13 +1,11 @@
 package com.wohlig.jaipurpinkpanthers.adapters;
 
 import android.app.Activity;
-import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -18,27 +16,24 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.wohlig.jaipurpinkpanthers.R;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
+import com.wohlig.jaipurpinkpanthers.util.InternetOperations;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 /**
- * Created by Jay on 22-01-2016.
+ * Created by Jay on 27-01-2016.
  */
-public class PanthersAdapter extends BaseAdapter {
+public class NewsAdapter extends BaseAdapter {
     public ArrayList<HashMap<String, String>> list;
     Activity activity;
-    TypedArray playerImages;
     ImageLoader imageLoader;
     DisplayImageOptions options;
-    public PanthersAdapter(Activity activity, ArrayList<HashMap<String, String>> list) {
+
+    public NewsAdapter(Activity activity, ArrayList<HashMap<String, String>> list) {
         super();
         this.activity = activity;
         this.list = list;
-
-        playerImages = activity.getResources().obtainTypedArray(R.array.playerImages);
 
         imageLoader = ImageLoader.getInstance();
         options = new DisplayImageOptions.Builder().cacheInMemory(true)
@@ -77,9 +72,9 @@ public class PanthersAdapter extends BaseAdapter {
 
     private class ViewHolder {
         //all the fields in layout specified
-        ImageView player_image;
-        TextView player_name, player_type;
-        LinearLayout llPlayer;
+        ImageView ivNewsImage;
+        TextView tvNewsTitle, tvNewsDate, tvNewsDesc;
+
     }
 
     @Override
@@ -91,15 +86,16 @@ public class PanthersAdapter extends BaseAdapter {
 
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = inflater.inflate(R.layout.layout_player, null); //change the name of the layout
+            convertView = inflater.inflate(R.layout.layout_newsmain, null); //change the name of the layout
 
-            holder.player_image = (ImageView) convertView.findViewById(R.id.player_image); //find the different Views
-            holder.player_name = (TextView) convertView.findViewById(R.id.player_name);
-            holder.player_type = (TextView) convertView.findViewById(R.id.player_type);
-            holder.llPlayer = (LinearLayout) convertView.findViewById(R.id.llPlayer);
+            holder.ivNewsImage = (ImageView) convertView.findViewById(R.id.ivNewsImage); //find the different Views
+            holder.tvNewsTitle = (TextView) convertView.findViewById(R.id.tvNewsTitle);
+            holder.tvNewsDate = (TextView) convertView.findViewById(R.id.tvNewsDate);
+            holder.tvNewsDesc = (TextView) convertView.findViewById(R.id.tvNewsDesc);
 
-            holder.player_name.setTypeface(CustomFonts.getProfileFont(activity));
-            holder.player_type.setTypeface(CustomFonts.getProfileFont(activity));
+            holder.tvNewsTitle.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvNewsDate.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvNewsDesc.setTypeface(CustomFonts.getLightFont(activity));
 
             convertView.setTag(holder);
         } else {
@@ -109,20 +105,18 @@ public class PanthersAdapter extends BaseAdapter {
 
         HashMap<String, String> map = list.get(position);
 
-        String playerInfo = map.get("PlayerInfo");
-        List<String> playerInfoList = Arrays.asList(playerInfo.split("#"));
+        String id = map.get("id");
+        String title = map.get("title");
+        String date = map.get("date");
+        String desc = map.get("desc");
+        String image = map.get("image");
 
-        String playerId = playerInfoList.get(0);            //playerId
-        String playerName = playerInfoList.get(1);          //playerName
-        String playerType = playerInfoList.get(2);          //playerType
+        image = InternetOperations.SERVER_UPLOADS_URL + image;
+        holder.tvNewsTitle.setText(title);
+        holder.tvNewsDate.setText(date);
+        holder.tvNewsDesc.setText(desc);
 
-        String imageUri = "drawable://" + playerImages.getResourceId(position, -1);
-        imageLoader.displayImage(imageUri, holder.player_image,options);
-
-        holder.player_name.setText(playerName.toUpperCase());
-        holder.player_type.setText(playerType.toUpperCase());
-
-        holder.llPlayer.setTag(playerId+"#"+playerName);
+        imageLoader.displayImage(image, holder.ivNewsImage, options);
 
         return convertView;
     }

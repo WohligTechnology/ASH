@@ -28,7 +28,7 @@ public class PointsFragment extends Fragment {
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
     ListView lvTeams;
-    ArrayList<HashMap<String,String>> list;
+    ArrayList<HashMap<String, String>> list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +51,7 @@ public class PointsFragment extends Fragment {
 
     public void initilizeViews() {
 
-        list=new ArrayList<HashMap<String, String>>();
+        list = new ArrayList<HashMap<String, String>>();
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);
         tvTeam = (TextView) view.findViewById(R.id.tvTeam);
@@ -68,86 +68,75 @@ public class PointsFragment extends Fragment {
         tvL.setTypeface(CustomFonts.getRegularFont(getActivity()));
         tvPts.setTypeface(CustomFonts.getRegularFont(getActivity()));
 
-        getData();
-
-        populate("1", "Jaipur Pink Panthers", "5", "4", "1", "8");
-        populate("2", "Telugu Titans", "2", "1", "1", "2");
-        populate("3", "Bengaluru Bulls", "4", "3","1","6");
-        populate("4", "Puneri Paltan", "6", "2","5","2");
-        populate("5", "Dabang Delhi","5","0","5","0");
-        //populate();
-        Log.e("JPP listSize", String.valueOf(list.size()));
-        if(list.size()>0) {
-            PointsAdapter pointsAdapter = new PointsAdapter(getActivity(), list);
-            lvTeams.setAdapter(pointsAdapter);
-        }
-        else{
-            //istView.setEmptyView(tvNoBets);
-        }
+        getPointsTableData();
     }
 
-    /*public void populate(){
-        for(int i=1; i <6 ; i++){
-            HashMap<String,String> map = new HashMap<String,String>();
-            map.put("tvNo",String.valueOf(i));
-            map.put("tvTeam","Jaipur Pink Panthers");
-            map.put("tvP","5");
-            map.put("tvW","4");
-            map.put("tvL","1");
-            map.put("tvPts","8");
-            list.add(map);
-        }
-    }*/
-
-    public void getData(){
+    public void getPointsTableData() {
 
         new AsyncTask<Void, Void, String>() {
-
             @Override
             protected String doInBackground(Void... params) {
 
                 if (Looper.myLooper() == null) {
                     Looper.prepare();
                 }
-
+                String response;
+                JSONArray jsonArray = null;
                 try {
-                    String response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getallpoint");
+                    response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getallpoint");
 
-                    //JSONArray jsonArray = new JSONArray(response);
-                    JSONObject jsonObject = new JSONObject(response);
-
-                    Log.e("JPP Obj", jsonObject.optString("queryresult"));
-
-                    JSONArray jsonArray = new JSONArray(jsonObject.optString("queryresult"));
+                    jsonArray = new JSONArray(response);
 
                     Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
+                    Log.e("JPP Arr string", jsonArray.toString());
 
-                }catch(IOException io){
-                    io.printStackTrace();
-                    Log.e("JPP", io.getStackTrace().toString());
+                    if (jsonArray.length() != 0) {
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            String id = String.valueOf(i + 1);
+                            String name = jsonObject.optString("name");
+                            String p = jsonObject.optString("played");
+                            String w = jsonObject.optString("wins");
+                            String l = jsonObject.optString("lost");
+                            String points = jsonObject.optString("point");
+                            populate(id, name, p, w, l, points);
+                        }
+                    }
+
+                } catch (IOException io) {
                     Log.e("JPP", Log.getStackTraceString(io));
-                }catch(JSONException je){
-                    Log.e("JPP", "JE");
+                } catch (JSONException je) {
+                    Log.e("JPP", Log.getStackTraceString(je));
                 }
                 return null;
             }
 
             @Override
             protected void onPostExecute(String s) {
-
+                refresh();
             }
         }.execute(null, null, null);
 
     }
 
-    public void populate(String n, String team, String p, String w, String l, String pts){
-            HashMap<String,String> map = new HashMap<String,String>();
-            map.put("tvNo",n);
-            map.put("tvTeam",team);
-            map.put("tvP",p);
-            map.put("tvW",w);
-            map.put("tvL",l);
-            map.put("tvPts",pts);
-            list.add(map);
+    public void refresh(){
+        if (list.size() > 0) {
+            PointsAdapter pointsAdapter = new PointsAdapter(getActivity(), list);
+            lvTeams.setAdapter(pointsAdapter);
+        } else {
+            //istView.setEmptyView(tvNoBets);
+        }
+    }
+
+    public void populate(String n, String team, String p, String w, String l, String pts) {
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("tvNo", n);
+        map.put("tvTeam", team);
+        map.put("tvP", p);
+        map.put("tvW", w);
+        map.put("tvL", l);
+        map.put("tvPts", pts);
+        list.add(map);
     }
 }
