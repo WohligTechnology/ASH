@@ -64,7 +64,6 @@ public class PointsActitivy extends ActionBarActivity
             mNavigationDrawerFragment.closeDrawer();
 
         initializeViews();
-
     }
 
     @Override

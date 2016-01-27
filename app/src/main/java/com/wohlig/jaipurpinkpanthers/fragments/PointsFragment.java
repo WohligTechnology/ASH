@@ -1,7 +1,9 @@
 package com.wohlig.jaipurpinkpanthers.fragments;
 
 import android.app.Fragment;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +14,13 @@ import android.widget.TextView;
 import com.wohlig.jaipurpinkpanthers.R;
 import com.wohlig.jaipurpinkpanthers.adapters.PointsAdapter;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
+import com.wohlig.jaipurpinkpanthers.util.InternetOperations;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,6 +37,14 @@ public class PointsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_points, container, false);
 
         initilizeViews();
+
+        /*final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                json();
+            }
+        }, 1000);*/
 
         return view;
     }
@@ -51,6 +67,8 @@ public class PointsFragment extends Fragment {
         tvW.setTypeface(CustomFonts.getRegularFont(getActivity()));
         tvL.setTypeface(CustomFonts.getRegularFont(getActivity()));
         tvPts.setTypeface(CustomFonts.getRegularFont(getActivity()));
+
+        getData();
 
         populate("1", "Jaipur Pink Panthers", "5", "4", "1", "8");
         populate("2", "Telugu Titans", "2", "1", "1", "2");
@@ -80,6 +98,47 @@ public class PointsFragment extends Fragment {
             list.add(map);
         }
     }*/
+
+    public void getData(){
+
+        new AsyncTask<Void, Void, String>() {
+
+            @Override
+            protected String doInBackground(Void... params) {
+
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
+
+                try {
+                    String response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getallpoint");
+
+                    //JSONArray jsonArray = new JSONArray(response);
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    Log.e("JPP Obj", jsonObject.optString("queryresult"));
+
+                    JSONArray jsonArray = new JSONArray(jsonObject.optString("queryresult"));
+
+                    Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
+
+                }catch(IOException io){
+                    io.printStackTrace();
+                    Log.e("JPP", io.getStackTrace().toString());
+                    Log.e("JPP", Log.getStackTraceString(io));
+                }catch(JSONException je){
+                    Log.e("JPP", "JE");
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+
+            }
+        }.execute(null, null, null);
+
+    }
 
     public void populate(String n, String team, String p, String w, String l, String pts){
             HashMap<String,String> map = new HashMap<String,String>();
