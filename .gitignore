@@ -35,4 +35,3 @@ build/
 #NDK
 obj/
 .idea/workspace.xml
-app/app.iml
