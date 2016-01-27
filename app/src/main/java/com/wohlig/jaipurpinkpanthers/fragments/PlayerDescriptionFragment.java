@@ -23,7 +23,7 @@ public class PlayerDescriptionFragment extends Fragment {
     private View view;
     private LinearLayout llPlayerDesc;
     private ImageView ivPlayer;
-    private TextView tvName, tvType, tvNationality, tvDOB, tvJerseyNo, tvDesc, tvNat, tvBorn, tvJer;
+    private TextView tvName, tvType, tvNationality, tvDOB, tvJerseyNo, tvDesc, tvNat, tvBorn, tvJer, tvTour, tvTourDesc, tvAchieve, tvAchieveDesc;
     private Activity activity;
 
 
@@ -83,22 +83,30 @@ public class PlayerDescriptionFragment extends Fragment {
         tvNationality = (TextView) llPlayerDesc.findViewById(R.id.tvNationality);
         tvDOB = (TextView) llPlayerDesc.findViewById(R.id.tvDOB);
         tvJerseyNo = (TextView) llPlayerDesc.findViewById(R.id.tvJerseyNo);
-        tvDesc = (TextView) llPlayerDesc.findViewById(R.id.tvDesc);
+        //tvDesc = (TextView) llPlayerDesc.findViewById(R.id.tvDesc);
+        tvTourDesc = (TextView) llPlayerDesc.findViewById(R.id.tvTourDesc);
+        tvAchieveDesc = (TextView) llPlayerDesc.findViewById(R.id.tvAchieveDesc);
 
         tvNat = (TextView) llPlayerDesc.findViewById(R.id.tvNat);
         tvBorn = (TextView) llPlayerDesc.findViewById(R.id.tvBorn);
         tvJer = (TextView) llPlayerDesc.findViewById(R.id.tvJer);
+        tvTour = (TextView) llPlayerDesc.findViewById(R.id.tvTour);
+        tvAchieve = (TextView) llPlayerDesc.findViewById(R.id.tvAchieve);
 
         tvName.setTypeface(CustomFonts.getProfileFont(activity));
         tvType.setTypeface(CustomFonts.getProfileFont(activity));
         tvNationality.setTypeface(CustomFonts.getLightFont(activity));
         tvDOB.setTypeface(CustomFonts.getLightFont(activity));
         tvJerseyNo.setTypeface(CustomFonts.getLightFont(activity));
-        tvDesc.setTypeface(CustomFonts.getLightFont(activity));
+        //tvDesc.setTypeface(CustomFonts.getLightFont(activity));
+        tvTourDesc.setTypeface(CustomFonts.getLightFont(activity));
+        tvAchieveDesc.setTypeface(CustomFonts.getLightFont(activity));
 
         tvNat.setTypeface(CustomFonts.getRegularFont(activity));
         tvBorn.setTypeface(CustomFonts.getRegularFont(activity));
         tvJer.setTypeface(CustomFonts.getRegularFont(activity));
+        tvTour.setTypeface(CustomFonts.getRegularFont(activity));
+        tvAchieve.setTypeface(CustomFonts.getRegularFont(activity));
     }
 
     public void getPlayerDetails(int id) {
@@ -113,17 +121,26 @@ public class PlayerDescriptionFragment extends Fragment {
         String playerNationality = playerDetail.get(2);         //PlayerNationality
         String playerDob = playerDetail.get(3);                 //PlayerDob
         String playerJerseyNum = playerDetail.get(4);           //PlayerJerseyNum
-        String playerDesc = playerDetail.get(5);                //PlayerDesc
+        //String playerDesc = playerDetail.get(5);              //PlayerDesc
+
+        String playerTourDesc = playerDetail.get(5);            //PlayerTour
+        String playerAchieveDesc = playerDetail.get(6);         //PlayerAchieve
+        // String playerAge = playerDetail.get(7);              //PlayerAge
 
         TypedArray playerImages = getActivity().getResources().obtainTypedArray(R.array.playerImages);
 
         ivPlayer.setImageResource(playerImages.getResourceId(id-1, 0));
 
         tvName.setText(playerName);
+        tvType.setText(playerType);
         tvNationality.setText(playerNationality);
         tvDOB.setText(playerDob);
         tvJerseyNo.setText(playerJerseyNum);
-        tvDesc.setText(playerDesc);
+        // tvDesc.setText(playerDesc);
+        tvTourDesc.setText(playerTourDesc);
+        tvAchieveDesc.setText(playerAchieveDesc);
+
+        // tvAge.setText(playerAge);
 
         playerImages.recycle();
     }
