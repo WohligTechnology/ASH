@@ -10,9 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.wohlig.jaipurpinkpanthers.R;
+import com.wohlig.jaipurpinkpanthers.adapters.PointsAdapter;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 import com.wohlig.jaipurpinkpanthers.util.InternetOperations;
 
@@ -21,15 +29,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HomeFragment extends Fragment {
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
     LinearLayout llLatestUpdate, llNews, llTable;
-    ImageView ivT1, ivT2;
+    ImageView ivT1, ivT2, ivNews;
     TextView tvS1, tvS2, tvCo, tvVenue, tvTime;
     TextView tvNewsHead, tvNewsDesc, tvNewsDate, tvNewsRead;
-    JSONArray latestUpdate = null, news = null;
+    String newsTitle = null, newsImage = null, newsTime = null, newsContent = null;
+    String imageLink = null;
+    ImageLoader imageLoader;
+    DisplayImageOptions options;
+    ArrayList<HashMap<String, String>> list;
+    String team1 = null, team2 = null, team1Pts = null, team2Pts = null, venue = null, time = null;
+    ListView lvTeams;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,12 +53,34 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        imageLoader = ImageLoader.getInstance();
+        options = new DisplayImageOptions.Builder().cacheInMemory(true)
+                .cacheOnDisc(true).resetViewBeforeLoading(true).build();
+
+        // UNIVERSAL IMAGE LOADER SETUP
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheOnDisc(true).cacheInMemory(true)
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .displayer(new FadeInBitmapDisplayer(300)).build();
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+                getActivity())
+                .defaultDisplayImageOptions(defaultOptions)
+                .memoryCache(new WeakMemoryCache())
+                .discCacheSize(100 * 1024 * 1024).build();
+
+        ImageLoader.getInstance().init(config);
+        // END - UNIVERSAL IMAGE LOADER SETUP
+
         initilizeViews();
 
         return view;
     }
 
     public void initilizeViews() {
+
+        list = new ArrayList<HashMap<String, String>>();
+        lvTeams = (ListView) view.findViewById(R.id.lvTeams);
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);
         tvTeam = (TextView) view.findViewById(R.id.tvTeam);
@@ -93,6 +131,7 @@ public class HomeFragment extends Fragment {
         tvNewsDesc = (TextView) view.findViewById(R.id.tvNewsDesc);
         tvNewsDate = (TextView) view.findViewById(R.id.tvNewsDate);
         tvNewsRead = (TextView) view.findViewById(R.id.tvNewsRead);
+        ivNews = (ImageView) view.findViewById(R.id.ivNews);
 
         tvNewsHead.setTypeface(CustomFonts.getBoldFont(getActivity()));
         tvNewsDesc.setTypeface(CustomFonts.getLightFont(getActivity()));
@@ -102,7 +141,6 @@ public class HomeFragment extends Fragment {
         getHomeContentData();
     }
 
-    String team1 = null, team2 = null, team1Pts = null, team2Pts = null, venue = null, time = null;
 
     public void getHomeContentData() {
 
@@ -115,33 +153,78 @@ public class HomeFragment extends Fragment {
                 }
                 String response;
                 JSONObject jsonObject = null;
-                //JSONArray jsonArray = null;
+
                 try {
                     response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getHomeContent");
 
                     jsonObject = new JSONObject(response);
 
-                    //jsonArray = new JSONArray(response);
-
-                            /*"id": "1",
-                            "stadium": "Wankhede Stadium, Mumbai",
-                            "team1": "Jaipur Pink Panther",
-                            "team2": "Patna Pirates",
-                            "bookticket": "",
-                            "timestamp": "2016-01-27 12:26:26",
-                            "starttime": "03:05:00",
-                            "score1": "23",
-                            "score2": "34",
-                            "startdate": "28th January 2016"*/
-
                     JSONObject latestUpdate = new JSONObject(jsonObject.optString("latestupdate"));
-                    //latestUpdate = jsonArray.getJSONObject(0);
                     team1 = latestUpdate.optString("team1");
                     team2 = latestUpdate.optString("team2");
                     team1Pts = latestUpdate.optString("score1");
                     team2Pts = latestUpdate.optString("score1");
                     venue = latestUpdate.optString("stadium");
                     time = latestUpdate.optString("starttimedate");
+
+                    JSONObject latestNews = new JSONObject(jsonObject.optString("news"));
+                    newsTitle = latestNews.optString("name");
+                    newsImage = latestNews.optString("image");
+                    newsTime = latestNews.optString("timestamp");
+                    newsContent = latestNews.optString("content");
+                    imageLink = InternetOperations.SERVER_UPLOADS_URL + newsImage;
+
+                    /*JSONObject jjj = new JSONObject(jsonObject.optString("news"));
+
+                    JSONArray yay = new JSONArray(jsonObject.getJSONArray("news"));
+                    //jjj.length();
+                    for(int j = 0; j <jjj.length(); j++){
+
+                        JSONArray jsonArray = new JSONArray(jjj.);
+
+                        Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
+                        Log.e("JPP Arr string", jsonArray.toString());
+
+                        if (jsonArray.length() != 0) {
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObjectPts = jsonArray.getJSONObject(i);
+                                String id = String.valueOf(i + 1);
+                                String name = jsonObjectPts.optString("name");
+                                String p = jsonObjectPts.optString("played");
+                                String w = jsonObjectPts.optString("wins");
+                                String l = jsonObjectPts.optString("lost");
+                                String points = jsonObjectPts.optString("point");
+                                populate(id, name, p, w, l, points);
+                            }
+                        }
+
+                    }*/
+
+                    //JSONObject jjj = new JSONObject(jsonObject.optString("news"));
+
+                    //String yo = jsonObject.optString("news");
+                    //Log.e("JPP", yo);
+
+                    JSONArray jsonArray = new JSONArray(jsonObject.getJSONArray("points"));
+
+                    Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
+                    Log.e("JPP Arr string", jsonArray.toString());
+
+                    if (jsonArray.length() != 0) {
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObjectPts = jsonArray.getJSONObject(i);
+                            String id = String.valueOf(i + 1);
+                            String name = jsonObjectPts.optString("name");
+                            String p = jsonObjectPts.optString("played");
+                            String w = jsonObjectPts.optString("wins");
+                            String l = jsonObjectPts.optString("lost");
+                            String points = jsonObjectPts.optString("point");
+                            populate(id, name, p, w, l, points);
+                        }
+                    }
+
 
                 } catch (IOException io) {
                     Log.e("JPP", Log.getStackTraceString(io));
@@ -163,5 +246,29 @@ public class HomeFragment extends Fragment {
         tvS2.setText(team2Pts);
         tvVenue.setText(venue);
         tvTime.setText(time+"(IST)");
+
+        tvNewsHead.setText(newsTitle);
+        tvNewsDesc.setText(newsContent);
+        tvNewsDate.setText(newsTime);
+
+        imageLoader.displayImage(imageLink, ivNews, options);
+
+        if (list.size() > 0) {
+            PointsAdapter pointsAdapter = new PointsAdapter(getActivity(), list);
+            lvTeams.setAdapter(pointsAdapter);
+        } else {
+            //istView.setEmptyView(tvNoBets);
+        }
+    }
+
+    public void populate(String n, String team, String p, String w, String l, String pts) {
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("tvNo", n);
+        map.put("tvTeam", team);
+        map.put("tvP", p);
+        map.put("tvW", w);
+        map.put("tvL", l);
+        map.put("tvPts", pts);
+        list.add(map);
     }
 }

@@ -185,7 +185,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:id="@+id/imageView12"
+                        android:id="@+id/ivNews"
                         android:layout_weight="1"
                         android:background="@drawable/jpp"
                         android:scaleType="centerCrop"/>
@@ -201,7 +201,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Team sponsorship might go up by 100%"
+                            android:text="--"
                             android:id="@+id/tvNewsHead"
                             android:textSize="17sp"
                             android:textColor="@color/jppProfileType"/>
@@ -210,7 +210,7 @@
                             android:paddingTop="8dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/dummy"
+                            android:text="--"
                             android:id="@+id/tvNewsDesc"
                             android:maxLength="150"/>
                     </LinearLayout>
@@ -228,7 +228,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="30 Jan, 2016"
+                        android:text="--"
                         android:id="@+id/tvNewsDate"
                         android:paddingRight="10dp"/>
                 </LinearLayout>
@@ -347,8 +347,14 @@
                             android:textColor="@android:color/white"/>
                     </LinearLayout>
 
+                    <ListView
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/lvTeams"/>
 
-                    <include
+                    <!--<include
                         layout="@layout/layout_points_row"/>
 
                     <include
@@ -358,7 +364,7 @@
                         layout="@layout/layout_points_row"/>
 
                     <include
-                        layout="@layout/layout_points_row"/>
+                        layout="@layout/layout_points_row"/>-->
 
                 </LinearLayout>
 

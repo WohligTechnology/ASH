@@ -76,39 +76,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/vfGallery"
-            android:layout_below="@+id/linearLayout"
-            android:padding="10dp">
-
+            android:layout_below="@+id/linearLayout">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
-                <include
+                <ListView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    layout="@layout/layout_gallery_one"/>
-
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    layout="@layout/layout_gallery_one"/>
+                    android:id="@+id/lvPhotos"
+                    android:dividerHeight="10dp"
+                    android:scrollbars="none"
+                    android:divider="@color/jppPrimaryColor"
+                    android:padding="10dp"/>
 
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <ListView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Videos"
-                    android:id="@+id/textView7"/>
-            </RelativeLayout>
+                    android:id="@+id/lvVideos"
+                    android:dividerHeight="10dp"
+                    android:scrollbars="none"
+                    android:divider="@color/jppPrimaryColor"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
         </ViewFlipper>
 
 
