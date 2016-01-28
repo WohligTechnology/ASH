@@ -20,7 +20,6 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.wohlig.jaipurpinkpanthers.R;
-import com.wohlig.jaipurpinkpanthers.adapters.PointsAdapter;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 import com.wohlig.jaipurpinkpanthers.util.InternetOperations;
 
@@ -35,7 +34,7 @@ import java.util.HashMap;
 public class HomeFragment extends Fragment {
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
-    LinearLayout llLatestUpdate, llNews, llTable;
+    LinearLayout llLatestUpdate, llNews, llTable, llPoints;
     ImageView ivT1, ivT2, ivNews;
     TextView tvS1, tvS2, tvCo, tvVenue, tvTime;
     TextView tvNewsHead, tvNewsDesc, tvNewsDate, tvNewsRead;
@@ -44,7 +43,7 @@ public class HomeFragment extends Fragment {
     ImageLoader imageLoader;
     DisplayImageOptions options;
     ArrayList<HashMap<String, String>> list;
-    String team1 = null, team2 = null, team1Pts = null, team2Pts = null, venue = null, time = null;
+    String team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null;
     ListView lvTeams;
 
     @Override
@@ -81,6 +80,7 @@ public class HomeFragment extends Fragment {
 
         list = new ArrayList<HashMap<String, String>>();
         lvTeams = (ListView) view.findViewById(R.id.lvTeams);
+        llPoints = (LinearLayout) view.findViewById(R.id.llPoints);
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);
         tvTeam = (TextView) view.findViewById(R.id.tvTeam);
@@ -174,39 +174,8 @@ public class HomeFragment extends Fragment {
                     newsContent = latestNews.optString("content");
                     imageLink = InternetOperations.SERVER_UPLOADS_URL + newsImage;
 
-                    /*JSONObject jjj = new JSONObject(jsonObject.optString("news"));
-
-                    JSONArray yay = new JSONArray(jsonObject.getJSONArray("news"));
-                    //jjj.length();
-                    for(int j = 0; j <jjj.length(); j++){
-
-                        JSONArray jsonArray = new JSONArray(jjj.);
-
-                        Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
-                        Log.e("JPP Arr string", jsonArray.toString());
-
-                        if (jsonArray.length() != 0) {
-
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObjectPts = jsonArray.getJSONObject(i);
-                                String id = String.valueOf(i + 1);
-                                String name = jsonObjectPts.optString("name");
-                                String p = jsonObjectPts.optString("played");
-                                String w = jsonObjectPts.optString("wins");
-                                String l = jsonObjectPts.optString("lost");
-                                String points = jsonObjectPts.optString("point");
-                                populate(id, name, p, w, l, points);
-                            }
-                        }
-
-                    }*/
-
-                    //JSONObject jjj = new JSONObject(jsonObject.optString("news"));
-
-                    //String yo = jsonObject.optString("news");
-                    //Log.e("JPP", yo);
-
-                    JSONArray jsonArray = new JSONArray(jsonObject.getJSONArray("points"));
+                    String jObjectString = jsonObject.optString("points");
+                    JSONArray jsonArray = new JSONArray(jObjectString);
 
                     Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
                     Log.e("JPP Arr string", jsonArray.toString());
@@ -245,7 +214,9 @@ public class HomeFragment extends Fragment {
         tvS1.setText(team1Pts);
         tvS2.setText(team2Pts);
         tvVenue.setText(venue);
-        tvTime.setText(time+"(IST)");
+
+        if(time != null)
+            tvTime.setText(time+"(IST)");
 
         tvNewsHead.setText(newsTitle);
         tvNewsDesc.setText(newsContent);
@@ -254,8 +225,44 @@ public class HomeFragment extends Fragment {
         imageLoader.displayImage(imageLink, ivNews, options);
 
         if (list.size() > 0) {
-            PointsAdapter pointsAdapter = new PointsAdapter(getActivity(), list);
-            lvTeams.setAdapter(pointsAdapter);
+
+            for(int i = 0; i < list.size(); i++) {
+                LayoutInflater inflator = getActivity().getLayoutInflater();
+                View viewPointsRow = inflator.inflate(R.layout.layout_points_row, null, false);
+
+                TextView tvNo = (TextView) viewPointsRow.findViewById(R.id.tvNo); //find the different Views
+                TextView tvTeam = (TextView) viewPointsRow.findViewById(R.id.tvTeam);
+                TextView tvP = (TextView) viewPointsRow.findViewById(R.id.tvP);
+                TextView tvW = (TextView) viewPointsRow.findViewById(R.id.tvW);
+                TextView tvL = (TextView) viewPointsRow.findViewById(R.id.tvL);
+                TextView tvPts = (TextView) viewPointsRow.findViewById(R.id.tvPts);
+
+                tvNo.setTypeface(CustomFonts.getLightFont(getActivity()));
+                tvTeam.setTypeface(CustomFonts.getLightFont(getActivity()));
+                tvP.setTypeface(CustomFonts.getLightFont(getActivity()));
+                tvW.setTypeface(CustomFonts.getLightFont(getActivity()));
+                tvL.setTypeface(CustomFonts.getLightFont(getActivity()));
+                tvPts.setTypeface(CustomFonts.getLightFont(getActivity()));
+
+                HashMap<String, String> map = list.get(i);
+
+                String no = map.get("tvNo");
+                String team = map.get("tvTeam");
+                String p = map.get("tvP");
+                String w = map.get("tvW");
+                String l = map.get("tvL");
+                String pts = map.get("tvPts");
+
+                tvNo.setText(no);
+                tvTeam.setText(team);
+                tvP.setText(p);
+                tvW.setText(w);
+                tvL.setText(l);
+                tvPts.setText(pts);
+
+                llPoints.addView(viewPointsRow);
+            }
+
         } else {
             //istView.setEmptyView(tvNoBets);
         }
