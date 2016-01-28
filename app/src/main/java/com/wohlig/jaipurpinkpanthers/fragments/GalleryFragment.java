@@ -16,6 +16,7 @@ import android.widget.ViewFlipper;
 import com.wohlig.jaipurpinkpanthers.MainActivity;
 import com.wohlig.jaipurpinkpanthers.R;
 import com.wohlig.jaipurpinkpanthers.adapters.GalleryAdapter;
+import com.wohlig.jaipurpinkpanthers.adapters.VideoAdapter;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 import com.wohlig.jaipurpinkpanthers.util.InternetOperations;
 
@@ -35,6 +36,7 @@ public class GalleryFragment extends Fragment {
     TextView tvPhotos, tvVideos;
     ListView lvPhotos, lvVideos;
     ArrayList<HashMap<String, String>> list;
+    ArrayList<HashMap<String, String>> listVideo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,6 +69,7 @@ public class GalleryFragment extends Fragment {
         vfGallery.setFlipInterval(500);
 
         list = new ArrayList<HashMap<String, String>>();
+        listVideo = new ArrayList<HashMap<String, String>>();
         lvPhotos = (ListView) view.findViewById(R.id.lvPhotos);
         lvVideos = (ListView) view.findViewById(R.id.lvVideos);
 
@@ -134,6 +137,39 @@ public class GalleryFragment extends Fragment {
                 } catch (JSONException je) {
                     Log.e("JPP", Log.getStackTraceString(je));
                 }
+
+
+                JSONArray jsonArrayVideo = null;
+                try {
+                    String res = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getAllVideoGallery");
+
+                    jsonArrayVideo = new JSONArray(res);
+
+                    for (int j = 0; j < jsonArray.length(); j++) {
+
+                        String id = null, url = null, name = null;
+
+                                /*"id": "1",
+                                "order": "1",
+                                "name": "The Fun Side of Our Panthers",
+                                "image": "",
+                                "url": "UDU09A-N4bU"*/
+
+                        JSONObject jsonObject = jsonArrayVideo.getJSONObject(j);
+                        name = jsonObject.optString("name");
+                        url = jsonObject.optString("url");
+
+                        populateVideo(name, url);
+                    }
+
+
+                } catch (IOException io) {
+                    Log.e("JPP", Log.getStackTraceString(io));
+                } catch (JSONException je) {
+                    Log.e("JPP", Log.getStackTraceString(je));
+                }
+
+
                 return null;
             }
 
@@ -152,6 +188,14 @@ public class GalleryFragment extends Fragment {
         } else {
             //istView.setEmptyView(tvNoBets);
         }
+
+        if (listVideo.size() > 0) {
+            VideoAdapter videoAdapter = new VideoAdapter(getActivity(), listVideo);
+            lvVideos.setAdapter(videoAdapter);
+        } else {
+            //istView.setEmptyView(tvNoBets);
+        }
+
     }
 
     public void populate(String id, String name, String image) {
@@ -160,5 +204,12 @@ public class GalleryFragment extends Fragment {
         map.put("title", name);
         map.put("image", image);
         list.add(map);
+    }
+
+    public void populateVideo(String name, String url) {
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("title", name);
+        map.put("url", url);
+        listVideo.add(map);
     }
 }

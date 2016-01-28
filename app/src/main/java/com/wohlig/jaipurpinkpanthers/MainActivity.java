@@ -507,4 +507,11 @@ public class MainActivity extends ActionBarActivity
         startActivity(intent);
     }
 
+    public void goToYoutube(View v){
+        String tag = v.getTag().toString();
+        Intent intent = new Intent(MainActivity.this, WebActivity.class);
+        intent.putExtra("webLink", tag);
+        startActivity(intent);
+    }
+
 }
