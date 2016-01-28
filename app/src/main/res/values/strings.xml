@@ -47,10 +47,10 @@
     <string name="playerDesc12">C. Arun#Defender#Indian#Jan 27, 1990#03#Pro-Kabaddi (2015),All India University (2012), Senior National (2015).#All India University (2012) - 1st Position.#22#Thiruvarur</string>
     <string name="playerDesc13">Anil Patil#All Rounder#Indian#Jan 27, 1990#01#Senior National- (2007-2009,2011-2012), Departmental National (2006,2010,2013-2015)#Senior National(2007)-1st Position,Senior National (2011, 2012)- 3rd Position ,Departmental National (2014)- 3rd Position.#33#Mumbai</string>
     <string name="playerDesc14">Rohit Kumar Prajapat#Raider#Indian#Jan 27, 1990#14#Pro-Kabaddi (2015), Under 20 Junior National (2012-14), All India University kabbadi tournament(2014), Under 19 School National(2012), Under 16 Sub Juniour National(2011), Junior National Federation cup (2014), Senior West Zone (2015)#Sub Junior National Under 16  (2012) - 2nd Position, Under 19 School national (2012)- 3rd PositionJunior National Federation Cup (2014)- 3rd Position, Senior West Zone (2015) - 3rd Position.#19#Jaipur</string>
-    <string name="playerDesc15">Jagdeesha K.K#Defender#Indian#Jan 27, 1990#09#Departmental National Campionship- (2015-1999),Senior National (2013-1999),National Games (2003-1999), Senior Federation Cup (2006-2003), Asian Cup(2002).#Departmental National Campionship (2014-2012) - 2nd Position, Departmental National Campionship (2006-2002)- 1st Position, Asian Cup (2002)- 1st Position, Senior National (2005-2003) -1st Position, Senior Federation Cup (2003)- 1st Position.#1#Koipaddy</string>
+    <string name="playerDesc15">Jagdeesha K.K#Defender#Indian#Jan 27, 1990#09#Departmental National Campionship- (2015-1999),Senior National (2013-1999),National Games (2003-1999), Senior Federation Cup (2006-2003), Asian Cup(2002).#Departmental National Campionship (2014-2012) - 2nd Position, Departmental National Campionship (2006-2002)- 1st Position, Asian Cup (2002)- 1st Position, Senior National (2005-2003) -1st Position, Senior Federation Cup (2003)- 1st Position.#41#Koipaddy</string>
     <string name="playerDesc16">Satish Kumar#Raider#Indian#Jan 27, 1990#06#Senior National -(2007,2008,2011,2015),Senior Federation Cup (2006), Beach Kabaddi National Campionship(2008).#Senior National (2007,2008,2011)- 1st Positon, Senior National (2015)- 2nd Position,Senior Federation (2006) - 3rd Position, Beach Kabaddi National Campionship (2008) - 1st Position.#31#Rohera</string>
-    <string name="playerDesc17">Mohammad Maghsoudlou##Indian#Jan 27, 1990#23#A#A#1#A</string>
-    <string name="playerDesc18">Hwangi Ahn##Indian#Jan 27, 1990#17#A#A#1#A</string>
+    <string name="playerDesc17">Mohammad Maghsoudlou#All Rounder#Indian#Jan 27, 1990#23#A#Asian Indoor Kabaddi Games Incheon (2014)-2nd Position, Asian Beach Kabaddi Games China (2012)-1st Position, National Kabaddi Championship (2008,2009,2010,2011,2012)-1st Position, National Kabaddi Premier League (2006,2007)-1st Position#25#Gorgan</string>
+    <string name="playerDesc18">Hwangi Ahn#A#Indian#Jan 27, 1990#17#A#Incheon indoor game- Bronze Medal, National Championship (2011,2012,2013)-2nd Position, Asian Games (2014)- Bronze Medal#32#Gyoung Ju</string>
 
 
     <string name="player1">1#Navneet Gautam#Defender</string>
@@ -122,17 +122,17 @@
         <item>@drawable/player_ran_singh</item>
         <item>@drawable/player_gangadhari</item>
         <item>@drawable/player_rohit_rana</item>
-        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_samarjeet</item>
         <item>@drawable/player_navneet</item>
         <item>@drawable/player_sonu</item>
         <item>@drawable/player_kuldeep</item>
-        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_carun</item>
         <item>@drawable/player_anil</item>
         <item>@drawable/player_rohit_kumar</item>
-        <item>@drawable/player_navneet</item>
-        <item>@drawable/player_navneet</item>
-        <item>@drawable/player_navneet</item>
-        <item>@drawable/player_navneet</item>
+        <item>@drawable/player_jagdeesha</item>
+        <item>@drawable/player_satish</item>
+        <item>@drawable/player_mohammad</item>
+        <item>@drawable/player_hwangi</item>
     </string-array>
 
     <string-array name="teamLogo">
@@ -150,5 +150,6 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_points_actitivy">PointsActitivy</string>
     <string name="title_activity_web">WebActivity</string>
+    <string name="title_activity_wallpaper">WallpaperActivity</string>
 
 </resources>
