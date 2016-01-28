@@ -125,7 +125,14 @@ public class MerchandiseActivity extends ActionBarActivity
 
         }
         if (position == 6) { // wallpaper
-
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MerchandiseActivity.this, WallpaperActivity.class));
+                    finish();
+                }
+            }, 300);
         }
         if (position == 7) { // points table
             final Handler handler = new Handler();

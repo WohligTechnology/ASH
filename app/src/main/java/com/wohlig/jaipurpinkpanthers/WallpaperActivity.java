@@ -49,7 +49,7 @@ public class WallpaperActivity extends ActionBarActivity
 
         //tvToolbarText.setVisibility(View.GONE);
         ivToolbarImage.setVisibility(View.GONE);
-        tvToolbarText.setText("WALLPAPER");
+        tvToolbarText.setText("WALLPAPERS");
 
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/

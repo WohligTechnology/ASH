@@ -166,100 +166,11 @@
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
-                    <!-- one -->
                     <LinearLayout
+                        android:id="@+id/llSchedule"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/jppPrimaryColor"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textView11"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="U Mumba  vs bengaluru"
-                                android:textAllCaps="true"
-                                android:textColor="@color/jppAccentColor"
-                                android:textSize="16sp"/>
-
-                            <TextView
-                                android:id="@+id/textView12"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="4 Feb 2016, 20:00(IST)"
-                                android:textSize="12sp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView10"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|right"
-                                android:src="@drawable/ic_action_calender_blue"
-                                android:onClick="addToCalendar"/>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- two -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@color/jppPrimaryColor"
-                        android:orientation="horizontal"
-                        android:padding="10dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textView131"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="U Mumba  vs bengaluru"
-                                android:textAllCaps="true"
-                                android:textColor="@color/jppAccentColor"
-                                android:textSize="16sp"/>
-
-                            <TextView
-                                android:id="@+id/textView122"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="4 Feb 2016, 20:00(IST)"
-                                android:textSize="12sp"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:id="@+id/imageView130"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center|right"
-                                android:src="@drawable/ic_action_calender_blue"/>
-                        </LinearLayout>
-                    </LinearLayout>
+                        android:layout_height="wrap_content"/>
 
                     <LinearLayout
                         android:orientation="horizontal"

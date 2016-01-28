@@ -132,7 +132,7 @@ public class CalendarEvent {
         String teamA = playerInfoList.get(0);
         String teamB = playerInfoList.get(1);
         String time = playerInfoList.get(2);
-        String title = teamA + " vs " + teamB;
+        String title = teamA + " Vs " + teamB;
         long timeLong;
         try{
             timeLong = TimeFunction.stringToDate(time);

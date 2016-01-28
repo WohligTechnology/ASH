@@ -49,7 +49,7 @@ public class AboutActivity extends ActionBarActivity
 
         //tvToolbarText.setVisibility(View.GONE);
         ivToolbarImage.setVisibility(View.GONE);
-        tvToolbarText.setText("ABOUT US");
+        tvToolbarText.setText("ABOUT");
 
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/
@@ -132,7 +132,14 @@ public class AboutActivity extends ActionBarActivity
             }, 300);
         }
         if (position == 6) { // wallpaper
-
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(AboutActivity.this, WallpaperActivity.class));
+                    finish();
+                }
+            }, 300);
         }
         if (position == 7) { // points table
             final Handler handler = new Handler();
