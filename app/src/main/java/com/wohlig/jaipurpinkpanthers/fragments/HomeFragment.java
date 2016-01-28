@@ -1,6 +1,7 @@
 package com.wohlig.jaipurpinkpanthers.fragments;
 
 import android.app.Fragment;
+import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -35,7 +36,7 @@ public class HomeFragment extends Fragment {
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
     LinearLayout llLatestUpdate, llNews, llTable, llPoints;
-    ImageView ivT1, ivT2, ivNews;
+    ImageView ivT1, ivT2, ivNews, ivHomeMain;
     TextView tvS1, tvS2, tvCo, tvVenue, tvTime;
     TextView tvNewsHead, tvNewsDesc, tvNewsDate, tvNewsRead;
     String newsTitle = null, newsImage = null, newsTime = null, newsContent = null;
@@ -43,7 +44,7 @@ public class HomeFragment extends Fragment {
     ImageLoader imageLoader;
     DisplayImageOptions options;
     ArrayList<HashMap<String, String>> list;
-    String team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null;
+    String team1Id = null, team2Id = null, team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null;
     ListView lvTeams;
 
     @Override
@@ -81,6 +82,11 @@ public class HomeFragment extends Fragment {
         list = new ArrayList<HashMap<String, String>>();
         lvTeams = (ListView) view.findViewById(R.id.lvTeams);
         llPoints = (LinearLayout) view.findViewById(R.id.llPoints);
+        ivHomeMain = (ImageView) view.findViewById(R.id.ivHomeMain);
+
+        String imageUri = "drawable://" + R.drawable.schedule_back;
+                //playerImages.getResourceId(position, -1);
+        imageLoader.displayImage(imageUri, ivHomeMain,options);
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);
         tvTeam = (TextView) view.findViewById(R.id.tvTeam);
@@ -166,6 +172,8 @@ public class HomeFragment extends Fragment {
                     team2Pts = latestUpdate.optString("score1");
                     venue = latestUpdate.optString("stadium");
                     time = latestUpdate.optString("starttimedate");
+                    team1Id = latestUpdate.optString("team1id");
+                    team2Id = latestUpdate.optString("team2id");
 
                     JSONObject latestNews = new JSONObject(jsonObject.optString("news"));
                     newsTitle = latestNews.optString("name");
@@ -178,7 +186,6 @@ public class HomeFragment extends Fragment {
                     JSONArray jsonArray = new JSONArray(jObjectString);
 
                     Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
-                    Log.e("JPP Arr string", jsonArray.toString());
 
                     if (jsonArray.length() != 0) {
 
@@ -221,6 +228,18 @@ public class HomeFragment extends Fragment {
         tvNewsHead.setText(newsTitle);
         tvNewsDesc.setText(newsContent);
         tvNewsDate.setText(newsTime);
+
+        if(team1Id != null || team2Id != null) {
+            String imageUriTeam1 = "drawable://" + getTeamDrawable(team1Id);
+            String imageUriTeam2 = "drawable://" + getTeamDrawable(team2Id);
+
+            imageLoader.displayImage(imageUriTeam1, ivT1, options);
+            imageLoader.displayImage(imageUriTeam2, ivT2, options);
+        }
+
+        String imageUri = "drawable://" + R.drawable.schedule_back;
+        //playerImages.getResourceId(position, -1);
+        imageLoader.displayImage(imageUri, ivHomeMain, options);
 
         imageLoader.displayImage(imageLink, ivNews, options);
 
@@ -277,5 +296,13 @@ public class HomeFragment extends Fragment {
         map.put("tvL", l);
         map.put("tvPts", pts);
         list.add(map);
+    }
+
+    public int getTeamDrawable(String id){
+
+        int teamId = Integer.parseInt(id);
+        TypedArray teamLogos = getActivity().getResources().obtainTypedArray(R.array.teamLogo);
+
+        return teamLogos.getResourceId(teamId -1, -1);
     }
 }
