@@ -42,6 +42,10 @@
             android:label="@string/title_activity_web"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".WallpaperActivity"
+            android:label="@string/title_activity_wallpaper" >
+        </activity>
     </application>
 
 </manifest>

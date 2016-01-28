@@ -18,10 +18,10 @@ public class InternetOperations {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static OkHttpClient client = new OkHttpClient();
-    public static String SERVER_URL = "http://192.168.0.124/jppbackend/index.php/json/";
-    public static String SERVER_UPLOADS_URL = "http://192.168.0.124/jppbackend/uploads/";
-    //public static String SERVER_URL = "http://www.wohlig.co.in/jppbackend/index.php/json/";
-    //public static String SERVER_UPLOADS_URL = "http://www.wohlig.co.in/jppbackend/uploads/";
+    //public static String SERVER_URL = "http://192.168.0.124/jppbackend/index.php/json/";
+    //public static String SERVER_UPLOADS_URL = "http://192.168.0.124/jppbackend/uploads/";
+    public static String SERVER_URL = "http://www.wohlig.co.in/jppbackend/index.php/json/";
+    public static String SERVER_UPLOADS_URL = "http://www.wohlig.co.in/jppbackend/uploads/";
 
     public static String post(String url, String json) throws IOException {
         RequestBody body = RequestBody.create(JSON, json);

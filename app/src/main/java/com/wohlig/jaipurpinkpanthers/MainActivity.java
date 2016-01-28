@@ -182,7 +182,14 @@ public class MainActivity extends ActionBarActivity
             }, 300);
         }
         if (position == 6) { // wallpapers
-
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MainActivity.this, WallpaperActivity.class));
+                    finish();
+                }
+            }, 300);
         }
         if (position == 7) { // points table
             final Handler handler = new Handler();
