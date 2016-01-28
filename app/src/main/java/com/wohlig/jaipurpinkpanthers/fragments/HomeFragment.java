@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
     ArrayList<HashMap<String, String>> list;
     String team1Id = null, team2Id = null, team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null;
     ListView lvTeams;
+    RelativeLayout ll1, ll2, ll3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,13 +81,17 @@ public class HomeFragment extends Fragment {
 
     public void initilizeViews() {
 
+        ll1 = (RelativeLayout) view.findViewById(R.id.ll1);
+        ll2 = (RelativeLayout) view.findViewById(R.id.ll2);
+        ll3 = (RelativeLayout) view.findViewById(R.id.ll3);
+
         list = new ArrayList<HashMap<String, String>>();
         lvTeams = (ListView) view.findViewById(R.id.lvTeams);
         llPoints = (LinearLayout) view.findViewById(R.id.llPoints);
         ivHomeMain = (ImageView) view.findViewById(R.id.ivHomeMain);
 
         String imageUri = "drawable://" + R.drawable.schedule_back;
-        imageLoader.displayImage(imageUri, ivHomeMain,options);
+        imageLoader.displayImage(imageUri, ivHomeMain, options);
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);
         tvTeam = (TextView) view.findViewById(R.id.tvTeam);
@@ -145,8 +151,7 @@ public class HomeFragment extends Fragment {
 
         getHomeContentData();
     }
-
-
+    boolean a = false, b = false, c = false;
     public void getHomeContentData() {
 
         new AsyncTask<Void, Void, String>() {
@@ -164,45 +169,63 @@ public class HomeFragment extends Fragment {
 
                     jsonObject = new JSONObject(response);
 
-                    JSONObject latestUpdate = new JSONObject(jsonObject.optString("latestupdate"));
-                    team1 = latestUpdate.optString("team1");
-                    team2 = latestUpdate.optString("team2");
-                    team1Pts = latestUpdate.optString("score1");
-                    team2Pts = latestUpdate.optString("score1");
-                    venue = latestUpdate.optString("stadium");
-                    time = latestUpdate.optString("starttimedate");
-                    team1Id = latestUpdate.optString("team1id");
-                    team2Id = latestUpdate.optString("team2id");
+                    try {
+                        JSONObject latestUpdate = new JSONObject(jsonObject.optString("latestupdate"));
+                        team1 = latestUpdate.optString("team1");
+                        team2 = latestUpdate.optString("team2");
+                        team1Pts = latestUpdate.optString("score1");
+                        team2Pts = latestUpdate.optString("score1");
+                        venue = latestUpdate.optString("stadium");
+                        time = latestUpdate.optString("starttimedate");
+                        team1Id = latestUpdate.optString("team1id");
+                        team2Id = latestUpdate.optString("team2id");
+                    } catch (JSONException je) {
+                        Log.e("JPP", Log.getStackTraceString(je));
+                        //ll1.setVisibility(View.GONE);
+                        a = true;
+                    }
 
-                    JSONObject latestNews = new JSONObject(jsonObject.optString("news"));
-                    newsTitle = latestNews.optString("name");
-                    newsImage = latestNews.optString("image");
-                    newsTime = latestNews.optString("timestamp");
-                    newsContent = latestNews.optString("content");
-                    imageLink = InternetOperations.SERVER_UPLOADS_URL + newsImage;
-
-                    String jObjectString = jsonObject.optString("points");
-                    JSONArray jsonArray = new JSONArray(jObjectString);
-
-                    Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
-
-                    if (jsonArray.length() != 0) {
-
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObjectPts = jsonArray.getJSONObject(i);
-                            String id = String.valueOf(i + 1);
-                            String name = jsonObjectPts.optString("name");
-                            String p = jsonObjectPts.optString("played");
-                            String w = jsonObjectPts.optString("wins");
-                            String l = jsonObjectPts.optString("lost");
-                            String points = jsonObjectPts.optString("point");
-                            populate(id, name, p, w, l, points);
-                        }
+                    try {
+                        JSONObject latestNews = new JSONObject(jsonObject.optString("news"));
+                        newsTitle = latestNews.optString("name");
+                        newsImage = latestNews.optString("image");
+                        newsTime = latestNews.optString("timestamp");
+                        newsContent = latestNews.optString("content");
+                        imageLink = InternetOperations.SERVER_UPLOADS_URL + newsImage;
+                    } catch (JSONException je) {
+                        Log.e("JPP", Log.getStackTraceString(je));
+                        b = true;
                     }
 
 
+                    try {
+                        String jObjectString = jsonObject.optString("points");
+                        JSONArray jsonArray = new JSONArray(jObjectString);
+
+                        Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
+
+                        if (jsonArray.length() != 0) {
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonObjectPts = jsonArray.getJSONObject(i);
+                                String id = String.valueOf(i + 1);
+                                String name = jsonObjectPts.optString("name");
+                                String p = jsonObjectPts.optString("played");
+                                String w = jsonObjectPts.optString("wins");
+                                String l = jsonObjectPts.optString("lost");
+                                String points = jsonObjectPts.optString("point");
+                                populate(id, name, p, w, l, points);
+                            }
+                        }
+                    } catch (JSONException je) {
+                        Log.e("JPP", Log.getStackTraceString(je));
+                        c = true;
+                    }
+
                 } catch (IOException io) {
                     Log.e("JPP", Log.getStackTraceString(io));
+                    a = b = c = true;
+
                 } catch (JSONException je) {
                     Log.e("JPP", Log.getStackTraceString(je));
                 }
@@ -216,19 +239,30 @@ public class HomeFragment extends Fragment {
         }.execute(null, null, null);
     }
 
-    public void refresh(){
+    public void refresh() {
+
+        if(!a){
+            ll1.setVisibility(View.VISIBLE);
+        }
+        if(!b){
+            ll2.setVisibility(View.VISIBLE);
+        }
+        if(!c){
+            ll3.setVisibility(View.VISIBLE);
+        }
+
         tvS1.setText(team1Pts);
         tvS2.setText(team2Pts);
         tvVenue.setText(venue);
 
-        if(time != null)
-            tvTime.setText(time+"(IST)");
+        if (time != null)
+            tvTime.setText(time + "(IST)");
 
         tvNewsHead.setText(newsTitle);
         tvNewsDesc.setText(newsContent);
         tvNewsDate.setText(newsTime);
 
-        if(team1Id != null || team2Id != null) {
+        if (team1Id != null || team2Id != null) {
             String imageUriTeam1 = "drawable://" + getTeamDrawable(team1Id);
             String imageUriTeam2 = "drawable://" + getTeamDrawable(team2Id);
 
@@ -244,7 +278,7 @@ public class HomeFragment extends Fragment {
 
         if (list.size() > 0) {
 
-            for(int i = 0; i < list.size(); i++) {
+            for (int i = 0; i < list.size(); i++) {
                 LayoutInflater inflator = getActivity().getLayoutInflater();
                 View viewPointsRow = inflator.inflate(R.layout.layout_points_row, null, false);
 
@@ -297,11 +331,11 @@ public class HomeFragment extends Fragment {
         list.add(map);
     }
 
-    public int getTeamDrawable(String id){
+    public int getTeamDrawable(String id) {
 
         int teamId = Integer.parseInt(id);
         TypedArray teamLogos = getActivity().getResources().obtainTypedArray(R.array.teamLogo);
 
-        return teamLogos.getResourceId(teamId -1, -1);
+        return teamLogos.getResourceId(teamId - 1, -1);
     }
 }

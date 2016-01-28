@@ -17,13 +17,14 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp">
+                android:visibility="gone">
 
 
                 <ImageView
@@ -155,13 +156,15 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/ll2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/white"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:onClick="news">
+                android:layout_marginTop="10dp"
+                android:onClick="news"
+                android:visibility="gone">
 
                 <include
                     android:id="@+id/llNews"
@@ -223,7 +226,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/news_body"
-                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="right">
 
                     <TextView
@@ -256,19 +262,21 @@
                     android:layout_below="@+id/llRead"
                     android:layout_width="match_parent"
                     android:layout_height="8dp"/>
-
             </RelativeLayout>
 
 
 
             <!-- table -->
             <RelativeLayout
+                android:id="@+id/ll3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@color/jppAccentColor">
+                android:background="@color/jppAccentColor"
+                android:visibility="gone">
 
                 <include
                     android:id="@+id/llTable"
@@ -289,10 +297,7 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_margin="5dp"
                         android:padding="5dp"
                         android:background="@color/jppPointsRow">
 
