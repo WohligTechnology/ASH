@@ -63,12 +63,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:weightSum="2">
 
                     <TextView
                         android:id="@+id/tvNat"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="3dp"
                         android:text="@string/playerNative"
                         android:textStyle="bold"
                         android:textSize="12sp"
@@ -99,12 +101,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:weightSum="2">
 
                     <TextView
                         android:id="@+id/tvBorn"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="3dp"
                         android:text="@string/playerAge"
                         android:textStyle="bold"
                         android:textSize="12sp"
@@ -134,12 +138,15 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:weightSum="2">
 
                     <TextView
                         android:id="@+id/tvJer"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="3dp"
                         android:text="@string/playerJersey"
                         android:textStyle="bold"
                         android:textSize="12sp"
