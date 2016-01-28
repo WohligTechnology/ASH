@@ -1,13 +1,13 @@
 package com.wohlig.jaipurpinkpanthers.adapters;
 
 import android.app.Activity;
+import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -16,25 +16,26 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.wohlig.jaipurpinkpanthers.R;
-import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 import com.wohlig.jaipurpinkpanthers.util.InternetOperations;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by Jay on 27-01-2016.
+ * Created by Jay on 28-01-2016.
  */
-public class GalleryAdapter extends BaseAdapter {
+public class AlbumAdapter extends BaseAdapter {
     public ArrayList<HashMap<String, String>> list;
     Activity activity;
+    TypedArray playerImages;
     ImageLoader imageLoader;
     DisplayImageOptions options;
-
-    public GalleryAdapter(Activity activity, ArrayList<HashMap<String, String>> list) {
+    public AlbumAdapter(Activity activity, ArrayList<HashMap<String, String>> list) {
         super();
         this.activity = activity;
         this.list = list;
+
+        playerImages = activity.getResources().obtainTypedArray(R.array.playerImages);
 
         imageLoader = ImageLoader.getInstance();
         options = new DisplayImageOptions.Builder().cacheInMemory(true)
@@ -73,9 +74,8 @@ public class GalleryAdapter extends BaseAdapter {
 
     private class ViewHolder {
         //all the fields in layout specified
-        ImageView ivGallery;
-        TextView tvTitle;
-        FrameLayout flGallery;
+        ImageView ivSingle;
+        LinearLayout llAldbumSingle;
     }
 
     @Override
@@ -87,14 +87,10 @@ public class GalleryAdapter extends BaseAdapter {
 
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = inflater.inflate(R.layout.layout_gallery_one, null); //change the name of the layout
+            convertView = inflater.inflate(R.layout.layout_album_single, null); //change the name of the layout
 
-            holder.flGallery = (FrameLayout) convertView.findViewById(R.id.flGallery);
-
-            holder.ivGallery = (ImageView) convertView.findViewById(R.id.ivGallery); //find the different Views
-            holder.tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
-
-            holder.tvTitle.setTypeface(CustomFonts.getBoldFont(activity));
+            holder.ivSingle = (ImageView) convertView.findViewById(R.id.ivSingle); //find the different Views
+            holder.llAldbumSingle = (LinearLayout) convertView.findViewById(R.id.llAldbumSingle);
 
             convertView.setTag(holder);
         } else {
@@ -104,17 +100,12 @@ public class GalleryAdapter extends BaseAdapter {
 
         HashMap<String, String> map = list.get(position);
 
-        String id = map.get("id");
-        String title = map.get("title");
         String image = map.get("image");
 
-        String tag = id+"#"+title;
+        String imageUri = InternetOperations.SERVER_UPLOADS_URL + image;
+        imageLoader.displayImage(imageUri, holder.ivSingle,options);
 
-        holder.tvTitle.setText(title);
-        holder.flGallery.setTag(tag);
-
-        image = InternetOperations.SERVER_UPLOADS_URL + image;
-        imageLoader.displayImage(image, holder.ivGallery, options);
+        //holder.llPlayer.setTag(playerId+"#"+playerName);
 
         return convertView;
     }

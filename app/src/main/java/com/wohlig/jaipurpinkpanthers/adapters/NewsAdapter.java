@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -74,7 +75,7 @@ public class NewsAdapter extends BaseAdapter {
         //all the fields in layout specified
         ImageView ivNewsImage;
         TextView tvNewsTitle, tvNewsDate, tvNewsDesc;
-
+        LinearLayout llNewsClick;
     }
 
     @Override
@@ -92,6 +93,7 @@ public class NewsAdapter extends BaseAdapter {
             holder.tvNewsTitle = (TextView) convertView.findViewById(R.id.tvNewsTitle);
             holder.tvNewsDate = (TextView) convertView.findViewById(R.id.tvNewsDate);
             holder.tvNewsDesc = (TextView) convertView.findViewById(R.id.tvNewsDesc);
+            holder.llNewsClick = (LinearLayout) convertView.findViewById(R.id.llNewsClick);
 
             holder.tvNewsTitle.setTypeface(CustomFonts.getRegularFont(activity));
             holder.tvNewsDate.setTypeface(CustomFonts.getRegularFont(activity));
@@ -115,6 +117,9 @@ public class NewsAdapter extends BaseAdapter {
         holder.tvNewsTitle.setText(title);
         holder.tvNewsDate.setText(date);
         holder.tvNewsDesc.setText(desc);
+
+        String tag = title+"#"+image+"#"+date+"#"+desc;
+        holder.llNewsClick.setTag(tag);
 
         imageLoader.displayImage(image, holder.ivNewsImage, options);
 

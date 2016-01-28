@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wohlig.jaipurpinkpanthers.R;
@@ -21,7 +20,7 @@ public class ScheduleFragment extends Fragment {
     TextView tvVenue, tvTime, tvAddToCalendar;
     LinearLayout llOtherMatches;
     TextView tvBook;
-    RelativeLayout llAddToCalendar;
+    LinearLayout llAddToCalendar;
 
     @Override
     public View onCreateView(final LayoutInflater inflater,final ViewGroup container,
@@ -59,7 +58,7 @@ public class ScheduleFragment extends Fragment {
         tvBook = (TextView) view.findViewById(R.id.tvBook);
         tvBook.setTypeface(CustomFonts.getRegularFont(getActivity()));
 
-        llAddToCalendar = (RelativeLayout) view.findViewById(R.id.llAddToCalendar);
+        llAddToCalendar = (LinearLayout) view.findViewById(R.id.llAddToCalendar);
         String tag = "Jaipur Pink Panthers#Patna Pirates#30 Jan 2016, 20:00";
         llAddToCalendar.setTag(tag);
 

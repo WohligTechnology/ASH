@@ -1,7 +1,5 @@
 package com.wohlig.jaipurpinkpanthers.util;
 
-import android.util.Log;
-
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -32,13 +30,11 @@ public class InternetOperations {
                 .build();
 
         Response response = client.newCall(request).execute();
-        Log.e("JPP response", response.toString());
         return response.body().string();
     }
 
     public static String postBlank(String url) throws IOException {
         //RequestBody body = RequestBody.create(JSON, getNotificationsJson().toString());
-        Log.e("JPP link", url);
         Request request = new Request.Builder()
                 .url(url)
                 //.post(body)

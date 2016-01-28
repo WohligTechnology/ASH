@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wohlig.jaipurpinkpanthers.fragments.AlbumFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.GalleryFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.HomeFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.NavigationDrawerFragment;
@@ -29,6 +30,7 @@ import com.wohlig.jaipurpinkpanthers.util.CalendarEvent;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends ActionBarActivity
@@ -42,9 +44,11 @@ public class MainActivity extends ActionBarActivity
     public static TextView tvToolbarText;
     private FrameLayout container;
     public static int PLAYER_ID = 12;
+    public static int GALLERY_ID = 0;
     public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
     boolean doubleBackToExitPressedOnce = false;
     boolean inMainActivity = true;
+    public static HashMap<String,String> NEWSDETAIL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -409,7 +413,23 @@ public class MainActivity extends ActionBarActivity
 
     public void newsDetail(View v) {
         Log.v("JPP", "News Detail");
-        tvOrImage(true, "KNOW YOUR PANTHERS");
+        String tag = v.getTag().toString();
+        List<String> newsInfoList = Arrays.asList(tag.split("#"));
+
+        String title = newsInfoList.get(0);
+        String image = newsInfoList.get(1);
+        String date = newsInfoList.get(2);
+        String desc = newsInfoList.get(3);
+
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("title", title);
+        map.put("date", date);
+        map.put("desc", desc);
+        map.put("image", image);
+
+        setNewsDetails(map);
+
+        tvOrImage(true, "NEWS & MEDIA");
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         NewsDetailFragment newsDetailFragment = new NewsDetailFragment();
@@ -419,6 +439,42 @@ public class MainActivity extends ActionBarActivity
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    public void goToGallery(View v) {
+        String tag = v.getTag().toString();
+        List<String> galleryInfoList = Arrays.asList(tag.split("#"));
+
+        int id = Integer.parseInt(galleryInfoList.get(0));
+        String name = galleryInfoList.get(1);
+        setGalleryId(id);
+
+        tvOrImage(true, name);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        AlbumFragment albumFragment = new AlbumFragment();
+
+        //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
+        fragmentTransaction.replace(R.id.container, albumFragment);
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    public static void setNewsDetails(HashMap<String,String> news) {
+        NEWSDETAIL = news;
+    }
+
+    public static HashMap<String,String> getNewsDetails() {
+        return NEWSDETAIL;
+    }
+
+    public static void setGalleryId(int id) {
+        GALLERY_ID = id;
+    }
+
+    public static int getGalleryId() {
+        return GALLERY_ID;
     }
 
     public static void setPlayerId(int id) {

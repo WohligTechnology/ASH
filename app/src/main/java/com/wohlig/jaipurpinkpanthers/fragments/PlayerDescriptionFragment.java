@@ -26,7 +26,6 @@ public class PlayerDescriptionFragment extends Fragment {
     private TextView tvName, tvType, tvNationality, tvDOB, tvJerseyNo, tvDesc, tvNat, tvBorn, tvJer, tvTour, tvTourDesc, tvAchieve, tvAchieveDesc;
     private Activity activity;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,7 +36,6 @@ public class PlayerDescriptionFragment extends Fragment {
 
         //((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
-
 
         initilizeViews();
         getPlayerDetails(id);

@@ -17,12 +17,12 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/llAddToCalendar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center_vertical"
-                android:onClick="addToCalendar">
+                android:gravity="top"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -43,12 +43,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="30dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <View
-                        android:layout_width="30dp"
+                        android:layout_width="20dp"
                         android:layout_height="match_parent"/>
 
                     <ImageView
@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/jpp"/>
+                        android:src="@drawable/t1"/>
 
                     <ImageView
                         android:id="@+id/imageView7"
@@ -74,10 +74,10 @@
                         android:layout_weight="3"
                         android:adjustViewBounds="true"
                         android:paddingLeft="10dp"
-                        android:src="@drawable/pp"/>
+                        android:src="@drawable/t2"/>
 
                     <View
-                        android:layout_width="30dp"
+                        android:layout_width="20dp"
                         android:layout_height="match_parent"/>
 
                 </LinearLayout>
@@ -116,7 +116,9 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:background="@color/jppProfileType"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:onClick="addToCalendar"
+                    android:id="@+id/llAddToCalendar">
 
                     <ImageView
                         android:id="@+id/imageView9"
@@ -146,7 +148,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
                 android:background="@android:color/white"
                 android:paddingBottom="10dp">
 

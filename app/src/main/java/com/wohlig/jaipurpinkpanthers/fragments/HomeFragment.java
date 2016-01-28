@@ -85,7 +85,6 @@ public class HomeFragment extends Fragment {
         ivHomeMain = (ImageView) view.findViewById(R.id.ivHomeMain);
 
         String imageUri = "drawable://" + R.drawable.schedule_back;
-                //playerImages.getResourceId(position, -1);
         imageLoader.displayImage(imageUri, ivHomeMain,options);
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.wohlig.jaipurpinkpanthers.MainActivity;
 import com.wohlig.jaipurpinkpanthers.R;
 import com.wohlig.jaipurpinkpanthers.adapters.GalleryAdapter;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
@@ -40,8 +41,8 @@ public class GalleryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_gallery, container, false);
+        ((MainActivity)this.getActivity()).setToolbarText("GALLERY");
 
-        Log.v("JPP", "Inside gallery oCV");
 
         initializeViews();
 
@@ -114,14 +115,9 @@ public class GalleryFragment extends Fragment {
                     response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getallgallery");
 
                     jsonArray = new JSONArray(response);
-                    Log.e("JPP objjjj", jsonArray.toString());
 
                     for (int j = 0; j < jsonArray.length(); j++) {
 
-                            /*"id": "1",
-                            "order": "1",
-                            "name": "Jaipur Pink Panther V/S Patna Pirates",
-                            "image": "g5.jpg"*/
                         String id = null, order = null, name = null, image = null;
 
                         JSONObject jsonObject = jsonArray.getJSONObject(j);
