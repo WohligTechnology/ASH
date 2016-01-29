@@ -35,6 +35,7 @@ public class WebActivity extends AppCompatActivity {
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                webview.destroy();
                 finish();
             }
         });

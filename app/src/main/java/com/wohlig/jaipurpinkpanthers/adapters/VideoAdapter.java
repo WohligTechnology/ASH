@@ -103,19 +103,15 @@ public class VideoAdapter extends BaseAdapter {
 
         HashMap<String, String> map = list.get(position);
 
-        String id = map.get("id");
+        //String id = map.get("id");
         String title = map.get("title");
         String url = map.get("url");
 
-        String tag = "https://www.youtube.com/watch?v="+url;
-
+        String tag = "https://www.youtube.com/embed/"+url+"?autoplay=1&modestbranding=1&showinfo=0&rel=0&loop=1";
         holder.tvTitle.setText(title);
         holder.flGallery.setTag(tag);
 
-
         url = "http://img.youtube.com/vi/"+url+"/0.jpg";
-        //http://img.youtube.com/vi/C8ibvDo11uk/0.jpg
-        //image = InternetOperations.SERVER_UPLOADS_URL + image;
         imageLoader.displayImage(url, holder.ivGallery, options);
 
         return convertView;
