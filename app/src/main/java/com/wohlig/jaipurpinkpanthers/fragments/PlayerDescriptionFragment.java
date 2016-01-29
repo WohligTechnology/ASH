@@ -136,6 +136,12 @@ public class PlayerDescriptionFragment extends Fragment {
         tvJerseyNo.setText(playerJerseyNum);
         // tvDesc.setText(playerDesc);
         tvTourDesc.setText(playerTourDesc);
+
+        if(playerTourDesc.startsWith("--")){
+            tvTourDesc.setVisibility(View.GONE);
+            tvTour.setVisibility(View.GONE);
+        }
+
         tvAchieveDesc.setText(playerAchieveDesc);
 
         // tvAge.setText(playerAge);
