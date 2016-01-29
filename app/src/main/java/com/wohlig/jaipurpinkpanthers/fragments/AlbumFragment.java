@@ -39,7 +39,7 @@ public class AlbumFragment extends Fragment {
     private Activity activity;
     public GridView gvImages;
     ArrayList<HashMap<String, String>> list;
-
+    ArrayList<String> links;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,8 +68,6 @@ public class AlbumFragment extends Fragment {
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
 
-
-
         initilizeViews();
 
         return view;
@@ -77,6 +75,7 @@ public class AlbumFragment extends Fragment {
 
     public void initilizeViews(){
 
+        links = new ArrayList<String>();
         list = new ArrayList<HashMap<String, String>>();
         gvImages = (GridView) view.findViewById(R.id.gvImages);
         getAlbumData();
@@ -99,26 +98,19 @@ public class AlbumFragment extends Fragment {
                     response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getGallerySlide?galleryid="+id);
 
                     jsonArray = new JSONArray(response);
-                    Log.e("JPP objjjj", jsonArray.toString());
 
                     for (int j = 0; j < jsonArray.length(); j++) {
-                        /*
-                        "id": "1",
-                        "order": "1",
-                        "gallery": "2",
-                        "name": "Jaipur Pink Panther V/S Patna Pirates 1",
-                        "image": "g4.jpg"
-                        */
-                        String id = null, name = null, image = null, timestamp = null, content = null;
+
+                        String id = null, name = null, image = null;
 
                         JSONObject jsonObject = jsonArray.getJSONObject(j);
                         id = jsonObject.optString("id");
                         name = jsonObject.optString("name");
                         image = jsonObject.optString("image");
-
                         populate(id, name, image);
-                    }
 
+                        addLinks(image);
+                    }
 
                 } catch (IOException io) {
                     Log.e("JPP", Log.getStackTraceString(io));
@@ -138,6 +130,7 @@ public class AlbumFragment extends Fragment {
 
     public void refresh() {
         if (list.size() > 0) {
+            ((MainActivity)this.getActivity()).setImageLinks(links);
             AlbumAdapter albumAdapter = new AlbumAdapter(getActivity(), list);
             gvImages.setAdapter(albumAdapter);
         } else {
@@ -148,9 +141,13 @@ public class AlbumFragment extends Fragment {
     public void populate(String id, String name, String image) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("id", id);
-        map.put("title", name);
+        //map.put("title", name);
         map.put("image", image);
         list.add(map);
+    }
+
+    public void addLinks(String image){
+        links.add(InternetOperations.SERVER_UPLOADS_URL + image);
     }
 
 }

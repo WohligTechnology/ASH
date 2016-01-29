@@ -152,5 +152,6 @@
     <string name="title_activity_web">WebActivity</string>
     <string name="title_activity_wallpaper">WallpaperActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_slide_show">SlideShowActivity</string>
 
 </resources>

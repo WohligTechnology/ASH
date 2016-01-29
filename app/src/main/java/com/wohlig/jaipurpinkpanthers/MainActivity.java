@@ -29,6 +29,7 @@ import com.wohlig.jaipurpinkpanthers.fragments.ScheduleFragment;
 import com.wohlig.jaipurpinkpanthers.util.CalendarEvent;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -49,6 +50,8 @@ public class MainActivity extends ActionBarActivity
     boolean doubleBackToExitPressedOnce = false;
     boolean inMainActivity = true;
     public static HashMap<String,String> NEWSDETAIL;
+    public static ArrayList<String> IMAGE_LINKS = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -496,6 +499,17 @@ public class MainActivity extends ActionBarActivity
         tvToolbarText.setText(text);
     }
 
+    public static ArrayList<String> getImageLinks(){
+        return IMAGE_LINKS;
+    }
+
+    public static void setImageLinks(ArrayList<String> links){
+        if(IMAGE_LINKS.size() > 0){
+            IMAGE_LINKS.clear();
+        }
+        IMAGE_LINKS = links;
+    }
+
     public void addToCalendar(View v){
         String tag = v.getTag().toString();
         CalendarEvent.remind(this, tag);
@@ -511,6 +525,14 @@ public class MainActivity extends ActionBarActivity
         String tag = v.getTag().toString();
         Intent intent = new Intent(MainActivity.this, WebActivity.class);
         intent.putExtra("webLink", tag);
+        startActivity(intent);
+    }
+
+    public void openSlideShowActivity(View v){
+        String position = v.getTag().toString();
+        Intent intent = new Intent(MainActivity.this, SlideShowActivity.class);
+        intent.putExtra("position", position);
+        intent.putStringArrayListExtra("links",IMAGE_LINKS);
         startActivity(intent);
     }
 

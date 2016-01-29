@@ -18,6 +18,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.wohlig.jaipurpinkpanthers.R;
+import com.wohlig.jaipurpinkpanthers.WallpaperActivity;
 import com.wohlig.jaipurpinkpanthers.adapters.AlbumAdapter;
 import com.wohlig.jaipurpinkpanthers.util.InternetOperations;
 
@@ -30,7 +31,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WallpaperFragment extends Fragment {
-
     View view;
     private int id;
     private ImageLoader imageLoader;
@@ -38,7 +38,7 @@ public class WallpaperFragment extends Fragment {
     private Activity activity;
     public GridView gvImages;
     ArrayList<HashMap<String, String>> list;
-
+    ArrayList<String> links;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,20 +68,20 @@ public class WallpaperFragment extends Fragment {
         // END - UNIVERSAL IMAGE LOADER SETUP
 
 
-
         initilizeViews();
 
         return view;
     }
 
-    public void initilizeViews(){
+    public void initilizeViews() {
 
+        links = new ArrayList<String>();
         list = new ArrayList<HashMap<String, String>>();
         gvImages = (GridView) view.findViewById(R.id.gvImages);
         getAlbumData();
     }
 
-    public void getAlbumData(){
+    public void getAlbumData() {
 
         new AsyncTask<Void, Void, String>() {
             @Override
@@ -96,7 +96,6 @@ public class WallpaperFragment extends Fragment {
                     response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getWallpaper?type=1");
 
                     jsonArray = new JSONArray(response);
-                    Log.e("JPP objjjj", jsonArray.toString());
 
                     for (int j = 0; j < jsonArray.length(); j++) {
 
@@ -108,6 +107,8 @@ public class WallpaperFragment extends Fragment {
                         image = jsonObject.optString("image");
 
                         populate(id, name, image);
+
+                        addLinks(image);
                     }
 
 
@@ -126,9 +127,9 @@ public class WallpaperFragment extends Fragment {
         }.execute(null, null, null);
     }
 
-
     public void refresh() {
         if (list.size() > 0) {
+            ((WallpaperActivity) this.getActivity()).setImageLinks(links);
             AlbumAdapter albumAdapter = new AlbumAdapter(getActivity(), list);
             gvImages.setAdapter(albumAdapter);
         } else {
@@ -139,10 +140,13 @@ public class WallpaperFragment extends Fragment {
     public void populate(String id, String name, String image) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("id", id);
-        map.put("title", name);
+        //map.put("title", name);
         map.put("image", image);
         list.add(map);
     }
 
+    public void addLinks(String image) {
+        links.add(InternetOperations.SERVER_UPLOADS_URL + image);
+    }
 }
 

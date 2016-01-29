@@ -105,7 +105,7 @@ public class AlbumAdapter extends BaseAdapter {
         String imageUri = InternetOperations.SERVER_UPLOADS_URL + image;
         imageLoader.displayImage(imageUri, holder.ivSingle,options);
 
-        //holder.llPlayer.setTag(playerId+"#"+playerName);
+        holder.llAldbumSingle.setTag(position);
 
         return convertView;
     }

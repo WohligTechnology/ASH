@@ -20,6 +20,8 @@ import com.wohlig.jaipurpinkpanthers.fragments.NavigationDrawerFragment;
 import com.wohlig.jaipurpinkpanthers.fragments.WallpaperFragment;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
+import java.util.ArrayList;
+
 public class WallpaperActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     /**
@@ -29,11 +31,10 @@ public class WallpaperActivity extends ActionBarActivity
     private Toolbar mToolbar;
     private ImageView ivToolbarImage;
     private TextView tvToolbarText;
+    public ImageView ivGallery;
     private FrameLayout container;
-    public static int PLAYER_ID = 12;
-    public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
     boolean doubleBackToExitPressedOnce = false;
-    boolean inMainActivity = true;
+    public static ArrayList<String> IMAGE_LINKS = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -231,5 +232,24 @@ public class WallpaperActivity extends ActionBarActivity
         Log.v("JPP", "Panthers");
         GoToMainFragments.goPanthers(this);
         finish();
+    }
+
+    public static ArrayList<String> getImageLinks(){
+        return IMAGE_LINKS;
+    }
+
+    public static void setImageLinks(ArrayList<String> links){
+        if(IMAGE_LINKS.size() > 0){
+            IMAGE_LINKS.clear();
+        }
+        IMAGE_LINKS = links;
+    }
+
+    public void openSlideShowActivity(View v){
+        String position = v.getTag().toString();
+        Intent intent = new Intent(WallpaperActivity.this, SlideShowActivity.class);
+        intent.putExtra("position", position);
+        intent.putStringArrayListExtra("links", IMAGE_LINKS);
+        startActivity(intent);
     }
 }
