@@ -30,7 +30,24 @@
     <string name="playerJerseyNo">10</string>
     <string name="playerTour">TOURNAMENTS PLAYED:</string>
     <string name="playerAchieve">ACHIEVEMENTS:</string>
-
+    
+<!-- About -->
+    <string name="aboutMain">Jaipur Pink Panthers is a professional kabaddi team based in Jaipur, Rajasthan that competes in the Pro Kabaddi League.</string>
+    <string name="aboutFounded">Founded:</string>
+    <string name="aboutFoundedYear">2014</string>
+    <string name="aboutOwner">Owner:</string>
+    <string name="aboutOwnerName">Abhishek Bachchan</string>
+    <string name="aboutCoach">Coach:</string>
+    <string name="aboutCoachName">Kasinathan Baskaran</string>
+    <string name="aboutCaptain">Captain:</string>
+    <string name="aboutCaptainName">Navneet Gautam</string>
+    <string name="aboutGround">Home Ground:</string>
+    <string name="aboutGroundName">Sawai Mansingh Stadium, Jaipur</string>
+    <string name="aboutTeam">Team Colours:</string>
+    <string name="aboutTeamColors">Pink and Blue</string>
+    <string name="aboutSquad">Current Squad:</string>
+    <string name="aboutCurrentSquad">15 Indian &amp; 3 International Players</string>
+    <string name="aboutBottom">Jaipur Pink Panthers are the champions of the inaugural season of the Pro Kabaddi League in 2014.</string>
 
 <!-- players -->
     <string name="playerDesc1">Navneet Gautam#Defender#India#Jun 08,1993#07#Pro-Kabaddi (2015-2014), Asian Games (2006 -10 -14), WorldCup (2004)(2007), Indoor Asian Games (2007))(2009)#Pro-kabaddi (2014)- 1st Position, Arjun Awardee - (2007), Asian Games (2006-10-14) - 1st Position, World Cup (2004) (2007) - 1st Position, Indoor Asian Game (2007)(2009) - 1st Position.#32#Jaipur</string>
