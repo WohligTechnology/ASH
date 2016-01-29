@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/jppDarkColor"
-                tools:context="com.wohlig.jaipurpinkpanthers.SplashActivity">
+                tools:context="com.jaipurpinkpanthers.android.SplashActivity">
 
     <ImageView
         android:layout_width="match_parent"
