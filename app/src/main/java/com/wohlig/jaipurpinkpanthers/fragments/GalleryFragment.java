@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.wohlig.jaipurpinkpanthers.MainActivity;
@@ -74,7 +75,12 @@ public class GalleryFragment extends Fragment {
         lvVideos = (ListView) view.findViewById(R.id.lvVideos);
 
         setListeners();
-        getGalleryData();
+
+        if(InternetOperations.checkIsOnlineViaIP()){
+            getGalleryData();
+        }else{
+            Toast.makeText(getActivity(), "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void setListeners() {

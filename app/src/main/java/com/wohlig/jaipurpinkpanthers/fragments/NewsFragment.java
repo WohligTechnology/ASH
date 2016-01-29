@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.wohlig.jaipurpinkpanthers.R;
 import com.wohlig.jaipurpinkpanthers.adapters.NewsAdapter;
@@ -42,7 +43,12 @@ public class NewsFragment extends Fragment {
 
         list = new ArrayList<HashMap<String, String>>();
         lvNews = (ListView) view.findViewById(R.id.lvNews);
-        getNewsData();
+
+        if(InternetOperations.checkIsOnlineViaIP()){
+            getNewsData();
+        }else{
+            Toast.makeText(getActivity(), "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void getNewsData() {

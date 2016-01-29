@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/t1"/>
+                        android:src="@drawable/blank"/>
 
                     <ImageView
                         android:id="@+id/imageView7"
@@ -74,7 +74,7 @@
                         android:layout_weight="3"
                         android:adjustViewBounds="true"
                         android:paddingLeft="10dp"
-                        android:src="@drawable/t2"/>
+                        android:src="@drawable/blank"/>
 
                     <View
                         android:layout_width="20dp"
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Wankhede Stadium, Mumbai"
+                        android:text="--"
                         android:textColor="@android:color/white"/>
 
                     <TextView
@@ -105,7 +105,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="30 JAN, 2016 20:00(IST)"
+                        android:text="--"
                         android:textColor="@android:color/white"/>
                 </LinearLayout>
 
@@ -118,6 +118,7 @@
                     android:background="@color/jppProfileType"
                     android:orientation="horizontal"
                     android:onClick="addToCalendar"
+                    android:clickable="false"
                     android:id="@+id/llAddToCalendar">
 
                     <ImageView

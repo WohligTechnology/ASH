@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -76,6 +77,7 @@ public class ScheduleFragment extends Fragment {
 
     public void initilizeViews() {
 
+        single = new HashMap<String, String>();
         list = new ArrayList<HashMap<String, String>>();
 
         llSchedule = (LinearLayout) view.findViewById(R.id.llSchedule);
@@ -108,6 +110,11 @@ public class ScheduleFragment extends Fragment {
         //llAddToCalendar.setTag(tag);
 
         getScheduleData();
+        if(InternetOperations.checkIsOnlineViaIP()){
+            getScheduleData();
+        }else{
+            Toast.makeText(getActivity(), "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -132,18 +139,6 @@ public class ScheduleFragment extends Fragment {
 
                     if (jsonArray.length() != 0) {
 
-                                /*"id": "1",
-                                "stadium": "Vishakapatnam",
-                                "team1": "Jaipur Pink Panthers",
-                                "team1id": "5",
-                                "team2": "U Mumba",
-                                "team2id": "8",
-                                "bookticket": "",
-                                "score1": "",
-                                "score2": "",
-                                "starttimedate": "31 Jan 2016, 20:00"*/
-
-
                         for (int i = 0; i < jsonArray.length(); i++) {
 
                             if (i != 0) {
@@ -163,7 +158,6 @@ public class ScheduleFragment extends Fragment {
                                 String time = jsonObject.optString("starttimedate");
                                 String stadium = jsonObject.optString("stadium");
 
-                                single = new HashMap<String, String>();
                                 single.put("team1", team1);
                                 single.put("team2", team2);
                                 single.put("team1id", team1id);
@@ -202,12 +196,14 @@ public class ScheduleFragment extends Fragment {
             imageLoader.displayImage(imageUriTeam2, ivT2, options);
         }
 
-        tvVenue.setText(single.get("stadium"));
-        tvTime.setText(single.get("time")+"(IST)");
-        String tagMain = single.get("team1") + "#" + single.get("team2") + "#" + single.get("time");
-        llAddToCalendar.setTag(tagMain);
-
         if (list.size() > 0) {
+
+            tvVenue.setText(single.get("stadium"));
+            tvTime.setText(single.get("time")+"(IST)");
+            String tagMain = single.get("team1") + "#" + single.get("team2") + "#" + single.get("time");
+            llAddToCalendar.setTag(tagMain);
+            llAddToCalendar.setClickable(true);
+
             for (int i = 0; i < list.size(); i++) {
                 LayoutInflater inflator = getActivity().getLayoutInflater();
                 View viewScheduleRow = inflator.inflate(R.layout.layout_schedule_single, null, false);

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -78,7 +79,14 @@ public class WallpaperFragment extends Fragment {
         links = new ArrayList<String>();
         list = new ArrayList<HashMap<String, String>>();
         gvImages = (GridView) view.findViewById(R.id.gvImages);
-        getAlbumData();
+
+
+        if(InternetOperations.checkIsOnlineViaIP()){
+            getAlbumData();
+        }else{
+            Toast.makeText(getActivity(), "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void getAlbumData() {

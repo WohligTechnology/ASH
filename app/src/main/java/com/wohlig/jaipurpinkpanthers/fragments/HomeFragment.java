@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -149,7 +150,11 @@ public class HomeFragment extends Fragment {
         tvNewsDate.setTypeface(CustomFonts.getLightFont(getActivity()));
         tvNewsRead.setTypeface(CustomFonts.getLightFont(getActivity()));
 
-        getHomeContentData();
+        if(InternetOperations.checkIsOnlineViaIP()){
+            getHomeContentData();
+        }else{
+            Toast.makeText(getActivity(),"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
+        }
     }
     boolean a = false, b = false, c = false;
     public void getHomeContentData() {
