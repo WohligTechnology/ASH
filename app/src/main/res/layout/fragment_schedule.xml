@@ -9,7 +9,8 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -181,7 +182,8 @@
 
                         android:background="@color/jppAccentColor"
                         android:gravity="center"
-                        android:onClick="goToBookTickets">
+                        android:onClick="goToBookTickets"
+                        android:padding="5dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -193,7 +195,7 @@
                             android:id="@+id/tvBook"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:text="BOOK TICKETS"
                             android:gravity="center"
                             android:layout_marginLeft="3dp"

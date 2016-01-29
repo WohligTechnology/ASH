@@ -155,12 +155,6 @@ public class GalleryFragment extends Fragment {
 
                         String id = null, url = null, name = null;
 
-                                /*"id": "1",
-                                "order": "1",
-                                "name": "The Fun Side of Our Panthers",
-                                "image": "",
-                                "url": "UDU09A-N4bU"*/
-
                         JSONObject jsonObject = jsonArrayVideo.getJSONObject(j);
                         name = jsonObject.optString("name");
                         url = jsonObject.optString("url");

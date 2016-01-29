@@ -28,6 +28,7 @@
             android:gravity="center"
             android:text="@string/playerName"
             android:textSize="22sp"
+            android:textAllCaps="true"
             android:textColor="@color/jppAccentColor"/>
 
         <TextView
@@ -39,6 +40,7 @@
             android:gravity="center"
             android:text="@string/playerType"
             android:textSize="18sp"
+            android:textAllCaps="true"
             android:textColor="@color/jppProfileType"/>
 
         <LinearLayout

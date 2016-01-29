@@ -91,9 +91,7 @@ public class AlbumFragment extends Fragment {
                     Looper.prepare();
                 }
                 String response;
-                //JSONObject jsonObject = null;
                 JSONArray jsonArray = null;
-                //http://192.168.0.124/jppbackend/index.php/json/getGallerySlide?galleryid=2
                 try {
                     response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getGallerySlide?galleryid="+id);
 
@@ -141,7 +139,6 @@ public class AlbumFragment extends Fragment {
     public void populate(String id, String name, String image) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("id", id);
-        //map.put("title", name);
         map.put("image", image);
         list.add(map);
     }

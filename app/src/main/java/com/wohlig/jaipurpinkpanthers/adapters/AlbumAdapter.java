@@ -2,6 +2,7 @@ package com.wohlig.jaipurpinkpanthers.adapters;
 
 import android.app.Activity;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,12 +39,12 @@ public class AlbumAdapter extends BaseAdapter {
         playerImages = activity.getResources().obtainTypedArray(R.array.playerImages);
 
         imageLoader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().cacheInMemory(true)
+        options = new DisplayImageOptions.Builder().cacheInMemory(true).bitmapConfig(Bitmap.Config.RGB_565)
                 .cacheOnDisc(true).resetViewBeforeLoading(true).build();
 
         // UNIVERSAL IMAGE LOADER SETUP
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheOnDisc(true).cacheInMemory(true)
+                .cacheOnDisc(true).cacheInMemory(true).cacheOnDisc().bitmapConfig(Bitmap.Config.RGB_565)
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .displayer(new FadeInBitmapDisplayer(300)).build();
 

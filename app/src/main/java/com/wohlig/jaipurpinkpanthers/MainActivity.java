@@ -4,6 +4,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -29,6 +30,7 @@ import com.wohlig.jaipurpinkpanthers.fragments.ScheduleFragment;
 import com.wohlig.jaipurpinkpanthers.util.CalendarEvent;
 import com.wohlig.jaipurpinkpanthers.util.CustomFonts;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -49,7 +51,7 @@ public class MainActivity extends ActionBarActivity
     public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
     boolean doubleBackToExitPressedOnce = false;
     boolean inMainActivity = true;
-    public static HashMap<String,String> NEWSDETAIL;
+    public static HashMap<String, String> NEWSDETAIL;
     public static ArrayList<String> IMAGE_LINKS = new ArrayList<String>();
 
 
@@ -91,6 +93,8 @@ public class MainActivity extends ActionBarActivity
             mNavigationDrawerFragment.closeDrawer();
 
         initializeViews();
+
+        createDirectory();
 
         Intent intent = this.getIntent();
         //int fragmentId = 0;
@@ -430,25 +434,30 @@ public class MainActivity extends ActionBarActivity
         String image = newsInfoList.get(1);
         String date = newsInfoList.get(2);
         String desc = newsInfoList.get(3);
+        if (!desc.startsWith("http")) {
+            HashMap<String, String> map = new HashMap<String, String>();
+            map.put("title", title);
+            map.put("date", date);
+            map.put("desc", desc);
+            map.put("image", image);
 
-        HashMap<String, String> map = new HashMap<String, String>();
-        map.put("title", title);
-        map.put("date", date);
-        map.put("desc", desc);
-        map.put("image", image);
+            setNewsDetails(map);
 
-        setNewsDetails(map);
+            tvOrImage(true, "NEWS & MEDIA");
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            NewsDetailFragment newsDetailFragment = new NewsDetailFragment();
 
-        tvOrImage(true, "NEWS & MEDIA");
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        NewsDetailFragment newsDetailFragment = new NewsDetailFragment();
-
-        //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
-        fragmentTransaction.replace(R.id.container, newsDetailFragment);
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+            //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
+            fragmentTransaction.replace(R.id.container, newsDetailFragment);
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        } else {
+            Intent intent = new Intent(MainActivity.this, WebActivity.class);
+            intent.putExtra("webLink", desc);
+            startActivity(intent);
+        }
     }
 
     public void goToGallery(View v) {
@@ -471,11 +480,11 @@ public class MainActivity extends ActionBarActivity
         fragmentTransaction.commit();
     }
 
-    public static void setNewsDetails(HashMap<String,String> news) {
+    public static void setNewsDetails(HashMap<String, String> news) {
         NEWSDETAIL = news;
     }
 
-    public static HashMap<String,String> getNewsDetails() {
+    public static HashMap<String, String> getNewsDetails() {
         return NEWSDETAIL;
     }
 
@@ -499,41 +508,80 @@ public class MainActivity extends ActionBarActivity
         tvToolbarText.setText(text);
     }
 
-    public static ArrayList<String> getImageLinks(){
+    public static ArrayList<String> getImageLinks() {
         return IMAGE_LINKS;
     }
 
-    public static void setImageLinks(ArrayList<String> links){
-        if(IMAGE_LINKS.size() > 0){
+    public static void setImageLinks(ArrayList<String> links) {
+        if (IMAGE_LINKS.size() > 0) {
             IMAGE_LINKS.clear();
         }
         IMAGE_LINKS = links;
     }
 
-    public void addToCalendar(View v){
+    public void addToCalendar(View v) {
         String tag = v.getTag().toString();
         CalendarEvent.remind(this, tag);
     }
 
-    public void goToBookTickets(View v){
+    public void goToBookTickets(View v) {
         Intent intent = new Intent(MainActivity.this, WebActivity.class);
         intent.putExtra("webLink", "http://in.bookmyshow.com/sports/kabaddi/jaipur-pink-panthers/");
         startActivity(intent);
     }
 
-    public void goToYoutube(View v){
+    public void goToYoutube(View v) {
         String tag = v.getTag().toString();
         Intent intent = new Intent(MainActivity.this, WebActivity.class);
         intent.putExtra("webLink", tag);
         startActivity(intent);
     }
 
-    public void openSlideShowActivity(View v){
+    public void openSlideShowActivity(View v) {
         String position = v.getTag().toString();
         Intent intent = new Intent(MainActivity.this, SlideShowActivity.class);
         intent.putExtra("position", position);
-        intent.putStringArrayListExtra("links",IMAGE_LINKS);
+        intent.putStringArrayListExtra("links", IMAGE_LINKS);
         startActivity(intent);
     }
 
+    public void createDirectory() {
+        // To be safe, you should check that the SDCard is mounted
+        // using Environment.getExternalStorageState() before doing this.
+        if (isExternalStorageAvailable()) {
+            // get the URI
+
+            // 1. Get the external storage directory
+            String appName = MainActivity.this.getString(R.string.app_name);
+            String imgDir = "/JPP/JPP Images";
+            //String audioDir = "/NoteShare/NoteShare Audio";
+            //String extraDir = "/NoteShare/.NoteShare";
+
+            File mediaStorageDir = new File(Environment.getExternalStorageDirectory(), appName);
+            // 2. Create our subdirectory
+            if (!mediaStorageDir.exists()) {
+                if (!mediaStorageDir.mkdirs()) {
+                    Log.e("JPP", "Failed to create NoteShare directory.");
+                }
+            }
+
+            // 3. Creating Image Directory in NoteShare Directory
+            File imgDirectory = new File(Environment.getExternalStorageDirectory(), imgDir);
+            if (!imgDirectory.exists()) {
+                if (!imgDirectory.mkdirs()) {
+                    Log.e("JPP", "Failed to create Image directory.");
+                }
+            }
+        }
+    }
+
+    private boolean isExternalStorageAvailable() {
+        String state = Environment.getExternalStorageState();
+
+        if (state.equals(Environment.MEDIA_MOUNTED)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

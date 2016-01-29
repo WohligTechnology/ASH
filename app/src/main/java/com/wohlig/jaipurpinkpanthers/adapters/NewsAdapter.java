@@ -114,9 +114,12 @@ public class NewsAdapter extends BaseAdapter {
         String image = map.get("image");
 
         image = InternetOperations.SERVER_UPLOADS_URL + image;
+
         holder.tvNewsTitle.setText(title);
         holder.tvNewsDate.setText(date);
-        holder.tvNewsDesc.setText(desc);
+        if(!desc.startsWith("http")){
+            holder.tvNewsDesc.setText(desc);
+        }
 
         String tag = title+"#"+image+"#"+date+"#"+desc;
         holder.llNewsClick.setTag(tag);

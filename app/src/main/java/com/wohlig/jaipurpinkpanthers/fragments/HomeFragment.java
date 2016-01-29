@@ -264,7 +264,9 @@ public class HomeFragment extends Fragment {
             tvTime.setText(time + "(IST)");
 
         tvNewsHead.setText(newsTitle);
-        tvNewsDesc.setText(newsContent);
+
+        if(!newsContent.startsWith("http"))
+            tvNewsDesc.setText(newsContent);
         tvNewsDate.setText(newsTime);
 
         if (team1Id != null || team2Id != null) {
