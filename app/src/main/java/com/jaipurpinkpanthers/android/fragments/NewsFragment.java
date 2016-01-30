@@ -1,6 +1,7 @@
 package com.jaipurpinkpanthers.android.fragments;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -27,12 +28,21 @@ public class NewsFragment extends Fragment {
     View view;
     ListView lvNews;
     ArrayList<HashMap<String, String>> list;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_news, container, false);
+
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setCancelable(false);
+
+        progressDialog.setMessage("Please wait...");
+
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
 
         initilizeViews();
 
@@ -44,9 +54,10 @@ public class NewsFragment extends Fragment {
         list = new ArrayList<HashMap<String, String>>();
         lvNews = (ListView) view.findViewById(R.id.lvNews);
 
-        if(InternetOperations.checkIsOnlineViaIP()){
+        if (InternetOperations.checkIsOnlineViaIP()) {
             getNewsData();
-        }else{
+        } else {
+            progressDialog.dismiss();
             Toast.makeText(getActivity(), "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
         }
     }
@@ -54,6 +65,8 @@ public class NewsFragment extends Fragment {
     public void getNewsData() {
 
         new AsyncTask<Void, Void, String>() {
+            boolean done = false;
+
             @Override
             protected String doInBackground(Void... params) {
 
@@ -87,19 +100,27 @@ public class NewsFragment extends Fragment {
 
                         populate(id, name, image, timestamp, content);
                     }
-
+                    done = true;
 
                 } catch (IOException io) {
                     Log.e("JPP", Log.getStackTraceString(io));
                 } catch (JSONException je) {
                     Log.e("JPP", Log.getStackTraceString(je));
+                } catch (Exception e){
+                    Log.e("JPP", Log.getStackTraceString(e));
                 }
+
                 return null;
             }
 
             @Override
             protected void onPostExecute(String s) {
-                refresh();
+                progressDialog.dismiss();
+                if (done) {
+                    refresh();
+                } else {
+                    Toast.makeText(getActivity(), "Oops, Something went wrong!", Toast.LENGTH_SHORT).show();
+                }
             }
         }.execute(null, null, null);
     }

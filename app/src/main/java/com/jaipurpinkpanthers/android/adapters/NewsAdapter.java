@@ -37,7 +37,7 @@ public class NewsAdapter extends BaseAdapter {
         this.list = list;
 
         imageLoader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().cacheInMemory(true)
+        options = new DisplayImageOptions.Builder().cacheInMemory(true).showImageOnLoading(R.drawable.loadingnews)
                 .cacheOnDisc(true).resetViewBeforeLoading(true).build();
 
         // UNIVERSAL IMAGE LOADER SETUP
@@ -117,9 +117,9 @@ public class NewsAdapter extends BaseAdapter {
 
         holder.tvNewsTitle.setText(title);
         holder.tvNewsDate.setText(date);
-        if(!desc.startsWith("http")){
-            holder.tvNewsDesc.setText(desc);
-        }
+        //if(!desc.startsWith("http")){
+        //    holder.tvNewsDesc.setText(desc);
+        //}
 
         String tag = title+"#"+image+"#"+date+"#"+desc;
         holder.llNewsClick.setTag(tag);

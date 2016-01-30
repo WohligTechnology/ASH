@@ -354,12 +354,12 @@ public class MainActivity extends ActionBarActivity
     }
 
     public void schedule(View v) {
-        Log.v("JPP", "Schedule");
+        Log.v("JPP", "FIXTURES");
         scheduleShow();
     }
 
     public void scheduleShow() {
-        tvOrImage(true, "SCHEDULE");
+        tvOrImage(true, "FIXTURES");
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         ScheduleFragment scheduleFragment = new ScheduleFragment();
@@ -757,7 +757,7 @@ public class MainActivity extends ActionBarActivity
 
     private void showMessage(String message)
     {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
 

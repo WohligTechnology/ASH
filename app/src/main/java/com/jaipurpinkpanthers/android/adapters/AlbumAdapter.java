@@ -39,7 +39,7 @@ public class AlbumAdapter extends BaseAdapter {
         playerImages = activity.getResources().obtainTypedArray(R.array.playerImages);
 
         imageLoader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().cacheInMemory(true).bitmapConfig(Bitmap.Config.RGB_565)
+        options = new DisplayImageOptions.Builder().cacheInMemory(true).bitmapConfig(Bitmap.Config.RGB_565).showImageOnLoading(R.drawable.loadingpink)
                 .cacheOnDisc(true).resetViewBeforeLoading(true).build();
 
         // UNIVERSAL IMAGE LOADER SETUP

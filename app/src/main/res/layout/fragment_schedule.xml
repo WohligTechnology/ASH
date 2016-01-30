@@ -18,20 +18,21 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/rlSchedule1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:visibility="gone">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/ivBanner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitStart"
-                    android:src="@drawable/schedule_back"/>
+                    android:scaleType="fitStart"/>
 
                 <include
                     android:id="@+id/llUpcomingMatch"
@@ -148,10 +149,12 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rlSchedule2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/white"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:visibility="gone">
 
                 <include
                     android:id="@+id/llOtherMatches"

@@ -37,7 +37,7 @@ public class GalleryAdapter extends BaseAdapter {
         this.list = list;
 
         imageLoader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().cacheInMemory(true)
+        options = new DisplayImageOptions.Builder().cacheInMemory(true).showImageOnLoading(R.drawable.loadingnews)
                 .cacheOnDisc(true).resetViewBeforeLoading(true).build();
 
         // UNIVERSAL IMAGE LOADER SETUP

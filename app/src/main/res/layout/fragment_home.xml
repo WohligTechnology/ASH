@@ -191,7 +191,7 @@
                         android:layout_height="150dp"
                         android:id="@+id/ivNews"
                         android:layout_weight="1"
-                        android:background="@drawable/jpp"
+                        android:background="@drawable/loadingpink"
                         android:scaleType="centerCrop"/>
 
                     <LinearLayout

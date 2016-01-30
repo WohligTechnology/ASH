@@ -56,7 +56,7 @@ public class SlideShowActivity extends AppCompatActivity {
         int position = Integer.parseInt(intent.getStringExtra("position"));
         images = intent.getStringArrayListExtra("links");
         imageLoader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().cacheInMemory(true).bitmapConfig(Bitmap.Config.RGB_565)
+        options = new DisplayImageOptions.Builder().cacheInMemory(true).bitmapConfig(Bitmap.Config.RGB_565).showImageOnLoading(R.drawable.loadingnews)
                 .cacheOnDisc(true).resetViewBeforeLoading(true).build();
 
         // UNIVERSAL IMAGE LOADER SETUP

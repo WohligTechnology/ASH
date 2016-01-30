@@ -106,7 +106,6 @@ public class PanthersAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-
         HashMap<String, String> map = list.get(position);
 
         String playerInfo = map.get("PlayerInfo");

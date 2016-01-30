@@ -35,7 +35,7 @@ public class InternetOperations {
         return response.body().string();
     }
 
-    public static String postBlank(String url) throws IOException {
+    public static String postBlank(String url) throws IOException{
         //RequestBody body = RequestBody.create(JSON, getNotificationsJson().toString());
         Request request = new Request.Builder()
                 .url(url)

@@ -1,6 +1,5 @@
 package com.jaipurpinkpanthers.android.fragments;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,12 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.jaipurpinkpanthers.android.MainActivity;
 import com.jaipurpinkpanthers.android.R;
 import com.jaipurpinkpanthers.android.adapters.AlbumAdapter;
@@ -34,9 +27,9 @@ public class AlbumFragment extends Fragment {
 
     View view;
     private int id;
-    private ImageLoader imageLoader;
-    private DisplayImageOptions options;
-    private Activity activity;
+    //private ImageLoader imageLoader;
+    //private DisplayImageOptions options;
+    //private Activity activity;
     public GridView gvImages;
     ArrayList<HashMap<String, String>> list;
     ArrayList<String> links;
@@ -49,7 +42,7 @@ public class AlbumFragment extends Fragment {
 
         id = ((MainActivity) this.getActivity()).getGalleryId();
 
-        imageLoader = ImageLoader.getInstance();
+        /*imageLoader = ImageLoader.getInstance();
         options = new DisplayImageOptions.Builder().cacheInMemory(true)
                 .cacheOnDisc(true).resetViewBeforeLoading(true).build();
 
@@ -66,7 +59,7 @@ public class AlbumFragment extends Fragment {
                 .discCacheSize(100 * 1024 * 1024).build();
 
         ImageLoader.getInstance().init(config);
-        // END - UNIVERSAL IMAGE LOADER SETUP
+        // END - UNIVERSAL IMAGE LOADER SETUP*/
 
         initilizeViews();
 

@@ -1,6 +1,7 @@
 package com.jaipurpinkpanthers.android.fragments;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class HomeFragment extends Fragment {
     String team1Id = null, team2Id = null, team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null;
     ListView lvTeams;
     RelativeLayout ll1, ll2, ll3;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,6 +76,14 @@ public class HomeFragment extends Fragment {
 
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
+
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setCancelable(false);
+
+        progressDialog.setMessage("Please wait...");
+
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
 
         initilizeViews();
 
@@ -153,6 +163,7 @@ public class HomeFragment extends Fragment {
         if(InternetOperations.checkIsOnlineViaIP()){
             getHomeContentData();
         }else{
+            progressDialog.dismiss();
             Toast.makeText(getActivity(),"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
         }
     }
@@ -160,6 +171,8 @@ public class HomeFragment extends Fragment {
     public void getHomeContentData() {
 
         new AsyncTask<Void, Void, String>() {
+
+            boolean done = false;
             @Override
             protected String doInBackground(Void... params) {
 
@@ -227,19 +240,29 @@ public class HomeFragment extends Fragment {
                         c = true;
                     }
 
+                    done = true;
+
                 } catch (IOException io) {
                     Log.e("JPP", Log.getStackTraceString(io));
                     a = b = c = true;
 
                 } catch (JSONException je) {
                     Log.e("JPP", Log.getStackTraceString(je));
+                } catch (Exception e){
+                    Log.e("JPP", Log.getStackTraceString(e));
                 }
+
                 return null;
             }
 
             @Override
             protected void onPostExecute(String s) {
-                refresh();
+                progressDialog.dismiss();
+                if (done) {
+                    refresh();
+                }else{
+                    Toast.makeText(getActivity(),"Oops, Something went wrong!",Toast.LENGTH_SHORT).show();
+                }
             }
         }.execute(null, null, null);
     }
