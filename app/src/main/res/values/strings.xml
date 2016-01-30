@@ -86,8 +86,8 @@
     <string name="player14">14#Rohit Kumar Prajapat#Raider</string>
     <string name="player15">15#Jagdeesha K.K#Defender</string>
     <string name="player16">16#Satish Kumar#Raider</string>
-    <string name="player17">17#Mohammad Maghsoudlou#Raider</string>
-    <string name="player18">18#Hwangi Ahn#Raider</string>
+    <string name="player17">17#Mohammad Maghsoudlou#All Rounder</string>
+    <string name="player18">18#Hwangi Ahn#All Rounder</string>
 
     <string-array name="player">
         <item>@string/player1</item>
