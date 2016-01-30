@@ -218,7 +218,7 @@ public class SlideShowActivity extends AppCompatActivity {
                 if(done){
                     Toast.makeText(context, "Downloaded!", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(context, "Soemething went wrong!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Something went wrong!", Toast.LENGTH_SHORT).show();
                 }
 
 

@@ -281,6 +281,7 @@ public class MainActivity extends ActionBarActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
+            // Only show items in the action bar relevant to this screen
             // if the drawer is not showing. Otherwise, let the drawer
             // decide what to show in the action bar.
             //getMenuInflater().inflate(R.menu.main, menu);
@@ -559,7 +560,7 @@ public class MainActivity extends ActionBarActivity
 
     public void goToBookTickets(View v) {
         Intent intent = new Intent(MainActivity.this, WebActivity.class);
-        intent.putExtra("webLink", "http://in.bookmyshow.com/sports/kabaddi/jaipur-pink-panthers/");
+        intent.putExtra("webLink", "http://in.bookmyshow.com/sports/kabaddi/jaipur-pink-panthers/?utm_source=web_prokabaddi&utm_medium=referral&utm_campaign=web_prokabaddi_011816");
         startActivity(intent);
     }
 

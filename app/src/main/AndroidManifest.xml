@@ -3,6 +3,7 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -43,7 +44,7 @@
     <!-- GCM requires Android SDK version 2.2 (API level 8) or above. -->
     <!-- The targetSdkVersion is optional, but it's always a good practice
          to target higher versions. -->
-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23"/>
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22"/>
 
     <!-- Service for sending location updates-->
     <service android:name="com.pushwoosh.location.GeoLocationService" />
@@ -192,7 +193,6 @@
             android:name="com.pushwoosh.GCMRegistrationService"
             android:exported="false">
         </service>
-
 
 
 

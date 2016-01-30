@@ -124,7 +124,7 @@ public class HomeFragment extends Fragment {
         llTable = (LinearLayout) view.findViewById(R.id.llTable);
         TextView tvTable = (TextView) llTable.findViewById(R.id.tvCrossHeader);
         tvTable.setTypeface(CustomFonts.getRegularFont(getActivity()));
-        tvTable.setText("TABLE");
+        tvTable.setText("POINTS TABLE");
 
 
         tvNo.setTypeface(CustomFonts.getRegularFont(getActivity()));

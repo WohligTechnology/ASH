@@ -13,7 +13,8 @@ import com.jaipurpinkpanthers.android.util.CustomFonts;
 public class MerchandiseFragment extends Fragment {
 
     View view;
-    TextView tvBuyNow;
+    TextView tvTic, tvBookNow;
+    TextView tvMer, tvBuyNow;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,8 +28,16 @@ public class MerchandiseFragment extends Fragment {
 
     public void initilizeViews(){
 
+        tvTic = (TextView) view.findViewById(R.id.tvTic);
+        tvMer = (TextView) view.findViewById(R.id.tvMer);
+        tvTic.setTypeface(CustomFonts.getBoldFont(getActivity()));
+        tvMer.setTypeface(CustomFonts.getBoldFont(getActivity()));
+
         tvBuyNow = (TextView) view.findViewById(R.id.tvBuyNow);
         tvBuyNow.setTypeface(CustomFonts.getRegularFont(getActivity()));
+
+        tvBookNow = (TextView) view.findViewById(R.id.tvBookNow);
+        tvBookNow.setTypeface(CustomFonts.getRegularFont(getActivity()));
 
     }
 

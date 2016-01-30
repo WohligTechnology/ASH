@@ -6,67 +6,121 @@
              android:background="@color/jppPrimaryColor">
 
 
-    <ScrollView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView5"
-        android:scrollbars="none">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:weightSum="2.5"
+        android:layout_gravity="center_horizontal|bottom"
+        android:background="@android:color/white">
+
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:weightSum="5">
 
-            <ImageView
-                android:id="@+id/slider"
-                android:src="@drawable/mercimage"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"/>
+                android:text="TICKETS"
+                android:textSize="30sp"
+                android:id="@+id/tvTic"
+                android:textColor="@color/jppNewsHeader"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"/>
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="270dp"
-                android:id="@+id/imageView11"
-                android:src="@drawable/merchandise"
-                android:scaleType="fitStart"
-                android:adjustViewBounds="false"
-                android:layout_margin="10dp"/>
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/tickets"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/ivTic"
+                android:layout_weight="4"/>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/jppAccentColor"
+                android:background="@color/jppNewsHeader"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:onClick="goToMerc"
-                android:padding="5dp">
+                android:onClick="goToTic"
+                android:padding="5dp"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="BUY NOW"
+                    android:text="BOOK NOW"
+                    android:textSize="16sp"
+                    android:id="@+id/tvBookNow"
+                    android:gravity="center"
+                    android:padding="7dp"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:weightSum="5">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MERCHANDISE"
+                android:textSize="30sp"
+                android:id="@+id/tvMer"
+                android:textColor="@color/jppNewsHeader"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"/>
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:id="@+id/imageButton"
+                android:src="@drawable/merchant"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="4"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/jppNewsHeader"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:onClick="goToMerc"
+                android:padding="5dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="COMING SOON"
                     android:textSize="16sp"
                     android:id="@+id/tvBuyNow"
                     android:gravity="center"
                     android:padding="7dp"
-                    android:textColor="@android:color/white"
-                    />
+                    android:textColor="@android:color/white" />
             </LinearLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="BUY NOW"
-                android:id="@+id/button"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@color/jppAccentColor"
-                android:textColor="@android:color/white"
-                android:visibility="gone"/>
-
         </LinearLayout>
-    </ScrollView>
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -49,7 +49,7 @@ public class MerchandiseActivity extends ActionBarActivity
 
         //tvToolbarText.setVisibility(View.GONE);
         ivToolbarImage.setVisibility(View.GONE);
-        tvToolbarText.setText("MERCHANDISE");
+        tvToolbarText.setText("TICKETS & MERCHANDISE");
 
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/
@@ -229,8 +229,14 @@ public class MerchandiseActivity extends ActionBarActivity
     }
 
     public void goToMerc(View v){
-        Intent intent = new Intent(MerchandiseActivity.this, WebActivity.class);
+        /*Intent intent = new Intent(MerchandiseActivity.this, WebActivity.class);
         intent.putExtra("webLink", "http://www.google.com");
+        startActivity(intent);*/
+    }
+
+    public void goToTic(View v){
+        Intent intent = new Intent(MerchandiseActivity.this, WebActivity.class);
+        intent.putExtra("webLink", "http://in.bookmyshow.com/sports/kabaddi/jaipur-pink-panthers/?utm_source=web_prokabaddi&utm_medium=referral&utm_campaign=web_prokabaddi_011816");
         startActivity(intent);
     }
 }
