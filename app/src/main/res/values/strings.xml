@@ -47,7 +47,7 @@
     <string name="aboutTeamColors">Pink and Blue</string>
     <string name="aboutSquad">Current Squad:</string>
     <string name="aboutCurrentSquad">15 Indian &amp; 3 International Players</string>
-    <string name="aboutBottom">Jaipur Pink Panthers are the champions of the inaugural season of the Pro Kabaddi League in 2014.</string>
+    <string name="aboutBottom">Jaipur Pink Panthers are the champions of the first season of the Pro Kabaddi League in 2014.</string>
 
 <!-- players -->
     <string name="playerDesc1">Navneet Gautam#Defender#India#Jun 08,1993#07#Pro-Kabaddi (2015-2014), Asian Games (2006 -10 -14), WorldCup (2004)(2007), Indoor Asian Games (2007))(2009)#Pro-kabaddi (2014)- 1st Position, Arjun Awardee - (2007), Asian Games (2006-10-14) - 1st Position, World Cup (2004) (2007) - 1st Position, Indoor Asian Game (2007)(2009) - 1st Position.#32#Jaipur</string>
@@ -67,7 +67,7 @@
     <string name="playerDesc15">Jagdeesha K.K#Defender#Indian#Jan 27, 1990#09#Departmental National Campionship- (2015-1999),Senior National (2013-1999),National Games (2003-1999), Senior Federation Cup (2006-2003), Asian Cup(2002).#Departmental National Campionship (2014-2012) - 2nd Position, Departmental National Campionship (2006-2002)- 1st Position, Asian Cup (2002)- 1st Position, Senior National (2005-2003) -1st Position, Senior Federation Cup (2003)- 1st Position.#41#Koipaddy</string>
     <string name="playerDesc16">Satish Kumar#Raider#Indian#Jan 27, 1990#06#Senior National -(2007,2008,2011,2015),Senior Federation Cup (2006), Beach Kabaddi National Campionship(2008).#Senior National (2007,2008,2011)- 1st Positon, Senior National (2015)- 2nd Position,Senior Federation (2006) - 3rd Position, Beach Kabaddi National Campionship (2008) - 1st Position.#31#Rohera</string>
     <string name="playerDesc17">Mohammad Maghsoudlou#All Rounder#Indian#Jan 27, 1990#23#No information currently available#Asian Indoor Kabaddi Games Incheon (2014)-2nd Position, Asian Beach Kabaddi Games China (2012)-1st Position, National Kabaddi Championship (2008,2009,2010,2011,2012)-1st Position, National Kabaddi Premier League (2006,2007)-1st Position#25#Gorgan</string>
-    <string name="playerDesc18">Hwangi Ahn#All Rounder#Indian#Jan 27, 1990#17#No information currently available#Incheon indoor game- Bronze Medal, National Championship (2011,2012,2013)-2nd Position, Asian Games (2014)- Bronze Medal#32#Gyoung Ju</string>
+    <!--<string name="playerDesc18">Hwangi Ahn#All Rounder#Indian#Jan 27, 1990#17#No information currently available#Incheon indoor game- Bronze Medal, National Championship (2011,2012,2013)-2nd Position, Asian Games (2014)- Bronze Medal#32#Gyoung Ju</string>-->
 
 
     <string name="player1">1#Navneet Gautam#Defender</string>
@@ -87,7 +87,7 @@
     <string name="player15">15#Jagdeesha K.K#Defender</string>
     <string name="player16">16#Satish Kumar#Raider</string>
     <string name="player17">17#Mohammad Maghsoudlou#All Rounder</string>
-    <string name="player18">18#Hwangi Ahn#All Rounder</string>
+    <!--<string name="player18">18#Hwangi Ahn#All Rounder</string>-->
 
     <string-array name="player">
         <item>@string/player1</item>
@@ -107,7 +107,7 @@
         <item>@string/player15</item>
         <item>@string/player16</item>
         <item>@string/player17</item>
-        <item>@string/player18</item>
+        <!--<item>@string/player18</item>-->
     </string-array>
 
     <string-array name="playersDesc">
@@ -128,7 +128,7 @@
         <item>@string/playerDesc15</item>
         <item>@string/playerDesc16</item>
         <item>@string/playerDesc17</item>
-        <item>@string/playerDesc18</item>
+        <!--<item>@string/playerDesc18</item>-->
     </string-array>
 
     <string-array name="playerImages">
@@ -149,7 +149,7 @@
         <item>@drawable/player_jagdeesha</item>
         <item>@drawable/player_satish</item>
         <item>@drawable/player_mohammad</item>
-        <item>@drawable/player_hwangi</item>
+        <!--<item>@drawable/player_hwangi</item>-->
     </string-array>
 
     <string-array name="teamLogo">

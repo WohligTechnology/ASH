@@ -10,14 +10,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.jaipurpinkpanthers.android.R;
+import com.jaipurpinkpanthers.android.util.InternetOperations;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.jaipurpinkpanthers.android.R;
-import com.jaipurpinkpanthers.android.util.InternetOperations;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -103,7 +103,7 @@ public class AlbumAdapter extends BaseAdapter {
 
         String image = map.get("image");
 
-        String imageUri = InternetOperations.SERVER_UPLOADS_URL + image;
+        String imageUri = InternetOperations.SERVER_THUMB_URL + image +InternetOperations.SERVER_WIDTH_250;
         imageLoader.displayImage(imageUri, holder.ivSingle,options);
 
         holder.llAldbumSingle.setTag(position);

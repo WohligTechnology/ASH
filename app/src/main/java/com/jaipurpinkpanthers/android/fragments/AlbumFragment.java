@@ -137,7 +137,7 @@ public class AlbumFragment extends Fragment {
     }
 
     public void addLinks(String image){
-        links.add(InternetOperations.SERVER_UPLOADS_URL + image);
+        links.add(image);
     }
 
 }

@@ -113,7 +113,8 @@ public class GalleryAdapter extends BaseAdapter {
         holder.tvTitle.setText(title);
         holder.flGallery.setTag(tag);
 
-        image = InternetOperations.SERVER_UPLOADS_URL + image;
+        //image = InternetOperations.SERVER_UPLOADS_URL + image;
+        image = InternetOperations.SERVER_THUMB_URL + image + InternetOperations.SERVER_WIDTH_400;
         imageLoader.displayImage(image, holder.ivGallery, options);
 
         return convertView;

@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.jaipurpinkpanthers.android.util.InternetOperations;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -90,8 +91,9 @@ public class SlideShowActivity extends AppCompatActivity {
 
         ImageView ivBig = (ImageView) viewFlipperSingleImage.findViewById(R.id.ivBig); //find the different Views
         ImageView ivDownload = (ImageView) viewFlipperSingleImage.findViewById(R.id.ivDownload);
-        ivDownload.setTag(url);
-        imageLoader.displayImage(url, ivBig, options);
+        ivDownload.setTag(InternetOperations.SERVER_UPLOADS_URL + url);
+        String image = InternetOperations.SERVER_THUMB_URL + url + InternetOperations.SERVER_WIDTH_400;
+        imageLoader.displayImage(image, ivBig, options);
 
         vfSlide.addView(viewFlipperSingleImage);
 
@@ -226,11 +228,6 @@ public class SlideShowActivity extends AppCompatActivity {
         }.execute(null, null, null);
 
     }
-
-
-
-
-
 
     byte[] getMedia(String url) throws IOException {
         //RequestBody body = RequestBody.create(JSON, json);
