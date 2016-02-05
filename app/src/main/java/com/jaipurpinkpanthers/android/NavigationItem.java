@@ -1,15 +1,13 @@
 package com.jaipurpinkpanthers.android;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * Created by poliveira on 24/10/2014.
  */
 public class NavigationItem {
     private String mText;
-    private Drawable mDrawable;
+    private String mDrawable;
 
-    public NavigationItem(String text, Drawable drawable) {
+    public NavigationItem(String text, String drawable) {
         mText = text;
         mDrawable = drawable;
     }
@@ -22,11 +20,11 @@ public class NavigationItem {
         mText = text;
     }
 
-    public Drawable getDrawable() {
+    public String getDrawable() {
         return mDrawable;
     }
 
-    public void setDrawable(Drawable drawable) {
+    public void setDrawable(String drawable) {
         mDrawable = drawable;
     }
 }

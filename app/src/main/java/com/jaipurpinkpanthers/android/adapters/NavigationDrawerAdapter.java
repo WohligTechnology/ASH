@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jaipurpinkpanthers.android.NavigationDrawerCallbacks;
@@ -61,7 +62,11 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
     public void onBindViewHolder(NavigationDrawerAdapter.ViewHolder viewHolder, int i) {
         viewHolder.textView.setText(mData.get(i).getText());
         viewHolder.textView.setTypeface(CustomFonts.getRegularFont(mActivity));
-        viewHolder.textView.setCompoundDrawablesWithIntrinsicBounds(mData.get(i).getDrawable(), null, null, null);
+        //viewHolder.textView.setCompoundDrawablesWithIntrinsicBounds(mData.get(i).getDrawable(), null, null, null);
+        String fileName = mData.get(i).getDrawable(); //  this is image file name
+        String PACKAGE_NAME = mActivity.getApplicationContext().getPackageName();
+        int imgId = mActivity.getResources().getIdentifier(PACKAGE_NAME+":drawable/"+fileName , null, null);
+        viewHolder.ivIcon.setImageResource(imgId);
         if (mSelectedPosition == i) {
             if (mSelectedView != null) {
                 mSelectedView.setSelected(false);
@@ -84,10 +89,11 @@ public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDraw
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
-
+        public ImageView ivIcon;
         public ViewHolder(View itemView) {
             super(itemView);
             textView = (TextView) itemView.findViewById(R.id.item_name);
+            ivIcon = (ImageView) itemView.findViewById(R.id.ivIcon);
         }
     }
 }

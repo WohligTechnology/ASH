@@ -106,16 +106,17 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
 
     public List<NavigationItem> getMenu() {
         List<NavigationItem> items = new ArrayList<NavigationItem>();
-        items.add(new NavigationItem("HOME", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("FIXTURES", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("GALLERY", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("NEWS & MEDIA", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("KNOW YOUR PANTHERS", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("TICKETS & MERCHANDISE", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("WALLPAPERS", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("POINTS TABLE", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("FAN CORNER", getResources().getDrawable(R.drawable.ic_menu_check)));
-        items.add(new NavigationItem("ABOUT", getResources().getDrawable(R.drawable.ic_menu_check)));
+        items.add(new NavigationItem("HOME","ic_menu_home"));
+        items.add(new NavigationItem("FIXTURES", "ic_menu_fixtures"));
+        items.add(new NavigationItem("GALLERY", "ic_menu_gallery"));
+        items.add(new NavigationItem("NEWS & MEDIA", "ic_menu_news"));
+        items.add(new NavigationItem("KNOW YOUR PANTHERS", "ic_menu_panthers"));
+        items.add(new NavigationItem("TICKETS & MERCHANDISE","ic_menu_merc"));
+        items.add(new NavigationItem("WALLPAPERS", "ic_menu_wallpaper"));
+        items.add(new NavigationItem("POINTS TABLE", "ic_menu_points"));
+        items.add(new NavigationItem("FAN CORNER", "ic_menu_fan"));
+        items.add(new NavigationItem("ABOUT", "ic_menu_about"));
+        //items.add(new NavigationItem("ABOUT", getResources().getDrawable(R.drawable.ic_menu_about)));
         return items;
     }
 
