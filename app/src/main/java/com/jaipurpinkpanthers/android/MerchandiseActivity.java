@@ -144,7 +144,17 @@ public class MerchandiseActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 8) { // about us
+        if (position == 8) { // fan corner
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(MerchandiseActivity.this, FanActivity.class));
+                    finish();
+                }
+            }, 300);
+        }
+        if (position == 9) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override

@@ -60,6 +60,7 @@ public class SplashActivity extends ActionBarActivity {
                 }finally {
                     Intent main = new Intent(SplashActivity.this,MainActivity.class);
                     startActivity(main);
+                    finish();
                 }
             }
         };

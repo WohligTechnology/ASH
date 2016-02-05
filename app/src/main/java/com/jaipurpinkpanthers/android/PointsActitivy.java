@@ -30,10 +30,7 @@ public class PointsActitivy extends ActionBarActivity
     private ImageView ivToolbarImage;
     private TextView tvToolbarText;
     private FrameLayout container;
-    public static int PLAYER_ID = 12;
-    public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
     boolean doubleBackToExitPressedOnce = false;
-    boolean inMainActivity = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +140,17 @@ public class PointsActitivy extends ActionBarActivity
         if (position == 7) { // points table
 
         }
-        if (position == 8) { // about us
+        if (position == 8) { // fan corner
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(PointsActitivy.this, FanActivity.class));
+                    finish();
+                }
+            }, 300);
+        }
+        if (position == 9) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override

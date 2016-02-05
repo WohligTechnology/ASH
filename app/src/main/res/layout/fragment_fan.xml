@@ -1,0 +1,256 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@android:color/white"
+             tools:context="com.jaipurpinkpanthers.android.fragments.FanFragment"
+             android:focusable="true"
+             android:focusableInTouchMode="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:weightSum="9">
+
+        <TextView
+            android:id="@+id/tvSign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SIGN UP"
+            android:textColor="@color/jppAccentColor"
+            android:textSize="28sp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvFan1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@string/fanRegister"
+            android:textSize="14sp"
+            android:textColor="@color/jppFanText"
+            android:layout_weight="0.5"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/jppFanBorder"
+                android:orientation="horizontal"
+                android:padding="0.5dp">
+
+                <EditText
+                    android:id="@+id/etFirst"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:hint="First Name"
+                    android:textColor="@color/jppFanText"
+                    android:textColorHint="@color/jppFanHint"
+                    android:paddingLeft="10dp"
+
+                    android:inputType="textCapWords"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/jppFanBorder"
+                android:orientation="horizontal"
+                android:padding="0.5dp">
+
+                <EditText
+                    android:id="@+id/etLast"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:hint="Last Name"
+                    android:textColor="@color/jppFanText"
+                    android:textColorHint="@color/jppFanHint"
+                    android:paddingLeft="10dp"
+
+                    android:inputType="textCapWords"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/jppFanBorder"
+                android:orientation="horizontal"
+                android:padding="0.5dp">
+
+                <EditText
+                    android:id="@+id/etMob"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:hint="Mobile Number"
+                    android:textColor="@color/jppFanText"
+                    android:textColorHint="@color/jppFanHint"
+                    android:paddingLeft="10dp"
+
+                    android:inputType="number"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/jppFanBorder"
+                android:orientation="horizontal"
+                android:padding="0.5dp">
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:hint="Email Address"
+                    android:textColor="@color/jppFanText"
+                    android:textColorHint="@color/jppFanHint"
+                    android:paddingLeft="10dp"
+
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:id="@+id/tvSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/jppFanButton"
+                android:text="SUBMIT"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:padding="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="horizontal"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvFan2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/fanRegisterBottom"
+            android:textColor="@color/jppFanButton"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivFb"
+                android:src="@drawable/fb"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivTw"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/tw"/>
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/ivInsta"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/insta"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

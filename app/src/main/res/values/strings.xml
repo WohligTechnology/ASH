@@ -48,6 +48,8 @@
     <string name="aboutSquad">Current Squad:</string>
     <string name="aboutCurrentSquad">15 Indian &amp; 3 International Players</string>
     <string name="aboutBottom">Jaipur Pink Panthers are the champions of the first season of the Pro Kabaddi League in 2014.</string>
+    <string name="fanRegister">Register and get a chance to win exclusive Jaipur Pink Panthers merchandise, meet and greet with the players and home match tickets.</string>
+    <string name="fanRegisterBottom">Stay tuned to our weekly contest on our social media pages to win some exclusive merchandise.</string>
 
 <!-- players -->
     <string name="playerDesc1">Navneet Gautam#Defender#India#Jun 08,1993#07#Pro-Kabaddi (2015-2014), Asian Games (2006 -10 -14), WorldCup (2004)(2007), Indoor Asian Games (2007))(2009)#Pro-kabaddi (2014)- 1st Position, Arjun Awardee - (2007), Asian Games (2006-10-14) - 1st Position, World Cup (2004) (2007) - 1st Position, Indoor Asian Game (2007)(2009) - 1st Position.#32#Jaipur</string>
@@ -170,5 +172,6 @@
     <string name="title_activity_wallpaper">WallpaperActivity</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_slide_show">SlideShowActivity</string>
+    <string name="title_activity_fan">FanActivity</string>
 
 </resources>

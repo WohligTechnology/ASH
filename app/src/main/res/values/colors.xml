@@ -30,5 +30,9 @@
     <color name="jppProfileType">#4ecaf5</color>
     <color name="jppGalleryToolbar">#ebf9fe</color>
     <color name="jppPointsRow">#ef67ab</color>
+    <color name="jppFanBorder">#00b0ae</color>
+    <color name="jppFanButton">#d73785</color>
+    <color name="jppFanText">#676767</color>
+    <color name="jppFanHint">#A3A3A3</color>
 
 </resources>

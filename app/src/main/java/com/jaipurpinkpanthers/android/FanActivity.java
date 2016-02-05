@@ -16,13 +16,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaipurpinkpanthers.android.fragments.FanFragment;
 import com.jaipurpinkpanthers.android.fragments.NavigationDrawerFragment;
-import com.jaipurpinkpanthers.android.fragments.WallpaperFragment;
 import com.jaipurpinkpanthers.android.util.CustomFonts;
 
-import java.util.ArrayList;
-
-public class WallpaperActivity extends ActionBarActivity
+public class FanActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -31,15 +29,16 @@ public class WallpaperActivity extends ActionBarActivity
     private Toolbar mToolbar;
     private ImageView ivToolbarImage;
     private TextView tvToolbarText;
-    public ImageView ivGallery;
     private FrameLayout container;
+    public static int PLAYER_ID = 12;
+    public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
     boolean doubleBackToExitPressedOnce = false;
-    public static ArrayList<String> IMAGE_LINKS = new ArrayList<String>();
+    boolean inMainActivity = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wallpaper);
+        setContentView(R.layout.activity_fan);
         mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -50,7 +49,7 @@ public class WallpaperActivity extends ActionBarActivity
 
         //tvToolbarText.setVisibility(View.GONE);
         ivToolbarImage.setVisibility(View.GONE);
-        tvToolbarText.setText("WALLPAPERS");
+        tvToolbarText.setText("FAN CORNER");
 
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/
@@ -65,7 +64,6 @@ public class WallpaperActivity extends ActionBarActivity
             mNavigationDrawerFragment.closeDrawer();
 
         initializeViews();
-
     }
 
     @Override
@@ -76,7 +74,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goHome(WallpaperActivity.this);
+                    GoToMainFragments.goHome(FanActivity.this);
                     finish();
                 }
             }, 300);
@@ -86,7 +84,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goSchedule(WallpaperActivity.this);
+                    GoToMainFragments.goSchedule(FanActivity.this);
                     finish();
                 }
             }, 300);
@@ -97,7 +95,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goGallery(WallpaperActivity.this);
+                    GoToMainFragments.goGallery(FanActivity.this);
                     finish();
                 }
             }, 300);
@@ -107,7 +105,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goNews(WallpaperActivity.this);
+                    GoToMainFragments.goNews(FanActivity.this);
                     finish();
                 }
             }, 300);
@@ -117,7 +115,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goPanthers(WallpaperActivity.this);
+                    GoToMainFragments.goPanthers(FanActivity.this);
                     finish();
                 }
             }, 300);
@@ -127,40 +125,40 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, MerchandiseActivity.class));
+                    startActivity(new Intent(FanActivity.this, MerchandiseActivity.class));
                     finish();
                 }
             }, 300);
         }
         if (position == 6) { // wallpaper
-
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(FanActivity.this, WallpaperActivity.class));
+                    finish();
+                }
+            }, 300);
         }
         if (position == 7) { // points table
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, PointsActitivy.class));
+                    startActivity(new Intent(FanActivity.this, PointsActitivy.class));
                     finish();
                 }
             }, 300);
         }
         if (position == 8) { // fan corner
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, FanActivity.class));
-                    finish();
-                }
-            }, 300);
+
         }
         if (position == 9) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, AboutActivity.class));
+                    startActivity(new Intent(FanActivity.this, AboutActivity.class));
                     finish();
                 }
             }, 300);
@@ -206,60 +204,35 @@ public class WallpaperActivity extends ActionBarActivity
     public void initializeViews() {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        WallpaperFragment wallpaperFragment = new WallpaperFragment();
+        FanFragment fanFragment = new FanFragment();
 
-        fragmentTransaction.add(R.id.container, wallpaperFragment);
+        fragmentTransaction.add(R.id.container, fanFragment);
         //fragmentTransaction.replace(R.id.container, scheduleFragment);
         fragmentTransaction.commit();
-
     }
 
     public void home(View v) {
         Log.v("JPP", "Home");
         GoToMainFragments.goHome(this);
-        finish();
     }
 
     public void schedule(View v) {
         Log.v("JPP", "Schedule");
         GoToMainFragments.goSchedule(this);
-        finish();
     }
 
     public void gallery(View v) {
         Log.v("JPP", "Gallery");
         GoToMainFragments.goGallery(this);
-        finish();
     }
 
     public void news(View v) {
         Log.v("JPP", "News");
         GoToMainFragments.goSchedule(this);
-        finish();
     }
 
     public void knowPanthers(View v) {
         Log.v("JPP", "Panthers");
         GoToMainFragments.goPanthers(this);
-        finish();
-    }
-
-    public static ArrayList<String> getImageLinks(){
-        return IMAGE_LINKS;
-    }
-
-    public static void setImageLinks(ArrayList<String> links){
-        if(IMAGE_LINKS.size() > 0){
-            IMAGE_LINKS.clear();
-        }
-        IMAGE_LINKS = links;
-    }
-
-    public void openSlideShowActivity(View v){
-        String position = v.getTag().toString();
-        Intent intent = new Intent(WallpaperActivity.this, SlideShowActivity.class);
-        intent.putExtra("position", position);
-        intent.putStringArrayListExtra("links", IMAGE_LINKS);
-        startActivity(intent);
     }
 }
