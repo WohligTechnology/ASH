@@ -106,11 +106,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c6856c2-3cf0-44a7-b817-eced1a85aaa8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_new_single.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/CustomFonts.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/CustomFonts.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/ScheduleFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/ScheduleFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_done_single.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_done_single.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Jaipur Pink Panthers.iws" />
@@ -146,56 +143,17 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/ScheduleFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+              <caret line="141" column="33" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomFonts.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/CustomFonts.java">
+      <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fragment_schedule.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.724138">
-              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout_schedule_done_single.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_done_single.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="116" column="41" selection-start-line="116" selection-start-column="41" selection-end-line="116" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout_schedule_new_single.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_new_single.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.931034">
-              <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.21288015">
+              <caret line="196" column="71" selection-start-line="196" selection-start-column="71" selection-end-line="196" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -1953,7 +1911,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/NewsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/GalleryFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/PointsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/MerchandiseFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_merchandise.xml" />
@@ -1987,8 +1944,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/CustomFonts.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_new_single.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/AutoResizeTextView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/ScheduleFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_done_single.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/ScheduleFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" />
       </list>
     </option>
   </component>
@@ -2327,7 +2285,7 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
+              <option name="myItemId" value="fragments" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2375,7 +2333,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lay" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="cus&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.util.CustomFonts&#10;sche&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/layout/fragment_schedule.xml&#10;stri&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;colo&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/colors.xml" />
+    <property name="SearchEverywhereHistoryKey" value="home&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java&#10;cus&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.util.CustomFonts&#10;sche&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/layout/fragment_schedule.xml&#10;stri&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;colo&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/colors.xml" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -2615,7 +2573,7 @@
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.78534925" sideWeight="0.4924357" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21104388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -2982,13 +2940,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_row.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3020,22 +2971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/ScheduleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/CustomFonts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_new_single.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3047,17 +2982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.724138">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_done_single.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -3065,6 +2989,41 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="116" column="41" selection-start-line="116" selection-start-column="41" selection-end-line="116" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedule.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6415094">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/CustomFonts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39534885">
+          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/ScheduleFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="141" column="33" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21288015">
+          <caret line="196" column="71" selection-start-line="196" selection-start-column="71" selection-end-line="196" selection-end-column="71" />
           <folding />
         </state>
       </provider>

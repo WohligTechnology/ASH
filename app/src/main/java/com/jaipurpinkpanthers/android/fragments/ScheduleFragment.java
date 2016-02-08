@@ -80,7 +80,7 @@ public class ScheduleFragment extends Fragment {
         progressDialog.setMessage("Please wait...");
 
         progressDialog.setCanceledOnTouchOutside(false);
-        //progressDialog.show();
+        progressDialog.show();
 
         initilizeViews();
 
@@ -138,6 +138,8 @@ public class ScheduleFragment extends Fragment {
         tvFulltime.setTypeface(CustomFonts.getRegularFont(getActivity()));
         tvReport.setTypeface(CustomFonts.getRegularFont(getActivity()));
         tvCentre.setTypeface(CustomFonts.getRegularFont(getActivity()));
+
+        progressDialog.dismiss();
 
         //String tag = "Jaipur Pink Panthers#Patna Pirates#30 Jan 2016, 20:00";
         //llAddToCalendar.setTag(tag);

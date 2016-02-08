@@ -192,7 +192,7 @@ public class HomeFragment extends Fragment {
                         team1 = latestUpdate.optString("team1");
                         team2 = latestUpdate.optString("team2");
                         team1Pts = latestUpdate.optString("score1");
-                        team2Pts = latestUpdate.optString("score1");
+                        team2Pts = latestUpdate.optString("score2");
                         venue = latestUpdate.optString("stadium");
                         time = latestUpdate.optString("starttimedate");
                         team1Id = latestUpdate.optString("team1id");
