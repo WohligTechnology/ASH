@@ -80,7 +80,7 @@ public class ScheduleFragment extends Fragment {
         progressDialog.setMessage("Please wait...");
 
         progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
+        //progressDialog.show();
 
         initilizeViews();
 
@@ -123,15 +123,31 @@ public class ScheduleFragment extends Fragment {
         tvBook.setTypeface(CustomFonts.getRegularFont(getActivity()));
 
         llAddToCalendar = (LinearLayout) view.findViewById(R.id.llAddToCalendar);
+
+
+        TextView tvScore1 = (TextView) view.findViewById(R.id.tvScore1);
+        TextView tvScore2 = (TextView) view.findViewById(R.id.tvScore2);
+        TextView tvFulltime = (TextView) view.findViewById(R.id.tvFulltime);
+        TextView tvReport = (TextView) view.findViewById(R.id.tvReport);
+        TextView tvCentre = (TextView) view.findViewById(R.id.tvCentre);
+
+        tvScore1.setTypeface(CustomFonts.getScoreFont(getActivity()));
+        tvScore2.setTypeface(CustomFonts.getScoreFont(getActivity()));
+
+
+        tvFulltime.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvReport.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvCentre.setTypeface(CustomFonts.getRegularFont(getActivity()));
+
         //String tag = "Jaipur Pink Panthers#Patna Pirates#30 Jan 2016, 20:00";
         //llAddToCalendar.setTag(tag);
 
-        if (InternetOperations.checkIsOnlineViaIP()) {
+        /*if (InternetOperations.checkIsOnlineViaIP()) {
             getScheduleData();
         } else {
             progressDialog.dismiss();
             Toast.makeText(getActivity(), "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
     }
 

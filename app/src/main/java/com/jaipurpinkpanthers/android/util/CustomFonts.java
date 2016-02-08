@@ -23,4 +23,8 @@ public class CustomFonts {
     public static Typeface getProfileFont(Activity activity){
         return Typeface.createFromAsset(activity.getAssets(), "fonts/voyagefantcond.ttf");
     }
+
+    public static Typeface getScoreFont(Activity activity){
+        return Typeface.createFromAsset(activity.getAssets(), "fonts/Kenyan-Coffee-Rg.ttf");
+    }
 }
