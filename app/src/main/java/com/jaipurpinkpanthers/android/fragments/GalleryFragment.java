@@ -165,10 +165,9 @@ public class GalleryFragment extends Fragment {
 
                     jsonArrayVideo = new JSONArray(res);
 
-                    for (int j = 0; j < jsonArray.length(); j++) {
+                    for (int j = 0; j < jsonArrayVideo.length(); j++) {
 
                         String id = null, url = null, name = null;
-
                         JSONObject jsonObject = jsonArrayVideo.getJSONObject(j);
                         name = jsonObject.optString("name");
                         url = jsonObject.optString("url");

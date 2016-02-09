@@ -125,7 +125,7 @@ public class ScheduleFragment extends Fragment {
         llAddToCalendar = (LinearLayout) view.findViewById(R.id.llAddToCalendar);
 
 
-        TextView tvScore1 = (TextView) view.findViewById(R.id.tvScore1);
+        /*TextView tvScore1 = (TextView) view.findViewById(R.id.tvScore1);
         TextView tvScore2 = (TextView) view.findViewById(R.id.tvScore2);
         TextView tvFulltime = (TextView) view.findViewById(R.id.tvFulltime);
         TextView tvReport = (TextView) view.findViewById(R.id.tvReport);
@@ -139,17 +139,17 @@ public class ScheduleFragment extends Fragment {
         tvReport.setTypeface(CustomFonts.getRegularFont(getActivity()));
         tvCentre.setTypeface(CustomFonts.getRegularFont(getActivity()));
 
-        progressDialog.dismiss();
+        progressDialog.dismiss();*/
 
         //String tag = "Jaipur Pink Panthers#Patna Pirates#30 Jan 2016, 20:00";
         //llAddToCalendar.setTag(tag);
 
-        /*if (InternetOperations.checkIsOnlineViaIP()) {
+        if (InternetOperations.checkIsOnlineViaIP()) {
             getScheduleData();
         } else {
             progressDialog.dismiss();
             Toast.makeText(getActivity(), "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
-        }*/
+        }
 
     }
 
@@ -167,7 +167,7 @@ public class ScheduleFragment extends Fragment {
                 String response;
                 JSONArray jsonArray = null;
                 try {
-                    response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getSchedule");
+                    response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getScheduleAndroid");
 
                     jsonArray = new JSONArray(response);
 
