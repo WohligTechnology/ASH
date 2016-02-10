@@ -15,11 +15,11 @@ public class InternetOperations {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static OkHttpClient client = new OkHttpClient();
-    //public static String SERVER_URL = "http://192.168.0.124/jppbackend/index.php/json/";
-    //public static String SERVER_UPLOADS_URL = "http://192.168.0.124/jppbackend/uploads/";
+    /*public static String SERVER_URL = "http://192.168.0.124/jppbackend/index.php/json/";
+    public static String SERVER_UPLOADS_URL = "http://192.168.0.124/jppbackend/uploads/";
+    public static String SERVER_THUMB_URL = "http://192.168.0.124/admin/index.php/image/index?name=";*/
     public static String SERVER_URL = "http://www.jaipurpinkpanthers.com/admin/index.php/json/";
     public static String SERVER_UPLOADS_URL = "http://www.jaipurpinkpanthers.com/admin/uploads/";
-
     public static String SERVER_THUMB_URL = "http://www.jaipurpinkpanthers.com/admin/index.php/image/index?name=";
     public static String SERVER_WIDTH_250 = "&width=250";
     public static String SERVER_WIDTH_400 = "&width=400";
@@ -52,6 +52,7 @@ public class InternetOperations {
         try {
 
             Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
+            //Process ipProcess = runtime.exec("/system/bin/ping -c 1 192.168.0.124");
             int     exitValue = ipProcess.waitFor();
             return (exitValue == 0);
 

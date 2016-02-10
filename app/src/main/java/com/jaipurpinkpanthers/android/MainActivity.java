@@ -584,6 +584,7 @@ public class MainActivity extends ActionBarActivity
     public void openSlideShowActivity(View v) {
         String position = v.getTag().toString();
         Intent intent = new Intent(MainActivity.this, SlideShowActivity.class);
+        intent.putExtra("wallpaper","0");
         intent.putExtra("position", position);
         intent.putStringArrayListExtra("links", IMAGE_LINKS);
         startActivity(intent);

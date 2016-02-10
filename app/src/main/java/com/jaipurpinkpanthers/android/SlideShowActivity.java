@@ -55,6 +55,8 @@ public class SlideShowActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         int position = Integer.parseInt(intent.getStringExtra("position"));
+        int wallpaper = Integer.parseInt(intent.getStringExtra("wallpaper"));
+
         images = intent.getStringArrayListExtra("links");
         imageLoader = ImageLoader.getInstance();
         options = new DisplayImageOptions.Builder().cacheInMemory(true).bitmapConfig(Bitmap.Config.RGB_565).showImageOnLoading(R.drawable.loadingnews)
@@ -78,19 +80,39 @@ public class SlideShowActivity extends AppCompatActivity {
         vfSlide = (ViewFlipper) findViewById(R.id.vfSlide);
 
         for (int i = 0; i < images.size(); i++) {
-            addImageInFlipper(images.get(i));
+            if (wallpaper == 1) {
+                addWallpaperImageInFlipper(images.get(i));
+            } else {
+                addImageInFlipper(images.get(i));
+            }
         }
 
         vfSlide.setDisplayedChild(position);
     }
 
-    public void addImageInFlipper(String url){
+    public void addImageInFlipper(String url) {
+
+        LayoutInflater inflator = getLayoutInflater();
+        View viewFlipperSingleImage = inflator.inflate(R.layout.layout_single_image_flipper, null, false);
+
+        ImageView ivBig = (ImageView) viewFlipperSingleImage.findViewById(R.id.ivBig); //find the different Views
+        //ImageView ivDownload = (ImageView) viewFlipperSingleImage.findViewById(R.id.ivDownload);
+        //ivDownload.setTag(InternetOperations.SERVER_UPLOADS_URL + url);
+        String image = InternetOperations.SERVER_THUMB_URL + url + InternetOperations.SERVER_WIDTH_400;
+        imageLoader.displayImage(image, ivBig, options);
+
+        vfSlide.addView(viewFlipperSingleImage);
+
+    }
+
+    public void addWallpaperImageInFlipper(String url) {
 
         LayoutInflater inflator = getLayoutInflater();
         View viewFlipperSingleImage = inflator.inflate(R.layout.layout_single_image_flipper, null, false);
 
         ImageView ivBig = (ImageView) viewFlipperSingleImage.findViewById(R.id.ivBig); //find the different Views
         ImageView ivDownload = (ImageView) viewFlipperSingleImage.findViewById(R.id.ivDownload);
+        ivDownload.setVisibility(View.VISIBLE);
         ivDownload.setTag(InternetOperations.SERVER_UPLOADS_URL + url);
         String image = InternetOperations.SERVER_THUMB_URL + url + InternetOperations.SERVER_WIDTH_400;
         imageLoader.displayImage(image, ivBig, options);
@@ -136,7 +158,7 @@ public class SlideShowActivity extends AppCompatActivity {
 
 
                     // If there is a child (to the left), kust break.
-                    if (vfSlide.getDisplayedChild() == vfSlide.getChildCount()-1)
+                    if (vfSlide.getDisplayedChild() == vfSlide.getChildCount() - 1)
                         break;
 
 
@@ -154,7 +176,7 @@ public class SlideShowActivity extends AppCompatActivity {
         return false;
     }
 
-    public void cross(View v){
+    public void cross(View v) {
         finish();
     }
 
@@ -166,12 +188,11 @@ public class SlideShowActivity extends AppCompatActivity {
         getImage(url, getApplicationContext());
     }
 
-
-    public void getImage(final String url, final Context context){
+    public void getImage(final String url, final Context context) {
 
         new AsyncTask<Void, Void, String>() {
-
             boolean done = false;
+
             @Override
             protected String doInBackground(Void... params) {
 
@@ -203,7 +224,7 @@ public class SlideShowActivity extends AppCompatActivity {
                         values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpg");
                         getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
-                        done =true;
+                        done = true;
                     }
 
                 } catch (FileNotFoundException fe) {
@@ -217,9 +238,9 @@ public class SlideShowActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(String s) {
-                if(done){
+                if (done) {
                     Toast.makeText(context, "Downloaded!", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(context, "Something went wrong!", Toast.LENGTH_SHORT).show();
                 }
 

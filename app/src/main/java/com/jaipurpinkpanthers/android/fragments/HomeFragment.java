@@ -1,5 +1,6 @@
 package com.jaipurpinkpanthers.android.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.res.TypedArray;
@@ -51,6 +52,7 @@ public class HomeFragment extends Fragment {
     ListView lvTeams;
     RelativeLayout ll1, ll2, ll3;
     ProgressDialog progressDialog;
+    Activity activity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,6 +64,8 @@ public class HomeFragment extends Fragment {
         options = new DisplayImageOptions.Builder().cacheInMemory(true)
                 .cacheOnDisc(true).resetViewBeforeLoading(true).build();
 
+        activity = getActivity();
+
         // UNIVERSAL IMAGE LOADER SETUP
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheOnDisc(true).cacheInMemory(true)
@@ -69,7 +73,7 @@ public class HomeFragment extends Fragment {
                 .displayer(new FadeInBitmapDisplayer(300)).build();
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
-                getActivity())
+                activity)
                 .defaultDisplayImageOptions(defaultOptions)
                 .memoryCache(new WeakMemoryCache())
                 .discCacheSize(100 * 1024 * 1024).build();
@@ -77,7 +81,7 @@ public class HomeFragment extends Fragment {
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
 
-        progressDialog = new ProgressDialog(getActivity());
+        progressDialog = new ProgressDialog(activity);
         progressDialog.setCancelable(false);
 
         progressDialog.setMessage("Please wait...");
@@ -113,26 +117,26 @@ public class HomeFragment extends Fragment {
 
         llLatestUpdate = (LinearLayout) view.findViewById(R.id.llLatestUpdate);
         TextView tvLatest = (TextView) llLatestUpdate.findViewById(R.id.tvCrossHeader);
-        tvLatest.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvLatest.setTypeface(CustomFonts.getRegularFont(activity));
         tvLatest.setText("LATEST UPDATE");
 
         llNews = (LinearLayout) view.findViewById(R.id.llNews);
         TextView tvNews = (TextView) llNews.findViewById(R.id.tvCrossHeader);
-        tvNews.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvNews.setTypeface(CustomFonts.getRegularFont(activity));
         tvNews.setText("NEWS");
 
         llTable = (LinearLayout) view.findViewById(R.id.llTable);
         TextView tvTable = (TextView) llTable.findViewById(R.id.tvCrossHeader);
-        tvTable.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvTable.setTypeface(CustomFonts.getRegularFont(activity));
         tvTable.setText("POINTS TABLE");
 
 
-        tvNo.setTypeface(CustomFonts.getRegularFont(getActivity()));
-        tvTeam.setTypeface(CustomFonts.getRegularFont(getActivity()));
-        tvP.setTypeface(CustomFonts.getRegularFont(getActivity()));
-        tvW.setTypeface(CustomFonts.getRegularFont(getActivity()));
-        tvL.setTypeface(CustomFonts.getRegularFont(getActivity()));
-        tvPts.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvNo.setTypeface(CustomFonts.getRegularFont(activity));
+        tvTeam.setTypeface(CustomFonts.getRegularFont(activity));
+        tvP.setTypeface(CustomFonts.getRegularFont(activity));
+        tvW.setTypeface(CustomFonts.getRegularFont(activity));
+        tvL.setTypeface(CustomFonts.getRegularFont(activity));
+        tvPts.setTypeface(CustomFonts.getRegularFont(activity));
 
         ivT1 = (ImageView) view.findViewById(R.id.ivT1);
         ivT2 = (ImageView) view.findViewById(R.id.ivT2);
@@ -140,14 +144,14 @@ public class HomeFragment extends Fragment {
         tvS1 = (TextView) view.findViewById(R.id.tvS1);
         tvS2 = (TextView) view.findViewById(R.id.tvS2);
         tvCo = (TextView) view.findViewById(R.id.tvCo);
-        tvS1.setTypeface(CustomFonts.getBoldFont(getActivity()));
-        tvS2.setTypeface(CustomFonts.getBoldFont(getActivity()));
-        tvCo.setTypeface(CustomFonts.getBoldFont(getActivity()));
+        tvS1.setTypeface(CustomFonts.getBoldFont(activity));
+        tvS2.setTypeface(CustomFonts.getBoldFont(activity));
+        tvCo.setTypeface(CustomFonts.getBoldFont(activity));
 
         tvVenue = (TextView) view.findViewById(R.id.tvVenue);
         tvTime = (TextView) view.findViewById(R.id.tvTime);
-        tvVenue.setTypeface(CustomFonts.getLightFont(getActivity()));
-        tvTime.setTypeface(CustomFonts.getLightFont(getActivity()));
+        tvVenue.setTypeface(CustomFonts.getLightFont(activity));
+        tvTime.setTypeface(CustomFonts.getLightFont(activity));
 
         tvNewsHead = (TextView) view.findViewById(R.id.tvNewsHead);
         tvNewsDesc = (TextView) view.findViewById(R.id.tvNewsDesc);
@@ -155,16 +159,16 @@ public class HomeFragment extends Fragment {
         tvNewsRead = (TextView) view.findViewById(R.id.tvNewsRead);
         ivNews = (ImageView) view.findViewById(R.id.ivNews);
 
-        tvNewsHead.setTypeface(CustomFonts.getBoldFont(getActivity()));
-        tvNewsDesc.setTypeface(CustomFonts.getLightFont(getActivity()));
-        tvNewsDate.setTypeface(CustomFonts.getLightFont(getActivity()));
-        tvNewsRead.setTypeface(CustomFonts.getLightFont(getActivity()));
+        tvNewsHead.setTypeface(CustomFonts.getBoldFont(activity));
+        tvNewsDesc.setTypeface(CustomFonts.getLightFont(activity));
+        tvNewsDate.setTypeface(CustomFonts.getLightFont(activity));
+        tvNewsRead.setTypeface(CustomFonts.getLightFont(activity));
 
         if(InternetOperations.checkIsOnlineViaIP()){
             getHomeContentData();
         }else{
             progressDialog.dismiss();
-            Toast.makeText(getActivity(),"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity,"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
         }
     }
     boolean a = false, b = false, c = false;
@@ -261,7 +265,7 @@ public class HomeFragment extends Fragment {
                 if (done) {
                     refresh();
                 }else{
-                    Toast.makeText(getActivity(),"Oops, Something went wrong!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity,"Oops, Something went wrong!",Toast.LENGTH_SHORT).show();
                 }
             }
         }.execute(null, null, null);
@@ -309,7 +313,7 @@ public class HomeFragment extends Fragment {
         if (list.size() > 0) {
 
             for (int i = 0; i < list.size(); i++) {
-                LayoutInflater inflator = getActivity().getLayoutInflater();
+                LayoutInflater inflator = activity.getLayoutInflater();
                 View viewPointsRow = inflator.inflate(R.layout.layout_points_row, null, false);
 
                 TextView tvNo = (TextView) viewPointsRow.findViewById(R.id.tvNo); //find the different Views
@@ -318,13 +322,6 @@ public class HomeFragment extends Fragment {
                 TextView tvW = (TextView) viewPointsRow.findViewById(R.id.tvW);
                 TextView tvL = (TextView) viewPointsRow.findViewById(R.id.tvL);
                 TextView tvPts = (TextView) viewPointsRow.findViewById(R.id.tvPts);
-
-                tvNo.setTypeface(CustomFonts.getLightFont(getActivity()));
-                tvTeam.setTypeface(CustomFonts.getLightFont(getActivity()));
-                tvP.setTypeface(CustomFonts.getLightFont(getActivity()));
-                tvW.setTypeface(CustomFonts.getLightFont(getActivity()));
-                tvL.setTypeface(CustomFonts.getLightFont(getActivity()));
-                tvPts.setTypeface(CustomFonts.getLightFont(getActivity()));
 
                 HashMap<String, String> map = list.get(i);
 
@@ -337,6 +334,24 @@ public class HomeFragment extends Fragment {
 
                 tvNo.setText(no);
                 tvTeam.setText(team);
+
+                if(team.equals("Jaipur Pink Panthers")){
+                    tvNo.setTypeface(CustomFonts.getRegularFont(activity));
+                    tvTeam.setTypeface(CustomFonts.getRegularFont(activity));
+                    tvP.setTypeface(CustomFonts.getRegularFont(activity));
+                    tvW.setTypeface(CustomFonts.getRegularFont(activity));
+                    tvL.setTypeface(CustomFonts.getRegularFont(activity));
+                    tvPts.setTypeface(CustomFonts.getRegularFont(activity));
+                } else {
+                    tvNo.setTypeface(CustomFonts.getLightFont(activity));
+                    tvTeam.setTypeface(CustomFonts.getLightFont(activity));
+                    tvP.setTypeface(CustomFonts.getLightFont(activity));
+                    tvW.setTypeface(CustomFonts.getLightFont(activity));
+                    tvL.setTypeface(CustomFonts.getLightFont(activity));
+                    tvPts.setTypeface(CustomFonts.getLightFont(activity));
+                }
+
+
                 tvP.setText(p);
                 tvW.setText(w);
                 tvL.setText(l);
@@ -364,7 +379,7 @@ public class HomeFragment extends Fragment {
     public int getTeamDrawable(String id) {
 
         int teamId = Integer.parseInt(id);
-        TypedArray teamLogos = getActivity().getResources().obtainTypedArray(R.array.teamLogo);
+        TypedArray teamLogos = activity.getResources().obtainTypedArray(R.array.teamLogo);
 
         return teamLogos.getResourceId(teamId - 1, -1);
     }

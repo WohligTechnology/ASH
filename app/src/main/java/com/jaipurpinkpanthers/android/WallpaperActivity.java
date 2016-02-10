@@ -259,6 +259,7 @@ public class WallpaperActivity extends ActionBarActivity
         String position = v.getTag().toString();
         Intent intent = new Intent(WallpaperActivity.this, SlideShowActivity.class);
         intent.putExtra("position", position);
+        intent.putExtra("wallpaper","1");
         intent.putStringArrayListExtra("links", IMAGE_LINKS);
         startActivity(intent);
     }

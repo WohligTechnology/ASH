@@ -29,7 +29,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="U Mumba"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            />
 
         <TextView
             android:id="@+id/tvP"

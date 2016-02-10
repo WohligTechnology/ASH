@@ -65,13 +65,6 @@ public class PointsAdapter extends BaseAdapter {
             holder.tvL = (TextView) convertView.findViewById(R.id.tvL);
             holder.tvPts = (TextView) convertView.findViewById(R.id.tvPts);
 
-            holder.tvNo.setTypeface(CustomFonts.getLightFont(activity));
-            holder.tvTeam.setTypeface(CustomFonts.getLightFont(activity));
-            holder.tvP.setTypeface(CustomFonts.getLightFont(activity));
-            holder.tvW.setTypeface(CustomFonts.getLightFont(activity));
-            holder.tvL.setTypeface(CustomFonts.getLightFont(activity));
-            holder.tvPts.setTypeface(CustomFonts.getLightFont(activity));
-
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -88,6 +81,27 @@ public class PointsAdapter extends BaseAdapter {
         String pts = map.get("tvPts");
 
         holder.tvNo.setText(no);
+
+        if(team.equals("Jaipur Pink Panthers")){
+            holder.tvTeam.setTypeface(CustomFonts.getBoldFont(activity));
+        }
+
+        if(team.equals("Jaipur Pink Panthers")){
+            holder.tvNo.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvTeam.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvP.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvW.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvL.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvPts.setTypeface(CustomFonts.getRegularFont(activity));
+        } else {
+            holder.tvNo.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvTeam.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvP.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvW.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvL.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvPts.setTypeface(CustomFonts.getLightFont(activity));
+        }
+
         holder.tvTeam.setText(team);
         holder.tvP.setText(p);
         holder.tvW.setText(w);
