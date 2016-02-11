@@ -181,7 +181,8 @@ public class ScheduleFragment extends Fragment {
                                 String team1 = jsonObject.optString("team1");
                                 String team2 = jsonObject.optString("team2");
                                 String time = jsonObject.optString("starttimedate");
-                                populate(team1, team2, time);
+                                String venue = jsonObject.optString("stadium");
+                                populate(team1, team2, time,venue);
                             } else {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 //String id = String.valueOf(i + 1);
@@ -261,6 +262,19 @@ public class ScheduleFragment extends Fragment {
                 TextView tvTime = (TextView) viewScheduleRow.findViewById(R.id.tvTime);
                 ImageView ivCalendar = (ImageView) viewScheduleRow.findViewById(R.id.ivCalendar);
 
+
+                //ImageView ivTickets = (ImageView) viewScheduleRow.findViewById(R.id.ivTickets);
+                LinearLayout llTicket = (LinearLayout) viewScheduleRow.findViewById(R.id.llTicket);
+                TextView tvBookIndi = (TextView) viewScheduleRow.findViewById(R.id.tvBookIndi);
+                tvBookIndi.setTypeface(CustomFonts.getLightFont(getActivity()));
+                LinearLayout llCal = (LinearLayout) viewScheduleRow.findViewById(R.id.llCal);
+
+                TextView tvCal = (TextView) viewScheduleRow.findViewById(R.id.tvCal);
+                tvCal.setTypeface(CustomFonts.getLightFont(getActivity()));
+
+                TextView tvBo = (TextView) viewScheduleRow.findViewById(R.id.tvBo);
+                tvBo.setTypeface(CustomFonts.getLightFont(getActivity()));
+
                 tvMatch.setTypeface(CustomFonts.getRegularFont(getActivity()));
                 tvTime.setTypeface(CustomFonts.getLightFont(getActivity()));
 
@@ -269,12 +283,21 @@ public class ScheduleFragment extends Fragment {
                 String team1 = map.get("team1");
                 String team2 = map.get("team2");
                 String time = map.get("time");
+                String venue = map.get("venue");
+
+                if(venue.toUpperCase().equals("JAIPUR")){
+                    LinearLayout llBo = (LinearLayout) viewScheduleRow.findViewById(R.id.llBo);
+                    llBo.setVisibility(View.VISIBLE);
+                    //ivTickets.setVisibility(View.VISIBLE);
+                    //llTicket.setVisibility(View.VISIBLE);
+                }
 
                 tvMatch.setText(team1 + " VS " + team2);
                 tvTime.setText(time + "(IST)");
 
                 String tag = team1 + "#" + team2 + "#" + time;
                 ivCalendar.setTag(tag);
+                llCal.setTag(tag);
 
                 llSchedule.addView(viewScheduleRow);
             }
@@ -283,11 +306,12 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
-    public void populate(String team1, String team2, String time) {
+    public void populate(String team1, String team2, String time, String venue) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("team1", team1);
         map.put("team2", team2);
         map.put("time", time);
+        map.put("venue", venue);
         list.add(map);
     }
 
