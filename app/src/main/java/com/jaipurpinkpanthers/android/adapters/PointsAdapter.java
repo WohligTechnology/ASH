@@ -1,10 +1,12 @@
 package com.jaipurpinkpanthers.android.adapters;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.jaipurpinkpanthers.android.R;
@@ -44,7 +46,7 @@ public class PointsAdapter extends BaseAdapter {
     private class ViewHolder {
         //all the fields in layout specified
         TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
-
+        LinearLayout llFull;
     }
 
     @Override
@@ -65,6 +67,8 @@ public class PointsAdapter extends BaseAdapter {
             holder.tvL = (TextView) convertView.findViewById(R.id.tvL);
             holder.tvPts = (TextView) convertView.findViewById(R.id.tvPts);
 
+            holder.llFull = (LinearLayout) convertView.findViewById(R.id.llFull);
+
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -82,17 +86,27 @@ public class PointsAdapter extends BaseAdapter {
 
         holder.tvNo.setText(no);
 
-        if(team.equals("Jaipur Pink Panthers")){
-            holder.tvTeam.setTypeface(CustomFonts.getBoldFont(activity));
-        }
 
         if(team.equals("Jaipur Pink Panthers")){
-            holder.tvNo.setTypeface(CustomFonts.getRegularFont(activity));
+            /*holder.tvNo.setTypeface(CustomFonts.getRegularFont(activity));
             holder.tvTeam.setTypeface(CustomFonts.getRegularFont(activity));
             holder.tvP.setTypeface(CustomFonts.getRegularFont(activity));
             holder.tvW.setTypeface(CustomFonts.getRegularFont(activity));
             holder.tvL.setTypeface(CustomFonts.getRegularFont(activity));
-            holder.tvPts.setTypeface(CustomFonts.getRegularFont(activity));
+            holder.tvPts.setTypeface(CustomFonts.getRegularFont(activity));*/
+            holder.tvNo.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvTeam.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvP.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvW.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvL.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvPts.setTypeface(CustomFonts.getLightFont(activity));
+            holder.llFull.setBackgroundColor(Color.parseColor("#4ECAF5"));
+            /*holder.tvNo.setTextColor(Color.parseColor("#4ECAF5"));
+            holder.tvTeam.setTextColor(Color.parseColor("#4ECAF5"));
+            holder.tvP.setTextColor(Color.parseColor("#4ECAF5"));
+            holder.tvW.setTextColor(Color.parseColor("#4ECAF5"));
+            holder.tvL.setTextColor(Color.parseColor("#4ECAF5"));
+            holder.tvPts.setTextColor(Color.parseColor("#4ECAF5"));*/
         } else {
             holder.tvNo.setTypeface(CustomFonts.getLightFont(activity));
             holder.tvTeam.setTypeface(CustomFonts.getLightFont(activity));

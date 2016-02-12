@@ -9,6 +9,7 @@
     android:paddingBottom="5dp">
 
     <LinearLayout
+        android:id="@+id/llFull"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/jppPointsRow"
