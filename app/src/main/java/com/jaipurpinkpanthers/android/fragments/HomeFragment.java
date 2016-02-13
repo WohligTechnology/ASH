@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -323,6 +324,8 @@ public class HomeFragment extends Fragment {
                 TextView tvL = (TextView) viewPointsRow.findViewById(R.id.tvL);
                 TextView tvPts = (TextView) viewPointsRow.findViewById(R.id.tvPts);
 
+                LinearLayout llFull = (LinearLayout) viewPointsRow.findViewById(R.id.llFull);
+
                 HashMap<String, String> map = list.get(i);
 
                 String no = map.get("tvNo");
@@ -336,12 +339,20 @@ public class HomeFragment extends Fragment {
                 tvTeam.setText(team);
 
                 if(team.equals("Jaipur Pink Panthers")){
-                    tvNo.setTypeface(CustomFonts.getRegularFont(activity));
+                    /*tvNo.setTypeface(CustomFonts.getRegularFont(activity));
                     tvTeam.setTypeface(CustomFonts.getRegularFont(activity));
                     tvP.setTypeface(CustomFonts.getRegularFont(activity));
                     tvW.setTypeface(CustomFonts.getRegularFont(activity));
                     tvL.setTypeface(CustomFonts.getRegularFont(activity));
-                    tvPts.setTypeface(CustomFonts.getRegularFont(activity));
+                    tvPts.setTypeface(CustomFonts.getRegularFont(activity));*/
+
+                    tvNo.setTypeface(CustomFonts.getLightFont(activity));
+                    tvTeam.setTypeface(CustomFonts.getLightFont(activity));
+                    tvP.setTypeface(CustomFonts.getLightFont(activity));
+                    tvW.setTypeface(CustomFonts.getLightFont(activity));
+                    tvL.setTypeface(CustomFonts.getLightFont(activity));
+                    tvPts.setTypeface(CustomFonts.getLightFont(activity));
+                    llFull.setBackgroundColor(Color.parseColor("#4ECAF5"));
                 } else {
                     tvNo.setTypeface(CustomFonts.getLightFont(activity));
                     tvTeam.setTypeface(CustomFonts.getLightFont(activity));
