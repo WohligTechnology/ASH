@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,15 +20,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaipurpinkpanthers.android.R;
+import com.jaipurpinkpanthers.android.util.CustomFonts;
+import com.jaipurpinkpanthers.android.util.InternetOperations;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.jaipurpinkpanthers.android.R;
-import com.jaipurpinkpanthers.android.util.CustomFonts;
-import com.jaipurpinkpanthers.android.util.InternetOperations;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +38,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
     LinearLayout llLatestUpdate, llNews, llTable, llPoints;
@@ -54,6 +55,8 @@ public class HomeFragment extends Fragment {
     RelativeLayout ll1, ll2, ll3;
     ProgressDialog progressDialog;
     Activity activity;
+
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -95,7 +98,21 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onRefresh() {
+        if(InternetOperations.checkIsOnlineViaIP()){
+            getHomeContentData();
+        }else{
+            progressDialog.dismiss();
+            Toast.makeText(activity,"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
+        }
+        //Toast.makeText(activity,"Refreshed!",Toast.LENGTH_SHORT).show();
+    }
+
     public void initilizeViews() {
+
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(this);
 
         ll1 = (RelativeLayout) view.findViewById(R.id.ll1);
         ll2 = (RelativeLayout) view.findViewById(R.id.ll2);
@@ -229,6 +246,10 @@ public class HomeFragment extends Fragment {
 
                         if (jsonArray.length() != 0) {
 
+                            if(list.size() >0){
+                                list.clear();
+                            }
+
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObjectPts = jsonArray.getJSONObject(i);
                                 String id = String.valueOf(i + 1);
@@ -265,8 +286,10 @@ public class HomeFragment extends Fragment {
                 progressDialog.dismiss();
                 if (done) {
                     refresh();
+                    swipeRefreshLayout.setRefreshing(false);
                 }else{
                     Toast.makeText(activity,"Oops, Something went wrong!",Toast.LENGTH_SHORT).show();
+                    swipeRefreshLayout.setRefreshing(false);
                 }
             }
         }.execute(null, null, null);
@@ -283,6 +306,8 @@ public class HomeFragment extends Fragment {
         if(!c){
             ll3.setVisibility(View.VISIBLE);
         }
+
+        llPoints.removeAllViews();
 
         tvS1.setText(team1Pts);
         tvS2.setText(team2Pts);
@@ -394,4 +419,5 @@ public class HomeFragment extends Fragment {
 
         return teamLogos.getResourceId(teamId - 1, -1);
     }
+
 }
