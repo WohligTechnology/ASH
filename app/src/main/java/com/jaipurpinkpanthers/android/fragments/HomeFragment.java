@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -43,16 +44,17 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
     LinearLayout llLatestUpdate, llNews, llTable, llPoints;
     ImageView ivT1, ivT2, ivNews, ivHomeMain;
-    TextView tvS1, tvS2, tvCo, tvVenue, tvTime;
+    TextView tvS1, tvS2, tvCo, tvVenue, tvTime, tvMatchTime;
     TextView tvNewsHead, tvNewsDesc, tvNewsDate, tvNewsRead;
     String newsTitle = null, newsImage = null, newsTime = null, newsContent = null;
     String imageLink = null;
     ImageLoader imageLoader;
     DisplayImageOptions options;
     ArrayList<HashMap<String, String>> list;
-    String team1Id = null, team2Id = null, team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null;
+    String team1Id = null, team2Id = null, team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null, matchTime = null;
     ListView lvTeams;
-    RelativeLayout ll1, ll2, ll3;
+    RelativeLayout ll2, ll3;
+    FrameLayout ll1;
     ProgressDialog progressDialog;
     Activity activity;
 
@@ -105,6 +107,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         }else{
             progressDialog.dismiss();
             Toast.makeText(activity,"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
+            swipeRefreshLayout.setRefreshing(false);
         }
         //Toast.makeText(activity,"Refreshed!",Toast.LENGTH_SHORT).show();
     }
@@ -114,7 +117,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        ll1 = (RelativeLayout) view.findViewById(R.id.ll1);
+        ll1 = (FrameLayout) view.findViewById(R.id.ll1);
         ll2 = (RelativeLayout) view.findViewById(R.id.ll2);
         ll3 = (RelativeLayout) view.findViewById(R.id.ll3);
 
@@ -166,8 +169,10 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         tvS2.setTypeface(CustomFonts.getBoldFont(activity));
         tvCo.setTypeface(CustomFonts.getBoldFont(activity));
 
+        tvMatchTime = (TextView) view.findViewById(R.id.tvMatchTime);
         tvVenue = (TextView) view.findViewById(R.id.tvVenue);
         tvTime = (TextView) view.findViewById(R.id.tvTime);
+        tvMatchTime.setTypeface(CustomFonts.getLightFont(activity));
         tvVenue.setTypeface(CustomFonts.getLightFont(activity));
         tvTime.setTypeface(CustomFonts.getLightFont(activity));
 
@@ -219,6 +224,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         time = latestUpdate.optString("starttimedate");
                         team1Id = latestUpdate.optString("team1id");
                         team2Id = latestUpdate.optString("team2id");
+                        matchTime = latestUpdate.optString("matchtime");
                     } catch (JSONException je) {
                         Log.e("JPP", Log.getStackTraceString(je));
                         //ll1.setVisibility(View.GONE);
@@ -246,7 +252,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
                         if (jsonArray.length() != 0) {
 
-                            if(list.size() >0){
+                            if(list.size() >0){ //need to clear the list if pull to refresh is initiated
                                 list.clear();
                             }
 
@@ -312,6 +318,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         tvS1.setText(team1Pts);
         tvS2.setText(team2Pts);
         tvVenue.setText(venue);
+        tvMatchTime.setText(matchTime);
 
         if (time != null)
             tvTime.setText(time + "(IST)");

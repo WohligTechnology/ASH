@@ -68,6 +68,11 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/layout_latesh_match_home.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/layout_player.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -116,6 +121,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c6856c2-3cf0-44a7-b817-eced1a85aaa8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_latesh_match_home.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -152,8 +158,8 @@
       <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6217948">
-              <caret line="333" column="51" selection-start-line="333" selection-start-column="51" selection-end-line="333" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.6528302">
+              <caret line="228" column="66" selection-start-line="228" selection-start-column="66" selection-end-line="228" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -162,8 +168,8 @@
       <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.206897">
-              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.05172414">
+              <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -1914,7 +1920,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/adapters/PanthersAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_album_single.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_gallery_one.xml" />
@@ -1963,6 +1968,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_single.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_points_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/adapters/PointsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_latesh_match_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" />
       </list>
@@ -2273,8 +2279,8 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2287,12 +2293,12 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2305,13 +2311,13 @@
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="HJA2J5NR" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="9764b8f5 HJA2J5NR" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="259" />
     <property name="FullScreen" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lay" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="home&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java&#10;fan&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/FanFragment.java&#10;homefr&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java&#10;point&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/adapters/PointsAdapter.java&#10;po&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/PointsFragment.java&#10;main&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/MainActivity.java&#10;sche&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.fragments.ScheduleFragment&#10;st&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;points&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.PointsActitivy&#10;inte&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/util/InternetOperations.java&#10;wall&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/WallpaperActivity.java&#10;slide&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/SlideShowActivity.java&#10;strings&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;fragment_ho&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/layout/fragment_home.xml&#10;inter&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/util/InternetOperations.java&#10;galler&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.fragments.GalleryFragment&#10;string&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;cus&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.util.CustomFonts&#10;stri&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;colo&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/colors.xml" />
+    <property name="SearchEverywhereHistoryKey" value="home&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/layout/fragment_home.xml&#10;fan&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/FanFragment.java&#10;homefr&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java&#10;point&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/adapters/PointsAdapter.java&#10;po&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/fragments/PointsFragment.java&#10;main&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/MainActivity.java&#10;sche&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.fragments.ScheduleFragment&#10;st&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;points&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.PointsActitivy&#10;inte&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/util/InternetOperations.java&#10;wall&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/WallpaperActivity.java&#10;slide&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/SlideShowActivity.java&#10;strings&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;fragment_ho&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/layout/fragment_home.xml&#10;inter&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/java/com/jaipurpinkpanthers/android/util/InternetOperations.java&#10;galler&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.fragments.GalleryFragment&#10;string&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;cus&#9;PSI&#9;JAVA://com.jaipurpinkpanthers.android.util.CustomFonts&#10;stri&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/strings.xml&#10;colo&#9;FILE&#9;file://C:/AndroidApps/JaipurPinkPanthers/app/src/main/res/values/colors.xml" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_22" />
     <property name="ExportApk.ApkPath" value="C:\AndroidApps\JaipurPinkPanthers\app" />
     <property name="ExportApk.Flavors" value="" />
@@ -2552,7 +2558,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5144804" sideWeight="0.48789713" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49131513" sideWeight="0.5025674" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.68654174" sideWeight="0.4924357" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.68654174" sideWeight="0.4924357" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2322239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2617,20 +2623,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/adapters/VideoAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="36" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/adapters/AlbumAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60465115">
-          <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/WallpaperFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72629696">
@@ -2821,17 +2813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_new_single.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.931034">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/CustomFonts.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39534885">
@@ -2846,33 +2827,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_done_single.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33207548">
-          <caret line="93" column="36" selection-start-line="93" selection-start-column="36" selection-end-line="93" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/TimeFunction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21288015">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_single_image_flipper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/util/InternetOperations.java">
@@ -2933,17 +2892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20377359">
           <caret line="171" column="57" selection-start-line="171" selection-start-column="57" selection-end-line="171" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_single.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -3014,10 +2962,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_done_single.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33207548">
+          <caret line="113" column="20" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_single.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.032075472">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_single_image_flipper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48679245">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_team.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_schedule_new_single.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3471698">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_latesh_match_home.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.090566">
+          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.206897">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.05172414">
+          <caret line="36" column="52" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -3027,8 +3041,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6217948">
-          <caret line="333" column="51" selection-start-line="333" selection-start-column="51" selection-end-line="333" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.6528302">
+          <caret line="228" column="66" selection-start-line="228" selection-start-column="66" selection-end-line="228" selection-end-column="66" />
           <folding />
         </state>
       </provider>
