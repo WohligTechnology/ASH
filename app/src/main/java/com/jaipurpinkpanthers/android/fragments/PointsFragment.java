@@ -97,9 +97,6 @@ public class PointsFragment extends Fragment {
 
                     jsonArray = new JSONArray(response);
 
-                    Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
-                    Log.e("JPP Arr string", jsonArray.toString());
-
                     if (jsonArray.length() != 0) {
 
                         for (int i = 0; i < jsonArray.length(); i++) {

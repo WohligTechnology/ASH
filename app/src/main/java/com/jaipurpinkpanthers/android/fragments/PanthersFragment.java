@@ -2,7 +2,6 @@ package com.jaipurpinkpanthers.android.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,10 +27,7 @@ public class PanthersFragment extends Fragment {
 
         //int id = ((MainActivity)this.getActivity()).getPlayerId();
         ((MainActivity)this.getActivity()).setToolbarText("KNOW YOUR PANTHERS");
-
         initilizeView();
-
-        Log.v("JPP","Inside pF oCV");
 
         return view;
     }

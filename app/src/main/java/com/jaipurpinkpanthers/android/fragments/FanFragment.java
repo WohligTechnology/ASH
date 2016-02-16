@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -176,9 +175,7 @@ public class FanFragment extends Fragment {
 
                 try {
                     String submitJson = getSubmitJson(fName, lName, mobile, email).toString();
-                    Log.e("jay sharejson", submitJson);
                     String response = InternetOperations.post(InternetOperations.SERVER_URL + "contactus", submitJson);
-                    Log.e("jay response", response);
 
                     JSONObject jsonObject = new JSONObject(response);
 

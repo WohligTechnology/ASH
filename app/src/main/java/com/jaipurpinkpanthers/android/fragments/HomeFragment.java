@@ -248,8 +248,6 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         String jObjectString = jsonObject.optString("points");
                         JSONArray jsonArray = new JSONArray(jObjectString);
 
-                        Log.e("JPP Arr Len", String.valueOf(jsonArray.length()));
-
                         if (jsonArray.length() != 0) {
 
                             if(list.size() >0){ //need to clear the list if pull to refresh is initiated
@@ -277,7 +275,6 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 } catch (IOException io) {
                     Log.e("JPP", Log.getStackTraceString(io));
                     a = b = c = true;
-
                 } catch (JSONException je) {
                     Log.e("JPP", Log.getStackTraceString(je));
                 } catch (Exception e){

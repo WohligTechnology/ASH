@@ -28,9 +28,9 @@
                     android:id="@+id/ll1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:visibility="gone">
 
                     <ImageView
@@ -178,147 +178,6 @@
                 </FrameLayout>
 
 
-                <!--
-                                <RelativeLayout
-                                    android:id="@+id/ll1"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginRight="10dp"
-                                    android:layout_marginTop="5dp"
-                                    android:gravity="center_vertical"
-                                    android:visibility="gone">
-
-
-                                    <ImageView
-                                        android:id="@+id/ivHomeMain"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:adjustViewBounds="true"
-                                        android:scaleType="fitStart"
-                                        android:src="@drawable/schedule_back"/>
-
-                                    <include
-                                        android:id="@+id/llLatestUpdate"
-                                        layout="@layout/layout_cross_header"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"/>
-
-
-                                    <LinearLayout
-                                        android:id="@+id/llTeamVs"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="30dp"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <View
-                                            android:layout_width="20dp"
-                                            android:layout_height="match_parent"/>
-
-                                        <ImageView
-                                            android:id="@+id/ivT1"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="3"
-                                            android:adjustViewBounds="true"
-                                            android:src="@drawable/blank"/>
-
-                                        <ImageView
-                                            android:id="@+id/imageView7"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="5.5"
-                                            android:adjustViewBounds="true"
-                                            android:src="@drawable/vs"/>
-
-                                        <ImageView
-                                            android:id="@+id/ivT2"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="3"
-                                            android:adjustViewBounds="true"
-                                            android:paddingLeft="10dp"
-                                            android:src="@drawable/blank"/>
-
-                                        <View
-                                            android:layout_width="20dp"
-                                            android:layout_height="match_parent"/>
-
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/linearLayout2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_below="@+id/llTeamVs"
-                                        android:layout_marginTop="-10dp"
-                                        android:orientation="horizontal">
-
-                                        <TextView
-                                            android:id="@+id/tvS1"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="2"
-                                            android:gravity="right"
-                                            android:paddingRight="30dp"
-                                            android:text="&#45;&#45;"
-                                            android:textColor="@android:color/white"
-                                            android:textIsSelectable="false"
-                                            android:textSize="44sp"/>
-
-                                        <TextView
-                                            android:id="@+id/tvCo"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="3"
-                                            android:gravity="center"
-                                            android:text=":"
-                                            android:textColor="@android:color/white"
-                                            android:textSize="44sp"/>
-
-                                        <TextView
-                                            android:id="@+id/tvS2"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="2"
-                                            android:gravity="left"
-                                            android:paddingLeft="30dp"
-                                            android:text="&#45;&#45;"
-                                            android:textColor="@android:color/white"
-                                            android:textSize="44sp"/>
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentLeft="true"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_below="@+id/linearLayout2"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/tvVenue"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="center"
-                                            android:text="&#45;&#45;"
-                                            android:textColor="@android:color/white"/>
-
-                                        <TextView
-                                            android:id="@+id/tvTime"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="center"
-                                            android:text="&#45;&#45;"
-                                            android:textColor="@android:color/white"/>
-                                    </LinearLayout>
-
-                                </RelativeLayout>
-                -->
-
                 <RelativeLayout
                     android:id="@+id/ll2"
                     android:layout_width="match_parent"
@@ -371,18 +230,35 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
+                                android:maxLines="2"
                                 android:text="--"
                                 android:textColor="@color/jppProfileType"
                                 android:textSize="17sp"/>
 
                             <TextView
                                 android:id="@+id/tvNewsDesc"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:ellipsize="end"/>
+
+                            <!--<TextView
+                                android:id="@+id/tvNewsDate"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:maxLength="150"
-                                android:paddingTop="8dp"
-                                android:text=""
-                                android:visibility="gone"/>
+                                android:layout_gravity="right"
+                                android:paddingRight="10dp"
+                                android:text="&#45;&#45;"/>
+
+                            <TextView
+                                android:id="@+id/tvNewsRead"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:paddingRight="10dp"
+                                android:text="Read more News >"
+                                android:textColor="@color/jppProfileType"
+                                android:textSize="16sp"/>-->
+
                         </LinearLayout>
                     </LinearLayout>
 
@@ -391,10 +267,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/news_body"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="right"
                         android:orientation="horizontal">
 
@@ -411,7 +287,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/newsDate"
-                        android:layout_margin="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="5dp"
                         android:gravity="right"
                         android:orientation="horizontal">
 
@@ -425,10 +303,10 @@
                             android:textSize="16sp"/>
                     </LinearLayout>
 
-                    <View
+                    <!--<View
                         android:layout_width="match_parent"
                         android:layout_height="8dp"
-                        android:layout_below="@+id/llRead"/>
+                        android:layout_below="@+id/llRead"/>-->
                 </RelativeLayout>
 
 
