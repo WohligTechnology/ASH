@@ -241,24 +241,6 @@
                                 android:layout_height="match_parent"
                                 android:ellipsize="end"/>
 
-                            <!--<TextView
-                                android:id="@+id/tvNewsDate"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="right"
-                                android:paddingRight="10dp"
-                                android:text="&#45;&#45;"/>
-
-                            <TextView
-                                android:id="@+id/tvNewsRead"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="right"
-                                android:paddingRight="10dp"
-                                android:text="Read more News >"
-                                android:textColor="@color/jppProfileType"
-                                android:textSize="16sp"/>-->
-
                         </LinearLayout>
                     </LinearLayout>
 
