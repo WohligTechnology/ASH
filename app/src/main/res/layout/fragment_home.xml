@@ -5,11 +5,11 @@
              android:background="@color/jppPrimaryColor"
              tools:context="com.jaipurpinkpanthers.android.fragments.HomeFragment">
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <!--<android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content">-->
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -219,7 +219,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:paddingLeft="10dp"
@@ -239,7 +239,8 @@
                                 android:id="@+id/tvNewsDesc"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:ellipsize="end"/>
+                                android:ellipsize="end"
+                                android:maxLines="4"/>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -396,5 +397,5 @@
             </LinearLayout>
 
         </ScrollView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 </FrameLayout>

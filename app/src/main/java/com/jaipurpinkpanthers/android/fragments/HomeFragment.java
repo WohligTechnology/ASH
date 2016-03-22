@@ -107,15 +107,15 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         }else{
             progressDialog.dismiss();
             Toast.makeText(activity,"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
-            swipeRefreshLayout.setRefreshing(false);
+            //swipeRefreshLayout.setRefreshing(false);
         }
         //Toast.makeText(activity,"Refreshed!",Toast.LENGTH_SHORT).show();
     }
 
     public void initilizeViews() {
 
-        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        swipeRefreshLayout.setOnRefreshListener(this);
+        /*swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(this);*/
 
         ll1 = (FrameLayout) view.findViewById(R.id.ll1);
         ll2 = (RelativeLayout) view.findViewById(R.id.ll2);
@@ -139,7 +139,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         llLatestUpdate = (LinearLayout) view.findViewById(R.id.llLatestUpdate);
         TextView tvLatest = (TextView) llLatestUpdate.findViewById(R.id.tvCrossHeader);
         tvLatest.setTypeface(CustomFonts.getRegularFont(activity));
-        tvLatest.setText("LATEST UPDATE");
+        //tvLatest.setText("LATEST UPDATE");
+        tvLatest.setText("SEASON 3 REVIEW");
 
         llNews = (LinearLayout) view.findViewById(R.id.llNews);
         TextView tvNews = (TextView) llNews.findViewById(R.id.tvCrossHeader);
@@ -289,10 +290,10 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 progressDialog.dismiss();
                 if (done) {
                     refresh();
-                    swipeRefreshLayout.setRefreshing(false);
+                    //swipeRefreshLayout.setRefreshing(false);
                 }else{
                     Toast.makeText(activity,"Oops, Something went wrong!",Toast.LENGTH_SHORT).show();
-                    swipeRefreshLayout.setRefreshing(false);
+                    //swipeRefreshLayout.setRefreshing(false);
                 }
             }
         }.execute(null, null, null);

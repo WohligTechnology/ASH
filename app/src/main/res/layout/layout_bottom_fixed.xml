@@ -27,12 +27,14 @@
         android:layout_weight="1"
         android:src="@drawable/ic_bottom_schedule_color"
         android:padding="7.5dp"
-        android:onClick="schedule"/>
+        android:onClick="schedule"
+        android:visibility="gone"/>
 
     <View
         android:layout_width="2dp"
         android:layout_height="match_parent"
-        android:background="@color/jppDarkColor"/>
+        android:background="@color/jppDarkColor"
+        android:visibility="gone"/>
 
     <ImageView
         android:layout_width="match_parent"
