@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#0F2630">
+
+    <!--<ImageView
+        android:id="@+id/ivHomeMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/schedule_back"
+        android:scaleType="fitXY"/>-->
+
+    <include
+        android:id="@+id/llReview"
+        layout="@layout/layout_cross_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.jaipurpinkpanthers.android.util.HeightWrappingViewPager
+        android:id="@+id/view_pager"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llReview"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

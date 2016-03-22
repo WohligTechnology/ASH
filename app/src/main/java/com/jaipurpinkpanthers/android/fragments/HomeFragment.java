@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +22,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaipurpinkpanthers.android.MainActivity;
 import com.jaipurpinkpanthers.android.R;
+import com.jaipurpinkpanthers.android.adapters.ViewPagerAdapter;
 import com.jaipurpinkpanthers.android.util.CustomFonts;
 import com.jaipurpinkpanthers.android.util.InternetOperations;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -39,7 +42,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
+public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts;
     LinearLayout llLatestUpdate, llNews, llTable, llPoints;
@@ -57,7 +60,11 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     FrameLayout ll1;
     ProgressDialog progressDialog;
     Activity activity;
-
+    FrameLayout flReview;
+    ImageView ivReview;
+    LinearLayout llSeasonReview;
+    private ViewPager mViewPager;
+    private ViewPagerAdapter viewPagerAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
@@ -65,6 +72,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        ((MainActivity) this.getActivity()).tvOrImage(false,"");
 
         imageLoader = ImageLoader.getInstance();
         options = new DisplayImageOptions.Builder().cacheInMemory(true)
@@ -102,11 +111,11 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     @Override
     public void onRefresh() {
-        if(InternetOperations.checkIsOnlineViaIP()){
+        if (InternetOperations.checkIsOnlineViaIP()) {
             getHomeContentData();
-        }else{
+        } else {
             progressDialog.dismiss();
-            Toast.makeText(activity,"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
             //swipeRefreshLayout.setRefreshing(false);
         }
         //Toast.makeText(activity,"Refreshed!",Toast.LENGTH_SHORT).show();
@@ -121,13 +130,18 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         ll2 = (RelativeLayout) view.findViewById(R.id.ll2);
         ll3 = (RelativeLayout) view.findViewById(R.id.ll3);
 
+        flReview = (FrameLayout) view.findViewById(R.id.flReview);
+
         list = new ArrayList<HashMap<String, String>>();
         lvTeams = (ListView) view.findViewById(R.id.lvTeams);
         llPoints = (LinearLayout) view.findViewById(R.id.llPoints);
         ivHomeMain = (ImageView) view.findViewById(R.id.ivHomeMain);
 
+        ivReview = (ImageView) view.findViewById(R.id.ivReview);
+
         String imageUri = "drawable://" + R.drawable.schedule_back;
         imageLoader.displayImage(imageUri, ivHomeMain, options);
+        imageLoader.displayImage(imageUri, ivReview, options);
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);
         tvTeam = (TextView) view.findViewById(R.id.tvTeam);
@@ -139,8 +153,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         llLatestUpdate = (LinearLayout) view.findViewById(R.id.llLatestUpdate);
         TextView tvLatest = (TextView) llLatestUpdate.findViewById(R.id.tvCrossHeader);
         tvLatest.setTypeface(CustomFonts.getRegularFont(activity));
-        //tvLatest.setText("LATEST UPDATE");
-        tvLatest.setText("SEASON 3 REVIEW");
+        tvLatest.setText("LATEST UPDATE");
 
         llNews = (LinearLayout) view.findViewById(R.id.llNews);
         TextView tvNews = (TextView) llNews.findViewById(R.id.tvCrossHeader);
@@ -151,6 +164,11 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         TextView tvTable = (TextView) llTable.findViewById(R.id.tvCrossHeader);
         tvTable.setTypeface(CustomFonts.getRegularFont(activity));
         tvTable.setText("POINTS TABLE");
+
+        llSeasonReview = (LinearLayout) view.findViewById(R.id.llSeasonReview);
+        TextView tvReview = (TextView) llSeasonReview.findViewById(R.id.tvCrossHeader);
+        tvReview.setTypeface(CustomFonts.getRegularFont(activity));
+        tvReview.setText("SEASON 3 REVIEW");
 
 
         tvNo.setTypeface(CustomFonts.getRegularFont(activity));
@@ -170,12 +188,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         tvS2.setTypeface(CustomFonts.getBoldFont(activity));
         tvCo.setTypeface(CustomFonts.getBoldFont(activity));
 
+
         tvMatchTime = (TextView) view.findViewById(R.id.tvMatchTime);
         tvVenue = (TextView) view.findViewById(R.id.tvVenue);
         tvTime = (TextView) view.findViewById(R.id.tvTime);
         tvMatchTime.setTypeface(CustomFonts.getLightFont(activity));
         tvVenue.setTypeface(CustomFonts.getLightFont(activity));
         tvTime.setTypeface(CustomFonts.getLightFont(activity));
+
 
         tvNewsHead = (TextView) view.findViewById(R.id.tvNewsHead);
         tvNewsDesc = (TextView) view.findViewById(R.id.tvNewsDesc);
@@ -188,19 +208,27 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         tvNewsDate.setTypeface(CustomFonts.getLightFont(activity));
         tvNewsRead.setTypeface(CustomFonts.getLightFont(activity));
 
-        if(InternetOperations.checkIsOnlineViaIP()){
+        mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
+
+        viewPagerAdapter = new ViewPagerAdapter();
+
+        mViewPager.setAdapter(viewPagerAdapter);
+
+        if (InternetOperations.checkIsOnlineViaIP()) {
             getHomeContentData();
-        }else{
+        } else {
             progressDialog.dismiss();
-            Toast.makeText(activity,"Please check your Internet Connection!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
         }
     }
-    boolean a = false, b = false, c = false;
+
+    boolean a = false, b = false, c = false, d = false;
+
     public void getHomeContentData() {
 
         new AsyncTask<Void, Void, String>() {
-
             boolean done = false;
+
             @Override
             protected String doInBackground(Void... params) {
 
@@ -251,7 +279,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
                         if (jsonArray.length() != 0) {
 
-                            if(list.size() >0){ //need to clear the list if pull to refresh is initiated
+                            if (list.size() > 0) { //need to clear the list if pull to refresh is initiated
                                 list.clear();
                             }
 
@@ -271,6 +299,35 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         c = true;
                     }
 
+
+                    try {
+                        String jObjectString = jsonObject.optString("review");
+                        JSONArray jsonArray = new JSONArray(jObjectString);
+
+                        if (jsonArray.length() != 0) {
+
+                            for (int i = 0; i < jsonArray.length(); i++) {
+                                JSONObject jsonReview = jsonArray.getJSONObject(i);
+                                String t1 = jsonReview.optString("team1");
+                                String t2 = jsonReview.optString("team2");
+                                String t1Pts = jsonReview.optString("score1");
+                                String t2Pts = jsonReview.optString("score2");
+                                String ven = jsonReview.optString("stadium");
+                                String t1Id = jsonReview.optString("team1id");
+                                String t2Id = jsonReview.optString("team2id");
+                                String galleryId = jsonReview.optString("galleryid");
+                                String galleryName = "Dummy Name";
+
+                                //viewPagerAdapter.addView(addMatch(t1Id, t2Id, t1Pts, t2Pts, ven, galleryId, galleryName));
+                            }
+                        }
+
+                    } catch (JSONException je) {
+                        Log.e("JPP", Log.getStackTraceString(je));
+                        //ll1.setVisibility(View.GONE);
+                        d = true;
+                    }
+
                     done = true;
 
                 } catch (IOException io) {
@@ -278,7 +335,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                     a = b = c = true;
                 } catch (JSONException je) {
                     Log.e("JPP", Log.getStackTraceString(je));
-                } catch (Exception e){
+                } catch (Exception e) {
                     Log.e("JPP", Log.getStackTraceString(e));
                 }
 
@@ -291,24 +348,32 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 if (done) {
                     refresh();
                     //swipeRefreshLayout.setRefreshing(false);
-                }else{
-                    Toast.makeText(activity,"Oops, Something went wrong!",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(activity, "Oops, Something went wrong!", Toast.LENGTH_SHORT).show();
                     //swipeRefreshLayout.setRefreshing(false);
                 }
             }
-        }.execute(null, null, null);
+        }
+
+                .
+
+                        execute(null, null, null);
     }
 
     public void refresh() {
 
-        if(!a){
-            ll1.setVisibility(View.VISIBLE);
-        }
-        if(!b){
+        /*if(!a){
+            ll1.setVisibility(View.GONE);
+        }*/
+
+        if (!b) {
             ll2.setVisibility(View.VISIBLE);
         }
-        if(!c){
+        if (!c) {
             ll3.setVisibility(View.VISIBLE);
+        }
+        if (!d) {
+            flReview.setVisibility(View.VISIBLE);
         }
 
         llPoints.removeAllViews();
@@ -323,7 +388,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         tvNewsHead.setText(newsTitle);
 
-        if(!newsContent.startsWith("http"))
+        if (!newsContent.startsWith("http"))
             tvNewsDesc.setText(newsContent);
         tvNewsDate.setText(newsTime);
 
@@ -337,6 +402,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         String imageUri = "drawable://" + R.drawable.schedule_back;
         //playerImages.getResourceId(position, -1);
+        Log.e("JAY imageUri", imageUri);
         imageLoader.displayImage(imageUri, ivHomeMain, options);
 
         imageLoader.displayImage(imageLink, ivNews, options);
@@ -368,7 +434,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 tvNo.setText(no);
                 tvTeam.setText(team);
 
-                if(team.equals("Jaipur Pink Panthers")){
+                if (team.equals("Jaipur Pink Panthers")) {
                     /*tvNo.setTypeface(CustomFonts.getRegularFont(activity));
                     tvTeam.setTypeface(CustomFonts.getRegularFont(activity));
                     tvP.setTypeface(CustomFonts.getRegularFont(activity));
@@ -402,8 +468,16 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             }
 
         } else {
-            //istView.setEmptyView(tvNoBets);
+
         }
+
+        LayoutInflater inflater = activity.getLayoutInflater();
+        LinearLayout v = (LinearLayout) inflater.inflate(R.layout.layout_review, null);
+
+        mViewPager.addView(v);
+        viewPagerAdapter.notifyDataSetChanged();
+
+        //viewPagerAdapter.notifyDataSetChanged();
     }
 
     public void populate(String n, String team, String p, String w, String l, String pts) {
@@ -423,6 +497,57 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         TypedArray teamLogos = activity.getResources().obtainTypedArray(R.array.teamLogo);
 
         return teamLogos.getResourceId(teamId - 1, -1);
+    }
+
+    private LinearLayout addMatch(String t1Id,String t2Id,String t1Pts,String t2Pts,String ven,String galleryId, String galleryName) {
+
+        LayoutInflater inflater = activity.getLayoutInflater();
+        LinearLayout v = (LinearLayout) inflater.inflate(R.layout.layout_review, null);
+
+        ImageView ivT1R, ivT2R;
+        TextView tvS1R, tvS2R, tvCoR, tvVenueR, tvGoToGallery;
+
+        //ivReview = (ImageView) v.findViewById(R.id.ivReview);
+
+        ivT1R = (ImageView) v.findViewById(R.id.ivT1);
+        ivT2R = (ImageView) v.findViewById(R.id.ivT2);
+
+        tvS1R = (TextView) v.findViewById(R.id.tvS1);
+        tvS2R = (TextView) v.findViewById(R.id.tvS2);
+        tvCoR = (TextView) v.findViewById(R.id.tvCo);
+        tvS1R.setTypeface(CustomFonts.getBoldFont(activity));
+        tvS2R.setTypeface(CustomFonts.getBoldFont(activity));
+        tvCoR.setTypeface(CustomFonts.getBoldFont(activity));
+
+        tvVenueR = (TextView) v.findViewById(R.id.tvVenue);
+        tvGoToGallery = (TextView) v.findViewById(R.id.tvGoToGallery);
+        tvVenueR.setTypeface(CustomFonts.getLightFont(activity));
+        tvGoToGallery.setTypeface(CustomFonts.getLightFont(activity));
+
+        String imageUriTeam1 = "drawable://" + getTeamDrawable(t1Id);
+        String imageUriTeam2 = "drawable://" + getTeamDrawable(t2Id);
+
+        //Log.e("JAY", imageUriTeam1);
+        //Log.e("JAY", imageUriTeam2);
+
+        //ivT1R.setImageURI(imageUriTeam1);
+        //ivT1R.setImageResource(getTeamDrawable(t1Id));
+        //ivT2R.setImageResource(getTeamDrawable(t2Id));
+        //ivT1R.setImageURI(Uri.parse(imageUriTeam1));
+        //ivT2R.setImageURI(Uri.parse(imageUriTeam2));
+
+        imageLoader.displayImage(imageUriTeam1, ivT1R, options);
+        imageLoader.displayImage(imageUriTeam2, ivT2R, options);
+
+        tvS1R.setText(t1Pts);
+        tvS2R.setText(t2Pts);
+
+        tvVenueR.setText(ven);
+
+        String tag = galleryId + "#" + galleryName;
+        tvGoToGallery.setTag(tag);
+
+        return v;
     }
 
 }

@@ -49,7 +49,7 @@ public class MainActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
-    private ImageView ivToolbarImage;
+    private static ImageView ivToolbarImage;
     public static TextView tvToolbarText;
     private FrameLayout container;
     public static int PLAYER_ID = 12;
@@ -335,7 +335,7 @@ public class MainActivity extends ActionBarActivity
 
     }
 
-    public void tvOrImage(boolean tv, String header) {
+    public static void tvOrImage(boolean tv, String header) {
         if (tv) {
             ivToolbarImage.setVisibility(View.GONE);
             tvToolbarText.setVisibility(View.VISIBLE);

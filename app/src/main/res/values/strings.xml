@@ -178,5 +178,6 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_slide_show">SlideShowActivity</string>
     <string name="title_activity_fan">FanActivity</string>
+    <string name="title_activity_test">TestActivity</string>
 
 </resources>
