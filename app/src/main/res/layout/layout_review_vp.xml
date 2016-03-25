@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#0F2630">
+                android:background="@color/jppPrimaryDarkColor">
 
     <!--<ImageView
         android:id="@+id/ivHomeMain"
@@ -11,20 +11,25 @@
         android:adjustViewBounds="true"
         android:src="@drawable/schedule_back"
         android:scaleType="fitXY"/>-->
-
-    <include
-        android:id="@+id/llReview"
-        layout="@layout/layout_cross_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <com.jaipurpinkpanthers.android.util.HeightWrappingViewPager
-        android:id="@+id/view_pager"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/llReview"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:orientation="vertical">
 
+        <include
+            android:id="@+id/llReview"
+            layout="@layout/layout_cross_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.jaipurpinkpanthers.android.util.HeightWrappingViewPager
+            android:id="@+id/view_pager"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/llReview"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"/>
+    </LinearLayout>
 </RelativeLayout>

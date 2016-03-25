@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     FrameLayout ll1;
     ProgressDialog progressDialog;
     Activity activity;
-    FrameLayout flReview;
+    RelativeLayout flReview;
     ImageView ivReview;
     LinearLayout llSeasonReview;
     private ViewPager mViewPager;
@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ((MainActivity) this.getActivity()).tvOrImage(false,"");
+        ((MainActivity) this.getActivity()).tvOrImage(false, "");
 
         imageLoader = ImageLoader.getInstance();
         options = new DisplayImageOptions.Builder().cacheInMemory(true)
@@ -130,7 +130,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         ll2 = (RelativeLayout) view.findViewById(R.id.ll2);
         ll3 = (RelativeLayout) view.findViewById(R.id.ll3);
 
-        flReview = (FrameLayout) view.findViewById(R.id.flReview);
+        flReview = (RelativeLayout) view.findViewById(R.id.flReview);
 
         list = new ArrayList<HashMap<String, String>>();
         lvTeams = (ListView) view.findViewById(R.id.lvTeams);
@@ -142,6 +142,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         String imageUri = "drawable://" + R.drawable.schedule_back;
         imageLoader.displayImage(imageUri, ivHomeMain, options);
         imageLoader.displayImage(imageUri, ivReview, options);
+
 
         tvNo = (TextView) view.findViewById(R.id.tvNo);
         tvTeam = (TextView) view.findViewById(R.id.tvTeam);
@@ -165,11 +166,10 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         tvTable.setTypeface(CustomFonts.getRegularFont(activity));
         tvTable.setText("POINTS TABLE");
 
-        llSeasonReview = (LinearLayout) view.findViewById(R.id.llSeasonReview);
+        llSeasonReview = (LinearLayout) view.findViewById(R.id.llReview);
         TextView tvReview = (TextView) llSeasonReview.findViewById(R.id.tvCrossHeader);
         tvReview.setTypeface(CustomFonts.getRegularFont(activity));
         tvReview.setText("SEASON 3 REVIEW");
-
 
         tvNo.setTypeface(CustomFonts.getRegularFont(activity));
         tvTeam.setTypeface(CustomFonts.getRegularFont(activity));
@@ -316,9 +316,15 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                                 String t1Id = jsonReview.optString("team1id");
                                 String t2Id = jsonReview.optString("team2id");
                                 String galleryId = jsonReview.optString("galleryid");
-                                String galleryName = "Dummy Name";
+                                String galleryName = jsonReview.optString("galleryname");
 
-                                //viewPagerAdapter.addView(addMatch(t1Id, t2Id, t1Pts, t2Pts, ven, galleryId, galleryName));
+                                boolean last = false;
+
+                                if (i == jsonArray.length()-1) {
+                                    last = true;
+                                }
+
+                                viewPagerAdapter.addView(addMatch(i, t1Id, t2Id, t1Pts, t2Pts, ven, galleryId, galleryName, last));
                             }
                         }
 
@@ -353,11 +359,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                     //swipeRefreshLayout.setRefreshing(false);
                 }
             }
-        }
-
-                .
-
-                        execute(null, null, null);
+        }.execute(null, null, null);
     }
 
     public void refresh() {
@@ -401,8 +403,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         }
 
         String imageUri = "drawable://" + R.drawable.schedule_back;
-        //playerImages.getResourceId(position, -1);
-        Log.e("JAY imageUri", imageUri);
+
         imageLoader.displayImage(imageUri, ivHomeMain, options);
 
         imageLoader.displayImage(imageLink, ivNews, options);
@@ -471,13 +472,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         }
 
-        LayoutInflater inflater = activity.getLayoutInflater();
-        LinearLayout v = (LinearLayout) inflater.inflate(R.layout.layout_review, null);
-
-        mViewPager.addView(v);
         viewPagerAdapter.notifyDataSetChanged();
-
-        //viewPagerAdapter.notifyDataSetChanged();
     }
 
     public void populate(String n, String team, String p, String w, String l, String pts) {
@@ -499,18 +494,19 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         return teamLogos.getResourceId(teamId - 1, -1);
     }
 
-    private LinearLayout addMatch(String t1Id,String t2Id,String t1Pts,String t2Pts,String ven,String galleryId, String galleryName) {
+    private LinearLayout addMatch(final int id, String t1Id, String t2Id, String t1Pts, String t2Pts, String ven, String galleryId, String galleryName, boolean last) {
 
         LayoutInflater inflater = activity.getLayoutInflater();
         LinearLayout v = (LinearLayout) inflater.inflate(R.layout.layout_review, null);
 
-        ImageView ivT1R, ivT2R;
+        ImageView ivT1R, ivT2R, ivLeft, ivRight;
         TextView tvS1R, tvS2R, tvCoR, tvVenueR, tvGoToGallery;
 
-        //ivReview = (ImageView) v.findViewById(R.id.ivReview);
+        ivT1R = (ImageView) v.findViewById(R.id.ivT1R);
+        ivT2R = (ImageView) v.findViewById(R.id.ivT2R);
 
-        ivT1R = (ImageView) v.findViewById(R.id.ivT1);
-        ivT2R = (ImageView) v.findViewById(R.id.ivT2);
+        ivLeft = (ImageView) v.findViewById(R.id.ivLeft);
+        ivRight = (ImageView) v.findViewById(R.id.ivRight);
 
         tvS1R = (TextView) v.findViewById(R.id.tvS1);
         tvS2R = (TextView) v.findViewById(R.id.tvS2);
@@ -524,20 +520,58 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         tvVenueR.setTypeface(CustomFonts.getLightFont(activity));
         tvGoToGallery.setTypeface(CustomFonts.getLightFont(activity));
 
-        String imageUriTeam1 = "drawable://" + getTeamDrawable(t1Id);
-        String imageUriTeam2 = "drawable://" + getTeamDrawable(t2Id);
+        /*String imageUriTeam1 = "drawable://" + getTeamDrawable(t1Id);
+        String imageUriTeam2 = "drawable://" + getTeamDrawable(t2Id);*/
 
-        //Log.e("JAY", imageUriTeam1);
-        //Log.e("JAY", imageUriTeam2);
+        /*String imageUriTeam1 = "drawable://" + R.drawable.t1;
+        String imageUriTeam2 = "drawable://" + R.drawable.t2;*/
 
-        //ivT1R.setImageURI(imageUriTeam1);
+        String imageUri = "drawable://" + R.drawable.schedule_back;
+
+
+        String imageUriTeam1 = "drawable://" + teamUrl[Integer.parseInt(t1Id)-1];
+        String imageUriTeam2 = "drawable://" + teamUrl[Integer.parseInt(t2Id)-1];
+        String imageUriTeam3 = "drawable://" + R.drawable.t1;
+
+        /*Picasso.with(getActivity()).load(R.drawable.t11).into(ivT1R);
+        Picasso.with(getActivity()).load(R.drawable.t1).into(ivT2R);*/
+
+        if (id == 0) {
+            ivLeft.setImageResource(R.drawable.ic_blank);
+        } else {
+            ivLeft.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    matchPrev();
+                }
+            });
+
+        }
+
+        if (last) {
+            ivRight.setImageResource(R.drawable.ic_blank);
+        } else {
+            ivRight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    matchNext();
+                }
+            });
+        }
+
         //ivT1R.setImageResource(getTeamDrawable(t1Id));
         //ivT2R.setImageResource(getTeamDrawable(t2Id));
         //ivT1R.setImageURI(Uri.parse(imageUriTeam1));
         //ivT2R.setImageURI(Uri.parse(imageUriTeam2));
+        ivT1R.setImageResource(getTeamDrawable(t1Id));
+        ivT2R.setImageResource(getTeamDrawable(t2Id));
 
-        imageLoader.displayImage(imageUriTeam1, ivT1R, options);
-        imageLoader.displayImage(imageUriTeam2, ivT2R, options);
+        /*imageLoader.displayImage("drawable://" + R.drawable.ic_bottom_gallery_white, ivT1R);
+        imageLoader.displayImage("drawable://" + R.drawable.ic_bottom_gallery_white, ivT2R, options);
+        ivT1R.setBackground(R.drawable.ic_bottom_gallery_white);*/
+
+        /*imageLoader.displayImage("http://jaipurpinkpanthers.com/admin/uploads/736x327-14.jpg",ivT1R,options);
+        imageLoader.displayImage("http://jaipurpinkpanthers.com/admin/uploads/736x327-14.jpg",ivT2R,options);*/
 
         tvS1R.setText(t1Pts);
         tvS2R.setText(t2Pts);
@@ -549,5 +583,24 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         return v;
     }
+
+    private void matchPrev() {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1, true);
+    }
+
+    private void matchNext() {
+        mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1, true);
+    }
+
+    private static final int[] teamUrl = new int[] {
+            R.drawable.t1,
+            R.drawable.t2,
+            R.drawable.t3,
+            R.drawable.t4,
+            R.drawable.t5,
+            R.drawable.t6,
+            R.drawable.t7,
+            R.drawable.t8
+    };
 
 }

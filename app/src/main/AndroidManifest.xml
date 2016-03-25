@@ -199,10 +199,6 @@
             android:name=".FanActivity"
             android:label="@string/title_activity_fan" >
         </activity>
-        <activity
-            android:name=".TestActivity"
-            android:label="@string/title_activity_test" >
-        </activity>
     </application>
 
 </manifest>

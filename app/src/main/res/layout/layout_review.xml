@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="match_parent"
               android:orientation="vertical">
 
     <LinearLayout
@@ -10,12 +10,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:visibility="visible">
+        android:orientation="horizontal">
 
 
         <ImageView
-            android:id="@+id/ivT1"
+            android:id="@+id/ivT1R"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -32,7 +31,7 @@
             android:src="@drawable/vs"/>
 
         <ImageView
-            android:id="@+id/ivT2"
+            android:id="@+id/ivT2R"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -104,45 +103,56 @@
 
     </LinearLayout>
 
+
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:background="@color/jppProfileType"
         android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:clickable="false"
-        android:id="@+id/llGoToGallery">
+        android:layout_below="@+id/linearLayout3"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+
 
         <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="match_parent"
+            android:id="@+id/ivLeft"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:paddingBottom="3dp"
             android:paddingLeft="10dp"
             android:paddingRight="3dp"
             android:paddingTop="3dp"
-            android:tint="@color/jppAccentColor"
-            android:src="@drawable/ic_bottom_gallery_white"
-            android:visibility="gone"/>
+            android:tint="@android:color/white"
+            android:src="@drawable/ic_left"/>
 
         <TextView
             android:id="@+id/tvGoToGallery"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:gravity="center"
+            android:layout_gravity="center"
             android:text="View Gallery"
             android:textColor="@color/jppAccentColor"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
             android:textSize="16sp"
-            android:onClick="goToGallery"/>
+            android:onClick="goToGallery"
+            android:background="@color/jppProfileType"/>
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="3dp"
+            android:paddingTop="3dp"
+            android:tint="@android:color/white"
+            android:src="@drawable/ic_right"/>
 
     </LinearLayout>
 
