@@ -197,9 +197,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_gravity="center">
+                    android:orientation="vertical">
 
                     <include
                         android:id="@+id/llReview"
@@ -213,8 +211,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_below="@id/llReview"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_gravity="center"
+                        android:foregroundGravity="center"/>
 
                 </LinearLayout>
 

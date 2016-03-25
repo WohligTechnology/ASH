@@ -131,32 +131,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c6856c2-3cf0-44a7-b817-eced1a85aaa8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_blank.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_blank.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_blank.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_blank.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/ic_left-web.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/ic_right-web.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_right.png" />
-      <change type="DELETED" beforePath="C:\AndroidApps\JaipurPinkPanthers\app\src\main\java\com\jaipurpinkpanthers\android\TestActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\AndroidApps\JaipurPinkPanthers\app\src\main\res\layout\activity_test.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/t1.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/t1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/t2.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/t2.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/t3.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/t3.png" />
@@ -165,11 +139,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/t6.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/t6.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/t7.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/t7.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/t8.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/t8.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_review.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_review.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_review_vp.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_review_vp.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Jaipur Pink Panthers.iws" />
@@ -229,8 +201,8 @@
       <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3309481">
-              <caret line="565" column="54" selection-start-line="565" selection-start-column="54" selection-end-line="565" selection-end-column="54" />
+            <state vertical-scroll-proportion="2.2468693">
+              <caret line="583" column="29" selection-start-line="583" selection-start-column="29" selection-end-line="583" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20157#20173#0" expanded="true" />
@@ -243,27 +215,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout_review.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_review.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.8965516">
-              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="fragment_home.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.103449">
-              <caret line="223" column="27" selection-start-line="223" selection-start-column="27" selection-end-line="223" selection-end-column="27" />
+            <state vertical-scroll-proportion="-1.2068965">
+              <caret line="188" column="40" selection-start-line="188" selection-start-column="40" selection-end-line="188" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -2059,9 +2018,9 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_review_vp.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_review.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_review.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
       </list>
     </option>
   </component>
@@ -2908,29 +2867,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.881932">
-          <caret line="29" column="75" selection-start-line="29" selection-start-column="75" selection-end-line="29" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.103449">
-          <caret line="223" column="27" selection-start-line="223" selection-start-column="27" selection-end-line="223" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6994633">
+          <caret line="29" column="75" selection-start-line="29" selection-start-column="75" selection-end-line="29" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -2940,16 +2888,27 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.8965516">
-          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.33207548">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2068965">
+          <caret line="188" column="40" selection-start-line="188" selection-start-column="40" selection-end-line="188" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jaipurpinkpanthers/android/fragments/HomeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3309481">
-          <caret line="565" column="54" selection-start-line="565" selection-start-column="54" selection-end-line="565" selection-end-column="54" />
+        <state vertical-scroll-proportion="2.2468693">
+          <caret line="583" column="29" selection-start-line="583" selection-start-column="29" selection-end-line="583" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20157#20173#0" expanded="true" />

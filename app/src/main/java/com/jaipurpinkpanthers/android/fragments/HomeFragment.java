@@ -563,8 +563,15 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         //ivT2R.setImageResource(getTeamDrawable(t2Id));
         //ivT1R.setImageURI(Uri.parse(imageUriTeam1));
         //ivT2R.setImageURI(Uri.parse(imageUriTeam2));
+
         ivT1R.setImageResource(getTeamDrawable(t1Id));
         ivT2R.setImageResource(getTeamDrawable(t2Id));
+
+        String jay = "assets://";
+        //Log.d(TAG, "URI = " + imageUri + fileName);
+        //imageLoader.displayImage(jay+"t1.png", ivT1R);
+        //ImageLoader.getInstance().displayImage(imageUriTeam1, ivT1R);
+        //ImageLoader.getInstance().displayImage(imageUriTeam2, ivT2R);
 
         /*imageLoader.displayImage("drawable://" + R.drawable.ic_bottom_gallery_white, ivT1R);
         imageLoader.displayImage("drawable://" + R.drawable.ic_bottom_gallery_white, ivT2R, options);
