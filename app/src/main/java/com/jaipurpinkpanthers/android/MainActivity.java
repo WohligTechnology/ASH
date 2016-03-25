@@ -166,7 +166,7 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 1) { // schedule
+        /*if (position == 1) { // schedule
             if (inMainActivity) {
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -176,8 +176,8 @@ public class MainActivity extends ActionBarActivity
                     }
                 }, 300);
             }
-        }
-        if (position == 2) { // gallery
+        }*/
+        if (position == 1) { // gallery
             if (inMainActivity) {
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -188,7 +188,7 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 3) { // news
+        if (position == 2) { // news
             if (inMainActivity) {
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -199,7 +199,7 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 4) { // knowPanthers
+        if (position == 3) { // knowPanthers
             if (inMainActivity) {
                 knowPanthersShow();
                 final Handler handler = new Handler();
@@ -211,7 +211,7 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 5) { // merchandise
+        if (position == 4) { // merchandise
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -221,7 +221,7 @@ public class MainActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 6) { // wallpapers
+        if (position == 5) { // wallpapers
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -231,7 +231,7 @@ public class MainActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 7) { // points table
+        if (position == 6) { // points table
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -241,7 +241,7 @@ public class MainActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 8) { // fan corner
+        if (position == 7) { // fan corner
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -251,7 +251,7 @@ public class MainActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 9) { // about us
+        if (position == 8) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override

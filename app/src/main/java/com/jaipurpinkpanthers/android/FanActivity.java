@@ -79,7 +79,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 1) { // schedule
+        /*if (position == 1) { // schedule
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -89,8 +89,8 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
 
-        }
-        if (position == 2) { // gallery
+        }*/
+        if (position == 1) { // gallery
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -100,7 +100,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 3) { // news
+        if (position == 2) { // news
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -110,7 +110,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 4) { // knowPanthers
+        if (position == 3) { // knowPanthers
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -120,7 +120,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 5) { // tickets
+        if (position == 4) { // tickets
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -130,7 +130,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 6) { // wallpaper
+        if (position == 5) { // wallpaper
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -140,7 +140,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 7) { // points table
+        if (position == 6) { // points table
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -150,10 +150,10 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 8) { // fan corner
+        if (position == 7) { // fan corner
 
         }
-        if (position == 9) { // about us
+        if (position == 8) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override

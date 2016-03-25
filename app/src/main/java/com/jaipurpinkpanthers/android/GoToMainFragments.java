@@ -16,25 +16,28 @@ public class GoToMainFragments {
 
     public static void goSchedule(Context context){
         Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("FragmentId", 1);
+        //intent.putExtra("FragmentId", 1);
         context.startActivity(intent);
     }
 
     public static void goGallery(Context context){
         Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("FragmentId", 2);
+        //intent.putExtra("FragmentId", 2);
+        intent.putExtra("FragmentId", 1);
         context.startActivity(intent);
     }
 
     public static void goNews(Context context){
         Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("FragmentId", 3);
+        //intent.putExtra("FragmentId", 3);
+        intent.putExtra("FragmentId", 2);
         context.startActivity(intent);
     }
 
     public static void goPanthers(Context context){
         Intent intent = new Intent(context, MainActivity.class);
-        intent.putExtra("FragmentId", 4);
+        //intent.putExtra("FragmentId", 4);
+        intent.putExtra("FragmentId", 3);
         context.startActivity(intent);
     }
 
