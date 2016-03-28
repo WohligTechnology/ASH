@@ -18,9 +18,9 @@ public class InternetOperations {
     /*public static String SERVER_URL = "http://192.168.0.124/jppbackend/index.php/json/";
     public static String SERVER_UPLOADS_URL = "http://192.168.0.124/jppbackend/uploads/";
     public static String SERVER_THUMB_URL = "http://192.168.0.124/admin/index.php/image/index?name=";*/
-    public static String SERVER_URL = "http://www.jaipurpinkpanthers.com/admin/index.php/json/";
-    public static String SERVER_UPLOADS_URL = "http://www.jaipurpinkpanthers.com/admin/uploads/";
-    public static String SERVER_THUMB_URL = "http://www.jaipurpinkpanthers.com/admin/index.php/image/index?name=";
+    public static String SERVER_URL = "http://admin.jaipurpinkpanthers.com/index.php/json/";
+    public static String SERVER_UPLOADS_URL = "http://admin.jaipurpinkpanthers.com/uploads/";
+    public static String SERVER_THUMB_URL = "http://admin.jaipurpinkpanthers.com/index.php/image/index?name=";
     public static String SERVER_WIDTH_250 = "&width=250";
     public static String SERVER_WIDTH_400 = "&width=400";
 
