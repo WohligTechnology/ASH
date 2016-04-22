@@ -257,6 +257,8 @@ public class MainActivity extends ActionBarActivity
                 @Override
                 public void run() {
                     startActivity(new Intent(MainActivity.this, AboutActivity.class));
+                    //overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in); open
+                    //overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out); back
                     finish();
                 }
             }, 300);
