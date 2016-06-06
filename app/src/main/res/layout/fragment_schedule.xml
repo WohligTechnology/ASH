@@ -41,7 +41,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/ivBanner"
@@ -64,40 +64,35 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="30dp"
                     android:gravity="center"
+                    android:weightSum="8"
                     android:orientation="horizontal">
 
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"/>
 
                     <ImageView
                         android:id="@+id/ivT1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="3"
+                        android:layout_weight="2.5"
                         android:adjustViewBounds="true"
+                        android:paddingRight="-10dp"
                         android:src="@drawable/blank"/>
 
                     <ImageView
                         android:id="@+id/imageView7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/vs"/>
-
-                    <ImageView
-                        android:id="@+id/ivT2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:adjustViewBounds="true"
-                        android:paddingLeft="10dp"
-                        android:src="@drawable/blank"/>
+                        android:src="@drawable/jppvs"/>
 
-                    <View
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"/>
+                    <ImageView
+                        android:id="@+id/ivT2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.5"
+                        android:adjustViewBounds="true"
+                        android:paddingLeft="-10dp"
+                        android:src="@drawable/blank"/>
 
                 </LinearLayout>
 
@@ -134,6 +129,7 @@
                     android:layout_below="@+id/linearLayout3"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@color/jppProfileType"
                     android:orientation="horizontal"
                     android:onClick="addToCalendar"

@@ -2,6 +2,7 @@ package com.jaipurpinkpanthers.android.fragments;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -65,11 +66,17 @@ public class PointsFragment extends Fragment {
         lvTeams = (ListView) view.findViewById(R.id.lvTeams);
 
         tvNo.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvNo.setTextColor(Color.parseColor("black"));
         tvTeam.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvTeam.setTextColor(Color.parseColor("black"));
         tvP.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvP.setTextColor(Color.parseColor("black"));
         tvW.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvW.setTextColor(Color.parseColor("black"));
         tvL.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvL.setTextColor(Color.parseColor("black"));
         tvPts.setTypeface(CustomFonts.getRegularFont(getActivity()));
+        tvPts.setTextColor(Color.parseColor("black"));
 
         if (InternetOperations.checkIsOnlineViaIP()) {
             getPointsTableData();

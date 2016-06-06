@@ -20,6 +20,8 @@ import com.jaipurpinkpanthers.android.fragments.FanFragment;
 import com.jaipurpinkpanthers.android.fragments.NavigationDrawerFragment;
 import com.jaipurpinkpanthers.android.util.CustomFonts;
 
+import java.util.ArrayList;
+
 public class FanActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     /**
@@ -34,6 +36,9 @@ public class FanActivity extends ActionBarActivity
     public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
     boolean doubleBackToExitPressedOnce = false;
     boolean inMainActivity = true;
+    public ArrayList<String> selections = new ArrayList<String>();
+    View v;
+    public FanFragment fa=new FanFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +69,13 @@ public class FanActivity extends ActionBarActivity
             mNavigationDrawerFragment.closeDrawer();
 
         initializeViews();
+
     }
+
+    public void callselecteditem(View v){
+        fa.selecteditem(v);
+    }
+
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
@@ -79,7 +90,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        /*if (position == 1) { // schedule
+        if (position == 1) { // schedule
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -89,8 +100,8 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
 
-        }*/
-        if (position == 1) { // gallery
+        }
+        if (position == 2) { // gallery
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -100,7 +111,17 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 2) { // news
+        if (position == 3) { // jpptv
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    GoToMainFragments.goGallery(FanActivity.this);
+                    finish();
+                }
+            }, 300);
+        }
+        if (position == 4) { // news
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -110,7 +131,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 3) { // knowPanthers
+        if (position == 5) { // knowPanthers
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -120,7 +141,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 4) { // tickets
+        if (position == 6) { // tickets
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -130,7 +151,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 5) { // wallpaper
+        if (position == 7) { // wallpaper
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -140,7 +161,7 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 6) { // points table
+        if (position == 8) { // points table
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -150,10 +171,10 @@ public class FanActivity extends ActionBarActivity
                 }
             }, 300);
         }
-        if (position == 7) { // fan corner
+        if (position == 9) { // fan corner
 
         }
-        if (position == 8) { // about us
+        if (position == 10) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
@@ -209,6 +230,7 @@ public class FanActivity extends ActionBarActivity
         fragmentTransaction.add(R.id.container, fanFragment);
         //fragmentTransaction.replace(R.id.container, scheduleFragment);
         fragmentTransaction.commit();
+
     }
 
     public void home(View v) {
@@ -235,4 +257,7 @@ public class FanActivity extends ActionBarActivity
         Log.v("JPP", "Panthers");
         GoToMainFragments.goPanthers(this);
     }
+
+//to get selected items
+
 }

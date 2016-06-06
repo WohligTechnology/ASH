@@ -197,7 +197,8 @@
 
         <activity
             android:name=".FanActivity"
-            android:label="@string/title_activity_fan" >
+            android:label="@string/title_activity_fan"
+            >
         </activity>
     </application>
 

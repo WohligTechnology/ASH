@@ -107,8 +107,9 @@ public class NavigationDrawerFragment extends Fragment implements NavigationDraw
     public List<NavigationItem> getMenu() {
         List<NavigationItem> items = new ArrayList<NavigationItem>();
         items.add(new NavigationItem("HOME","ic_menu_home"));
-        //items.add(new NavigationItem("FIXTURES", "ic_menu_fixtures"));
+        items.add(new NavigationItem("SEASON 4 SCHEDULE", "ic_menu_season4"));
         items.add(new NavigationItem("GALLERY", "ic_menu_gallery"));
+        items.add(new NavigationItem("JPP TV", "ic_menu_jpptv"));
         items.add(new NavigationItem("NEWS & MEDIA", "ic_menu_news"));
         items.add(new NavigationItem("KNOW YOUR PANTHERS", "ic_menu_panthers"));
         items.add(new NavigationItem("TICKETS & MERCHANDISE","ic_menu_merc"));

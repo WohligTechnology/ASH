@@ -95,12 +95,18 @@ public class PointsAdapter extends BaseAdapter {
             holder.tvL.setTypeface(CustomFonts.getRegularFont(activity));
             holder.tvPts.setTypeface(CustomFonts.getRegularFont(activity));*/
             holder.tvNo.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvNo.setTextColor(Color.parseColor("#ee4a9b"));
             holder.tvTeam.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvTeam.setTextColor(Color.parseColor("#ee4a9b"));
             holder.tvP.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvP.setTextColor(Color.parseColor("#ee4a9b"));
             holder.tvW.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvW.setTextColor(Color.parseColor("#ee4a9b"));
             holder.tvL.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvL.setTextColor(Color.parseColor("#ee4a9b"));
             holder.tvPts.setTypeface(CustomFonts.getLightFont(activity));
-            holder.llFull.setBackgroundColor(Color.parseColor("#4ECAF5"));
+            holder.tvPts.setTextColor(Color.parseColor("#ee4a9b"));
+            holder.llFull.setBackgroundColor(Color.parseColor("#7bd9fa"));
             /*holder.tvNo.setTextColor(Color.parseColor("#4ECAF5"));
             holder.tvTeam.setTextColor(Color.parseColor("#4ECAF5"));
             holder.tvP.setTextColor(Color.parseColor("#4ECAF5"));
@@ -109,11 +115,19 @@ public class PointsAdapter extends BaseAdapter {
             holder.tvPts.setTextColor(Color.parseColor("#4ECAF5"));*/
         } else {
             holder.tvNo.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvNo.setTextColor(Color.parseColor("black"));
             holder.tvTeam.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvTeam.setTextColor(Color.parseColor("black"));
             holder.tvP.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvP.setTextColor(Color.parseColor("black"));
             holder.tvW.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvW.setTextColor(Color.parseColor("black"));
             holder.tvL.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvL.setTextColor(Color.parseColor("black"));
             holder.tvPts.setTypeface(CustomFonts.getLightFont(activity));
+            holder.tvPts.setTextColor(Color.parseColor("black"));
+            holder.llFull.setBackgroundColor(Color.parseColor("#7bd9fa"));
+
         }
 
         holder.tvTeam.setText(team);

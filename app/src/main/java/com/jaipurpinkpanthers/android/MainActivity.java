@@ -21,12 +21,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pushwoosh.BasePushMessageReceiver;
-import com.pushwoosh.BaseRegistrationReceiver;
-import com.pushwoosh.PushManager;
 import com.jaipurpinkpanthers.android.fragments.AlbumFragment;
 import com.jaipurpinkpanthers.android.fragments.GalleryFragment;
 import com.jaipurpinkpanthers.android.fragments.HomeFragment;
+import com.jaipurpinkpanthers.android.fragments.JppTvFragment;
 import com.jaipurpinkpanthers.android.fragments.NavigationDrawerFragment;
 import com.jaipurpinkpanthers.android.fragments.NewsDetailFragment;
 import com.jaipurpinkpanthers.android.fragments.NewsFragment;
@@ -35,6 +33,9 @@ import com.jaipurpinkpanthers.android.fragments.PlayerDescriptionFragment;
 import com.jaipurpinkpanthers.android.fragments.ScheduleFragment;
 import com.jaipurpinkpanthers.android.util.CalendarEvent;
 import com.jaipurpinkpanthers.android.util.CustomFonts;
+import com.pushwoosh.BasePushMessageReceiver;
+import com.pushwoosh.BaseRegistrationReceiver;
+import com.pushwoosh.PushManager;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -59,7 +60,7 @@ public class MainActivity extends ActionBarActivity
     boolean inMainActivity = true;
     public static HashMap<String, String> NEWSDETAIL;
     public static ArrayList<String> IMAGE_LINKS = new ArrayList<String>();
-
+    View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,7 @@ public class MainActivity extends ActionBarActivity
                 //What to do on back clicked
             }
         });*/
+
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -166,7 +168,7 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        /*if (position == 1) { // schedule
+        if (position == 1) { // schedule
             if (inMainActivity) {
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -176,8 +178,8 @@ public class MainActivity extends ActionBarActivity
                     }
                 }, 300);
             }
-        }*/
-        if (position == 1) { // gallery
+        }
+        if (position == 2) { // gallery
             if (inMainActivity) {
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -188,7 +190,19 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 2) { // news
+
+        if (position == 3) { // jpptv
+            if (inMainActivity) {
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        videoShows();
+                    }
+                }, 300);
+            }
+        }
+        if (position == 4) { // news
             if (inMainActivity) {
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -199,9 +213,8 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 3) { // knowPanthers
+        if (position == 5) { // knowPanthers
             if (inMainActivity) {
-                knowPanthersShow();
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -211,57 +224,65 @@ public class MainActivity extends ActionBarActivity
                 }, 300);
             }
         }
-        if (position == 4) { // merchandise
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(MainActivity.this, MerchandiseActivity.class));
-                    finish();
-                }
-            }, 300);
+        if (position == 6) { // merchandise
+            if (inMainActivity) {
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        merchandise1();
+                    }
+                }, 300);
+            }
         }
-        if (position == 5) { // wallpapers
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(MainActivity.this, WallpaperActivity.class));
-                    finish();
-                }
-            }, 300);
+        if (position == 7) { // wallpapers
+            if (inMainActivity) {
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                    wallpapers1();
+                    }
+                }, 300);
+            }
         }
-        if (position == 6) { // points table
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(MainActivity.this, PointsActitivy.class));
-                    finish();
-                }
-            }, 300);
+        if (position == 8) { // points table
+            if (inMainActivity) {
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                     points1();
+                    }
+                }, 300);
+            }
         }
-        if (position == 7) { // fan corner
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(MainActivity.this, FanActivity.class));
-                    finish();
-                }
-            }, 300);
+        if (position == 9) { // fan corner
+            if (inMainActivity) {
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        fan();
+                        //startActivity(new Intent(MainActivity.this, FanActivity.class));
+                        //finish();
+                    }
+                }, 300);
+            }
         }
-        if (position == 8) { // about us
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(MainActivity.this, AboutActivity.class));
-                    //overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in); open
-                    //overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out); back
-                    finish();
-                }
-            }, 300);
+        if (position ==10) { // about us
+            if (inMainActivity) {
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        about1();
+                        //overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in); open
+                        //overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out); back
+                        //finish();
+                    }
+                }, 300);
+            }
         }
     }
 
@@ -367,12 +388,12 @@ public class MainActivity extends ActionBarActivity
     }
 
     public void schedule(View v) {
-        Log.v("JPP", "FIXTURES");
+        Log.v("JPP", "SEASON 4 SCHEDULE");
         scheduleShow();
     }
 
     public void scheduleShow() {
-        tvOrImage(true, "FIXTURES");
+        tvOrImage(true, "SEASON 4 SCHEDULE");
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         ScheduleFragment scheduleFragment = new ScheduleFragment();
@@ -401,7 +422,22 @@ public class MainActivity extends ActionBarActivity
 
         bottomViewClicked(3);
     }
+    public void jppTv(View v){
+        Log.v("JPP", "Inside Gallery");
+        videoShows();
+    }
 
+    public void videoShows() {
+        tvOrImage(true, "JPP TV");
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        GalleryFragment galleryFragment = new GalleryFragment();
+        JppTvFragment jppTvFragment =new JppTvFragment();
+        //fragmentTransaction.add(R.id.container, galleryFragment, "GALLERY");
+        fragmentTransaction.replace(R.id.container, jppTvFragment);
+        fragmentTransaction.commit();
+
+    }
     public void news(View v) { ////left to do
         Log.v("JPP", "Inside News");
         newsShow();
@@ -420,6 +456,9 @@ public class MainActivity extends ActionBarActivity
         bottomViewClicked(4);
     }
 
+
+
+
     public void knowPanthers(View v) {
         Log.v("JPP", "Know Your Panthers");
         knowPanthersShow();
@@ -437,6 +476,50 @@ public class MainActivity extends ActionBarActivity
 
         bottomViewClicked(5);
     }
+    public void merchandise(View v)
+    {
+        Log.v("JPP", "TICKETS & MERCHANDISE");
+        merchandise1();
+    }
+    public void merchandise1()
+    {
+        startActivity(new Intent(MainActivity.this, MerchandiseActivity.class));
+    }
+    public void wallpapers(View v)
+    {
+        Log.v("JPP", "WALLPAPERS");
+        wallpapers1();
+    }
+    public void wallpapers1()
+    {
+        startActivity(new Intent(MainActivity.this, WallpaperActivity.class));
+    }
+    public void points(View v)
+    {
+        Log.v("JPP", "POINTS");
+        points1();
+    }
+    public void points1()
+    {
+        startActivity(new Intent(MainActivity.this, PointsActitivy.class));
+    }
+    public void fan1(View v) { ////left to do
+        Log.v("JPP", "Sign Up");
+        fan();
+    }
+    public void fan() {
+        startActivity(new Intent(MainActivity.this, FanActivity.class));
+    }
+    public void about(View v)
+    {
+        Log.v("JPP", "About Us");
+        about1();
+    }
+    public void about1()
+    {
+        startActivity(new Intent(MainActivity.this, AboutActivity.class));
+    }
+
 
     public void removeFragment(String TAG_FRAGMENT) {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG_FRAGMENT);
@@ -582,6 +665,7 @@ public class MainActivity extends ActionBarActivity
         intent.putExtra("webLink", tag);
         startActivity(intent);
     }
+
 
     public void openSlideShowActivity(View v) {
         String position = v.getTag().toString();
@@ -783,5 +867,6 @@ public class MainActivity extends ActionBarActivity
 
         checkMessage(intent);
     }
+
 
 }

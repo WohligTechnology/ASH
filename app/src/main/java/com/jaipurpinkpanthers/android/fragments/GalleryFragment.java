@@ -18,7 +18,6 @@ import android.widget.ViewFlipper;
 import com.jaipurpinkpanthers.android.MainActivity;
 import com.jaipurpinkpanthers.android.R;
 import com.jaipurpinkpanthers.android.adapters.GalleryAdapter;
-import com.jaipurpinkpanthers.android.adapters.VideoAdapter;
 import com.jaipurpinkpanthers.android.util.CustomFonts;
 import com.jaipurpinkpanthers.android.util.InternetOperations;
 
@@ -65,24 +64,24 @@ public class GalleryFragment extends Fragment {
     public void initializeViews() {
 
         viewPhotos = view.findViewById(R.id.viewPhotos);
-        viewVideos = view.findViewById(R.id.viewVideos);
+        //viewVideos = view.findViewById(R.id.viewVideos);
         viewPhotos.setBackgroundColor(getResources().getColor(R.color.jppAccentColor));
 
         tvPhotos = (TextView) view.findViewById(R.id.tvPhotos);
-        tvVideos = (TextView) view.findViewById(R.id.tvVideos);
+        //tvVideos = (TextView) view.findViewById(R.id.tvVideos);
         tvPhotos.setTypeface(CustomFonts.getLightFont(getActivity()));
-        tvVideos.setTypeface(CustomFonts.getLightFont(getActivity()));
+        //tvVideos.setTypeface(CustomFonts.getLightFont(getActivity()));
 
         llPhotos = (LinearLayout) view.findViewById(R.id.llPhotos);
-        llVideos = (LinearLayout) view.findViewById(R.id.llVideos);
+        //llVideos = (LinearLayout) view.findViewById(R.id.llVideos);
 
         vfGallery = (ViewFlipper) view.findViewById(R.id.vfGallery);
-        vfGallery.setFlipInterval(500);
+        //vfGallery.setFlipInterval(500);
 
         list = new ArrayList<HashMap<String, String>>();
-        listVideo = new ArrayList<HashMap<String, String>>();
+        //listVideo = new ArrayList<HashMap<String, String>>();
         lvPhotos = (ListView) view.findViewById(R.id.lvPhotos);
-        lvVideos = (ListView) view.findViewById(R.id.lvVideos);
+        //lvVideos = (ListView) view.findViewById(R.id.lvVideos);
 
         setListeners();
 
@@ -107,7 +106,7 @@ public class GalleryFragment extends Fragment {
             }
         });
 
-        llVideos.setOnClickListener(new View.OnClickListener() {
+        /*llVideos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 viewPhotos.setBackgroundColor(getResources().getColor(R.color.jppGalleryToolbar));
@@ -116,7 +115,7 @@ public class GalleryFragment extends Fragment {
                 if (vfGallery.getDisplayedChild() != 1)
                     vfGallery.showNext();
             }
-        });
+        });*/
     }
 
     public void getGalleryData() {
@@ -172,7 +171,7 @@ public class GalleryFragment extends Fragment {
                         name = jsonObject.optString("name");
                         url = jsonObject.optString("url");
 
-                        populateVideo(name, url);
+                        //populateVideo(name, url);
                     }
                     done = true;
 
@@ -207,12 +206,12 @@ public class GalleryFragment extends Fragment {
             //istView.setEmptyView(tvNoBets);
         }
 
-        if (listVideo.size() > 0) {
+        /*if (listVideo.size() > 0) {
             VideoAdapter videoAdapter = new VideoAdapter(getActivity(), listVideo);
             lvVideos.setAdapter(videoAdapter);
         } else {
             //istView.setEmptyView(tvNoBets);
-        }
+        }*/
 
     }
 
@@ -224,10 +223,10 @@ public class GalleryFragment extends Fragment {
         list.add(map);
     }
 
-    public void populateVideo(String name, String url) {
+    /*public void populateVideo(String name, String url) {
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("title", name);
         map.put("url", url);
         listVideo.add(map);
-    }
+    }*/
 }

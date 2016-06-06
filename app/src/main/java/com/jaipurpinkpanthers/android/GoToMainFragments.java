@@ -30,14 +30,14 @@ public class GoToMainFragments {
     public static void goNews(Context context){
         Intent intent = new Intent(context, MainActivity.class);
         //intent.putExtra("FragmentId", 3);
-        intent.putExtra("FragmentId", 2);
+        intent.putExtra("FragmentId", 3);
         context.startActivity(intent);
     }
 
     public static void goPanthers(Context context){
         Intent intent = new Intent(context, MainActivity.class);
         //intent.putExtra("FragmentId", 4);
-        intent.putExtra("FragmentId", 3);
+        intent.putExtra("FragmentId", 4);
         context.startActivity(intent);
     }
 

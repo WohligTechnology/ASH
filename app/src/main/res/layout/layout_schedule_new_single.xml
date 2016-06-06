@@ -14,7 +14,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <!--<include
             android:id="@+id/llUpcomingMatch"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3.5"
                 android:adjustViewBounds="true"
-                android:src="@drawable/vs"/>
+                android:src="@drawable/jppvs"/>
 
             <ImageView
                 android:id="@+id/ivT2"
@@ -96,6 +96,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/jppProfileType"
             android:orientation="horizontal"
+            android:weightSum="4"
             android:id="@+id/llAddToCalendar"
             android:visibility="visible"
             android:layout_gravity="center_horizontal">
@@ -118,6 +119,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Add To Calendar"
+                android:textAlignment="center"
                 android:textColor="@color/jppAccentColor"
                 android:textSize="16sp"/>
 

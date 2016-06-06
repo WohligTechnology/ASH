@@ -15,9 +15,10 @@ public class InternetOperations {
 
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static OkHttpClient client = new OkHttpClient();
-    /*public static String SERVER_URL = "http://192.168.0.124/jppbackend/index.php/json/";
-    public static String SERVER_UPLOADS_URL = "http://192.168.0.124/jppbackend/uploads/";
+    //public static String SERVER_URL = "http://192.168.1.105/jppbackend/index.php/json/";
+    /*public static String SERVER_UPLOADS_URL = "http://192.168.0.124/jppbackend/uploads/";
     public static String SERVER_THUMB_URL = "http://192.168.0.124/admin/index.php/image/index?name=";*/
+    //String local_url="http://192.168.1.105/jppbackend/index.php/json/";
     public static String SERVER_URL = "http://admin.jaipurpinkpanthers.com/index.php/json/";
     public static String SERVER_UPLOADS_URL = "http://admin.jaipurpinkpanthers.com/uploads/";
     public static String SERVER_THUMB_URL = "http://admin.jaipurpinkpanthers.com/index.php/image/index?name=";
