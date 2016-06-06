@@ -30,7 +30,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
-                android:visibility="visible">
+                android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ivHomeMain"
@@ -532,7 +532,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@android:color/white"
                 android:onClick="news"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <include
                     android:id="@+id/llNews"
@@ -653,7 +653,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:visibility="gone">
                     <TextView
                         android:id="@+id/tvsignUp"
                         android:layout_width="match_parent"
@@ -692,14 +693,14 @@
                     android:id="@+id/lljpptv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="180dp"
                         android:src="@drawable/jpptv_section"
-                        android:onClick="jppTv"
-                        />
+                        android:onClick="jppTv"/>
                 </LinearLayout>
             </RelativeLayout>
 
@@ -713,7 +714,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/jpptable"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <include
                     android:id="@+id/llTable"

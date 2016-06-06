@@ -50,7 +50,7 @@ import java.util.HashMap;
 public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts,tvmonth,tvdays,tvhours,tvmins;
-    LinearLayout llLatestUpdate, llNews, llTable, llPoints,llupcomingmatch;
+    LinearLayout llLatestUpdate, llNews, llTable, llPoints,llupcomingmatch, lljpptv, llsignUp;
     ImageView ivT1, ivT2, ivNews, ivHomeMain;
     TextView tvS1, tvS2, tvCo, tvVenue, tvTime, tvMatchTime;
     TextView tvNewsHead, tvNewsDesc, tvNewsDate, tvNewsRead;
@@ -144,6 +144,8 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         ll3 = (RelativeLayout) view.findViewById(R.id.ll3);
         ll4 = (RelativeLayout) view.findViewById(R.id.ll4);
         ll5 =(RelativeLayout) view.findViewById(R.id.ll5);
+        lljpptv = (LinearLayout) view.findViewById(R.id.lljpptv);
+        llsignUp = (LinearLayout) view.findViewById(R.id.llsignUp);
 
         flReview = (RelativeLayout) view.findViewById(R.id.flReview);
 
@@ -258,7 +260,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         }
     }
 
-    boolean a = false, b = false, c = false, d = false,e =false,f=false;
+    boolean a = false, b = false, c = false, d = false, e = false, f = false, jpptv = false, signUp = false;
 
     public void getHomeContentData() {
 
@@ -325,7 +327,6 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         Log.e("JPP", Log.getStackTraceString(je));
                         b = true;
                     }
-
 
                     try {
                         String jObjectString = jsonObject.optString("points");
@@ -418,6 +419,9 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     public void refresh() {
 
+        jpptv = true;
+        signUp = true;
+
         if (!a) {
             ll1.setVisibility(View.VISIBLE);
         }
@@ -435,6 +439,12 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         }
         if (!f) {
             ll5.setVisibility(View.VISIBLE);
+        }
+        if (jpptv) {
+            lljpptv.setVisibility(View.VISIBLE);
+        }
+        if (signUp) {
+            llsignUp.setVisibility(View.VISIBLE);
         }
 
         llPoints.removeAllViews();
