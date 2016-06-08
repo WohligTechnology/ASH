@@ -3,6 +3,7 @@ package com.jaipurpinkpanthers.android;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
@@ -13,8 +14,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.jaipurpinkpanthers.android.fragments.NavigationDrawerFragment;
 import com.jaipurpinkpanthers.android.fragments.WallpaperFragment;
 import com.jaipurpinkpanthers.android.util.CustomFonts;
@@ -34,6 +37,13 @@ public class WallpaperActivity extends ActionBarActivity
     private FrameLayout container;
     boolean doubleBackToExitPressedOnce = false;
     public static ArrayList<String> IMAGE_LINKS = new ArrayList<String>();
+    MainActivity ma = new MainActivity();
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +75,9 @@ public class WallpaperActivity extends ActionBarActivity
 
         initializeViews();
 
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -106,7 +119,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goGallery(WallpaperActivity.this);
+                    ma.videoShows();
                     finish();
                 }
             }, 300);
@@ -136,7 +149,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, MerchandiseActivity.class));
+                    startActivity(new Intent(WallpaperActivity.this, MerchandiseActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -149,7 +162,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, PointsActitivy.class));
+                    startActivity(new Intent(WallpaperActivity.this, PointsActitivy.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -159,7 +172,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, FanActivity.class));
+                    startActivity(new Intent(WallpaperActivity.this, FanActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -169,7 +182,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(WallpaperActivity.this, AboutActivity.class));
+                    startActivity(new Intent(WallpaperActivity.this, AboutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -180,11 +193,14 @@ public class WallpaperActivity extends ActionBarActivity
     public void onBackPressed() {
         if (mNavigationDrawerFragment.isDrawerOpen()) {
             mNavigationDrawerFragment.closeDrawer();
-        } else if (getFragmentManager().getBackStackEntryCount() == 0) {
-            if (doubleBackToExitPressedOnce) {
+        }  else if (getFragmentManager().getBackStackEntryCount() == 0) {
+
+          // if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
-                return;
-            }
+               //super.onDestroy();
+
+               //return;
+            /*}
 
             this.doubleBackToExitPressedOnce = true;
             Toast.makeText(this, "Press again to exit...", Toast.LENGTH_LONG).show();
@@ -194,8 +210,11 @@ public class WallpaperActivity extends ActionBarActivity
                 public void run() {
                     doubleBackToExitPressedOnce = false;
                 }
-            }, 2000);
+            }, 2000);*/
         } else {
+            //FragmentManager manager = getFragmentManager();
+           // FragmentManager.BackStackEntry first = manager.getBackStackEntryAt(0);
+            //manager.popBackStack(first.getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
             getFragmentManager().popBackStack();
         }
     }
@@ -239,7 +258,7 @@ public class WallpaperActivity extends ActionBarActivity
     }
 
     public void news(View v) {
-        GoToMainFragments.goSchedule(this);
+        GoToMainFragments.goNews(this);
         finish();
     }
 
@@ -248,23 +267,63 @@ public class WallpaperActivity extends ActionBarActivity
         finish();
     }
 
-    public static ArrayList<String> getImageLinks(){
+    public static ArrayList<String> getImageLinks() {
         return IMAGE_LINKS;
     }
 
-    public static void setImageLinks(ArrayList<String> links){
-        if(IMAGE_LINKS.size() > 0){
+    public static void setImageLinks(ArrayList<String> links) {
+        if (IMAGE_LINKS.size() > 0) {
             IMAGE_LINKS.clear();
         }
         IMAGE_LINKS = links;
     }
 
-    public void openSlideShowActivity(View v){
+    public void openSlideShowActivity(View v) {
         String position = v.getTag().toString();
         Intent intent = new Intent(WallpaperActivity.this, SlideShowActivity.class);
         intent.putExtra("position", position);
-        intent.putExtra("wallpaper","1");
+        intent.putExtra("wallpaper", "1");
         intent.putStringArrayListExtra("links", IMAGE_LINKS);
         startActivity(intent);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Wallpaper Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.jaipurpinkpanthers.android/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Wallpaper Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.jaipurpinkpanthers.android/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 }

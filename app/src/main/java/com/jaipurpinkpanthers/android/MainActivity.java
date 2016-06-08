@@ -290,9 +290,11 @@ public class MainActivity extends ActionBarActivity
     public void onBackPressed() {
         if (mNavigationDrawerFragment.isDrawerOpen()) {
             mNavigationDrawerFragment.closeDrawer();
-        } else if (getFragmentManager().getBackStackEntryCount() == 0) {
+        }  else if (getFragmentManager().getBackStackEntryCount() == 0){
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
+                //super.onDestroy();
+
                 return;
             }
 
@@ -308,6 +310,7 @@ public class MainActivity extends ActionBarActivity
         } else {
             getFragmentManager().popBackStack();
         }
+
     }
 
     @Override
@@ -379,11 +382,9 @@ public class MainActivity extends ActionBarActivity
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         HomeFragment homeFragment = new HomeFragment();
-
         //fragmentTransaction.add(R.id.container, homeFragment, "HOME");
         fragmentTransaction.replace(R.id.container, homeFragment);
         fragmentTransaction.commit();
-
         bottomViewClicked(1);
     }
 
@@ -422,7 +423,7 @@ public class MainActivity extends ActionBarActivity
 
         bottomViewClicked(3);
     }
-    public void jppTv(View v){
+    public void jppTv(Context v){
         Log.v("JPP", "Inside Gallery");
         videoShows();
     }
@@ -431,7 +432,6 @@ public class MainActivity extends ActionBarActivity
         tvOrImage(true, "JPP TV");
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        GalleryFragment galleryFragment = new GalleryFragment();
         JppTvFragment jppTvFragment =new JppTvFragment();
         //fragmentTransaction.add(R.id.container, galleryFragment, "GALLERY");
         fragmentTransaction.replace(R.id.container, jppTvFragment);

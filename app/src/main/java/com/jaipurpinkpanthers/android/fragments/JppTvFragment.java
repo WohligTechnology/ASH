@@ -169,6 +169,8 @@ public class JppTvFragment extends Fragment{
                 lvVideos.setAdapter(videoAdapter);
             } else {
                 //istView.setEmptyView(tvNoBets);
+
+
             }
 
         }

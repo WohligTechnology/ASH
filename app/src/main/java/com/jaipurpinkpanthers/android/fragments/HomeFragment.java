@@ -417,8 +417,10 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         }.execute(null, null, null);
     }
 
-    public void refresh() {
 
+    public void refresh() {
+        f=true;
+        e=true;
         jpptv = true;
         signUp = true;
 

@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jaipurpinkpanthers.android.fragments.FanFragment;
 import com.jaipurpinkpanthers.android.fragments.NavigationDrawerFragment;
@@ -38,7 +37,8 @@ public class FanActivity extends ActionBarActivity
     boolean inMainActivity = true;
     public ArrayList<String> selections = new ArrayList<String>();
     View v;
-    public FanFragment fa=new FanFragment();
+    MainActivity  ma=new MainActivity();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +71,6 @@ public class FanActivity extends ActionBarActivity
         initializeViews();
 
     }
-
-    public void callselecteditem(View v){
-        fa.selecteditem(v);
-    }
-
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
@@ -116,7 +111,7 @@ public class FanActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goGallery(FanActivity.this);
+                    ma.videoShows();
                     finish();
                 }
             }, 300);
@@ -191,10 +186,11 @@ public class FanActivity extends ActionBarActivity
         if (mNavigationDrawerFragment.isDrawerOpen()) {
             mNavigationDrawerFragment.closeDrawer();
         } else if (getFragmentManager().getBackStackEntryCount() == 0) {
-            if (doubleBackToExitPressedOnce) {
+            //if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
-                return;
-            }
+            //super.onDestroy();
+                //return;
+            /*}
 
             this.doubleBackToExitPressedOnce = true;
             Toast.makeText(this, "Press again to exit...", Toast.LENGTH_LONG).show();
@@ -204,7 +200,7 @@ public class FanActivity extends ActionBarActivity
                 public void run() {
                     doubleBackToExitPressedOnce = false;
                 }
-            }, 2000);
+            }, 2000);*/
         } else {
             getFragmentManager().popBackStack();
         }
@@ -250,7 +246,7 @@ public class FanActivity extends ActionBarActivity
 
     public void news(View v) {
         Log.v("JPP", "News");
-        GoToMainFragments.goSchedule(this);
+        GoToMainFragments.goNews(this);
     }
 
     public void knowPanthers(View v) {
@@ -258,6 +254,5 @@ public class FanActivity extends ActionBarActivity
         GoToMainFragments.goPanthers(this);
     }
 
-//to get selected items
 
 }

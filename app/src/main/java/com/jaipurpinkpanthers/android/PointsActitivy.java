@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.jaipurpinkpanthers.android.fragments.NavigationDrawerFragment;
 import com.jaipurpinkpanthers.android.fragments.PointsFragment;
@@ -31,6 +30,8 @@ public class PointsActitivy extends ActionBarActivity
     private TextView tvToolbarText;
     private FrameLayout container;
     boolean doubleBackToExitPressedOnce = false;
+
+    MainActivity  ma=new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +104,7 @@ public class PointsActitivy extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    GoToMainFragments.goGallery(PointsActitivy.this);
+                    GoToMainFragments.goJppTv(PointsActitivy.this);
                     finish();
                 }
             }, 300);
@@ -133,7 +134,7 @@ public class PointsActitivy extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(PointsActitivy.this, MerchandiseActivity.class));
+                    startActivity(new Intent(PointsActitivy.this, MerchandiseActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -143,7 +144,7 @@ public class PointsActitivy extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(PointsActitivy.this, WallpaperActivity.class));
+                    startActivity(new Intent(PointsActitivy.this, WallpaperActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -156,7 +157,7 @@ public class PointsActitivy extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(PointsActitivy.this, FanActivity.class));
+                    startActivity(new Intent(PointsActitivy.this, FanActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -166,7 +167,7 @@ public class PointsActitivy extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(PointsActitivy.this, AboutActivity.class));
+                    startActivity(new Intent(PointsActitivy.this, AboutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
@@ -178,10 +179,11 @@ public class PointsActitivy extends ActionBarActivity
         if (mNavigationDrawerFragment.isDrawerOpen()) {
             mNavigationDrawerFragment.closeDrawer();
         } else if (getFragmentManager().getBackStackEntryCount() == 0) {
-            if (doubleBackToExitPressedOnce) {
+            //if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
-                return;
-            }
+                //super.onDestroy();
+                //return;
+            /*}
 
             this.doubleBackToExitPressedOnce = true;
             Toast.makeText(this, "Press again to exit...", Toast.LENGTH_LONG).show();
@@ -192,9 +194,12 @@ public class PointsActitivy extends ActionBarActivity
                     doubleBackToExitPressedOnce = false;
                 }
             }, 2000);
-        } else {
+         */
+        }else {
             getFragmentManager().popBackStack();
         }
+
+
     }
 
     @Override
@@ -236,7 +241,7 @@ public class PointsActitivy extends ActionBarActivity
 
     public void news(View v) {
         Log.v("JPP", "News");
-        GoToMainFragments.goSchedule(this);
+        GoToMainFragments.goNews(this);
     }
 
     public void knowPanthers(View v) {
