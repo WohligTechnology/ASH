@@ -26,8 +26,8 @@ public class MerchandiseActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
-    private ImageView ivToolbarImage;
-    private TextView tvToolbarText;
+    private static ImageView ivToolbarImage;
+    private static TextView tvToolbarText;
     private FrameLayout container;
     public static int PLAYER_ID = 12;
     public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
@@ -49,7 +49,7 @@ public class MerchandiseActivity extends ActionBarActivity
 
         //tvToolbarText.setVisibility(View.GONE);
         ivToolbarImage.setVisibility(View.GONE);
-        tvToolbarText.setText("TICKETS & MERCHANDISE");
+        tvToolbarText.setText("MERCHANDISE");
 
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/
@@ -76,6 +76,7 @@ public class MerchandiseActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goHome(MerchandiseActivity.this);
                     finish();
                 }
@@ -86,90 +87,113 @@ public class MerchandiseActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goSchedule(MerchandiseActivity.this);
                     finish();
                 }
             }, 300);
 
         }
-        if (position == 2) { // gallery
+        if (position == 2) { // MATCH UPDATE
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
+                    GoToMainFragments.gomatchupdate(MerchandiseActivity.this);
+                    finish();
+
+                }
+            }, 300);
+
+        }
+        if (position == 3) { // gallery
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goGallery(MerchandiseActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 3) { // jpptv
+        if (position == 4) { // jpptv
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goJppTv(MerchandiseActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 4) { // news
+        if (position == 5) { // news
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goNews(MerchandiseActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 5) { // knowPanthers
+        if (position == 6) { // knowPanthers
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goPanthers(MerchandiseActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 6) { // Merchandise
+        if (position == 7) { // Merchandise
 
         }
-        if (position == 7) { // wallpaper
+        if (position == 8) { // wallpaper
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(MerchandiseActivity.this, WallpaperActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 8) { // points table
+        if (position == 9) { // points table
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(MerchandiseActivity.this, PointsActitivy.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 9) { // fan corner
+
+        if (position == 10) { // fan corner
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(MerchandiseActivity.this, FanActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 10) { // about us
+        if (position == 11) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(MerchandiseActivity.this, AboutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
@@ -261,6 +285,17 @@ public class MerchandiseActivity extends ActionBarActivity
         Intent intent = new Intent(MerchandiseActivity.this, WebActivity.class);
         intent.putExtra("webLink", "http://in.bookmyshow.com/sports/kabaddi/jaipur-pink-panthers/?utm_source=web_prokabaddi&utm_medium=referral&utm_campaign=web_prokabaddi_011816");
         startActivity(intent);
+    }
+
+    public static void tvOrImage(boolean tv, String header) {
+        if (tv) {
+            ivToolbarImage.setVisibility(View.GONE);
+            tvToolbarText.setVisibility(View.VISIBLE);
+            tvToolbarText.setText(header);
+        } else {
+            tvToolbarText.setVisibility(View.GONE);
+            ivToolbarImage.setVisibility(View.VISIBLE);
+        }
     }
 }
 

@@ -36,6 +36,19 @@
     <color name="jppFanHint">#A3A3A3</color>
     <color name="jpptable">#4ecaf5</color>
     <color name="jppplayertablelist">#7bd9fa</color>
+    <color name="score">#078042</color>
+    <color name="border">#d3f3ff</color>
+
+
+    <color name="Bengaluru_Bulls">#ffb01d21</color>
+    <color name="Bengal_Warriors">#fff26724</color>
+    <color name="Dabang_Delhi">#ffd91f2d</color>
+    <color name="Patna_Pirates">#ff0a4436</color>
+    <color name="Puneri_Patlan">#fff04e23</color>
+    <color name="Telgu_Titans">#ffda2131</color>
+    <color name="U_Mumba">#fff15922</color>
+    <color name="Pink_Panthers">#ffee4a9b</color>
+
 
 
 

@@ -29,9 +29,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by Mahesh on 5/27/2016.
- */
 public class JppTvFragment extends Fragment{
 
         View  viewVideos;
@@ -44,19 +41,16 @@ public class JppTvFragment extends Fragment{
         ArrayList<HashMap<String, String>> listVideo;
         ProgressDialog progressDialog;
 
+
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             // Inflate the layout for this fragment
             view = inflater.inflate(R.layout.fragment_gallery_video, container, false);
             ((MainActivity) this.getActivity()).setToolbarText("JPP TV");
 
-
             progressDialog = new ProgressDialog(getActivity());
             progressDialog.setCancelable(false);
-
             progressDialog.setMessage("Please wait...");
-
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
 
@@ -66,8 +60,6 @@ public class JppTvFragment extends Fragment{
         }
 
         public void initializeViews() {
-
-
             viewVideos = view.findViewById(R.id.viewVideos);
 
             tvVideos = (TextView) view.findViewById(R.id.tvVideos);
@@ -92,9 +84,6 @@ public class JppTvFragment extends Fragment{
         }
 
         public void setListeners() {
-
-
-
             llVideos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -107,7 +96,6 @@ public class JppTvFragment extends Fragment{
         }
 
         public void getGalleryData() {
-
             new AsyncTask<Void, Void, String>() {
                 boolean done = false;
 
@@ -117,9 +105,7 @@ public class JppTvFragment extends Fragment{
                     if (Looper.myLooper() == null) {
                         Looper.prepare();
                     }
-                    String response;
-
-
+                    //String response;
 
                     JSONArray jsonArrayVideo = null;
                     try {
@@ -162,19 +148,14 @@ public class JppTvFragment extends Fragment{
         }
 
         public void refresh() {
-
-
             if (listVideo.size() > 0) {
                 VideoAdapter videoAdapter = new VideoAdapter(getActivity(), listVideo);
                 lvVideos.setAdapter(videoAdapter);
             } else {
                 //istView.setEmptyView(tvNoBets);
-
-
             }
 
         }
-
 
         public void populateVideo(String name, String url) {
             HashMap<String, String> map = new HashMap<String, String>();

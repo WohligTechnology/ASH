@@ -31,8 +31,8 @@ public class WallpaperActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
-    private ImageView ivToolbarImage;
-    private TextView tvToolbarText;
+    private static ImageView ivToolbarImage;
+    private static TextView tvToolbarText;
     public ImageView ivGallery;
     private FrameLayout container;
     boolean doubleBackToExitPressedOnce = false;
@@ -88,6 +88,7 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goHome(WallpaperActivity.this);
                     finish();
                 }
@@ -98,90 +99,112 @@ public class WallpaperActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goSchedule(WallpaperActivity.this);
                     finish();
                 }
             }, 300);
 
         }
-        if (position == 2) { // gallery
+        if (position == 2) { // MATCH UPDATE
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
+                    GoToMainFragments.gomatchupdate(WallpaperActivity.this);
+                    finish();
+                }
+            }, 300);
+
+        }
+        if (position == 3) { // gallery
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goGallery(WallpaperActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 3) { // jpptv
+        if (position == 4) { // jpptv
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    ma.videoShows();
+                    ma.clearBackStackOfFragments(getFragmentManager());
+                    GoToMainFragments.gomatchupdate(WallpaperActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 4) { // news
+        if (position == 5) { // news
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goNews(WallpaperActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 5) { // knowPanthers
+        if (position == 6) { // knowPanthers
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goPanthers(WallpaperActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 6) { // tickets
+        if (position == 7) { // tickets
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(WallpaperActivity.this, MerchandiseActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 7) { // wallpaper
+        if (position == 8) { // wallpaper
 
         }
-        if (position == 8) { // points table
+        if (position == 9) { // points table
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(WallpaperActivity.this, PointsActitivy.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
-                    finish();
+                  finish();
                 }
             }, 300);
         }
-        if (position == 9) { // fan corner
+
+        if (position == 10) { // fan corner
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(WallpaperActivity.this, FanActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 10) { // about us
+        if (position == 11) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(WallpaperActivity.this, AboutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
@@ -325,5 +348,16 @@ public class WallpaperActivity extends ActionBarActivity
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+
+    public static void tvOrImage(boolean tv, String header) {
+        if (tv) {
+            ivToolbarImage.setVisibility(View.GONE);
+            tvToolbarText.setVisibility(View.VISIBLE);
+            tvToolbarText.setText(header);
+        } else {
+            tvToolbarText.setVisibility(View.GONE);
+            ivToolbarImage.setVisibility(View.VISIBLE);
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.jaipurpinkpanthers.android.fragments;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Looper;
@@ -56,20 +57,19 @@ public class ScheduleFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
         imageLoader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().cacheInMemory(true)
-                .cacheOnDisc(true).resetViewBeforeLoading(true).build();
+        options = new DisplayImageOptions.Builder().cacheInMemory(false)
+                .cacheOnDisc(false).resetViewBeforeLoading(true).build();
 
         // UNIVERSAL IMAGE LOADER SETUP
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheOnDisc(true).cacheInMemory(true)
+                .cacheOnDisc(true).cacheInMemory(false)
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .displayer(new FadeInBitmapDisplayer(300)).build();
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
                 getActivity())
                 .defaultDisplayImageOptions(defaultOptions)
-                .memoryCache(new WeakMemoryCache())
-                .discCacheSize(100 * 1024 * 1024).build();
+                .discCacheSize(1024 * 1024).build();
 
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
@@ -182,6 +182,7 @@ public class ScheduleFragment extends Fragment {
                                 String team2 = jsonObject.optString("team2");
                                 String time = jsonObject.optString("starttimedate");
                                 String venue = jsonObject.optString("stadium");
+                                Log.d("team1",team1+team2);
                                 populate(team1, team2, time,venue);
                             } else {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -243,7 +244,7 @@ public class ScheduleFragment extends Fragment {
 
             imageLoader.displayImage(imageUriTeam1, ivT1, options);
             imageLoader.displayImage(imageUriTeam2, ivT2, options);
-            imageLoader.displayImage(imageBanner, ivBanner, options);
+            //imageLoader.displayImage(imageBanner, ivBanner, options);
         }
 
         if (list.size() > 0) {
@@ -316,10 +317,8 @@ public class ScheduleFragment extends Fragment {
     }
 
     public int getTeamDrawable(String id) {
-
         int teamId = Integer.parseInt(id);
         TypedArray teamLogos = getActivity().getResources().obtainTypedArray(R.array.teamLogo);
-
         return teamLogos.getResourceId(teamId - 1, -1);
     }
 }

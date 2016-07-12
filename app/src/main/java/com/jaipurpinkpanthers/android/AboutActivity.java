@@ -26,8 +26,8 @@ public class AboutActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
-    private ImageView ivToolbarImage;
-    private TextView tvToolbarText;
+    private static ImageView ivToolbarImage;
+    private static TextView tvToolbarText;
     private FrameLayout container;
     public static int PLAYER_ID = 12;
     public ImageView ivHome, ivSchedule, ivGallery, ivNews, ivPanthers;
@@ -51,6 +51,8 @@ public class AboutActivity extends ActionBarActivity
         ivToolbarImage.setVisibility(View.GONE);
         tvToolbarText.setText("ABOUT");
 
+        onTrimMemory(TRIM_MEMORY_BACKGROUND);
+
         container = (FrameLayout) findViewById(R.id.container);
         /*container.setBackgroundColor(getResources().getColor(R.color.jppPrimaryColor));*/
 
@@ -69,12 +71,13 @@ public class AboutActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragmentss
+        // update the main content by replacing fragments
         if (position == 0) { // home
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        ma.clearBackStackOfFragments(getFragmentManager());
                         GoToMainFragments.goHome(AboutActivity.this);
                         finish();
                     }
@@ -85,93 +88,115 @@ public class AboutActivity extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goSchedule(AboutActivity.this);
                     finish();
                 }
             }, 300);
 
         }
-        if (position == 2) { // gallery
+        if (position == 2) { // MATCH UPDATE
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
+                    GoToMainFragments.gomatchupdate(AboutActivity.this);
+                    finish();
+                }
+            }, 300);
+
+        }
+        if (position == 3) { // gallery
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goGallery(AboutActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 3) { // jpptv
+        if (position == 4) { // jpptv
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goJppTv(AboutActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 4) { // news
+        if (position == 5) { // news
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goNews(AboutActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 5) { // knowPanthers
+        if (position == 6) { // knowPanthers
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goPanthers(AboutActivity.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 6) { // tickets
+        if (position == 7) { // tickets
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(AboutActivity.this, MerchandiseActivity.class));
                     finish();
                 }
             }, 300);
         }
-        if (position == 7) { // wallpaper
+        if (position == 8) { // wallpaper
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(AboutActivity.this, WallpaperActivity.class));
                     finish();
                 }
             }, 300);
         }
-        if (position == 8) { // points table
+        if (position == 9) { // points table
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(AboutActivity.this, PointsActitivy.class));
                     finish();
                 }
             }, 300);
         }
-        if (position == 9) { // fan corner
+
+        if (position == 10) { // fan corner
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(AboutActivity.this, FanActivity.class));
                     finish();
                 }
             }, 300);
         }
-        if (position == 10) { // about us
+        if (position == 11) { // about us
 
         }
     }
@@ -183,6 +208,7 @@ public class AboutActivity extends ActionBarActivity
         } else if (getFragmentManager().getBackStackEntryCount() == 0) {
             //if (doubleBackToExitPressedOnce){
                 super.onBackPressed();
+            finish();
             //super.onDestroy();
                 //return;
             /*}
@@ -247,7 +273,7 @@ public class AboutActivity extends ActionBarActivity
 
     public void news(View v) {
         Log.v("JPP", "News");
-        GoToMainFragments.goSchedule(this);
+        GoToMainFragments.goNews(this);
         finish();
     }
 
@@ -255,5 +281,16 @@ public class AboutActivity extends ActionBarActivity
         Log.v("JPP", "Panthers");
         GoToMainFragments.goPanthers(this);
         finish();
+    }
+
+    public static void tvOrImage(boolean tv, String header) {
+        if (tv) {
+            ivToolbarImage.setVisibility(View.GONE);
+            tvToolbarText.setVisibility(View.VISIBLE);
+            tvToolbarText.setText(header);
+        } else {
+            tvToolbarText.setVisibility(View.GONE);
+            ivToolbarImage.setVisibility(View.VISIBLE);
+        }
     }
 }

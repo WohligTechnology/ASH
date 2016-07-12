@@ -50,19 +50,28 @@ import java.util.HashMap;
 public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     View view;
     TextView tvNo, tvTeam, tvP, tvW, tvL, tvPts,tvmonth,tvdays,tvhours,tvmins;
-    LinearLayout llLatestUpdate, llNews, llTable, llPoints,llupcomingmatch, lljpptv, llsignUp;
-    ImageView ivT1, ivT2, ivNews, ivHomeMain;
-    TextView tvS1, tvS2, tvCo, tvVenue, tvTime, tvMatchTime;
+    LinearLayout llLatestUpdate, llNews, llTable, llPoints,llupcomingmatch, lljpptv, llsignUp,llLiveupdate;
+    ImageView ivT1, ivT2, ivNews, ivHomeMain,llivT1live,llivT2live;
+    int tvS1,tvS2;
+    //TextView tvS2,tvS1;
+    TextView tvCo;
+    TextView tvVenue;
+    TextView tvTime;
+    TextView tvMatchTime;
+    TextView tvlivescore1;
+    TextView tvlivescore2;
+    TextView hftime;
     TextView tvNewsHead, tvNewsDesc, tvNewsDate, tvNewsRead;
     String newsTitle = null, newsImage = null, newsTime = null, newsContent = null;
     String imageLink = null;
     ImageLoader imageLoader;
     DisplayImageOptions options;
     ArrayList<HashMap<String, String>> list;
-    String team1Id = null, team2Id = null, team1 = null, team2 = null, team1Pts = "--", team2Pts = "--", venue = "--", time = null, matchTime = null;
+    String team1Id = null, team2Id = null, team1 = null, team2 = null, team1Pts = null, team2Pts = null, venue = "--", time = null, matchTime = null;
+    String teamlive1= null,teamlive2= null;
     ListView lvTeams;
-    RelativeLayout ll2, ll3,ll4,ll5;
-    FrameLayout ll1;
+    RelativeLayout ll2, ll3,ll4,ll5,rlsponsers;
+    FrameLayout ll1,llLiveUpdatescore;
     ProgressDialog progressDialog;
     Activity activity;
     RelativeLayout flReview;
@@ -80,30 +89,28 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
         ((MainActivity) this.getActivity()).tvOrImage(false, "");
 
         imageLoader = ImageLoader.getInstance();
-        options = new DisplayImageOptions.Builder().cacheInMemory(true)
-                .cacheOnDisc(true).resetViewBeforeLoading(true).build();
+        options = new DisplayImageOptions.Builder().cacheInMemory(false)
+                .cacheOnDisc(false).resetViewBeforeLoading(true).build();
 
         activity = getActivity();
 
         // UNIVERSAL IMAGE LOADER SETUP
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheOnDisc(true).cacheInMemory(true)
+                .cacheOnDisc(true).cacheInMemory(false)
                 .imageScaleType(ImageScaleType.EXACTLY)
                 .displayer(new FadeInBitmapDisplayer(300)).build();
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
                 activity)
                 .defaultDisplayImageOptions(defaultOptions)
-                .memoryCache(new WeakMemoryCache())
-                .discCacheSize(100 * 1024 * 1024).build();
+                .discCacheSize(1024 * 1024).build();
 
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
@@ -129,23 +136,26 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         } else {
             progressDialog.dismiss();
             Toast.makeText(activity, "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
-            //swipeRefreshLayout.setRefreshing(false);
+            swipeRefreshLayout.setRefreshing(false);
         }
-        //Toast.makeText(activity,"Refreshed!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity,"Refreshed!",Toast.LENGTH_SHORT).show();
     }
 
     public void initilizeViews() {
 
-        /*swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
-        swipeRefreshLayout.setOnRefreshListener(this);*/
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(this);
 
         ll1 = (FrameLayout) view.findViewById(R.id.ll1);
         ll2 = (RelativeLayout) view.findViewById(R.id.ll2);
         ll3 = (RelativeLayout) view.findViewById(R.id.ll3);
         ll4 = (RelativeLayout) view.findViewById(R.id.ll4);
         ll5 =(RelativeLayout) view.findViewById(R.id.ll5);
-        lljpptv = (LinearLayout) view.findViewById(R.id.lljpptv);
+        rlsponsers =(RelativeLayout) view.findViewById(R.id.rlsponsers);
+
+        //lljpptv = (LinearLayout) view.findViewById(R.id.lljpptv);
         llsignUp = (LinearLayout) view.findViewById(R.id.llsignUp);
+        llLiveUpdatescore = (FrameLayout) view.findViewById(R.id.llLiveUpdatescore);
 
         flReview = (RelativeLayout) view.findViewById(R.id.flReview);
 
@@ -173,7 +183,12 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         llLatestUpdate = (LinearLayout) view.findViewById(R.id.llLatestUpdate);
         TextView tvLatest = (TextView) llLatestUpdate.findViewById(R.id.tvCrossHeader);
         tvLatest.setTypeface(CustomFonts.getRegularFont(activity));
-        tvLatest.setText("SEASON 4 OPENER");
+        tvLatest.setText("NEXT MATCH");
+
+        llLiveupdate = (LinearLayout) view.findViewById(R.id.llLiveUpdate);
+        TextView tvmatchupdate = (TextView) llLiveupdate.findViewById(R.id.tvCrossHeader);
+        tvmatchupdate.setTypeface(CustomFonts.getRegularFont(activity));
+        tvmatchupdate.setText("MATCH UPDATE");
 
         llNews = (LinearLayout) view.findViewById(R.id.llNews);
         TextView tvNews = (TextView) llNews.findViewById(R.id.tvCrossHeader);
@@ -205,6 +220,19 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         ivT1 = (ImageView) view.findViewById(R.id.llivT1);
         ivT2 = (ImageView) view.findViewById(R.id.llivT2);
+
+
+        llivT1live = (ImageView) view.findViewById(R.id.llivT1live);
+        llivT2live = (ImageView) view.findViewById(R.id.llivT2live);
+
+        hftime = (TextView) view.findViewById(R.id.halftime_fulltime);
+        hftime.setTypeface(CustomFonts.getRegularFont(activity));
+
+        tvlivescore1 = (TextView) view.findViewById(R.id.tvlivescore1);
+        tvlivescore2 = (TextView) view.findViewById(R.id.tvlivescore2);
+
+        tvlivescore1.setTypeface(CustomFonts.getScoreFont(activity));
+        tvlivescore2.setTypeface(CustomFonts.getScoreFont(activity));
 
 //        tvS1 = (TextView) view.findViewById(R.id.tvS1);
 //        tvS2 = (TextView) view.findViewById(R.id.tvS2);
@@ -253,14 +281,16 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
 
         if (InternetOperations.checkIsOnlineViaIP()) {
+
             getHomeContentData();
+
         } else {
             progressDialog.dismiss();
             Toast.makeText(activity, "Please check your Internet Connection!", Toast.LENGTH_SHORT).show();
         }
     }
 
-    boolean a = false, b = false, c = false, d = false, e = false, f = false, jpptv = false, signUp = false;
+    boolean a = false, b = false, c = false, d = false, e = false, f = false, jpptv = false, signUp = false,livescore=false,sponsers=false;
 
     public void getHomeContentData() {
 
@@ -276,47 +306,61 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 String response;
                 JSONObject jsonObject = null;
 
+
                 try {
                     response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getHomeContent");
 
                     jsonObject = new JSONObject(response);
 
+                        //live update
+                    try {
+                        JSONObject latestUpdate = new JSONObject(jsonObject.optString("latestMatch"));
+//                        response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getLatestMatch");
+//
+//                        latestUpdate = new JSONObject(response);
+                        Log.d("res data", latestUpdate.toString());
 
-                    /*try {
-                        JSONObject latestUpdate = new JSONObject(jsonObject.optString("latestupdate"));
-                        team1 = latestUpdate.optString("team1");
-                        team2 = latestUpdate.optString("team2");
+                        teamlive1 = latestUpdate.optString("team1");
+                        teamlive2 = latestUpdate.optString("team2");
+//                        tvS1+=1;
+//                        tvS2+=2;
+//                        team1Pts= String.valueOf(tvS1);
+//                        team2Pts= String.valueOf(tvS2);
+//                        team1Id="3";
+//                        team2Id="4";
                         team1Pts = latestUpdate.optString("score1");
                         team2Pts = latestUpdate.optString("score2");
                         venue = latestUpdate.optString("stadium");
                         time = latestUpdate.optString("starttimedate");
                         team1Id = latestUpdate.optString("team1id");
                         team2Id = latestUpdate.optString("team2id");
-                        matchTime = latestUpdate.optString("matchtime");
+                        matchTime = latestUpdate.optString("totalmatchtime");
+
                     } catch (JSONException je) {
                         Log.e("JPP", Log.getStackTraceString(je));
-                        //ll1.setVisibility(View.GONE);
-                        a = true;
-                    }*/
+                        //llLiveupdate.setVisibility(View.GONE);
+                        livescore = true;
+                    }
                     try {
-
-                        JSONObject latestUpdate = new JSONObject(jsonObject.optString("latestmatch"));
+                        JSONObject latestUpdate = new JSONObject(jsonObject.optString("latestMatch"));
+//                        response = InternetOperations.postBlank(InternetOperations.SERVER_URL + "getLatestMatch");
+//                        latestUpdate = new JSONObject(response);
                         Log.d("res data", latestUpdate.toString());
                         team1 = latestUpdate.optString("team1");
                         team2 = latestUpdate.optString("team2");
                         venue = latestUpdate.optString("stadium");
                        time = latestUpdate.optString("starttimedate");
+                      /*team1Id="3";
+                        team2Id="4";*/
                        team1Id = latestUpdate.optString("team1id");
                        team2Id = latestUpdate.optString("team2id");
                        //addMatch( venue, time, team1Id, team2Id);
-
                     } catch (JSONException je) {
                         Log.e("JPP", Log.getStackTraceString(je));
                         //ll1.setVisibility(View.GONE);
                         a = true;
                     }
-
-                    try {
+                try {
                         JSONObject latestNews = new JSONObject(jsonObject.optString("news"));
                         newsTitle = latestNews.optString("name");
                         newsImage = latestNews.optString("image");
@@ -353,7 +397,6 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         Log.e("JPP", Log.getStackTraceString(je));
                         c = true;
                     }
-
 
                     /*try {
                         String jObjectString = jsonObject.optString("review");
@@ -408,10 +451,10 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 progressDialog.dismiss();
                 if (done) {
                     refresh();
-                    //swipeRefreshLayout.setRefreshing(false);
+                    swipeRefreshLayout.setRefreshing(false);
                 } else {
                     Toast.makeText(activity, "Oops, Something went wrong!", Toast.LENGTH_SHORT).show();
-                    //swipeRefreshLayout.setRefreshing(false);
+                    swipeRefreshLayout.setRefreshing(false);
                 }
             }
         }.execute(null, null, null);
@@ -423,9 +466,17 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         e=true;
         jpptv = true;
         signUp = true;
+        sponsers=true;
+
 
         if (!a) {
             ll1.setVisibility(View.VISIBLE);
+        }
+
+        if (!livescore)
+        {
+            llLiveUpdatescore.setVisibility(View.VISIBLE);
+
         }
         if (!b) {
             ll2.setVisibility(View.VISIBLE);
@@ -439,20 +490,47 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         if (!e) {
             ll4.setVisibility(View.VISIBLE);
         }
-        if (!f) {
+    /*    if (!f) {
             ll5.setVisibility(View.VISIBLE);
-        }
+        }*/
         if (jpptv) {
-            lljpptv.setVisibility(View.VISIBLE);
+            ll5.setVisibility(View.VISIBLE);
         }
         if (signUp) {
             llsignUp.setVisibility(View.VISIBLE);
         }
+        if (sponsers) {
+            rlsponsers.setVisibility(View.VISIBLE);
+        }
 
         llPoints.removeAllViews();
 
-//        tvS1.setText(team1Pts);
-//        tvS2.setText(team2Pts);
+        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyyy, hh:mm");
+
+
+            if(team1Pts.equals("") && team2Pts.equals("")  )
+            {
+                ll1.setVisibility(View.VISIBLE);
+                llLiveUpdatescore.setVisibility(View.GONE);
+                tvlivescore1.setText("00");
+                tvlivescore2.setText("00");
+
+            }else
+            {
+                Log.d("hi ","color");
+                scoreColour(team1Id,1);
+                scoreColour(team2Id,2);
+                tvlivescore1.setText(String.valueOf(team1Pts));
+                tvlivescore2.setText(String.valueOf(team2Pts));
+                llLiveUpdatescore.setVisibility(View.VISIBLE);
+                ll1.setVisibility(View.GONE);
+            }
+
+
+
+//full time and half time
+        hftime.setText(matchTime);
+
         tvVenue.setText(venue);
 
 
@@ -481,13 +559,13 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                             diffMinutes = diffMinutes + 1;
                         }
                         long diffHours = difftime / (60 * 60 * 1000) % 24;
+                        long diffDays=difftime/(60 * 60 * 1000)/24;
                         long diffmonth = (difftime / (24 * 60 * 60 * 1000)) / 30;
 
                         long cday = today.getDate();
                         long matchday = date.getDate();
                         long monthbefore = date.getMonth() - 1;
-                        long diffDays = 0;
-                        if (cday > matchday) {
+                       /* if (cday > matchday) {
                             if (monthbefore == 0 || monthbefore == 2 || monthbefore == 4 || monthbefore == 6 || monthbefore == 7 || monthbefore == 9 || monthbefore == 11) {
                                 diffDays = 31 - (cday - matchday);
                             } else {
@@ -498,18 +576,48 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                             }
                         } else {
                             diffDays = matchday - cday;
-                        }
+                        }*/
+
+
+                        Log.d(String.valueOf(matchday), String.valueOf(cday));
+
 
                         tvmins.setText(String.format("%02d", diffMinutes));
                         tvhours.setText(String.format("%02d", diffHours));
                         tvdays.setText(String.format("%02d", diffDays));
                         tvmonth.setText(String.format("%02d", diffmonth));
+
+                        if(team1Pts.equals("") && team2Pts.equals("")  )
+                        {
+                            ll1.setVisibility(View.VISIBLE);
+                            llLiveUpdatescore.setVisibility(View.GONE);
+                            tvlivescore1.setText("00");
+                            tvlivescore2.setText("00");
+
+                        }
+
                     }else{
                         tvmins.setText(String.valueOf("00"));
                         tvhours.setText(String.valueOf("00"));
                         tvdays.setText(String.valueOf("00"));
                         tvmonth.setText(String.valueOf("00"));
                         handler.removeCallbacks(runnable);
+                        //score view
+
+                        if(team1Pts.equals("") && team2Pts.equals("")  )
+                        {
+                            tvlivescore1.setText("00");
+                            tvlivescore2.setText("00");
+                        }
+                            Log.d("hi ","color");
+                            scoreColour(team1,1);
+                            scoreColour(team2,2);
+                            tvlivescore1.setText(String.valueOf(team1Pts));
+                            tvlivescore2.setText(String.valueOf(team2Pts));
+                            llLiveUpdatescore.setVisibility(View.VISIBLE);
+                            ll1.setVisibility(View.GONE);
+
+
                     }
                 }catch (Exception e) {
                     e.printStackTrace();
@@ -536,6 +644,15 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             imageLoader.displayImage(imageUriTeam1, ivT1, options);
             imageLoader.displayImage(imageUriTeam2, ivT2, options);
         }
+
+        if (team1Id != null && team2Id != null) {
+            String imageUriTeam1 = "drawable://" + getTeamDrawable(team1Id);
+            String imageUriTeam2 = "drawable://" + getTeamDrawable(team2Id);
+            imageLoader.displayImage(imageUriTeam1, llivT1live, options);
+            imageLoader.displayImage(imageUriTeam2, llivT2live, options);
+        }
+
+
 
         String imageUri = "drawable://" + R.drawable.schedule_back;
         imageLoader.displayImage(imageUri, ivHomeMain, options);
@@ -633,6 +750,85 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         map.put("tvL", l);
         map.put("tvPts", pts);
         list.add(map);
+    }
+
+
+    //set colour for score textview
+    public void scoreColour(String team,int teamNo)
+    {
+        Log.d("hi ","color ");
+        if(teamNo==1){
+            if(team.equals("Patna Pirates"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#0a4436"));
+            }
+            else if(team.equals("Bengaluru Bulls"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#b01d21"));
+            }
+            else if(team.equals("Bengal Warriors"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#f26724"));
+            }
+            else if(team.equals("Dabang Delhi"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#d91f2d"));
+            }
+            else if(team.equals("Jaipur Pink Panthers"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#ee4a9b"));
+                Log.d("hi pink panthers","color ");
+            }
+            else if(team.equals("Puneri Paltan"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#f04e23"));
+            }
+            else if(team.equals("Telugu Titans"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#da2131"));
+            }
+            else if(team.equals("U Mumba"))
+            {
+                tvlivescore1.setTextColor(Color.parseColor("#f15922"));
+                Log.d("hi u mumba","color ");
+            }}
+
+        else{
+            if(team.equals("Patna Pirates"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#0a4436"));
+            }
+            else if(team.equals("Bengaluru Bulls"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#b01d21"));
+            }
+            else if(team.equals("Bengal Warriors"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#f26724"));
+            }
+            else if(team.equals("Dabang Delhi"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#d91f2d"));
+            }
+            else if(team.equals("Jaipur Pink Panthers"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#ee4a9b"));
+                Log.d("hi pink panthers","color ");
+            }
+            else if(team.equals("Puneri Paltan"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#f04e23"));
+            }
+            else if(team.equals("Telugu Titans"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#da2131"));
+            }
+            else if(team.equals("U Mumba"))
+            {
+                tvlivescore2.setTextColor(Color.parseColor("#f15922"));
+                Log.d("hi u mumba","color ");
+            }
+        }
     }
 
     public int getTeamDrawable(String id) {

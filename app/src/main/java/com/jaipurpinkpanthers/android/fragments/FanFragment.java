@@ -70,11 +70,11 @@ public class FanFragment extends Fragment {
 
         cbplayer1 = (CheckBox) view.findViewById(R.id.cbplayer1);
         cbplayer2 = (CheckBox) view.findViewById(R.id.cbplayer2);
-        cbplayer3 = (CheckBox) view.findViewById(R.id.cbplayer3);
+//        cbplayer3 = (CheckBox) view.findViewById(R.id.cbplayer3);
         cbplayer4 = (CheckBox) view.findViewById(R.id.cbplayer4);
         cbplayer5 = (CheckBox) view.findViewById(R.id.cbplayer5);
         cbplayer6 = (CheckBox) view.findViewById(R.id.cbplayer6);
-        cbplayer7 = (CheckBox) view.findViewById(R.id.cbplayer7);
+//        cbplayer7 = (CheckBox) view.findViewById(R.id.cbplayer7);
         cbplayer8 = (CheckBox) view.findViewById(R.id.cbplayer8);
         cbplayer9 = (CheckBox) view.findViewById(R.id.cbplayer9);
         cbplayer10 = (CheckBox) view.findViewById(R.id.cbplayer10);
@@ -83,8 +83,8 @@ public class FanFragment extends Fragment {
         cbplayer13 = (CheckBox) view.findViewById(R.id.cbplayer13);
         cbplayer14 = (CheckBox) view.findViewById(R.id.cbplayer14);
         cbplayer15 = (CheckBox) view.findViewById(R.id.cbplayer15);
-        //cbplayer16 = (CheckBox) view.findViewById(R.id.cbplayer16);
-        //cbplayer17 = (CheckBox) view.findViewById(R.id.cbplayer17);
+        cbplayer16 = (CheckBox) view.findViewById(R.id.cbplayer16);
+        cbplayer17 = (CheckBox) view.findViewById(R.id.cbplayer17);
 
 
         tvSign.setTypeface(CustomFonts.getRegularFont(activity));
@@ -102,11 +102,11 @@ public class FanFragment extends Fragment {
 
         cbplayer1.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer2.setTypeface(CustomFonts.getLightFont(activity));
-        cbplayer3.setTypeface(CustomFonts.getLightFont(activity));
+//        cbplayer3.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer4.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer5.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer6.setTypeface(CustomFonts.getLightFont(activity));
-        cbplayer7.setTypeface(CustomFonts.getLightFont(activity));
+//        cbplayer7.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer8.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer9.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer10.setTypeface(CustomFonts.getLightFont(activity));
@@ -115,8 +115,8 @@ public class FanFragment extends Fragment {
         cbplayer13.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer14.setTypeface(CustomFonts.getLightFont(activity));
         cbplayer15.setTypeface(CustomFonts.getLightFont(activity));
-        //cbplayer16.setTypeface(CustomFonts.getLightFont(activity));
-        //cbplayer17.setTypeface(CustomFonts.getLightFont(activity));
+        cbplayer16.setTypeface(CustomFonts.getLightFont(activity));
+        cbplayer17.setTypeface(CustomFonts.getLightFont(activity));
 
         ivFb = (ImageView) view.findViewById(R.id.ivFb);
         ivTw = (ImageView) view.findViewById(R.id.ivTw);
@@ -148,10 +148,10 @@ public class FanFragment extends Fragment {
                 else
                     selections.remove("Amit Nagar");
 
-                if (cbplayer3.isChecked())
+           /*     if (cbplayer3.isChecked())
                     selections.add("David Tsai");
                 else
-                    selections.remove("David Tsai");
+                    selections.remove("David Tsai");*/
 
                 if (cbplayer4.isChecked())
                     selections.add("Jasvir Singh");
@@ -167,11 +167,11 @@ public class FanFragment extends Fragment {
                     selections.add("Mahipal Narwal");
                 else
                     selections.remove("Mahipal Narwal");
-
+/*
                 if (cbplayer7.isChecked())
                     selections.add("Masayuki Shimokawa");
                 else
-                    selections.remove("Masayuki Shimokawa");
+                    selections.remove("Masayuki Shimokawa");*/
 
                 if (cbplayer8.isChecked())
                     selections.add("Parvesh Malik");
@@ -214,21 +214,21 @@ public class FanFragment extends Fragment {
                     selections.remove("Tushar Patil");
 
 
-                /*if (cbplayer16.isChecked())
-                    selections.add("Sonu Narwal");
+                if (cbplayer16.isChecked())
+                    selections.add("Ajay Kumar");
                 else
-                    selections.remove("Sonu Narwal");
+                    selections.remove("Ajay Kumar");
 
 
                 if (cbplayer17.isChecked())
-                    selections.add("Wei Yang Tsai");
+                    selections.add("Jawahar");
                 else
-                    selections.remove("Wei Yang Tsai");*/
+                    selections.remove("Jawahar");
 
                 String str = "";
-                Log.d("hi", str);
+                //Log.d("hi", str);
                 for (String Selection : selections) {
-                    Log.d("hi", str);
+                    //Log.d("hi", str);
                     str = str + " " + Selection + ",";
                 }
                 char ch[] = str.toCharArray();
@@ -236,7 +236,7 @@ public class FanFragment extends Fragment {
                 for (int i = 0; i < str.length() - 1; i++)
                     cbplayer = cbplayer + ch[i];
                 cbplayer = cbplayer.trim();
-                Log.i("hi", cbplayer);
+                //Log.i("hi", cbplayer);
 
                 boolean valid = true;
 
@@ -399,10 +399,10 @@ public class FanFragment extends Fragment {
                         cbplayer1.setChecked(false);
                         selections.remove("Amit Nagar");
                     }
-                    if (cbplayer2.isChecked()) {
+                /*    if (cbplayer2.isChecked()) {
                         cbplayer2.setChecked(false);
                         selections.remove("David Tsai");
-                    }
+                    }*/
                     if (cbplayer3.isChecked()) {
                         cbplayer3.setChecked(false);
                         selections.remove("Amit Hooda");
@@ -419,10 +419,10 @@ public class FanFragment extends Fragment {
                         cbplayer6.setChecked(false);
                         selections.remove("Mahipal Narwal");
                     }
-                    if (cbplayer7.isChecked()) {
+                /*    if (cbplayer7.isChecked()) {
                         cbplayer7.setChecked(false);
                         selections.remove("Masayuki Shimokawa");
-                    }
+                    }*/
                     if (cbplayer8.isChecked()) {
                         cbplayer8.setChecked(false);
                         selections.remove("Parvesh Malik");
@@ -456,14 +456,14 @@ public class FanFragment extends Fragment {
                         selections.remove("Tushar Patil");
                     }
 
-                   /* if (cbplayer16.isChecked()) {
+                    if (cbplayer16.isChecked()) {
                         cbplayer16.setChecked(false);
-                        selections.remove("Sonu Narwal");
+                        selections.remove("Ajay Kumar");
                     }
                     if (cbplayer17.isChecked()) {
                         cbplayer17.setChecked(false);
-                        selections.remove("Wei Yang Tsai");
-                    }*/
+                        selections.remove("Jawahar");
+                    }
 
                 }else {
                     Toast.makeText(activity, "Oops, Something went wrong!", Toast.LENGTH_LONG).show();

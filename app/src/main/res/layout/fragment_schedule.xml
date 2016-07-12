@@ -36,20 +36,13 @@
             <RelativeLayout
                 android:id="@+id/rlSchedule1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="300dp"
                 android:gravity="top"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/ivBanner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitStart"
-                    android:src="@drawable/schedule_back"/>
+                android:visibility="gone"
+                android:background="@drawable/schedule_back">
 
                 <include
                     android:id="@+id/llUpcomingMatch"
@@ -65,9 +58,8 @@
                     android:layout_marginTop="30dp"
                     android:gravity="center"
                     android:weightSum="8"
-                    android:orientation="horizontal">
-
-
+                    android:orientation="horizontal"
+                    >
                     <ImageView
                         android:id="@+id/ivT1"
                         android:layout_width="match_parent"
@@ -195,7 +187,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
-
+                        android:visibility="gone"
                         android:background="@color/jppAccentColor"
                         android:gravity="center"
                         android:onClick="goToBookTickets"
@@ -218,11 +210,7 @@
                             android:textColor="@color/jppProfileType"/>
 
                     </LinearLayout>
-
-
                 </LinearLayout>
-
-
             </RelativeLayout>
 
 

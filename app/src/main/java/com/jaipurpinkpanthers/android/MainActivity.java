@@ -21,10 +21,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jaipurpinkpanthers.android.fragments.AboutUsFragment;
 import com.jaipurpinkpanthers.android.fragments.AlbumFragment;
+import com.jaipurpinkpanthers.android.fragments.FanFragment;
 import com.jaipurpinkpanthers.android.fragments.GalleryFragment;
 import com.jaipurpinkpanthers.android.fragments.HomeFragment;
 import com.jaipurpinkpanthers.android.fragments.JppTvFragment;
+import com.jaipurpinkpanthers.android.fragments.MatchUpdateFragment;
+import com.jaipurpinkpanthers.android.fragments.MerchandiseFragment;
 import com.jaipurpinkpanthers.android.fragments.NavigationDrawerFragment;
 import com.jaipurpinkpanthers.android.fragments.NewsDetailFragment;
 import com.jaipurpinkpanthers.android.fragments.NewsFragment;
@@ -42,14 +46,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerCallbacks {
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
+    private static Boolean flag=true;
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
+
     private static ImageView ivToolbarImage;
     public static TextView tvToolbarText;
     private FrameLayout container;
@@ -61,6 +69,7 @@ public class MainActivity extends ActionBarActivity
     public static HashMap<String, String> NEWSDETAIL;
     public static ArrayList<String> IMAGE_LINKS = new ArrayList<String>();
     View view;
+    public FragmentManager fragmentManager = getFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,6 +148,7 @@ public class MainActivity extends ActionBarActivity
         //fragmentId = if(!intent.getStringExtra("FragmentId").isEmpty())
 
         onNavigationDrawerItemSelected(fragmentId);
+
     }
 
     /*@Override
@@ -157,131 +167,208 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        if (position == 0) { // home
-            if (inMainActivity) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        homeShow();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 1) { // schedule
-            if (inMainActivity) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        scheduleShow();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 2) { // gallery
-            if (inMainActivity) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        galleryShow();
-                    }
-                }, 300);
-            }
-        }
+//        if (position == 0) { // home
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        homeShow();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position == 1) { // schedule
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        scheduleShow();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position == 2) { // MATCH UPDATE
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        matchupdate();
+//                    }
+//                }, 300);
+//
+//            }
+//        }
+//        if (position == 3) { // gallery
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        galleryShow();
+//                    }
+//                }, 300);
+//            }
+//        }
+//
+//        if (position == 4) { // jpptv
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        videoShows();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position == 5) { // news
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        newsShow();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position == 6) { // knowPanthers
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        knowPanthersShow();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position == 7) { // merchandise
+//            if (inMainActivity) {
+//                final Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        merchandise1();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position == 8) { // wallpapers
+//            if (inMainActivity) {
+//                    final Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        wallpapers1();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position == 9) { // points table
+//            if (inMainActivity) {
+//                    final Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        points1();
+//                    }
+//                }, 300);
+//            }
+//        }
+//
+//        if (position == 10) { // fan corner
+//            if (inMainActivity) {
+//                    final Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        fan();
+//                    }
+//                }, 300);
+//            }
+//        }
+//        if (position ==11) { // about us
+//            if (inMainActivity) {
+//                    final Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        clearBackStackOfFragments(getFragmentManager());
+//                        about1();
+//
+//                    }
+//                }, 300);
+//            }
+//        }
 
-        if (position == 3) { // jpptv
-            if (inMainActivity) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        videoShows();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 4) { // news
-            if (inMainActivity) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        newsShow();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 5) { // knowPanthers
-            if (inMainActivity) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        knowPanthersShow();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 6) { // merchandise
-            if (inMainActivity) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        merchandise1();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 7) { // wallpapers
-            if (inMainActivity) {
-                    final Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+        if (inMainActivity) {
+            switch (position) {
+                case 0:
+                    clearBackStackOfFragments(getFragmentManager());
+                    homeShow();
+                    break;
+                case 1:
+                    clearBackStackOfFragments(getFragmentManager());
+                    scheduleShow();
+                    break;
+                case 2:
+                    clearBackStackOfFragments(getFragmentManager());
+                    matchupdate();
+                    break;
+                case 3:
+                    clearBackStackOfFragments(getFragmentManager());
+                    galleryShow();
+                    break;
+                case 4:
+                    clearBackStackOfFragments(getFragmentManager());
+                    videoShows();
+                    break;
+                case 5:
+                    clearBackStackOfFragments(getFragmentManager());
+                    newsShow();
+                    break;
+                case 6:
+                    clearBackStackOfFragments(getFragmentManager());
+                    knowPanthersShow();
+                    break;
+                case 7:
+                    clearBackStackOfFragments(getFragmentManager());
+                    merchandise1();
+                    break;
+                case 8:
+                    clearBackStackOfFragments(getFragmentManager());
                     wallpapers1();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 8) { // points table
-            if (inMainActivity) {
-                    final Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                     points1();
-                    }
-                }, 300);
-            }
-        }
-        if (position == 9) { // fan corner
-            if (inMainActivity) {
-                    final Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        fan();
-                        //startActivity(new Intent(MainActivity.this, FanActivity.class));
-                        //finish();
-                    }
-                }, 300);
-            }
-        }
-        if (position ==10) { // about us
-            if (inMainActivity) {
-                    final Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        about1();
-                        //overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in); open
-                        //overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out); back
-                        //finish();
-                    }
-                }, 300);
+                    break;
+                case 9:
+                    clearBackStackOfFragments(getFragmentManager());
+                    points1();
+                    break;
+                case 10:
+                    clearBackStackOfFragments(getFragmentManager());
+                    fan();
+                    break;
+                case 11:
+                    clearBackStackOfFragments(getFragmentManager());
+                    about1();
+                    break;
+                default:
+                    homeShow();
+                    break;
             }
         }
     }
@@ -294,7 +381,7 @@ public class MainActivity extends ActionBarActivity
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
                 //super.onDestroy();
-
+                finish();
                 return;
             }
 
@@ -328,7 +415,9 @@ public class MainActivity extends ActionBarActivity
 
     public void initializeViews() {
 
+
         initializeBottomToolbarViews();
+
     }
 
     public void initializeBottomToolbarViews() {
@@ -355,7 +444,7 @@ public class MainActivity extends ActionBarActivity
             ivGallery.setImageResource(R.drawable.ic_bottom_gallery_white);
         } else if (i == 4) {
             ivNews.setImageResource(R.drawable.ic_bottom_news_white);
-        } else {
+        } else if (i == 5) {
             ivPanthers.setImageResource(R.drawable.ic_bottom_panthers_white);
         }
 
@@ -379,7 +468,7 @@ public class MainActivity extends ActionBarActivity
 
     public void homeShow() {
         tvOrImage(false, "");
-        FragmentManager fragmentManager = getFragmentManager();
+
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         HomeFragment homeFragment = new HomeFragment();
         //fragmentTransaction.add(R.id.container, homeFragment, "HOME");
@@ -395,7 +484,6 @@ public class MainActivity extends ActionBarActivity
 
     public void scheduleShow() {
         tvOrImage(true, "SEASON 4 SCHEDULE");
-        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         ScheduleFragment scheduleFragment = new ScheduleFragment();
 
@@ -413,7 +501,6 @@ public class MainActivity extends ActionBarActivity
 
     public void galleryShow() {
         tvOrImage(true, "GALLERY");
-        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         GalleryFragment galleryFragment = new GalleryFragment();
 
@@ -427,14 +514,27 @@ public class MainActivity extends ActionBarActivity
         Log.v("JPP", "Inside Gallery");
         videoShows();
     }
-
+    public void jppTv(View v){
+        Log.v("JPP", "Inside Gallery");
+        videoShows();
+    }
     public void videoShows() {
         tvOrImage(true, "JPP TV");
-        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         JppTvFragment jppTvFragment =new JppTvFragment();
         //fragmentTransaction.add(R.id.container, galleryFragment, "GALLERY");
         fragmentTransaction.replace(R.id.container, jppTvFragment);
+        fragmentTransaction.commit();
+    }
+    public void matchupdate(View v){
+        Log.v("JPP", "MATCH UPDATE");
+        matchupdate();
+    }
+    public void matchupdate() {
+        tvOrImage(true, "MATCH UPDATE");
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MatchUpdateFragment matchUpdateFragment =new MatchUpdateFragment();
+        fragmentTransaction.replace(R.id.container, matchUpdateFragment);
         fragmentTransaction.commit();
 
     }
@@ -445,7 +545,6 @@ public class MainActivity extends ActionBarActivity
 
     public void newsShow() {
         tvOrImage(true, "NEWS & MEDIA");
-        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         NewsFragment newsFragment = new NewsFragment();
 
@@ -466,7 +565,6 @@ public class MainActivity extends ActionBarActivity
 
     public void knowPanthersShow() {
         tvOrImage(true, "KNOW YOUR PANTHERS");
-        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         PanthersFragment panthersFragment = new PanthersFragment();
 
@@ -483,7 +581,14 @@ public class MainActivity extends ActionBarActivity
     }
     public void merchandise1()
     {
-        startActivity(new Intent(MainActivity.this, MerchandiseActivity.class));
+        //startActivity(new Intent(MainActivity.this, MerchandiseActivity.class));
+        tvOrImage(true, "MERCHANDISE");
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        MerchandiseFragment merchandiseFragment = new MerchandiseFragment();
+
+        //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
+        fragmentTransaction.replace(R.id.container, merchandiseFragment);
+        fragmentTransaction.commit();
     }
     public void wallpapers(View v)
     {
@@ -503,12 +608,20 @@ public class MainActivity extends ActionBarActivity
     {
         startActivity(new Intent(MainActivity.this, PointsActitivy.class));
     }
+
     public void fan1(View v) { ////left to do
         Log.v("JPP", "Sign Up");
         fan();
     }
     public void fan() {
-        startActivity(new Intent(MainActivity.this, FanActivity.class));
+        //startActivity(new Intent(MainActivity.this, FanActivity.class));
+        tvOrImage(true, "FAN CORNER");
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FanFragment fanFragment = new FanFragment();
+
+        //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
+        fragmentTransaction.replace(R.id.container, fanFragment);
+        fragmentTransaction.commit();
     }
     public void about(View v)
     {
@@ -517,7 +630,14 @@ public class MainActivity extends ActionBarActivity
     }
     public void about1()
     {
-        startActivity(new Intent(MainActivity.this, AboutActivity.class));
+        //startActivity(new Intent(MainActivity.this, AboutActivity.class));
+        tvOrImage(true, "ABOUT US");
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        AboutUsFragment aboutFragment = new AboutUsFragment();
+
+        //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
+        fragmentTransaction.replace(R.id.container, aboutFragment);
+        fragmentTransaction.commit();
     }
 
 
@@ -528,7 +648,8 @@ public class MainActivity extends ActionBarActivity
     }
 
     public void clearBackStackOfFragments(FragmentManager fragmentManager) {
-        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        fragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        Log.d("true","clearBackStackOfFragments");
     }
 
     public void pantherDescription(View v) {
@@ -543,7 +664,6 @@ public class MainActivity extends ActionBarActivity
         setPlayerId(id);
 
         tvOrImage(true, name);
-        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         PlayerDescriptionFragment playerDescriptionFragment = new PlayerDescriptionFragment();
 
@@ -573,11 +693,9 @@ public class MainActivity extends ActionBarActivity
             setNewsDetails(map);
 
             tvOrImage(true, "NEWS & MEDIA");
-            FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             NewsDetailFragment newsDetailFragment = new NewsDetailFragment();
 
-            //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
             fragmentTransaction.replace(R.id.container, newsDetailFragment);
             fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             fragmentTransaction.addToBackStack(null);
@@ -598,11 +716,10 @@ public class MainActivity extends ActionBarActivity
         setGalleryId(id);
 
         tvOrImage(true, name);
-        FragmentManager fragmentManager = getFragmentManager();
+
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         AlbumFragment albumFragment = new AlbumFragment();
 
-        //fragmentTransaction.add(R.id.container, panthersFragment, "PANTHERS");
         fragmentTransaction.replace(R.id.container, albumFragment);
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         fragmentTransaction.addToBackStack(null);
@@ -653,7 +770,7 @@ public class MainActivity extends ActionBarActivity
         CalendarEvent.remind(this, tag);
     }
 
-    public void goToBookTickets(View v) {
+    public void goToBook (View v) {
         Intent intent = new Intent(MainActivity.this, WebActivity.class);
         intent.putExtra("webLink", "http://in.bookmyshow.com/sports/kabaddi/jaipur-pink-panthers/?utm_source=web_prokabaddi&utm_medium=referral&utm_campaign=web_prokabaddi_011816");
         startActivity(intent);
@@ -703,7 +820,9 @@ public class MainActivity extends ActionBarActivity
                     Log.e("JPP", "Failed to create Image directory.");
                 }
             }
+
         }
+
     }
 
     private boolean isExternalStorageAvailable() {

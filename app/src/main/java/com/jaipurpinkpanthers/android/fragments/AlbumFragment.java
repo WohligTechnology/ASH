@@ -33,6 +33,7 @@ public class AlbumFragment extends Fragment {
     public GridView gvImages;
     ArrayList<HashMap<String, String>> list;
     ArrayList<String> links;
+    AsyncTask asyncTask;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,7 +77,7 @@ public class AlbumFragment extends Fragment {
 
     public void getAlbumData(){
 
-        new AsyncTask<Void, Void, String>() {
+        asyncTask = new AsyncTask<Void, Void, String>() {
             @Override
             protected String doInBackground(Void... params) {
 
@@ -140,4 +141,9 @@ public class AlbumFragment extends Fragment {
         links.add(image);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        asyncTask.cancel(true);
+    }
 }

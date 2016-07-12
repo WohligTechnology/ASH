@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "com.jaipurpinkpanthers.android"
         minSdkVersion 14
-        targetSdkVersion 22
-        versionCode 3
-        versionName "1.1"
+        targetSdkVersion 23
+        versionCode 9
+        versionName "2.1"
     }
     buildTypes {
         release {
@@ -29,5 +29,6 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.7.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.pushwoosh:pushwoosh:+'
-    compile 'com.google.android.gms:play-services:8.1.0'
+    compile 'com.google.android.gms:play-services:8.4.0'
+
 }

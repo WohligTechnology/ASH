@@ -13,7 +13,6 @@
         android:id="@+id/gvPlayers"
         android:numColumns="2"
         android:layout_gravity="center_horizontal|top"
-
         android:choiceMode="singleChoice"
         android:verticalSpacing="5dp"
         android:horizontalSpacing="5dp"

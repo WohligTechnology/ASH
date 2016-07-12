@@ -23,6 +23,8 @@ public class PlayerDescriptionFragment extends Fragment {
     private View view;
     private LinearLayout llPlayerDesc;
     private ImageView ivPlayer;
+    private ImageView toolbar;
+
     private TextView tvName, tvType, tvNationality, tvDOB, tvJerseyNo, tvDesc, tvNat, tvBorn, tvJer, tvTour, tvTourDesc, tvAchieve, tvAchieveDesc;
     private Activity activity;
 
@@ -41,6 +43,7 @@ public class PlayerDescriptionFragment extends Fragment {
         getPlayerDetails(id);
         return view;
     }
+
 
     /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -105,6 +108,8 @@ public class PlayerDescriptionFragment extends Fragment {
         tvJer.setTypeface(CustomFonts.getRegularFont(activity));
         tvTour.setTypeface(CustomFonts.getRegularFont(activity));
         tvAchieve.setTypeface(CustomFonts.getRegularFont(activity));
+        toolbar= (ImageView) view.findViewById(R.id.toolbar_image);
+
     }
 
     public void getPlayerDetails(int id) {

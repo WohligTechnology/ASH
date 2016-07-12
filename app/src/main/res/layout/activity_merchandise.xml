@@ -1,6 +1,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,20 +12,20 @@
         android:layout_height="wrap_content"/>
 
 
-    <!--<include
+    <include
         android:id="@+id/bottom_menu_fixed"
         layout="@layout/layout_bottom_fixed"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"/>-->
+        android:layout_alignParentBottom="true"/>
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_actionbar">
-        <!--android:layout_above="@+id/bottom_menu_fixed">-->
+        android:layout_below="@+id/toolbar_actionbar"
+        android:layout_above="@+id/bottom_menu_fixed">
 
         <FrameLayout
             android:id="@+id/container"
@@ -42,7 +43,8 @@
             android:layout_width="@dimen/navigation_drawer_width"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            app:layout="@layout/fragment_navigation_drawer"/>
+            app:layout="@layout/fragment_navigation_drawer"
+            tools:layout="@layout/fragment_navigation_drawer" />
     </android.support.v4.widget.DrawerLayout>
 
 

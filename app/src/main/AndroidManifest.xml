@@ -7,7 +7,7 @@
     -->
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="23" />
 
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
@@ -36,6 +36,8 @@
      NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
            where PACKAGE is the application's package name.
     -->
+
+
     <permission
         android:name="com.jaipurpinkpanthers.android.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
@@ -45,36 +47,17 @@
     <!-- This app has permission to register and receive data message. -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <!-- Service for sending location updates -->
-    <service android:name="com.pushwoosh.location.GeoLocationService" />
+
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
-    <service
-        android:name="com.pushwoosh.thirdparty.radiusnetworks.ibeacon.service.IBeaconService"
-        android:enabled="true"
-        android:exported="true"
-        android:isolatedProcess="false"
-        android:label="iBeacon" />
-    <service
-        android:name="com.pushwoosh.thirdparty.radiusnetworks.ibeacon.IBeaconIntentProcessor"
-        android:enabled="true" />
-    <service android:name="com.pushwoosh.beacon.PushBeaconService" />
+    <!--<wifi permission>-->
+    <uses-feature android:name="android.hardware.wifi" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
-    <receiver android:name="com.pushwoosh.local.AlarmReceiver" />
-    <receiver
-        android:name="com.pushwoosh.local.BootReceiver"
-        android:enabled="true"
-        android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
-        <intent-filter>
-            <action android:name="android.intent.action.BOOT_COMPLETED" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-    </receiver>
 
     <!-- for Samsung -->
     <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
@@ -93,7 +76,7 @@
     <!-- for solid -->
     <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
 
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -107,6 +90,7 @@
         <meta-data
             android:name="PW_PROJECT_ID"
             android:value="A408998068219" />
+
 
         <activity
             android:name=".MainActivity"
@@ -176,6 +160,18 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="com.pushwoosh.local.AlarmReceiver" />
+        <receiver
+            android:name="com.pushwoosh.local.BootReceiver"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name="com.pushwoosh.GCMListenerService"
             android:exported="false" >
@@ -200,6 +196,18 @@
             android:label="@string/title_activity_fan"
             >
         </activity>
+        <!-- Service for sending location updates -->
+        <service android:name="com.pushwoosh.location.GeoLocationService" />
+        <service
+            android:name="com.pushwoosh.thirdparty.radiusnetworks.ibeacon.service.IBeaconService"
+            android:enabled="true"
+            android:exported="true"
+            android:isolatedProcess="false"
+            android:label="iBeacon" />
+        <service
+            android:name="com.pushwoosh.thirdparty.radiusnetworks.ibeacon.IBeaconIntentProcessor"
+            android:enabled="true" />
+        <service android:name="com.pushwoosh.beacon.PushBeaconService" />
     </application>
 
 </manifest>

@@ -18,6 +18,7 @@ public class PanthersFragment extends Fragment {
 
     public GridView gvPlayers;
     public View view;
+
     private ArrayList<HashMap<String,String>> list;
 
     @Override
@@ -40,7 +41,7 @@ public class PanthersFragment extends Fragment {
 
         String[] players = getResources().getStringArray(R.array.player);
 
-        for(int i = 0; i < players.length; i ++)
+        for(int i = 0; i < players.length; i++)
         {
             HashMap<String,String> map = new HashMap<String,String>();
             map.put("PlayerInfo", players[i]); //this will send id, player name and image

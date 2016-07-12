@@ -26,8 +26,8 @@ public class PointsActitivy extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private Toolbar mToolbar;
-    private ImageView ivToolbarImage;
-    private TextView tvToolbarText;
+    private static ImageView ivToolbarImage;
+    private static TextView tvToolbarText;
     private FrameLayout container;
     boolean doubleBackToExitPressedOnce = false;
 
@@ -72,6 +72,7 @@ public class PointsActitivy extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goHome(PointsActitivy.this);
                     finish();
                 }
@@ -82,91 +83,114 @@ public class PointsActitivy extends ActionBarActivity
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goSchedule(PointsActitivy.this);
                     finish();
                 }
             }, 300);
 
         }
-        if (position == 2) { // gallery
+        if (position == 2) { // MATCH UPDATE
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
+                    GoToMainFragments.gomatchupdate(PointsActitivy.this);
+                    finish();
+
+                }
+            }, 300);
+
+        }
+        if (position == 3) { // gallery
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goGallery(PointsActitivy.this);
                     finish();
                 }
             }, 300);
         }
 
-        if (position == 3) { // jpptv
+        if (position == 4) { // jpptv
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goJppTv(PointsActitivy.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 4) { // news
+        if (position == 5) { // news
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goNews(PointsActitivy.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 5) { // knowPanthers
+        if (position == 6) { // knowPanthers
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     GoToMainFragments.goPanthers(PointsActitivy.this);
                     finish();
                 }
             }, 300);
         }
-        if (position == 6) { // tickets
+        if (position == 7) { // tickets
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(PointsActitivy.this, MerchandiseActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 7) { // wallpaper
+        if (position == 8) { // wallpaper
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(PointsActitivy.this, WallpaperActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 8) { // points table
+        if (position == 9) { // points table
 
         }
-        if (position == 9) { // fan corner
+
+        if (position == 10) { // fan corner
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(PointsActitivy.this, FanActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
             }, 300);
         }
-        if (position == 10) { // about us
+        if (position == 11) { // about us
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
+                    ma.clearBackStackOfFragments(getFragmentManager());
                     startActivity(new Intent(PointsActitivy.this, AboutActivity.class).setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY));
                     finish();
                 }
@@ -247,5 +271,16 @@ public class PointsActitivy extends ActionBarActivity
     public void knowPanthers(View v) {
         Log.v("JPP", "Panthers");
         GoToMainFragments.goPanthers(this);
+    }
+
+    public static void tvOrImage(boolean tv, String header) {
+        if (tv) {
+            ivToolbarImage.setVisibility(View.GONE);
+            tvToolbarText.setVisibility(View.VISIBLE);
+            tvToolbarText.setText(header);
+        } else {
+            tvToolbarText.setVisibility(View.GONE);
+            ivToolbarImage.setVisibility(View.VISIBLE);
+        }
     }
 }
